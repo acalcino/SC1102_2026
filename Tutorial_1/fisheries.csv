@@ -1,0 +1,2001 @@
+catch_id,date,site,species,sex,length_cm,weight_kg,gear,vessel,depth_m,water_temp_c,legal_size,value_aud
+C1968,2023-01-01,Green Island,Red Emperor,F,64.9,3.71,line,FV-012,36.2,25.9,True,96.46
+C1553,2023-01-01,Michaelmas Cay,Mangrove Jack,M,35.4,0.67,line,FV-088,33.1,24.2,True,13.4
+C1269,2023-01-01,Michaelmas Cay,Red Emperor,U,47.2,1.39,net,FV-034,39.8,26.2,True,36.14
+C1907,2023-01-01,Frankland Islands,Spanish Mackerel,F,79.9,3.95,net,FV-027,33.1,26.6,True,71.1
+C1967,2023-01-02,Trinity Bay,Barramundi,M,64.9,4.01,net,FV-041,42.4,25.4,True,88.22
+C0277,2023-01-02,Michaelmas Cay,Coral Trout,U,43.5,1.18,line,FV-058,4.4,26.0,True,33.04
+C0359,2023-01-02,Michaelmas Cay,Grass Emperor,F,28.4,0.36,net,FV-058,41.3,26.4,True,5.4
+C1405,2023-01-03,Green Island,Barramundi,M,69.5,4.85,line,FV-041,17.3,24.7,True,106.7
+C0091,2023-01-04,Trinity Bay,Coral Trout,F,41.9,0.96,line,FV-088,4.3,26.9,True,26.88
+C1117,2023-01-04,Green Island,Grass Emperor,M,28.7,0.35,trap,FV-088,19.3,26.9,True,5.25
+C0499,2023-01-04,Cairns Inlet,Spanish Mackerel,M,79.0,4.37,trap,FV-071,34.1,26.8,True,78.66
+C0628,2023-01-05,Trinity Bay,Red Emperor,M,47.2,1.53,line,FV-027,20.7,26.1,True,39.78
+C0471,2023-01-05,Cairns Inlet,Coral Trout,U,49.2,1.66,spear,FV-034,29.3,26.6,True,46.48
+C1262,2023-01-06,Fitzroy Reef,Red Emperor,F,45.2,1.45,line,FV-027,9.7,25.5,True,37.7
+C0460,2023-01-07,Frankland Islands,Mangrove Jack,U,30.1,0.37,spear,FV-034,19.1,26.7,False,7.4
+C0697,2023-01-07,Michaelmas Cay,Mangrove Jack,F,40.1,0.91,line,FV-063,39.1,26.9,True,18.2
+C0696,2023-01-07,Cairns Inlet,Barramundi,U,60.5,2.84,spear,FV-088,23.7,26.8,True,62.48
+C0869,2023-01-07,Frankland Islands,Barramundi,M,70.8,4.59,line,FV-071,18.1,26.5,True,100.98
+C0736,2023-01-07,Green Island,Mangrove Jack,M,43.1,1.15,trap,FV-088,7.1,26.2,True,23.0
+C0425,2023-01-10,Michaelmas Cay,Mangrove Jack,M,31.8,0.51,trap,FV-027,9.7,25.7,False,10.2
+C1690,2023-01-10,Fitzroy Reef,Red Emperor,F,51.5,2.09,line,FV-012,11.1,27.1,True,54.34
+C1199,2023-01-10,Frankland Islands,Coral Trout,M,43.0,1.2,trap,FV-041,32.3,26.9,True,33.6
+C0175,2023-01-10,Frankland Islands,Grass Emperor,F,34.5,0.61,line,FV-063,42.3,26.0,True,9.15
+C0185,2023-01-11,Fitzroy Reef,Spanish Mackerel,U,73.2,2.86,net,FV-058,36.5,27.0,False,51.48
+C0534,2023-01-11,Green Island,Red Emperor,M,47.5,1.48,line,FV-058,37.6,26.8,True,38.48
+C1159,2023-01-12,Michaelmas Cay,Grass Emperor,F,32.6,0.51,line,FV-071,20.9,26.2,True,7.65
+C0591,2023-01-12,Frankland Islands,Mangrove Jack,M,30.3,0.42,spear,FV-034,17.8,26.8,False,8.4
+C0725,2023-01-13,Trinity Bay,Mangrove Jack,M,32.3,0.47,spear,FV-041,29.5,26.6,False,9.4
+C1710,2023-01-14,Trinity Bay,Barramundi,F,70.8,5.23,trap,FV-058,15.6,26.0,True,115.06
+C1984,2023-01-14,Green Island,Coral Trout,F,40.5,0.89,trap,FV-071,30.9,27.7,True,24.92
+C1744,2023-01-14,Michaelmas Cay,Mangrove Jack,M,36.8,0.67,spear,FV-012,9.6,26.8,True,13.4
+C0721,2023-01-14,Cairns Inlet,Coral Trout,M,44.9,1.27,line,FV-012,28.8,26.4,True,35.56
+C1726,2023-01-14,Frankland Islands,Red Emperor,F,57.0,2.5,line,FV-071,26.0,27.5,True,65.0
+C0063,2023-01-14,Green Island,Mangrove Jack,M,46.0,1.38,spear,FV-034,6.3,26.7,True,27.6
+C0790,2023-01-15,Trinity Bay,Mangrove Jack,M,36.7,0.74,line,FV-058,35.9,26.9,True,14.8
+C1933,2023-01-15,Fitzroy Reef,Grass Emperor,F,29.0,0.38,trap,FV-063,13.3,27.0,True,5.7
+C0913,2023-01-16,Green Island,Spanish Mackerel,F,84.3,5.22,line,FV-063,26.0,26.8,True,93.96
+C0544,2023-01-16,Cairns Inlet,Barramundi,F,62.3,3.42,line,FV-027,31.5,26.6,True,75.24
+C1285,2023-01-17,Michaelmas Cay,Mangrove Jack,M,54.4,2.36,line,FV-041,42.8,27.0,True,47.2
+C0560,2023-01-18,Cairns Inlet,Mangrove Jack,M,31.5,0.46,line,FV-088,43.3,25.8,False,9.2
+C1613,2023-01-18,Cairns Inlet,Spanish Mackerel,M,88.0,6.28,line,FV-027,39.6,26.9,True,113.04
+C1251,2023-01-18,Green Island,Barramundi,M,75.2,5.97,spear,FV-041,7.3,26.6,True,131.34
+C0524,2023-01-18,Cairns Inlet,Red Emperor,F,58.4,2.66,line,FV-058,30.1,27.0,True,69.16
+C0209,2023-01-18,Fitzroy Reef,Barramundi,M,70.2,4.85,net,FV-063,38.8,26.3,True,106.7
+C1888,2023-01-18,Frankland Islands,Coral Trout,U,39.1,0.82,spear,FV-012,43.4,27.9,True,22.96
+C0059,2023-01-19,Green Island,Coral Trout,F,38.4,0.8,line,FV-027,36.3,27.3,True,22.4
+C0011,2023-01-19,Michaelmas Cay,Barramundi,M,57.3,2.55,spear,FV-012,25.0,28.3,False,56.1
+C1297,2023-01-19,Frankland Islands,Spanish Mackerel,M,87.3,5.31,line,FV-088,11.1,26.9,True,95.58
+C0094,2023-01-19,Green Island,Coral Trout,U,47.8,1.75,trap,FV-027,13.9,27.2,True,49.0
+C0993,2023-01-20,Cairns Inlet,Mangrove Jack,U,45.1,1.29,line,FV-041,32.2,26.1,True,25.8
+C0922,2023-01-20,Trinity Bay,Coral Trout,U,43.8,1.32,trap,FV-071,29.8,27.3,True,36.96
+C1078,2023-01-20,Trinity Bay,Barramundi,M,65.7,3.62,trap,FV-063,15.9,27.4,True,79.64
+C0573,2023-01-20,Fitzroy Reef,Barramundi,F,69.4,4.14,spear,FV-041,42.3,26.5,True,91.08
+C1176,2023-01-20,Frankland Islands,Red Emperor,F,56.6,2.44,trap,FV-058,7.9,27.3,True,63.44
+C0302,2023-01-21,Green Island,Coral Trout,M,51.7,1.79,net,FV-012,39.3,26.6,True,50.12
+C0093,2023-01-21,Fitzroy Reef,Coral Trout,M,34.5,0.63,trap,FV-041,40.9,26.4,False,17.64
+C0128,2023-01-21,Trinity Bay,Mangrove Jack,U,31.9,0.4,spear,FV-071,42.8,26.8,False,8.0
+C0326,2023-01-22,Trinity Bay,Mangrove Jack,U,37.8,0.75,line,FV-041,14.2,26.8,True,15.0
+C1059,2023-01-22,Cairns Inlet,Mangrove Jack,M,35.9,0.66,line,FV-088,5.8,27.3,True,13.2
+C1277,2023-01-22,Green Island,Red Emperor,F,56.8,2.2,line,FV-058,8.6,27.6,True,57.2
+C1295,2023-01-23,Trinity Bay,Grass Emperor,M,22.9,0.19,spear,FV-034,26.7,27.2,False,2.85
+C1679,2023-01-23,Cairns Inlet,Barramundi,U,74.7,5.95,spear,FV-041,15.0,26.2,True,130.9
+C0825,2023-01-23,Frankland Islands,Coral Trout,F,46.4,1.3,trap,FV-063,42.9,26.4,True,36.4
+C0931,2023-01-24,Frankland Islands,Mangrove Jack,F,38.7,0.71,line,FV-027,21.2,27.9,True,14.2
+C0554,2023-01-24,Michaelmas Cay,Mangrove Jack,F,50.1,1.91,line,FV-027,6.1,27.5,True,38.2
+C1582,2023-01-25,Trinity Bay,Barramundi,U,55.2,2.38,trap,FV-034,13.1,26.5,False,52.36
+C0500,2023-01-25,Green Island,Mangrove Jack,M,38.8,0.72,line,FV-071,36.2,27.4,True,14.4
+C1074,2023-01-25,Michaelmas Cay,Red Emperor,F,61.8,3.18,spear,FV-088,41.3,27.3,True,82.68
+C0929,2023-01-26,Frankland Islands,Coral Trout,F,34.4,0.56,spear,FV-034,37.4,27.9,False,15.68
+C1588,2023-01-26,Michaelmas Cay,Barramundi,F,53.1,2.05,spear,FV-034,6.7,28.1,False,45.1
+C1413,2023-01-26,Cairns Inlet,Coral Trout,M,45.8,1.29,spear,FV-071,43.6,27.3,True,36.12
+C0942,2023-01-27,Frankland Islands,Barramundi,F,62.9,3.77,spear,FV-088,25.6,28.1,True,82.94
+C1477,2023-01-29,Trinity Bay,Spanish Mackerel,M,80.9,4.91,line,FV-027,31.2,27.2,True,88.38
+C0575,2023-01-29,Frankland Islands,Mangrove Jack,F,29.6,0.35,line,FV-027,23.1,27.6,False,7.0
+C1647,2023-01-29,Cairns Inlet,Barramundi,F,62.0,2.93,line,FV-071,11.8,27.1,True,64.46
+C1648,2023-01-30,Trinity Bay,Red Emperor,U,44.3,1.16,spear,FV-012,16.5,27.3,False,30.16
+C0811,2023-01-30,Green Island,Mangrove Jack,M,39.9,0.91,trap,FV-088,16.0,27.1,True,18.2
+C1942,2023-01-30,Fitzroy Reef,Coral Trout,F,43.9,1.15,line,FV-088,39.0,28.0,True,32.2
+C0885,2023-01-30,Green Island,Barramundi,M,66.0,4.01,trap,FV-012,8.1,27.6,True,88.22
+C0313,2023-01-30,Fitzroy Reef,Barramundi,F,62.2,3.06,line,FV-063,33.4,28.8,True,67.32
+C0073,2023-01-31,Trinity Bay,Barramundi,F,70.3,5.13,trap,FV-041,30.2,26.9,True,112.86
+C1897,2023-01-31,Frankland Islands,Red Emperor,M,44.0,1.37,trap,FV-071,23.4,28.1,False,35.62
+C1280,2023-01-31,Frankland Islands,Mangrove Jack,M,41.7,0.99,trap,FV-058,38.9,28.8,True,19.8
+C0940,2023-01-31,Cairns Inlet,Mangrove Jack,U,37.2,0.69,net,FV-034,6.4,27.5,True,13.8
+C0337,2023-02-01,Michaelmas Cay,Grass Emperor,,39.1,0.83,net,FV-041,26.8,27.8,True,12.45
+C0538,2023-02-01,Cairns Inlet,Spanish Mackerel,F,80.3,4.43,trap,FV-027,34.4,,True,79.74
+C0086,2023-02-01,Trinity Bay,Barramundi,M,66.7,4.2,line,FV-088,31.2,27.8,True,92.4
+C1402,2023-02-02,Green Island,Mangrove Jack,U,42.7,1.06,net,FV-012,42.4,28.0,True,21.2
+C1502,2023-02-02,Green Island,Mangrove Jack,U,43.2,0.97,line,FV-041,37.1,26.7,True,19.4
+C1836,2023-02-03,Green Island,Barramundi,U,71.2,5.47,spear,FV-088,10.5,27.0,True,120.34
+C0131,2023-02-03,Frankland Islands,Barramundi,F,60.6,3.42,trap,FV-063,10.2,27.5,True,75.24
+C1396,2023-02-04,Michaelmas Cay,Coral Trout,F,45.4,1.49,trap,FV-088,25.1,28.1,True,41.72
+C1348,2023-02-04,Trinity Bay,Coral Trout,F,42.2,0.98,line,FV-027,42.1,28.4,True,27.44
+C0550,2023-02-05,Fitzroy Reef,Barramundi,U,52.8,1.85,line,FV-088,43.3,27.3,False,40.7
+C1545,2023-02-05,Cairns Inlet,Red Emperor,F,65.6,3.82,net,FV-027,9.6,27.7,True,99.32
+C1419,2023-02-05,Trinity Bay,Red Emperor,M,55.6,2.82,line,FV-058,34.2,27.8,True,73.32
+C1385,2023-02-06,Fitzroy Reef,Coral Trout,M,50.5,1.74,line,FV-063,41.4,28.2,True,48.72
+C1734,2023-02-07,Green Island,Mangrove Jack,F,38.8,0.86,trap,FV-041,27.3,27.4,True,17.2
+C1024,2023-02-09,Cairns Inlet,Mangrove Jack,U,42.2,1.08,net,FV-058,4.6,27.9,True,21.6
+C1272,2023-02-10,Frankland Islands,Grass Emperor,U,36.7,0.71,trap,FV-088,24.1,28.5,True,10.65
+C0767,2023-02-10,Trinity Bay,Coral Trout,F,39.5,0.77,trap,FV-027,28.0,27.6,True,21.56
+C1718,2023-02-10,Green Island,Barramundi,M,65.8,3.85,line,FV-063,20.2,27.3,True,84.7
+C1119,2023-02-11,Frankland Islands,Coral Trout,F,46.7,1.5,net,FV-088,15.8,27.8,True,42.0
+C1577,2023-02-11,Trinity Bay,Barramundi,F,53.2,1.82,line,FV-058,37.4,28.3,False,40.04
+C0101,2023-02-11,Frankland Islands,Barramundi,U,55.7,2.4,spear,FV-034,30.6,28.7,False,52.8
+C1175,2023-02-12,Michaelmas Cay,Barramundi,F,58.0,3.04,line,FV-041,33.0,29.1,True,66.88
+C1556,2023-02-12,Fitzroy Reef,Coral Trout,M,34.0,0.55,spear,FV-034,28.6,28.3,False,15.4
+C1500,2023-02-13,Trinity Bay,Coral Trout,M,50.2,1.9,line,FV-012,28.5,28.3,True,53.2
+C0842,2023-02-13,Fitzroy Reef,Red Emperor,F,52.5,2.07,line,FV-063,44.0,27.7,True,53.82
+C1900,2023-02-14,Michaelmas Cay,Spanish Mackerel,M,96.6,7.45,line,FV-034,27.2,27.0,True,134.1
+C1997,2023-02-15,Fitzroy Reef,Mangrove Jack,M,47.8,1.55,net,FV-012,30.8,27.9,True,31.0
+C1230,2023-02-15,Michaelmas Cay,Coral Trout,M,33.0,0.44,net,FV-027,6.9,27.0,False,12.32
+C1892,2023-02-15,Cairns Inlet,Grass Emperor,F,46.4,1.37,line,FV-063,39.7,27.9,True,20.55
+C0233,2023-02-16,Cairns Inlet,Grass Emperor,M,37.1,0.84,line,FV-041,23.3,27.3,True,12.6
+C0695,2023-02-16,Fitzroy Reef,Mangrove Jack,U,30.9,0.42,spear,FV-071,21.4,27.7,False,8.4
+C1800,2023-02-16,Michaelmas Cay,Grass Emperor,F,38.5,0.91,net,FV-063,17.1,28.6,True,13.65
+C0751,2023-02-16,Michaelmas Cay,Mangrove Jack,U,28.0,0.34,line,FV-063,12.1,28.6,False,6.8
+C1501,2023-02-16,Fitzroy Reef,Barramundi,M,75.8,6.56,line,FV-012,17.1,27.9,True,144.32
+C0759,2023-02-16,Cairns Inlet,Coral Trout,M,44.1,1.26,net,FV-012,42.3,28.2,True,35.28
+C1315,2023-02-16,Cairns Inlet,Coral Trout,M,50.6,2.01,line,FV-012,14.9,27.9,True,56.28
+C0529,2023-02-17,Frankland Islands,Red Emperor,U,55.6,2.49,net,FV-058,17.0,27.8,True,64.74
+C1542,2023-02-17,Frankland Islands,Red Emperor,F,49.0,1.7,line,FV-071,36.6,27.1,True,44.2
+C0450,2023-02-17,Fitzroy Reef,Coral Trout,F,53.3,2.24,line,FV-063,9.0,27.3,True,62.72
+C0923,2023-02-17,Frankland Islands,Coral Trout,F,31.8,0.42,line,FV-041,43.2,28.1,False,11.76
+C1530,2023-02-17,Green Island,Red Emperor,F,43.0,1.04,spear,FV-071,7.4,28.1,False,27.04
+C0041,2023-02-18,Frankland Islands,Barramundi,F,65.6,3.61,net,FV-088,32.7,28.9,True,79.42
+C0311,2023-02-18,Trinity Bay,Mangrove Jack,M,41.1,0.89,line,FV-088,3.3,27.4,True,17.8
+C0123,2023-02-18,Michaelmas Cay,Grass Emperor,M,29.4,0.39,line,FV-034,8.2,27.4,True,5.85
+C1880,2023-02-19,Trinity Bay,Spanish Mackerel,F,74.7,3.68,trap,FV-071,42.7,29.2,False,66.24
+C1916,2023-02-19,Trinity Bay,Grass Emperor,F,32.2,0.48,spear,FV-058,12.3,29.5,True,7.2
+C1986,2023-02-20,Cairns Inlet,Barramundi,M,64.1,3.29,net,FV-058,24.2,28.2,True,72.38
+C1830,2023-02-20,Fitzroy Reef,Barramundi,M,70.1,5.09,line,FV-058,9.6,28.5,True,111.98
+C1082,2023-02-20,Fitzroy Reef,Mangrove Jack,M,29.5,0.42,spear,FV-063,8.1,28.7,False,8.4
+C1005,2023-02-21,Cairns Inlet,Mangrove Jack,M,54.4,2.46,net,FV-071,33.0,27.4,True,49.2
+C1873,2023-02-22,Trinity Bay,Grass Emperor,M,29.9,0.45,net,FV-012,32.0,27.5,True,6.75
+C1724,2023-02-22,Green Island,Barramundi,F,55.5,2.49,net,FV-088,39.3,28.7,False,54.78
+C1694,2023-02-22,Fitzroy Reef,Coral Trout,U,46.7,1.56,spear,FV-041,41.1,30.4,True,43.68
+C1702,2023-02-22,Frankland Islands,Spanish Mackerel,M,78.7,4.09,line,FV-012,33.5,28.8,True,73.62
+C1841,2023-02-23,Frankland Islands,Red Emperor,M,57.4,2.67,line,FV-088,27.0,28.9,True,69.42
+C1964,2023-02-23,Cairns Inlet,Coral Trout,M,48.7,1.64,net,FV-012,10.3,28.2,True,45.92
+C0982,2023-02-23,Green Island,Barramundi,F,55.0,2.44,line,FV-088,30.8,27.4,False,53.68
+C1099,2023-02-24,Green Island,Red Emperor,M,48.3,1.46,line,FV-034,3.5,28.1,True,37.96
+C1906,2023-02-24,Fitzroy Reef,Coral Trout,U,64.2,4.08,line,FV-058,41.9,28.0,True,114.24
+C1320,2023-02-24,Trinity Bay,Coral Trout,M,60.1,3.14,trap,FV-088,35.2,28.3,True,87.92
+C1181,2023-02-25,Michaelmas Cay,Red Emperor,F,53.0,1.85,net,FV-088,39.8,29.0,True,48.1
+C1282,2023-02-26,Green Island,Red Emperor,F,43.8,1.39,line,FV-027,8.8,29.5,False,36.14
+C1518,2023-02-26,Trinity Bay,Mangrove Jack,U,38.9,0.77,spear,FV-071,30.9,28.1,True,15.4
+C1006,2023-02-26,Cairns Inlet,Grass Emperor,F,24.9,0.23,trap,FV-012,15.9,28.8,False,3.45
+C1895,2023-02-28,Green Island,Barramundi,M,80.7,8.07,trap,FV-058,28.7,29.3,True,177.54
+C1041,2023-03-01,Fitzroy Reef,Mangrove Jack,F,44.0,1.23,line,FV-012,34.3,29.3,True,24.6
+C0799,2023-03-02,Frankland Islands,Red Emperor,M,49.8,1.72,line,FV-012,4.3,28.9,True,44.72
+C1138,2023-03-02,Fitzroy Reef,Spanish Mackerel,F,101.0,8.63,trap,FV-058,12.9,29.6,True,155.34
+C0955,2023-03-02,Cairns Inlet,Mangrove Jack,U,51.2,1.89,trap,FV-058,19.9,27.9,True,37.8
+C0636,2023-03-02,Green Island,Barramundi,F,65.7,3.98,trap,FV-063,30.5,27.7,True,87.56
+C0605,2023-03-02,Trinity Bay,Barramundi,M,64.5,3.77,net,FV-058,41.4,28.7,True,82.94
+C1656,2023-03-02,Frankland Islands,Barramundi,F,74.1,5.76,line,FV-071,28.4,28.3,True,126.72
+C1153,2023-03-02,Cairns Inlet,Coral Trout,M,40.7,1.02,line,FV-027,24.4,28.5,True,28.56
+C1014,2023-03-03,Michaelmas Cay,Coral Trout,F,46.1,1.53,net,FV-034,15.7,27.9,True,42.84
+C0254,2023-03-03,Fitzroy Reef,Barramundi,M,71.3,5.23,line,FV-071,13.9,28.5,True,115.06
+C0809,2023-03-03,Michaelmas Cay,Mangrove Jack,M,39.3,0.85,line,FV-088,19.0,28.8,True,17.0
+C0489,2023-03-04,Green Island,Barramundi,M,54.2,2.2,trap,FV-012,22.5,28.3,False,48.4
+C0279,2023-03-04,Michaelmas Cay,Coral Trout,F,51.6,1.75,line,FV-041,28.2,28.9,True,49.0
+C1616,2023-03-04,Michaelmas Cay,Red Emperor,U,39.7,0.88,trap,FV-071,15.9,28.8,False,22.88
+C1052,2023-03-05,Fitzroy Reef,Red Emperor,F,54.7,2.8,spear,FV-071,36.8,28.5,True,72.8
+C1944,2023-03-06,Green Island,Spanish Mackerel,U,72.5,2.73,spear,FV-034,11.5,29.1,False,49.14
+C0818,2023-03-06,Green Island,Mangrove Jack,M,57.7,,trap,FV-012,10.6,29.5,True,57.4
+C1350,2023-03-06,Cairns Inlet,Coral Trout,F,51.2,1.61,line,FV-041,14.6,30.2,True,45.08
+C0796,2023-03-06,Green Island,Coral Trout,F,41.7,1.03,line,FV-088,30.1,28.1,True,28.84
+C0669,2023-03-07,Fitzroy Reef,Red Emperor,M,49.5,1.86,net,FV-063,20.2,28.4,True,48.36
+C0268,2023-03-07,Michaelmas Cay,Coral Trout,M,60.7,3.2,trap,FV-071,11.4,28.5,True,89.6
+C1831,2023-03-07,Frankland Islands,Coral Trout,F,38.7,0.79,spear,FV-071,40.2,29.0,True,22.12
+C0991,2023-03-07,Frankland Islands,Coral Trout,F,56.7,2.41,net,FV-041,10.4,28.3,True,67.48
+C0712,2023-03-07,Cairns Inlet,Barramundi,U,69.2,4.33,spear,FV-058,34.4,28.0,True,95.26
+C0240,2023-03-08,Michaelmas Cay,Coral Trout,M,41.0,1.04,line,FV-034,17.1,29.6,True,29.12
+C0813,2023-03-08,Michaelmas Cay,Barramundi,M,67.7,4.15,line,FV-058,22.2,29.3,True,91.3
+C0008,2023-03-09,Trinity Bay,Grass Emperor,U,30.4,0.36,line,FV-041,8.5,29.5,True,5.4
+C1581,2023-03-09,Cairns Inlet,Mangrove Jack,U,36.2,0.72,trap,FV-034,35.3,27.9,True,14.4
+C1020,2023-03-09,Cairns Inlet,Red Emperor,M,55.4,2.17,spear,FV-058,25.2,28.2,True,56.42
+C0211,2023-03-09,Cairns Inlet,Coral Trout,F,45.5,1.4,net,FV-027,19.1,28.3,True,39.2
+C0586,2023-03-09,Michaelmas Cay,Barramundi,F,65.3,4.6,line,FV-088,29.2,28.8,True,101.2
+C1812,2023-03-09,Trinity Bay,Coral Trout,U,39.5,0.89,line,FV-012,20.6,28.6,True,24.92
+C0647,2023-03-10,Cairns Inlet,Grass Emperor,F,45.6,1.63,net,FV-058,28.8,28.5,True,24.45
+C0689,2023-03-10,Frankland Islands,Barramundi,F,75.3,5.93,trap,FV-027,38.7,28.9,True,130.46
+C1571,2023-03-10,Fitzroy Reef,Spanish Mackerel,U,88.8,6.11,line,FV-012,15.7,29.0,True,109.98
+C0626,2023-03-11,Trinity Bay,Coral Trout,F,51.3,1.87,net,FV-058,28.5,28.6,True,52.36
+C1757,2023-03-12,Fitzroy Reef,Coral Trout,F,40.0,0.81,line,FV-034,13.2,29.8,True,22.68
+C0298,2023-03-13,Frankland Islands,Red Emperor,M,58.6,3.15,net,FV-041,44.1,29.1,True,81.9
+C1063,2023-03-13,Michaelmas Cay,Barramundi,U,78.6,6.7,line,FV-012,42.7,29.0,True,147.4
+C1079,2023-03-13,Cairns Inlet,Barramundi,U,67.0,4.05,line,FV-041,40.1,28.5,True,89.1
+C1603,2023-03-13,Cairns Inlet,Red Emperor,F,60.2,3.03,line,FV-063,30.0,28.2,True,78.78
+C0231,2023-03-14,Michaelmas Cay,Barramundi,U,64.0,3.14,trap,FV-027,15.3,29.1,True,69.08
+C0970,2023-03-14,Trinity Bay,Barramundi,U,52.9,1.87,spear,FV-034,16.1,28.0,False,41.14
+C1162,2023-03-14,Fitzroy Reef,Grass Emperor,M,23.5,0.21,net,FV-027,41.4,29.9,False,3.15
+C0293,2023-03-14,Green Island,Coral Trout,M,42.3,1.03,line,FV-012,43.6,29.1,True,28.84
+C1388,2023-03-14,Trinity Bay,Mangrove Jack,F,34.4,0.53,spear,FV-034,39.1,28.6,False,10.6
+C1134,2023-03-14,Frankland Islands,Mangrove Jack,F,37.1,0.74,line,FV-041,13.0,29.9,True,14.8
+C0727,2023-03-14,Frankland Islands,Grass Emperor,M,29.2,0.36,line,FV-027,37.5,29.9,True,5.4
+C1001,2023-03-15,Green Island,Coral Trout,F,49.8,1.47,trap,FV-027,6.8,29.4,True,41.16
+C0122,2023-03-15,Trinity Bay,Barramundi,F,62.4,4.08,line,FV-041,24.4,29.1,True,89.76
+C0334,2023-03-15,Frankland Islands,Coral Trout,M,41.8,0.96,spear,FV-058,36.4,28.7,True,26.88
+C1580,2023-03-16,Fitzroy Reef,Spanish Mackerel,F,85.2,5.4,line,FV-041,43.0,28.7,True,97.2
+C1193,2023-03-16,Cairns Inlet,Grass Emperor,M,35.5,,net,FV-088,20.1,28.6,True,9.45
+C1165,2023-03-17,Frankland Islands,Barramundi,U,58.9,3.2,spear,FV-071,6.6,28.3,True,70.4
+C0083,2023-03-17,Cairns Inlet,Coral Trout,F,42.3,1.11,line,FV-088,5.8,29.3,True,31.08
+C1646,2023-03-18,Michaelmas Cay,Red Emperor,F,57.7,3.05,line,FV-088,20.1,29.0,True,79.3
+C1815,2023-03-18,Cairns Inlet,Barramundi,M,53.6,2.07,trap,FV-071,21.2,28.7,False,45.54
+C0975,2023-03-19,Cairns Inlet,Barramundi,U,68.8,4.03,trap,FV-027,6.8,29.2,True,88.66
+C1976,2023-03-19,Fitzroy Reef,Grass Emperor,U,38.4,0.92,net,FV-058,32.4,28.5,True,13.8
+C0686,2023-03-20,Green Island,Barramundi,M,61.7,3.57,spear,FV-088,35.3,28.6,True,78.54
+C0482,2023-03-20,Frankland Islands,Spanish Mackerel,F,83.3,4.57,line,FV-034,18.2,28.5,True,82.26
+C1294,2023-03-20,Cairns Inlet,Barramundi,F,69.5,4.48,line,FV-012,12.2,28.7,True,98.56
+C1480,2023-03-20,Cairns Inlet,Barramundi,F,74.3,5.26,spear,FV-063,36.7,28.8,True,115.72
+C1102,2023-03-20,Trinity Bay,Barramundi,M,60.8,2.96,spear,FV-041,10.3,28.7,True,65.12
+C1741,2023-03-21,Trinity Bay,Red Emperor,M,52.6,2.25,net,FV-058,33.7,29.7,True,58.5
+C0195,2023-03-22,Green Island,Grass Emperor,F,32.0,0.51,spear,FV-071,37.5,29.3,True,7.65
+C1314,2023-03-22,Fitzroy Reef,Barramundi,F,67.3,4.27,net,FV-034,35.6,29.0,True,93.94
+C0875,2023-03-23,Green Island,Mangrove Jack,M,45.9,1.35,line,FV-027,31.3,29.2,True,27.0
+C1617,2023-03-23,Green Island,Barramundi,M,69.0,3.95,spear,FV-027,36.6,29.1,True,86.9
+C0838,2023-03-23,Fitzroy Reef,Spanish Mackerel,M,69.3,2.5,spear,FV-034,27.5,29.5,False,45.0
+C0140,2023-03-23,Michaelmas Cay,Spanish Mackerel,F,84.3,5.21,net,FV-063,17.5,29.6,True,93.78
+C1133,2023-03-24,Cairns Inlet,Barramundi,M,62.6,3.36,trap,FV-058,40.1,29.2,True,73.92
+C1971,2023-03-24,Michaelmas Cay,Spanish Mackerel,F,71.3,3.04,spear,FV-012,40.1,28.2,False,54.72
+C1017,2023-03-24,Green Island,Spanish Mackerel,U,87.8,6.34,line,FV-012,3.5,28.0,True,114.12
+C0677,2023-03-24,Frankland Islands,Mangrove Jack,F,43.7,1.0,net,FV-034,24.7,29.8,True,20.0
+C0995,2023-03-24,Trinity Bay,Barramundi,F,70.9,5.17,trap,FV-071,43.8,28.6,True,113.74
+C0265,2023-03-24,Cairns Inlet,Mangrove Jack,F,43.2,1.21,spear,FV-012,39.8,29.0,True,24.2
+C1244,2023-03-25,Michaelmas Cay,Barramundi,F,60.1,2.84,spear,FV-071,26.8,28.3,True,62.48
+C0111,2023-03-25,Trinity Bay,Red Emperor,F,58.8,3.34,line,FV-063,20.8,29.5,True,86.84
+C0294,2023-03-25,Cairns Inlet,Coral Trout,M,38.2,,line,FV-088,20.1,29.1,True,21.28
+C0138,2023-03-25,Michaelmas Cay,Red Emperor,F,47.4,1.36,net,FV-063,18.3,29.7,True,35.36
+C1943,2023-03-26,Frankland Islands,Barramundi,M,76.0,5.96,net,FV-027,5.8,28.8,True,131.12
+C0569,2023-03-26,Green Island,Coral Trout,M,37.3,0.71,net,FV-071,4.9,29.3,False,19.88
+C0387,2023-03-26,Fitzroy Reef,Spanish Mackerel,M,75.2,3.4,trap,FV-034,7.9,28.8,True,61.2
+C1355,2023-03-27,Cairns Inlet,Barramundi,F,60.7,3.3,line,FV-041,27.7,29.1,True,72.6
+C1877,2023-03-27,Trinity Bay,Mangrove Jack,U,31.9,0.41,spear,FV-034,19.4,29.5,False,8.2
+C1810,2023-03-27,Michaelmas Cay,Red Emperor,M,40.8,0.9,spear,FV-071,21.6,29.1,False,23.4
+C0358,2023-03-28,Trinity Bay,Coral Trout,U,45.3,1.19,line,FV-063,25.5,30.4,True,33.32
+C1393,2023-03-29,Michaelmas Cay,Grass Emperor,M,35.0,0.62,line,FV-027,9.5,29.0,True,9.3
+C1105,2023-03-29,Green Island,Coral Trout,M,54.7,2.49,trap,FV-012,22.5,28.9,True,69.72
+C0581,2023-03-29,Fitzroy Reef,Barramundi,F,63.1,3.68,net,FV-058,16.2,28.1,True,80.96
+C0657,2023-03-29,Green Island,Grass Emperor,M,25.8,0.3,spear,FV-041,14.3,29.8,False,4.5
+C0412,2023-03-29,Michaelmas Cay,Spanish Mackerel,U,70.0,3.13,trap,FV-034,44.3,28.4,False,56.34
+C0171,2023-03-29,Cairns Inlet,Barramundi,M,55.6,2.31,net,FV-058,29.9,28.3,False,50.82
+C1950,2023-03-29,Michaelmas Cay,Grass Emperor,F,21.0,0.14,spear,FV-034,4.3,29.3,False,2.1
+C1996,2023-03-31,Green Island,Mangrove Jack,F,37.3,0.73,trap,FV-058,24.6,29.2,True,14.6
+C0808,2023-03-31,Frankland Islands,Mangrove Jack,U,46.9,1.35,line,FV-027,4.5,28.5,True,27.0
+C1336,2023-04-01,Michaelmas Cay,Barramundi,M,71.7,5.88,line,FV-063,32.8,28.7,True,129.36
+C0035,2023-04-01,Frankland Islands,Coral Trout,M,43.8,1.19,trap,FV-034,11.0,29.3,True,33.32
+C1901,2023-04-01,Fitzroy Reef,Red Emperor,M,47.1,1.36,line,FV-071,4.4,29.3,True,35.36
+C0864,2023-04-01,Cairns Inlet,Grass Emperor,F,36.5,0.78,spear,FV-027,44.1,28.7,True,11.7
+C0071,2023-04-02,Cairns Inlet,Grass Emperor,F,31.6,0.53,line,FV-041,39.4,29.0,True,7.95
+C0672,2023-04-03,Fitzroy Reef,Barramundi,M,69.2,4.51,line,FV-063,35.0,29.7,True,99.22
+C1544,2023-04-03,Cairns Inlet,Coral Trout,U,34.3,0.63,trap,FV-012,41.9,28.6,False,17.64
+C1762,2023-04-03,Frankland Islands,Barramundi,M,52.9,2.08,spear,FV-034,30.6,28.2,False,45.76
+C1428,2023-04-03,Cairns Inlet,Grass Emperor,F,39.7,0.96,trap,FV-027,44.2,28.3,True,14.4
+C1156,2023-04-03,Frankland Islands,Barramundi,F,73.4,5.85,line,FV-027,25.5,28.7,True,128.7
+C0879,2023-04-03,Michaelmas Cay,Barramundi,M,71.0,5.29,spear,FV-012,41.8,29.1,True,116.38
+C1317,2023-04-05,Michaelmas Cay,Red Emperor,F,44.3,1.23,trap,FV-063,34.0,28.8,False,31.98
+C0625,2023-04-05,Cairns Inlet,Coral Trout,F,33.6,0.54,line,FV-071,33.7,28.9,False,15.12
+C0034,2023-04-05,Green Island,Grass Emperor,U,34.5,0.56,net,FV-058,32.9,29.5,True,8.4
+C0612,2023-04-05,Michaelmas Cay,Coral Trout,M,50.5,1.93,trap,FV-012,31.1,29.5,True,54.04
+C1862,2023-04-05,Frankland Islands,Spanish Mackerel,M,88.6,6.0,trap,FV-012,14.8,28.8,True,108.0
+C1445,2023-04-06,Cairns Inlet,Spanish Mackerel,F,88.2,6.39,trap,FV-027,24.0,29.0,True,115.02
+C0703,2023-04-06,Green Island,Spanish Mackerel,F,74.9,4.04,line,FV-071,26.3,28.7,False,72.72
+C0423,2023-04-07,Green Island,Barramundi,M,53.6,2.18,trap,FV-071,28.0,29.4,False,47.96
+C0488,2023-04-07,Trinity Bay,Barramundi,U,67.0,4.13,net,FV-027,33.9,28.8,True,90.86
+C1737,2023-04-07,Frankland Islands,Grass Emperor,F,35.4,0.63,line,FV-027,10.6,28.4,True,9.45
+C1438,2023-04-07,Trinity Bay,Barramundi,F,59.2,3.18,spear,FV-034,28.4,29.6,True,69.96
+C0990,2023-04-08,Cairns Inlet,Barramundi,M,52.5,2.05,line,FV-041,12.4,28.8,False,45.1
+C0890,2023-04-08,Michaelmas Cay,Grass Emperor,F,40.5,1.06,trap,FV-012,26.8,28.9,True,15.9
+C0192,2023-04-09,Michaelmas Cay,Spanish Mackerel,M,88.3,5.55,line,FV-088,3.7,28.1,True,99.9
+C1271,2023-04-09,Green Island,Red Emperor,M,59.2,2.46,line,FV-034,37.9,29.2,True,63.96
+C1323,2023-04-10,Frankland Islands,Barramundi,F,72.3,4.83,line,FV-063,17.2,27.8,True,106.26
+C0981,2023-04-10,Trinity Bay,Red Emperor,M,50.5,1.78,line,FV-058,17.8,29.5,True,46.28
+C1062,2023-04-10,Fitzroy Reef,Mangrove Jack,U,46.6,1.3,trap,FV-041,18.4,29.3,True,26.0
+C0474,2023-04-10,Frankland Islands,Mangrove Jack,F,49.9,1.49,net,FV-027,15.1,29.2,True,29.8
+C0350,2023-04-11,Trinity Bay,Mangrove Jack,F,39.2,0.88,line,FV-058,18.3,28.1,True,17.6
+C0386,2023-04-11,Frankland Islands,Grass Emperor,U,39.7,0.96,line,FV-063,30.5,28.5,True,14.4
+C1353,2023-04-12,Michaelmas Cay,Barramundi,U,55.1,2.52,spear,FV-034,36.0,29.3,False,55.44
+C0973,2023-04-12,Fitzroy Reef,Red Emperor,M,53.9,2.3,line,FV-034,23.7,28.9,True,59.8
+C1048,2023-04-12,Green Island,Red Emperor,M,55.1,2.65,spear,FV-071,18.5,29.4,True,68.9
+C1524,2023-04-14,Michaelmas Cay,Barramundi,M,65.0,4.31,trap,FV-027,44.2,28.8,True,94.82
+C1367,2023-04-14,Green Island,Spanish Mackerel,M,82.2,5.05,trap,FV-012,29.9,29.6,True,90.9
+C0850,2023-04-14,Fitzroy Reef,Barramundi,M,73.2,4.99,net,FV-034,13.7,28.3,True,109.78
+C0614,2023-04-15,Trinity Bay,Mangrove Jack,M,52.5,1.92,spear,FV-063,28.6,28.5,True,38.4
+C1131,2023-04-15,Cairns Inlet,Grass Emperor,U,42.9,1.2,line,FV-027,24.7,29.6,True,18.0
+C1586,2023-04-15,Green Island,Red Emperor,U,51.1,,net,FV-027,38.0,29.2,True,48.1
+C0644,2023-04-16,Fitzroy Reef,Grass Emperor,F,51.5,2.38,trap,FV-012,14.5,28.6,True,35.7
+C1139,2023-04-16,Michaelmas Cay,Mangrove Jack,F,26.4,0.23,net,FV-012,40.8,28.0,False,4.6
+C1711,2023-04-17,Cairns Inlet,Barramundi,F,67.2,4.34,trap,FV-027,5.5,29.2,True,95.48
+C1517,2023-04-17,Trinity Bay,Spanish Mackerel,M,76.6,3.47,line,FV-071,33.6,29.1,True,62.46
+C0848,2023-04-17,Michaelmas Cay,Spanish Mackerel,F,91.2,7.35,net,FV-012,39.3,29.7,True,132.3
+C1098,2023-04-17,Frankland Islands,Red Emperor,F,48.4,1.66,line,FV-027,3.8,28.2,True,43.16
+C0816,2023-04-18,Trinity Bay,Grass Emperor,M,37.1,0.79,line,FV-012,18.0,29.0,True,11.85
+C1256,2023-04-18,Fitzroy Reef,Grass Emperor,U,35.7,0.77,trap,FV-027,33.8,28.0,True,11.55
+C1811,2023-04-18,Michaelmas Cay,Coral Trout,F,54.4,2.45,line,FV-041,17.7,29.5,True,68.6
+C1636,2023-04-19,Trinity Bay,Coral Trout,M,43.3,1.02,net,FV-034,26.9,28.9,True,28.56
+C0941,2023-04-19,Michaelmas Cay,Mangrove Jack,F,35.8,0.6,net,FV-071,25.8,28.7,True,12.0
+C1764,2023-04-19,Fitzroy Reef,Coral Trout,M,33.2,0.52,line,FV-041,8.4,28.2,False,14.56
+C1183,2023-04-20,Green Island,Grass Emperor,U,30.0,0.46,line,FV-058,24.9,28.6,True,6.9
+C1409,2023-04-20,Green Island,Coral Trout,U,47.3,1.54,trap,FV-012,9.3,28.5,True,43.12
+C0365,2023-04-20,Frankland Islands,Red Emperor,M,53.0,2.21,trap,FV-071,25.3,29.0,True,57.46
+C0258,2023-04-21,Michaelmas Cay,Spanish Mackerel,U,84.2,5.11,spear,FV-088,32.2,28.4,True,91.98
+C0846,2023-04-21,Green Island,Grass Emperor,F,25.8,0.25,line,FV-041,39.0,28.8,False,3.75
+C1911,2023-04-22,Trinity Bay,Spanish Mackerel,F,69.0,2.78,spear,FV-034,7.6,27.8,False,50.04
+C0419,2023-04-22,Cairns Inlet,Spanish Mackerel,M,72.8,3.04,line,FV-071,25.7,28.1,False,54.72
+C1170,2023-04-23,Fitzroy Reef,Red Emperor,F,45.1,1.32,net,FV-034,7.6,28.2,True,34.32
+C1596,2023-04-23,Cairns Inlet,Barramundi,M,69.4,4.63,trap,FV-041,24.3,29.0,True,101.86
+C0384,2023-04-23,Cairns Inlet,Coral Trout,M,44.5,1.2,trap,FV-088,29.3,29.6,True,33.6
+C0005,2023-04-23,Green Island,Barramundi,F,66.4,4.16,net,FV-063,6.8,29.3,True,91.52
+C1255,2023-04-24,Frankland Islands,Spanish Mackerel,M,80.9,4.45,line,FV-088,4.3,28.5,True,80.1
+C0043,2023-04-24,Green Island,Spanish Mackerel,F,74.2,3.55,trap,FV-058,36.7,29.4,False,63.9
+C1407,2023-04-24,Trinity Bay,Grass Emperor,F,29.4,0.42,line,FV-027,34.1,29.1,True,6.3
+C0674,2023-04-25,Frankland Islands,Red Emperor,U,60.2,2.58,net,FV-063,18.8,28.2,True,67.08
+C0250,2023-04-25,Frankland Islands,Grass Emperor,M,43.6,1.26,net,FV-063,15.4,29.1,True,18.9
+C1521,2023-04-26,Michaelmas Cay,Coral Trout,U,39.9,0.86,trap,FV-088,38.2,29.2,True,24.08
+C1422,2023-04-26,Trinity Bay,Grass Emperor,U,25.5,0.26,spear,FV-034,41.2,28.9,False,3.9
+C1865,2023-04-26,Michaelmas Cay,Coral Trout,M,43.2,1.08,trap,FV-088,40.0,28.0,True,30.24
+C0216,2023-04-26,Green Island,Mangrove Jack,F,49.8,1.78,line,FV-012,10.5,28.6,True,35.6
+C0516,2023-04-27,Frankland Islands,Mangrove Jack,M,40.8,1.06,spear,FV-088,27.0,29.0,True,21.2
+C1703,2023-04-27,Cairns Inlet,Grass Emperor,U,41.1,1.02,line,FV-071,37.9,28.5,True,15.3
+C1304,2023-04-27,Frankland Islands,Barramundi,F,53.5,2.55,line,FV-027,11.8,28.5,False,56.1
+C0745,2023-04-28,Green Island,Red Emperor,F,63.9,3.59,line,FV-027,41.6,28.2,True,93.34
+C0800,2023-04-28,Cairns Inlet,Spanish Mackerel,F,87.7,5.57,trap,FV-034,5.0,29.0,True,100.26
+C0545,2023-04-28,Michaelmas Cay,Barramundi,F,59.4,2.38,line,FV-058,37.5,27.9,True,52.36
+C1205,2023-04-28,Cairns Inlet,Mangrove Jack,F,49.9,1.67,trap,FV-012,22.0,28.3,True,33.4
+C0855,2023-04-29,Fitzroy Reef,Coral Trout,F,40.0,0.84,line,FV-034,12.1,28.6,True,23.52
+C1659,2023-04-29,Michaelmas Cay,Coral Trout,F,47.6,1.6,spear,FV-034,30.4,29.0,True,44.8
+C0079,2023-04-29,Fitzroy Reef,Spanish Mackerel,M,82.2,4.81,line,FV-058,5.2,27.7,True,86.58
+C1611,2023-04-29,Green Island,Coral Trout,M,45.0,1.28,line,FV-012,30.9,28.4,True,35.84
+C1706,2023-04-29,Cairns Inlet,Barramundi,F,63.7,3.59,line,FV-058,19.2,29.6,True,78.98
+C0937,2023-04-30,Cairns Inlet,Mangrove Jack,F,35.0,0.59,net,FV-058,27.2,28.0,True,11.8
+C1790,2023-04-30,Trinity Bay,Coral Trout,F,31.5,0.41,net,FV-071,7.8,28.1,False,11.48
+C1794,2023-04-30,Trinity Bay,Red Emperor,M,57.2,2.53,trap,FV-088,29.9,29.1,True,65.78
+C1520,2023-05-01,Michaelmas Cay,Grass Emperor,U,24.1,0.2,net,FV-071,31.7,28.9,False,3.0
+C0158,2023-05-01,Fitzroy Reef,Barramundi,F,58.7,2.7,net,FV-063,36.7,29.0,True,59.4
+C0323,2023-05-01,Green Island,Spanish Mackerel,M,82.3,4.68,trap,FV-071,17.8,29.1,True,84.24
+C1080,2023-05-01,Frankland Islands,Spanish Mackerel,U,91.8,7.21,line,FV-071,22.8,28.4,True,129.78
+C1007,2023-05-01,Trinity Bay,Coral Trout,F,42.9,1.1,line,FV-058,39.3,28.4,True,30.8
+C1618,2023-05-02,Green Island,Coral Trout,M,44.0,1.25,trap,FV-012,25.5,29.2,True,35.0
+C1948,2023-05-02,Michaelmas Cay,Red Emperor,F,43.2,1.21,trap,FV-027,14.5,29.3,False,31.46
+C1639,2023-05-02,Trinity Bay,Coral Trout,M,43.1,1.07,line,FV-012,34.5,28.1,True,29.96
+C0933,2023-05-02,Cairns Inlet,Grass Emperor,M,29.2,0.38,trap,FV-041,44.6,30.5,True,5.7
+C0918,2023-05-03,Green Island,Coral Trout,M,41.3,0.95,line,FV-012,32.2,28.5,True,26.6
+C0517,2023-05-03,Fitzroy Reef,Red Emperor,U,68.0,4.46,spear,FV-041,11.2,28.9,True,115.96
+C0130,2023-05-03,Trinity Bay,Mangrove Jack,F,30.0,0.37,trap,FV-012,33.9,28.0,False,7.4
+C1680,2023-05-03,Michaelmas Cay,Spanish Mackerel,F,81.9,5.08,line,FV-041,22.1,28.0,True,91.44
+C1643,2023-05-03,Green Island,Barramundi,U,53.4,2.16,trap,FV-071,32.4,29.4,False,47.52
+C1067,2023-05-05,Michaelmas Cay,Barramundi,M,59.0,2.42,net,FV-058,7.5,27.7,True,53.24
+C0839,2023-05-05,Trinity Bay,Mangrove Jack,,44.2,1.3,net,FV-088,16.5,27.6,True,26.0
+C1359,2023-05-06,Green Island,Spanish Mackerel,F,89.4,6.85,spear,FV-088,25.5,29.7,True,123.3
+C0778,2023-05-06,Frankland Islands,Spanish Mackerel,M,85.2,5.88,spear,FV-058,10.4,28.2,True,105.84
+C1945,2023-05-06,Michaelmas Cay,Grass Emperor,M,49.4,1.73,net,FV-012,43.6,27.6,True,25.95
+C0531,2023-05-07,Michaelmas Cay,Mangrove Jack,F,42.4,1.05,spear,FV-088,6.4,28.2,True,21.0
+C0989,2023-05-07,Fitzroy Reef,Grass Emperor,M,26.7,0.28,spear,FV-034,19.3,27.5,False,4.2
+C0932,2023-05-07,Cairns Inlet,Grass Emperor,M,37.4,0.79,line,FV-058,25.0,29.1,True,11.85
+C1612,2023-05-08,Fitzroy Reef,Coral Trout,F,50.9,1.76,trap,FV-041,41.9,29.0,True,49.28
+C1038,2023-05-09,Frankland Islands,Grass Emperor,F,40.1,1.05,line,FV-027,37.3,27.8,True,15.75
+C0439,2023-05-09,Trinity Bay,Spanish Mackerel,M,75.0,3.43,trap,FV-012,3.9,29.4,True,61.74
+C1766,2023-05-09,Michaelmas Cay,Spanish Mackerel,M,93.3,6.67,line,FV-058,32.0,27.6,True,120.06
+C1953,2023-05-09,Cairns Inlet,Grass Emperor,U,44.7,1.42,line,FV-041,6.2,28.4,True,21.3
+C1909,2023-05-09,Frankland Islands,Mangrove Jack,M,46.4,1.31,trap,FV-012,14.1,28.2,True,26.2
+C1874,2023-05-09,Fitzroy Reef,Grass Emperor,U,41.5,0.99,net,FV-027,19.4,28.5,True,14.85
+C0133,2023-05-09,Trinity Bay,Spanish Mackerel,F,76.5,4.06,spear,FV-012,33.0,29.0,True,73.08
+C1915,2023-05-10,Fitzroy Reef,Coral Trout,F,43.3,1.22,trap,FV-027,18.0,28.4,True,34.16
+C1358,2023-05-10,Trinity Bay,Coral Trout,M,49.4,1.54,net,FV-063,24.1,27.7,True,43.12
+C1268,2023-05-11,Green Island,Coral Trout,F,36.9,0.59,line,FV-041,31.2,28.2,False,16.52
+C1999,2023-05-11,Cairns Inlet,Red Emperor,M,58.0,2.7,line,FV-041,3.6,27.6,True,70.2
+C1077,2023-05-11,Frankland Islands,Barramundi,M,71.2,4.59,net,FV-088,34.4,27.7,True,100.98
+C1738,2023-05-11,Trinity Bay,Coral Trout,F,56.2,2.51,line,FV-034,24.1,28.0,True,70.28
+C1698,2023-05-11,Michaelmas Cay,Grass Emperor,M,30.0,0.42,line,FV-088,8.1,27.1,True,6.3
+C1770,2023-05-12,Fitzroy Reef,Coral Trout,M,42.4,1.2,line,FV-012,15.0,27.5,True,33.6
+C0457,2023-05-13,Fitzroy Reef,Coral Trout,M,49.5,1.7,net,FV-034,37.4,27.4,True,47.6
+C1879,2023-05-13,Michaelmas Cay,Coral Trout,F,40.7,0.93,line,FV-041,18.4,28.0,True,26.04
+C0263,2023-05-13,Trinity Bay,Coral Trout,F,59.1,3.16,trap,FV-041,41.0,28.8,True,88.48
+C0637,2023-05-14,Frankland Islands,Mangrove Jack,F,44.9,1.21,line,FV-027,35.5,27.3,True,24.2
+C0440,2023-05-14,Trinity Bay,Red Emperor,M,57.3,2.48,line,FV-012,36.3,28.4,True,64.48
+C1142,2023-05-15,Trinity Bay,Barramundi,M,72.0,5.87,trap,FV-034,28.2,28.5,True,129.14
+C1482,2023-05-16,Frankland Islands,Grass Emperor,F,23.9,0.2,spear,FV-034,16.4,28.7,False,3.0
+C0596,2023-05-16,Michaelmas Cay,Spanish Mackerel,U,85.2,4.43,trap,FV-012,40.0,28.1,True,79.74
+C0325,2023-05-16,Michaelmas Cay,Grass Emperor,F,26.2,0.27,line,FV-034,32.0,29.1,False,4.05
+C0803,2023-05-16,Cairns Inlet,Red Emperor,F,54.3,2.49,net,FV-058,32.4,27.9,True,64.74
+C1071,2023-05-17,Fitzroy Reef,Coral Trout,U,52.3,2.18,trap,FV-027,4.1,28.4,True,61.04
+C1864,2023-05-17,Michaelmas Cay,Spanish Mackerel,M,82.3,4.64,line,FV-027,19.6,27.7,True,83.52
+C0272,2023-05-17,Michaelmas Cay,Spanish Mackerel,U,86.4,5.17,line,FV-012,16.6,28.8,True,93.06
+C1855,2023-05-17,Cairns Inlet,Barramundi,M,71.8,6.16,line,FV-034,34.9,28.5,True,135.52
+C0588,2023-05-18,Michaelmas Cay,Grass Emperor,F,32.5,0.54,line,FV-027,18.6,27.0,True,8.1
+C0556,2023-05-18,Michaelmas Cay,Coral Trout,F,38.3,0.65,line,FV-071,23.7,28.3,True,18.2
+C0579,2023-05-18,Frankland Islands,Coral Trout,M,38.5,0.68,net,FV-063,34.3,28.6,True,19.04
+C0587,2023-05-19,Cairns Inlet,Barramundi,F,78.5,7.55,trap,FV-041,18.8,28.2,True,166.1
+C0120,2023-05-19,Cairns Inlet,Coral Trout,F,46.2,1.33,trap,FV-058,19.2,27.6,True,37.24
+C0281,2023-05-20,Fitzroy Reef,Spanish Mackerel,F,82.6,5.02,spear,FV-071,27.6,27.1,True,90.36
+C0077,2023-05-21,Frankland Islands,Spanish Mackerel,M,77.8,3.87,line,FV-063,34.3,28.7,True,69.66
+C1039,2023-05-21,Cairns Inlet,Spanish Mackerel,F,88.3,6.05,line,FV-088,13.8,28.5,True,108.9
+C0926,2023-05-22,Michaelmas Cay,Mangrove Jack,F,53.0,2.2,trap,FV-058,41.7,27.5,True,44.0
+C1495,2023-05-22,Michaelmas Cay,Barramundi,F,59.2,2.84,line,FV-027,24.4,28.3,True,62.48
+C0266,2023-05-22,Fitzroy Reef,Mangrove Jack,U,46.1,1.43,net,FV-088,3.1,28.2,True,28.6
+C1557,2023-05-22,Frankland Islands,Mangrove Jack,F,31.3,0.35,line,FV-071,41.2,28.1,False,7.0
+C1560,2023-05-22,Michaelmas Cay,Mangrove Jack,M,55.2,2.64,net,FV-063,7.6,26.9,True,52.8
+C1219,2023-05-22,Trinity Bay,Spanish Mackerel,U,74.5,3.89,net,FV-071,14.8,27.6,False,70.02
+C1118,2023-05-23,Michaelmas Cay,Grass Emperor,F,27.8,0.37,trap,FV-034,4.7,27.0,False,5.55
+C0694,2023-05-24,Frankland Islands,Coral Trout,U,46.9,1.65,trap,FV-012,14.5,28.9,True,46.2
+C0681,2023-05-24,Frankland Islands,Red Emperor,M,48.5,1.56,net,FV-063,41.7,27.4,True,40.56
+C0742,2023-05-25,Frankland Islands,Grass Emperor,U,37.4,0.87,line,FV-088,33.2,27.6,True,13.05
+C1450,2023-05-25,Green Island,Coral Trout,F,44.8,1.31,line,FV-058,6.7,28.0,True,36.68
+C0662,2023-05-25,Michaelmas Cay,Coral Trout,F,42.8,0.96,net,FV-058,20.1,28.3,True,26.88
+C1370,2023-05-25,Fitzroy Reef,Spanish Mackerel,M,72.3,3.36,spear,FV-034,22.9,27.0,False,60.48
+C1792,2023-05-25,Cairns Inlet,Grass Emperor,M,43.0,1.32,spear,FV-071,16.6,28.2,True,19.8
+C0062,2023-05-26,Frankland Islands,Grass Emperor,F,31.6,0.47,net,FV-034,28.5,28.7,True,7.05
+C1382,2023-05-26,Fitzroy Reef,Barramundi,F,67.7,4.13,line,FV-071,11.0,27.6,True,90.86
+C1683,2023-05-26,Frankland Islands,Red Emperor,M,55.4,2.11,trap,FV-027,39.0,27.4,True,54.86
+C0497,2023-05-26,Trinity Bay,Grass Emperor,U,46.4,1.49,line,FV-088,17.2,28.3,True,22.35
+C0881,2023-05-27,Trinity Bay,Barramundi,M,70.0,4.08,net,FV-027,38.5,28.1,True,89.76
+C1670,2023-05-27,Fitzroy Reef,Mangrove Jack,M,30.2,0.4,trap,FV-063,25.6,28.8,False,8.0
+C0897,2023-05-28,Trinity Bay,Coral Trout,M,50.9,1.64,line,FV-058,32.0,28.3,True,45.92
+C0692,2023-05-28,Frankland Islands,Red Emperor,U,46.9,1.57,line,FV-058,15.4,28.2,True,40.82
+C0137,2023-05-28,Green Island,Coral Trout,F,41.8,1.06,trap,FV-058,6.5,27.9,True,29.68
+C1392,2023-05-28,Michaelmas Cay,Coral Trout,M,38.7,0.8,line,FV-034,32.0,28.5,True,22.4
+C0394,2023-05-28,Fitzroy Reef,Coral Trout,F,44.1,1.21,trap,FV-058,23.8,28.1,True,33.88
+C0264,2023-05-28,Michaelmas Cay,Red Emperor,M,47.7,1.38,line,FV-058,20.8,27.6,True,35.88
+C0331,2023-05-29,Green Island,Barramundi,M,59.7,2.91,line,FV-027,13.1,27.7,True,64.02
+C0262,2023-05-29,Fitzroy Reef,Red Emperor,U,51.7,1.67,trap,FV-058,18.8,26.6,True,43.42
+C0984,2023-05-29,Green Island,Barramundi,F,61.5,3.53,net,FV-058,23.7,27.9,True,77.66
+C1044,2023-05-29,Trinity Bay,Red Emperor,M,62.4,3.87,line,FV-088,19.0,28.2,True,100.62
+C1806,2023-05-29,Frankland Islands,Red Emperor,U,47.3,1.58,line,FV-012,23.1,27.4,True,41.08
+C0558,2023-05-29,Frankland Islands,Grass Emperor,F,45.7,1.5,line,FV-071,31.2,27.8,True,22.5
+C0870,2023-05-30,Frankland Islands,Barramundi,F,62.2,3.2,spear,FV-071,20.1,27.5,True,70.4
+C1027,2023-05-30,Fitzroy Reef,Red Emperor,F,38.0,0.7,line,FV-071,26.9,28.3,False,18.2
+C0146,2023-05-30,Cairns Inlet,Barramundi,M,68.1,4.12,trap,FV-012,34.3,27.2,True,90.64
+C1455,2023-05-31,Green Island,Mangrove Jack,U,35.7,0.63,trap,FV-012,12.5,27.6,True,12.6
+C1626,2023-05-31,Cairns Inlet,Coral Trout,M,35.4,0.62,spear,FV-034,28.6,28.3,False,17.36
+C0181,2023-05-31,Michaelmas Cay,Spanish Mackerel,F,76.6,3.87,line,FV-058,43.8,27.0,True,69.66
+C0107,2023-05-31,Frankland Islands,Red Emperor,U,50.1,1.87,trap,FV-063,33.2,27.2,True,48.62
+C1208,2023-06-01,Michaelmas Cay,Coral Trout,M,49.3,1.68,trap,FV-088,31.6,26.7,True,47.04
+C1769,2023-06-01,Michaelmas Cay,Coral Trout,U,37.9,0.69,spear,FV-034,6.8,28.3,False,19.32
+C0116,2023-06-01,Green Island,Grass Emperor,F,26.2,0.26,net,FV-063,24.6,27.0,False,3.9
+C0478,2023-06-02,Frankland Islands,Mangrove Jack,U,35.1,0.72,net,FV-071,26.0,26.5,True,14.4
+C1952,2023-06-02,Frankland Islands,Mangrove Jack,U,37.3,0.71,line,FV-088,26.8,27.0,True,14.2
+C1497,2023-06-02,Frankland Islands,Spanish Mackerel,U,87.3,6.3,trap,FV-088,21.2,27.0,True,113.4
+C0938,2023-06-03,Fitzroy Reef,Red Emperor,F,47.9,1.9,line,FV-088,29.8,28.0,True,49.4
+C0909,2023-06-03,Cairns Inlet,Spanish Mackerel,F,84.2,4.85,net,FV-027,9.8,27.6,True,87.3
+C0744,2023-06-04,Fitzroy Reef,Coral Trout,U,36.6,0.72,trap,FV-063,34.0,26.7,False,20.16
+C1712,2023-06-04,Frankland Islands,Barramundi,U,68.0,4.26,line,FV-041,6.7,27.5,True,93.72
+C0060,2023-06-04,Frankland Islands,Barramundi,F,53.8,2.04,trap,FV-034,31.1,27.6,False,44.88
+C0726,2023-06-04,Trinity Bay,Red Emperor,F,62.0,3.77,trap,FV-041,19.3,27.0,True,98.02
+C0322,2023-06-05,Trinity Bay,Coral Trout,U,50.4,1.93,line,FV-012,16.2,26.5,True,54.04
+C0267,2023-06-05,Frankland Islands,Coral Trout,F,46.8,1.43,trap,FV-012,43.7,27.4,True,40.04
+C0399,2023-06-06,Cairns Inlet,Barramundi,M,51.8,2.04,line,FV-071,39.5,27.0,False,44.88
+C0430,2023-06-06,Frankland Islands,Barramundi,F,60.1,2.83,line,FV-088,4.2,27.4,True,62.26
+C0537,2023-06-06,Cairns Inlet,Red Emperor,U,51.3,2.05,line,FV-012,28.1,27.3,True,53.3
+C0765,2023-06-06,Green Island,Coral Trout,M,40.3,0.8,line,FV-058,15.0,28.4,True,22.4
+C1112,2023-06-07,Green Island,Red Emperor,F,47.4,1.7,spear,FV-034,31.7,26.4,True,44.2
+C1237,2023-06-07,Trinity Bay,Grass Emperor,U,33.8,0.69,trap,FV-063,23.3,27.1,True,10.35
+C1515,2023-06-07,Fitzroy Reef,Mangrove Jack,M,44.8,1.26,spear,FV-088,33.5,27.3,True,25.2
+C1371,2023-06-07,Fitzroy Reef,Barramundi,M,63.9,4.06,net,FV-071,33.9,27.6,True,89.32
+C1910,2023-06-07,Frankland Islands,Barramundi,U,64.7,3.66,line,FV-027,24.3,25.9,True,80.52
+C0308,2023-06-07,Green Island,Grass Emperor,M,41.0,1.04,line,FV-058,3.7,27.3,True,15.6
+C1878,2023-06-07,Fitzroy Reef,Mangrove Jack,F,50.3,1.85,line,FV-058,38.0,27.4,True,37.0
+C0540,2023-06-08,Green Island,Coral Trout,M,34.0,0.59,line,FV-071,13.0,28.1,False,16.52
+C0223,2023-06-08,Trinity Bay,Coral Trout,F,35.9,0.58,spear,FV-058,21.7,28.4,False,16.24
+C0257,2023-06-08,Frankland Islands,Mangrove Jack,M,45.7,1.37,spear,FV-027,40.0,27.5,True,27.4
+C0774,2023-06-08,Green Island,Spanish Mackerel,U,70.4,2.93,spear,FV-071,39.8,26.5,False,52.74
+C0786,2023-06-08,Green Island,Barramundi,U,78.0,5.72,line,FV-088,29.5,27.2,True,125.84
+C0805,2023-06-09,Green Island,Coral Trout,M,47.3,1.42,line,FV-071,42.4,26.7,True,39.76
+C1746,2023-06-09,Green Island,Coral Trout,F,55.2,2.25,trap,FV-058,3.0,28.6,True,63.0
+C1174,2023-06-09,Fitzroy Reef,Coral Trout,U,33.3,0.59,spear,FV-071,20.9,27.9,False,16.52
+C1145,2023-06-10,Trinity Bay,Barramundi,F,60.6,3.18,spear,FV-012,28.3,27.3,True,69.96
+C1198,2023-06-10,Michaelmas Cay,Mangrove Jack,F,35.0,0.64,line,FV-063,31.4,27.9,True,12.8
+C0889,2023-06-10,Frankland Islands,Barramundi,F,72.2,5.1,line,FV-058,7.4,26.2,True,112.2
+C1774,2023-06-10,Cairns Inlet,Coral Trout,M,35.9,0.62,spear,FV-034,35.1,26.7,False,17.36
+C0200,2023-06-11,Trinity Bay,Coral Trout,F,38.9,0.8,spear,FV-071,19.3,27.6,True,22.4
+C0145,2023-06-11,Michaelmas Cay,Barramundi,F,61.2,3.15,line,FV-027,32.3,26.8,True,69.3
+C0235,2023-06-11,Trinity Bay,Red Emperor,M,46.7,1.53,trap,FV-012,27.0,27.6,True,39.78
+C1845,2023-06-11,Michaelmas Cay,Mangrove Jack,F,45.6,1.52,line,FV-027,43.4,26.4,True,30.4
+C1491,2023-06-11,Cairns Inlet,Red Emperor,M,56.3,2.69,line,FV-088,5.0,25.9,True,69.94
+C0964,2023-06-12,Frankland Islands,Mangrove Jack,F,37.4,0.78,line,FV-063,8.2,27.2,True,15.6
+C1326,2023-06-12,Michaelmas Cay,Barramundi,U,61.2,2.8,net,FV-012,3.9,27.6,True,61.6
+C1457,2023-06-12,Fitzroy Reef,Mangrove Jack,F,55.6,2.51,line,FV-041,14.8,27.6,True,50.2
+C0892,2023-06-13,Green Island,Barramundi,M,69.7,5.19,line,FV-071,21.5,27.5,True,114.18
+C1801,2023-06-15,Green Island,Red Emperor,U,48.4,1.56,line,FV-058,23.0,27.1,True,40.56
+C0455,2023-06-15,Cairns Inlet,Red Emperor,M,44.4,1.28,trap,FV-088,18.4,26.4,False,33.28
+C1356,2023-06-15,Fitzroy Reef,Barramundi,F,57.6,2.66,spear,FV-034,34.7,26.0,False,58.52
+C0851,2023-06-15,Michaelmas Cay,Coral Trout,M,42.6,0.97,trap,FV-012,42.3,27.2,True,27.16
+C0222,2023-06-16,Fitzroy Reef,Mangrove Jack,F,47.2,1.34,trap,FV-012,23.9,26.2,True,26.8
+C1960,2023-06-16,Michaelmas Cay,Coral Trout,F,42.9,1.05,line,FV-012,34.4,26.1,True,29.4
+C0972,2023-06-16,Fitzroy Reef,Grass Emperor,M,31.1,0.45,line,FV-027,9.6,27.3,True,6.75
+C0490,2023-06-17,Cairns Inlet,Barramundi,F,60.4,2.8,net,FV-012,8.9,26.0,True,61.6
+C0442,2023-06-17,Green Island,Barramundi,U,64.8,3.96,spear,FV-027,11.7,26.9,True,87.12
+C1820,2023-06-18,Frankland Islands,Mangrove Jack,U,44.0,1.19,net,FV-041,4.2,26.6,True,23.8
+C1178,2023-06-18,Trinity Bay,Spanish Mackerel,U,78.7,3.9,trap,FV-012,11.3,26.0,True,70.2
+C0030,2023-06-18,Trinity Bay,Mangrove Jack,M,45.7,1.37,line,FV-041,34.8,26.0,True,27.4
+C1598,2023-06-19,Trinity Bay,Mangrove Jack,F,43.8,1.12,line,FV-027,3.8,27.7,True,22.4
+C0187,2023-06-19,Trinity Bay,Red Emperor,M,58.8,2.72,line,FV-088,17.4,25.8,True,70.72
+C1653,2023-06-20,Michaelmas Cay,Red Emperor,F,41.4,1.14,net,FV-071,36.4,26.9,False,29.64
+C0275,2023-06-20,Trinity Bay,Spanish Mackerel,F,82.7,5.28,line,FV-088,28.4,26.7,True,95.04
+C1341,2023-06-20,Frankland Islands,Mangrove Jack,F,42.5,1.04,net,FV-071,19.6,25.5,True,20.8
+C0087,2023-06-20,Fitzroy Reef,Barramundi,F,67.5,4.92,line,FV-058,10.8,25.6,True,108.24
+C0642,2023-06-20,Trinity Bay,Red Emperor,M,47.0,1.51,spear,FV-058,19.6,26.4,True,39.26
+C0684,2023-06-20,Cairns Inlet,Coral Trout,M,57.0,2.55,spear,FV-063,42.2,26.8,True,71.4
+C0507,2023-06-21,Green Island,Grass Emperor,F,22.4,0.16,spear,FV-034,41.9,26.2,False,2.4
+C1946,2023-06-21,Cairns Inlet,Red Emperor,F,58.6,2.88,trap,FV-063,18.7,26.8,True,74.88
+C1686,2023-06-23,Cairns Inlet,Red Emperor,M,48.7,1.59,line,FV-088,42.0,26.1,True,41.34
+C1600,2023-06-23,Fitzroy Reef,Coral Trout,M,36.1,0.51,trap,FV-071,43.6,26.7,False,14.28
+C0339,2023-06-23,Frankland Islands,Red Emperor,U,51.0,1.88,trap,FV-058,30.6,26.4,True,48.88
+C0022,2023-06-23,Michaelmas Cay,Red Emperor,M,45.7,1.43,trap,FV-034,43.3,27.3,True,37.18
+C0732,2023-06-23,Trinity Bay,Mangrove Jack,U,45.6,1.3,line,FV-058,32.6,25.8,True,26.0
+C1751,2023-06-23,Fitzroy Reef,Mangrove Jack,U,41.3,1.04,spear,FV-058,23.6,27.1,True,20.8
+C0414,2023-06-23,Green Island,Barramundi,M,60.5,3.25,trap,FV-063,19.2,27.0,True,71.5
+C0295,2023-06-24,Trinity Bay,Coral Trout,M,39.3,0.83,net,FV-027,17.3,26.3,True,23.24
+C1397,2023-06-25,Green Island,Spanish Mackerel,U,75.4,3.64,trap,FV-088,33.3,25.7,True,65.52
+C0570,2023-06-26,Trinity Bay,Mangrove Jack,F,52.2,1.78,net,FV-041,26.4,26.1,True,35.6
+C0513,2023-06-26,Michaelmas Cay,Mangrove Jack,U,28.9,0.33,line,FV-063,17.8,25.7,False,6.6
+C1981,2023-06-26,Trinity Bay,Barramundi,M,55.9,2.12,line,FV-088,35.1,27.1,False,46.64
+C1200,2023-06-27,Michaelmas Cay,Spanish Mackerel,U,71.4,3.13,spear,FV-034,26.9,27.5,False,56.34
+C1412,2023-06-27,Trinity Bay,Mangrove Jack,F,46.3,1.44,spear,FV-071,36.9,27.3,True,28.8
+C0227,2023-06-27,Trinity Bay,Red Emperor,M,50.1,1.91,spear,FV-012,34.6,25.4,True,49.66
+C0635,2023-06-28,Green Island,Coral Trout,F,46.9,1.54,net,FV-027,33.2,26.0,True,43.12
+C1852,2023-06-29,Green Island,Coral Trout,U,32.6,0.46,line,FV-088,8.9,25.9,False,12.88
+C0444,2023-06-29,Cairns Inlet,Spanish Mackerel,F,86.2,5.92,line,FV-012,20.2,26.2,True,106.56
+C0126,2023-06-30,Fitzroy Reef,Mangrove Jack,U,44.5,1.16,spear,FV-088,3.0,26.0,True,23.2
+C1443,2023-06-30,Michaelmas Cay,Red Emperor,U,55.6,2.7,line,FV-088,14.7,25.2,True,70.2
+C0173,2023-06-30,Trinity Bay,Mangrove Jack,F,35.8,0.6,line,FV-071,14.4,25.5,True,12.0
+C1249,2023-07-01,Frankland Islands,Mangrove Jack,M,30.9,0.4,spear,FV-071,28.2,26.4,False,8.0
+C0722,2023-07-01,Green Island,Spanish Mackerel,M,82.4,4.78,net,FV-088,24.3,27.4,True,86.04
+C0301,2023-07-01,Michaelmas Cay,Red Emperor,U,52.0,2.0,trap,FV-063,14.5,25.4,True,52.0
+C1488,2023-07-02,Cairns Inlet,Barramundi,F,78.3,7.08,spear,FV-012,26.8,26.2,True,155.76
+C0144,2023-07-02,Frankland Islands,Coral Trout,F,39.2,0.8,spear,FV-041,44.3,25.0,True,22.4
+C1594,2023-07-03,Cairns Inlet,Coral Trout,F,56.9,2.59,net,FV-058,13.2,26.3,True,72.52
+C0600,2023-07-03,Green Island,Red Emperor,U,42.7,0.94,line,FV-088,19.2,25.2,False,24.44
+C1733,2023-07-04,Frankland Islands,Barramundi,F,59.3,3.0,line,FV-058,22.0,25.3,True,66.0
+C0598,2023-07-04,Frankland Islands,Mangrove Jack,F,40.9,0.96,line,FV-063,29.0,25.6,True,19.2
+C1386,2023-07-04,Frankland Islands,Red Emperor,M,43.5,1.27,trap,FV-027,20.2,25.6,False,33.02
+C0247,2023-07-04,Michaelmas Cay,Coral Trout,F,42.6,1.09,line,FV-063,13.9,26.5,True,30.52
+C0724,2023-07-05,Trinity Bay,Barramundi,F,70.1,5.13,line,FV-027,15.6,25.9,True,112.86
+C1137,2023-07-05,Frankland Islands,Spanish Mackerel,U,70.9,2.97,line,FV-058,23.5,25.1,False,53.46
+C1665,2023-07-06,Cairns Inlet,Barramundi,M,59.8,2.93,spear,FV-027,6.4,24.6,True,64.46
+C1346,2023-07-06,Michaelmas Cay,Coral Trout,F,53.9,2.04,net,FV-027,18.3,26.5,True,57.12
+C1475,2023-07-06,Michaelmas Cay,Coral Trout,F,42.0,1.15,line,FV-012,4.5,26.6,True,32.2
+C1064,2023-07-06,Cairns Inlet,Mangrove Jack,F,52.5,1.88,trap,FV-012,29.3,25.9,True,37.6
+C0623,2023-07-07,Fitzroy Reef,Barramundi,F,58.3,2.38,line,FV-071,28.9,25.6,True,52.36
+C1697,2023-07-08,Trinity Bay,Red Emperor,F,46.0,1.29,spear,FV-041,35.9,24.6,True,33.54
+C0405,2023-07-08,Frankland Islands,Coral Trout,F,44.2,1.27,line,FV-063,21.4,25.2,True,35.56
+C1043,2023-07-08,Frankland Islands,Grass Emperor,M,38.2,0.88,trap,FV-012,32.1,26.1,True,13.2
+C1889,2023-07-08,Trinity Bay,Coral Trout,F,52.4,2.1,spear,FV-088,20.7,25.3,True,58.8
+C0080,2023-07-09,Fitzroy Reef,Spanish Mackerel,F,68.2,2.54,spear,FV-034,34.7,25.6,False,45.72
+C1854,2023-07-10,Trinity Bay,Barramundi,F,50.9,1.87,net,FV-034,17.6,25.0,False,41.14
+C0078,2023-07-11,Fitzroy Reef,Barramundi,U,66.2,3.8,line,FV-058,35.8,25.6,True,83.6
+C1973,2023-07-11,Michaelmas Cay,Grass Emperor,U,20.6,0.13,line,FV-063,26.7,24.9,False,1.95
+C1084,2023-07-11,Trinity Bay,Barramundi,F,60.3,2.72,net,FV-063,9.8,25.8,True,59.84
+C0987,2023-07-12,Cairns Inlet,Spanish Mackerel,F,75.1,3.98,line,FV-041,18.5,25.7,True,71.64
+C0184,2023-07-13,Frankland Islands,Mangrove Jack,M,47.5,1.54,trap,FV-041,3.3,25.8,True,30.8
+C1549,2023-07-13,Cairns Inlet,Red Emperor,F,64.4,3.64,spear,FV-041,10.6,25.4,True,94.64
+C0679,2023-07-14,Cairns Inlet,Red Emperor,F,61.4,2.95,line,FV-058,7.4,24.9,True,76.7
+C0590,2023-07-14,Frankland Islands,Barramundi,U,64.5,3.85,line,FV-027,42.5,25.3,True,84.7
+C1969,2023-07-15,Green Island,Coral Trout,M,47.8,1.47,line,FV-034,36.7,25.8,True,41.16
+C1013,2023-07-15,Michaelmas Cay,Mangrove Jack,M,30.7,0.45,spear,FV-012,16.1,24.9,False,9.0
+C1651,2023-07-15,Cairns Inlet,Red Emperor,F,48.8,1.87,trap,FV-058,22.0,24.5,True,48.62
+C1066,2023-07-16,Green Island,Red Emperor,F,40.2,0.79,line,FV-071,34.3,25.3,False,20.54
+C1609,2023-07-17,Green Island,Coral Trout,F,47.4,1.49,spear,FV-058,13.0,24.5,True,41.72
+C0935,2023-07-17,Michaelmas Cay,Barramundi,M,61.3,3.4,net,FV-063,5.2,25.4,True,74.8
+C1146,2023-07-18,Cairns Inlet,Coral Trout,F,47.2,1.43,net,FV-088,11.5,24.9,True,40.04
+C0638,2023-07-19,Green Island,Red Emperor,F,51.5,2.03,trap,FV-063,41.2,24.9,True,52.78
+C1758,2023-07-19,Trinity Bay,Coral Trout,M,34.9,0.62,net,FV-027,16.5,25.6,False,17.36
+C0324,2023-07-19,Trinity Bay,Mangrove Jack,M,48.1,1.41,trap,FV-088,41.2,25.4,True,28.2
+C0487,2023-07-19,Trinity Bay,Coral Trout,U,36.6,0.78,line,FV-088,21.4,24.1,False,21.84
+C1357,2023-07-21,Trinity Bay,Red Emperor,F,60.1,3.35,trap,FV-041,5.7,25.1,True,87.1
+C1677,2023-07-21,Green Island,Coral Trout,M,33.3,0.54,trap,FV-088,36.7,24.6,False,15.12
+C0447,2023-07-21,Trinity Bay,Spanish Mackerel,M,89.0,5.77,line,FV-058,9.9,25.7,True,103.86
+C0802,2023-07-22,Green Island,Red Emperor,F,57.9,2.89,trap,FV-058,29.3,25.1,True,75.14
+C1664,2023-07-22,Cairns Inlet,Red Emperor,M,52.3,2.04,line,FV-058,15.5,24.7,True,53.04
+C0256,2023-07-23,Cairns Inlet,Coral Trout,U,38.6,0.83,net,FV-058,32.4,24.6,True,23.24
+C0069,2023-07-23,Trinity Bay,Spanish Mackerel,M,90.3,6.76,line,FV-041,12.2,24.8,True,121.68
+C0927,2023-07-23,Trinity Bay,Mangrove Jack,F,43.0,0.97,trap,FV-071,26.3,24.4,True,19.4
+C0965,2023-07-24,Fitzroy Reef,Spanish Mackerel,M,79.2,3.8,line,FV-034,15.8,24.7,True,68.4
+C1513,2023-07-24,Trinity Bay,Spanish Mackerel,M,83.8,4.42,trap,FV-012,21.1,24.5,True,79.56
+C0821,2023-07-24,Michaelmas Cay,Coral Trout,M,42.3,1.08,net,FV-058,20.4,25.3,True,30.24
+C0720,2023-07-25,Trinity Bay,Barramundi,M,55.8,2.56,line,FV-027,19.7,24.6,False,56.32
+C0284,2023-07-26,Cairns Inlet,Spanish Mackerel,F,78.2,4.35,net,FV-012,14.5,25.4,True,78.3
+C1773,2023-07-27,Cairns Inlet,Mangrove Jack,F,46.5,1.24,line,FV-071,8.0,24.0,True,24.8
+C1245,2023-07-27,Fitzroy Reef,Mangrove Jack,M,39.5,0.82,line,FV-063,11.5,25.4,True,16.4
+C0342,2023-07-27,Michaelmas Cay,Grass Emperor,U,27.9,0.34,spear,FV-034,27.4,26.2,False,5.1
+C0321,2023-07-27,Frankland Islands,Grass Emperor,U,23.0,0.17,spear,FV-034,32.9,24.0,False,2.55
+C1799,2023-07-28,Fitzroy Reef,Coral Trout,F,45.7,1.24,net,FV-034,27.0,24.6,True,34.72
+C1313,2023-07-28,Trinity Bay,Mangrove Jack,F,28.8,0.35,line,FV-027,4.1,24.1,False,7.0
+C1837,2023-07-29,Cairns Inlet,Mangrove Jack,F,37.5,0.77,line,FV-027,29.7,24.3,True,15.4
+C0461,2023-07-29,Fitzroy Reef,Mangrove Jack,M,32.7,0.53,trap,FV-027,25.4,23.8,False,10.6
+C1325,2023-07-30,Michaelmas Cay,Barramundi,M,81.7,8.59,line,FV-071,38.3,25.4,True,188.98
+C1932,2023-07-31,Fitzroy Reef,Coral Trout,U,48.6,1.53,spear,FV-071,27.5,26.0,True,42.84
+C1473,2023-07-31,Trinity Bay,Barramundi,U,60.1,3.04,line,FV-071,43.0,23.3,True,66.88
+C0469,2023-07-31,Fitzroy Reef,Coral Trout,M,53.9,2.11,line,FV-063,38.6,24.1,True,59.08
+C0916,2023-07-31,Trinity Bay,Spanish Mackerel,F,87.6,5.45,trap,FV-012,13.1,25.9,True,98.1
+C1848,2023-08-01,Trinity Bay,Red Emperor,F,46.5,1.51,line,FV-058,19.7,23.9,True,39.26
+C0148,2023-08-01,Trinity Bay,Mangrove Jack,M,49.7,1.86,line,FV-063,17.2,24.9,True,37.2
+C1843,2023-08-01,Trinity Bay,Red Emperor,F,50.5,2.08,line,FV-088,32.8,23.9,True,54.08
+C1972,2023-08-01,Trinity Bay,Spanish Mackerel,M,81.2,4.87,trap,FV-034,9.6,24.6,True,87.66
+C0193,2023-08-02,Frankland Islands,Mangrove Jack,F,52.9,2.25,line,FV-058,18.0,24.0,True,45.0
+C1150,2023-08-02,Cairns Inlet,Red Emperor,F,55.9,2.52,line,FV-027,40.1,24.6,True,65.52
+C0597,2023-08-02,Cairns Inlet,Mangrove Jack,M,39.9,1.0,spear,FV-063,22.9,24.3,True,20.0
+C0603,2023-08-02,Michaelmas Cay,Coral Trout,M,62.8,3.44,net,FV-034,3.2,24.6,True,96.32
+C1220,2023-08-03,Michaelmas Cay,Grass Emperor,M,36.4,0.73,line,FV-034,37.3,24.5,True,10.95
+C1872,2023-08-03,Fitzroy Reef,Mangrove Jack,U,36.8,0.66,net,FV-027,11.1,24.2,True,13.2
+C0118,2023-08-03,Fitzroy Reef,Mangrove Jack,F,41.5,1.06,net,FV-071,16.6,,True,21.2
+C0249,2023-08-04,Michaelmas Cay,Coral Trout,M,33.3,0.52,spear,FV-041,34.4,25.4,False,14.56
+C1784,2023-08-04,Green Island,Mangrove Jack,F,32.4,0.46,spear,FV-034,27.1,24.3,False,9.2
+C0787,2023-08-04,Green Island,Mangrove Jack,U,38.5,0.79,trap,FV-063,16.3,23.6,True,15.8
+C1354,2023-08-05,Trinity Bay,Coral Trout,F,49.0,1.55,line,FV-041,36.7,24.7,True,43.4
+C1570,2023-08-05,Trinity Bay,Barramundi,F,76.5,6.95,line,FV-012,41.2,24.5,True,152.9
+C1941,2023-08-06,Fitzroy Reef,Coral Trout,M,42.0,1.13,line,FV-027,25.4,25.0,True,31.64
+C1432,2023-08-06,Frankland Islands,Spanish Mackerel,F,90.6,6.3,net,FV-041,17.8,23.9,True,113.4
+C0191,2023-08-06,Green Island,Mangrove Jack,M,50.2,1.74,net,FV-058,32.9,23.6,True,34.8
+C0320,2023-08-07,Fitzroy Reef,Red Emperor,F,45.6,1.36,line,FV-071,28.0,23.9,True,35.36
+C0132,2023-08-07,Michaelmas Cay,Mangrove Jack,F,51.5,2.13,line,FV-088,43.8,24.2,True,42.6
+C0690,2023-08-08,Trinity Bay,Grass Emperor,U,42.6,1.17,trap,FV-088,34.1,24.2,True,17.55
+C0511,2023-08-08,Frankland Islands,Coral Trout,M,44.7,1.25,net,FV-063,21.6,25.0,True,35.0
+C1270,2023-08-08,Frankland Islands,Grass Emperor,F,26.4,0.3,trap,FV-012,4.5,23.6,False,4.5
+C0245,2023-08-08,Trinity Bay,Red Emperor,F,49.4,1.76,line,FV-041,17.4,24.8,True,45.76
+C0967,2023-08-09,Green Island,Coral Trout,F,45.8,1.45,line,FV-063,32.5,24.2,True,40.6
+C1379,2023-08-09,Cairns Inlet,Coral Trout,M,46.6,1.34,spear,FV-012,4.8,23.8,True,37.52
+C0789,2023-08-10,Fitzroy Reef,Barramundi,F,66.4,3.38,spear,FV-058,32.5,24.2,True,74.36
+C1778,2023-08-10,Frankland Islands,Coral Trout,U,46.5,1.2,spear,FV-027,14.5,24.1,True,33.6
+C1254,2023-08-11,Trinity Bay,Red Emperor,M,45.3,1.43,trap,FV-063,44.7,24.8,True,37.18
+C0866,2023-08-12,Frankland Islands,Spanish Mackerel,M,90.0,6.26,net,FV-063,28.5,24.3,True,112.68
+C1924,2023-08-12,Fitzroy Reef,Barramundi,F,61.4,2.99,trap,FV-027,11.1,24.2,True,65.78
+C1655,2023-08-12,Michaelmas Cay,Barramundi,M,64.7,3.28,net,FV-041,15.2,23.9,True,72.16
+C0029,2023-08-12,Frankland Islands,Mangrove Jack,F,50.7,1.81,line,FV-071,32.9,25.1,True,36.2
+C1619,2023-08-13,Green Island,Barramundi,M,68.1,4.94,line,FV-041,3.9,24.8,True,108.68
+C0521,2023-08-13,Cairns Inlet,Grass Emperor,M,39.2,1.05,net,FV-088,35.9,24.1,True,15.75
+C1381,2023-08-14,Cairns Inlet,Grass Emperor,F,33.2,0.6,line,FV-063,13.6,24.2,True,9.0
+C1216,2023-08-15,Fitzroy Reef,Mangrove Jack,F,48.9,1.51,line,FV-027,30.8,23.8,True,30.2
+C0465,2023-08-15,Fitzroy Reef,Barramundi,U,56.1,2.29,line,FV-041,17.6,23.4,False,50.38
+C1192,2023-08-15,Fitzroy Reef,Red Emperor,F,47.8,1.54,trap,FV-063,38.6,24.1,True,40.04
+C0014,2023-08-15,Frankland Islands,Barramundi,M,64.9,3.31,line,FV-063,27.1,24.4,True,72.82
+C1459,2023-08-16,Cairns Inlet,Spanish Mackerel,M,90.5,6.43,trap,FV-041,11.4,24.4,True,115.74
+C0344,2023-08-16,Fitzroy Reef,Grass Emperor,M,48.3,1.77,line,FV-034,19.8,23.3,True,26.55
+C1469,2023-08-16,Cairns Inlet,Grass Emperor,F,37.7,0.8,trap,FV-071,31.5,24.9,True,12.0
+C1649,2023-08-16,Cairns Inlet,Mangrove Jack,M,43.0,1.15,spear,FV-088,40.1,24.0,True,23.0
+C1658,2023-08-16,Green Island,Red Emperor,F,59.3,2.65,line,FV-027,3.8,24.2,True,68.9
+C1365,2023-08-16,Michaelmas Cay,Coral Trout,M,52.9,2.39,line,FV-012,38.6,24.6,True,66.92
+C1132,2023-08-17,Trinity Bay,Grass Emperor,F,36.5,0.74,line,FV-071,42.9,24.6,True,11.1
+C1630,2023-08-17,Frankland Islands,Barramundi,U,77.1,7.32,trap,FV-063,27.6,24.0,True,161.04
+C0368,2023-08-17,Frankland Islands,Barramundi,M,64.6,3.78,spear,FV-027,10.0,24.7,True,83.16
+C0753,2023-08-18,Michaelmas Cay,Coral Trout,M,60.6,3.0,line,FV-088,13.3,24.1,True,84.0
+C0510,2023-08-18,Green Island,Coral Trout,M,39.2,0.79,line,FV-088,14.2,25.2,True,22.12
+C1786,2023-08-18,Frankland Islands,Spanish Mackerel,U,95.6,6.96,line,FV-034,39.0,25.0,True,125.28
+C1829,2023-08-20,Frankland Islands,Barramundi,F,59.7,2.93,net,FV-071,16.1,23.2,True,64.46
+C1235,2023-08-20,Green Island,Coral Trout,M,41.9,1.11,line,FV-088,23.6,24.0,True,31.08
+C0113,2023-08-20,Green Island,Red Emperor,F,59.2,2.9,spear,FV-071,28.4,23.3,True,75.4
+C1028,2023-08-21,Trinity Bay,Coral Trout,F,35.7,0.63,spear,FV-034,15.6,22.8,False,17.64
+C1352,2023-08-22,Trinity Bay,Coral Trout,U,46.2,1.38,line,FV-071,11.7,24.2,True,38.64
+C0930,2023-08-22,Fitzroy Reef,Barramundi,U,61.1,3.43,line,FV-071,43.0,23.2,True,75.46
+C0775,2023-08-23,Trinity Bay,Barramundi,F,64.6,3.86,line,FV-012,16.1,23.4,True,84.92
+C1023,2023-08-23,Trinity Bay,Barramundi,U,75.8,6.24,trap,FV-063,39.3,23.5,True,137.28
+C0228,2023-08-23,Cairns Inlet,Coral Trout,U,34.3,0.57,net,FV-088,42.4,23.1,False,15.96
+C0288,2023-08-23,Michaelmas Cay,Coral Trout,M,34.4,0.61,spear,FV-041,15.8,22.8,False,17.08
+C1231,2023-08-24,Michaelmas Cay,Grass Emperor,F,42.2,1.27,trap,FV-063,21.1,24.0,True,19.05
+C0110,2023-08-24,Cairns Inlet,Mangrove Jack,F,45.1,1.28,trap,FV-058,39.3,23.7,True,25.6
+C1504,2023-08-24,Trinity Bay,Spanish Mackerel,M,81.5,4.63,spear,FV-088,28.9,23.7,True,83.34
+C0167,2023-08-25,Green Island,Mangrove Jack,U,27.5,0.27,spear,FV-041,26.5,24.2,False,5.4
+C0459,2023-08-25,Frankland Islands,Red Emperor,M,45.3,1.29,net,FV-058,8.2,23.6,True,33.54
+C0215,2023-08-25,Green Island,Mangrove Jack,M,29.7,0.37,trap,FV-088,33.9,24.2,False,7.4
+C0555,2023-08-26,Michaelmas Cay,Coral Trout,M,53.4,2.44,net,FV-027,31.0,23.3,True,68.32
+C0068,2023-08-27,Frankland Islands,Barramundi,F,59.2,2.85,line,FV-034,33.0,22.6,True,62.7
+C0436,2023-08-27,Trinity Bay,Coral Trout,F,40.1,0.83,line,FV-027,15.8,24.1,True,23.24
+C1266,2023-08-29,Trinity Bay,Mangrove Jack,U,32.1,0.44,trap,FV-088,12.5,23.0,False,8.8
+C0468,2023-08-29,Frankland Islands,Mangrove Jack,F,33.8,0.45,line,FV-034,5.1,22.9,False,9.0
+C1860,2023-08-29,Frankland Islands,Mangrove Jack,F,63.3,3.71,trap,FV-041,35.7,23.6,True,74.2
+C1958,2023-08-29,Trinity Bay,Coral Trout,M,39.9,0.87,net,FV-012,12.2,23.8,True,24.36
+C1213,2023-08-30,Cairns Inlet,Spanish Mackerel,F,70.9,2.92,net,FV-027,38.5,22.6,False,52.56
+C0383,2023-08-30,Cairns Inlet,Coral Trout,U,32.8,0.51,line,FV-071,27.2,23.3,False,14.28
+C1380,2023-08-30,Fitzroy Reef,Mangrove Jack,F,47.8,1.62,line,FV-088,14.9,23.6,True,32.4
+C0806,2023-08-30,Cairns Inlet,Coral Trout,M,51.2,1.83,net,FV-027,6.4,23.1,True,51.24
+C1030,2023-08-31,Green Island,Coral Trout,F,49.3,1.53,net,FV-034,15.7,24.0,True,42.84
+C0349,2023-09-02,Fitzroy Reef,Mangrove Jack,M,42.6,1.05,net,FV-034,30.1,22.9,True,21.0
+C1714,2023-09-02,Frankland Islands,Grass Emperor,M,30.0,0.42,spear,FV-088,44.9,22.8,True,6.3
+C0165,2023-09-03,Michaelmas Cay,Mangrove Jack,U,41.6,1.02,line,FV-058,43.2,22.8,True,20.4
+C1190,2023-09-03,Cairns Inlet,Grass Emperor,F,39.9,0.78,trap,FV-027,37.7,24.1,True,11.7
+C0845,2023-09-04,Cairns Inlet,Barramundi,F,74.5,5.48,spear,FV-012,21.2,23.6,True,120.56
+C1768,2023-09-04,Green Island,Barramundi,U,64.6,,net,FV-027,6.0,22.7,True,91.74
+C0282,2023-09-04,Michaelmas Cay,Coral Trout,F,33.0,0.53,spear,FV-034,6.2,24.9,False,14.84
+C1215,2023-09-05,Fitzroy Reef,Coral Trout,M,53.0,1.94,trap,FV-088,27.7,22.8,True,54.32
+C0728,2023-09-05,Frankland Islands,Mangrove Jack,M,42.7,1.02,spear,FV-058,11.2,22.4,True,20.4
+C1037,2023-09-05,Frankland Islands,Coral Trout,U,41.7,0.99,trap,FV-088,21.0,23.4,True,27.72
+C0023,2023-09-05,Trinity Bay,Barramundi,F,65.9,3.51,net,FV-058,36.5,23.3,True,77.22
+C1914,2023-09-06,Trinity Bay,Mangrove Jack,F,42.9,1.02,trap,FV-027,31.7,22.9,True,20.4
+C0997,2023-09-06,Michaelmas Cay,Barramundi,U,71.5,5.28,line,FV-058,35.3,23.2,True,116.16
+C1158,2023-09-06,Cairns Inlet,Spanish Mackerel,M,83.2,3.71,line,FV-027,18.4,22.4,True,66.78
+C1221,2023-09-07,Green Island,Spanish Mackerel,M,77.9,3.6,line,FV-071,32.8,23.7,True,64.8
+C0969,2023-09-08,Frankland Islands,Red Emperor,F,73.5,5.25,trap,FV-012,31.1,22.0,True,136.5
+C1505,2023-09-08,Green Island,Grass Emperor,U,37.9,0.77,trap,FV-012,10.2,24.2,True,11.55
+C0748,2023-09-08,Frankland Islands,Grass Emperor,F,25.3,0.23,spear,FV-034,26.7,22.4,False,3.45
+C0135,2023-09-09,Michaelmas Cay,Red Emperor,U,56.0,2.69,trap,FV-012,43.3,23.3,True,69.94
+C1377,2023-09-09,Cairns Inlet,Red Emperor,U,57.2,2.66,line,FV-034,20.3,23.5,True,69.16
+C0082,2023-09-09,Frankland Islands,Grass Emperor,U,22.2,0.17,spear,FV-034,32.2,23.3,False,2.55
+C1510,2023-09-09,Green Island,Spanish Mackerel,M,85.4,5.72,spear,FV-027,18.1,24.1,True,102.96
+C1566,2023-09-10,Green Island,Coral Trout,M,40.5,0.81,spear,FV-071,11.4,22.8,True,22.68
+C0783,2023-09-10,Michaelmas Cay,Barramundi,M,54.4,2.33,spear,FV-034,6.8,22.6,False,51.26
+C1847,2023-09-10,Green Island,Barramundi,M,63.8,3.59,spear,FV-058,44.1,23.6,True,78.98
+C1318,2023-09-10,Fitzroy Reef,Barramundi,M,72.9,5.52,trap,FV-071,41.4,22.0,True,121.44
+C1736,2023-09-10,Green Island,Mangrove Jack,M,42.4,1.06,spear,FV-041,24.9,22.3,True,21.2
+C1302,2023-09-10,Green Island,Mangrove Jack,F,30.9,0.44,spear,FV-034,36.6,22.5,False,8.8
+C1591,2023-09-11,Michaelmas Cay,Coral Trout,F,57.8,2.72,line,FV-058,19.1,22.7,True,76.16
+C1540,2023-09-11,Trinity Bay,Coral Trout,U,32.0,0.46,line,FV-034,20.3,23.3,False,12.88
+C1699,2023-09-12,Cairns Inlet,Spanish Mackerel,F,86.9,5.44,trap,FV-058,37.8,22.6,True,97.92
+C0159,2023-09-12,Frankland Islands,Barramundi,F,73.2,5.98,line,FV-041,8.8,22.6,True,131.56
+C0585,2023-09-12,Trinity Bay,Coral Trout,M,38.9,0.72,net,FV-041,7.9,23.2,True,20.16
+C0888,2023-09-12,Frankland Islands,Coral Trout,M,41.7,1.15,spear,FV-041,19.9,22.5,True,32.2
+C1979,2023-09-13,Michaelmas Cay,Coral Trout,F,46.5,1.37,line,FV-012,14.1,23.2,True,38.36
+C1187,2023-09-14,Trinity Bay,Spanish Mackerel,U,75.4,3.54,trap,FV-027,21.5,,True,63.72
+C1934,2023-09-14,Trinity Bay,Red Emperor,F,52.9,2.17,trap,FV-058,17.1,24.3,True,56.42
+C1344,2023-09-14,Fitzroy Reef,Mangrove Jack,F,39.2,0.88,net,FV-058,5.5,22.7,True,17.6
+C0906,2023-09-15,Trinity Bay,Spanish Mackerel,M,87.8,6.34,trap,FV-012,17.4,23.2,True,114.12
+C0826,2023-09-15,Fitzroy Reef,Grass Emperor,U,37.0,0.78,net,FV-063,33.3,23.6,True,11.7
+C0607,2023-09-15,Michaelmas Cay,Coral Trout,F,31.9,0.45,spear,FV-034,34.9,22.9,False,12.6
+C1086,2023-09-16,Michaelmas Cay,Red Emperor,M,40.3,0.85,line,FV-071,32.4,23.6,False,22.1
+C0362,2023-09-16,Michaelmas Cay,Mangrove Jack,M,33.3,0.52,spear,FV-034,18.8,23.7,False,10.4
+C1559,2023-09-16,Trinity Bay,Grass Emperor,F,28.1,0.32,line,FV-063,37.2,23.0,True,4.8
+C0197,2023-09-17,Cairns Inlet,Barramundi,F,54.3,2.39,net,FV-034,35.2,22.4,False,52.58
+C1729,2023-09-17,Michaelmas Cay,Coral Trout,M,36.9,0.69,spear,FV-027,39.2,24.2,False,19.32
+C0958,2023-09-17,Green Island,Spanish Mackerel,U,74.8,3.59,line,FV-071,38.4,23.6,False,64.62
+C0330,2023-09-18,Michaelmas Cay,Barramundi,U,88.4,10.47,trap,FV-063,13.2,23.0,True,230.34
+C1867,2023-09-19,Green Island,Red Emperor,M,47.8,1.46,line,FV-027,28.1,23.8,True,37.96
+C1186,2023-09-19,Trinity Bay,Red Emperor,M,55.7,2.62,trap,FV-058,42.4,24.0,True,68.12
+C0836,2023-09-19,Green Island,Barramundi,U,67.2,4.81,spear,FV-058,41.5,23.2,True,105.82
+C0887,2023-09-20,Green Island,Mangrove Jack,U,44.2,1.11,line,FV-071,32.2,22.4,True,22.2
+C0776,2023-09-20,Green Island,Mangrove Jack,M,37.8,0.72,net,FV-063,24.2,22.9,True,14.4
+C1151,2023-09-21,Frankland Islands,Spanish Mackerel,M,69.6,2.81,line,FV-034,25.8,23.5,False,50.58
+C1977,2023-09-21,Trinity Bay,Mangrove Jack,U,30.2,0.33,trap,FV-027,44.3,22.3,False,6.6
+C0327,2023-09-22,Green Island,Coral Trout,F,49.0,1.47,line,FV-088,14.7,24.3,True,41.16
+C0764,2023-09-22,Fitzroy Reef,Barramundi,M,66.4,4.61,spear,FV-071,40.1,22.9,True,101.42
+C0912,2023-09-22,Michaelmas Cay,Barramundi,M,57.0,2.78,spear,FV-034,16.8,22.5,False,61.16
+C1466,2023-09-23,Frankland Islands,Coral Trout,M,45.4,1.36,spear,FV-063,44.2,22.9,True,38.08
+C1155,2023-09-23,Green Island,Mangrove Jack,M,30.2,0.38,spear,FV-034,24.9,23.2,False,7.6
+C1775,2023-09-24,Cairns Inlet,Mangrove Jack,M,32.4,0.41,line,FV-071,30.0,23.3,False,8.2
+C1871,2023-09-24,Cairns Inlet,Mangrove Jack,M,31.4,0.38,line,FV-071,40.3,23.6,False,7.6
+C1425,2023-09-25,Cairns Inlet,Mangrove Jack,F,39.9,0.92,line,FV-012,28.5,23.1,True,18.4
+C0532,2023-09-25,Trinity Bay,Mangrove Jack,M,28.6,0.31,line,FV-041,37.7,23.3,False,6.2
+C0162,2023-09-25,Green Island,Coral Trout,F,51.4,1.81,line,FV-012,7.3,22.6,True,50.68
+C1531,2023-09-26,Green Island,Red Emperor,M,56.0,2.59,trap,FV-063,23.1,22.4,True,67.34
+C1503,2023-09-26,Green Island,Spanish Mackerel,F,70.8,2.69,line,FV-058,29.8,23.0,False,48.42
+C0645,2023-09-26,Green Island,Red Emperor,M,47.4,1.51,line,FV-063,31.3,23.3,True,39.26
+C1203,2023-09-26,Frankland Islands,Barramundi,F,51.5,1.68,spear,FV-012,38.9,22.7,False,36.96
+C1881,2023-09-27,Cairns Inlet,Coral Trout,M,44.1,1.36,trap,FV-058,14.1,23.5,True,38.08
+C0592,2023-09-27,Cairns Inlet,Mangrove Jack,M,49.3,1.49,line,FV-088,9.2,23.3,True,29.8
+C0782,2023-09-27,Fitzroy Reef,Red Emperor,U,48.5,1.62,net,FV-012,6.9,23.7,True,42.12
+C1541,2023-09-27,Michaelmas Cay,Barramundi,U,65.9,3.76,trap,FV-088,32.5,23.0,True,82.72
+C1284,2023-09-28,Green Island,Coral Trout,M,39.0,0.84,trap,FV-063,39.2,23.3,True,23.52
+C1036,2023-09-28,Green Island,Coral Trout,F,50.2,2.02,line,FV-034,11.4,22.8,True,56.56
+C1496,2023-09-29,Frankland Islands,Red Emperor,U,41.2,0.85,net,FV-071,43.3,23.1,False,22.1
+C1141,2023-09-29,Fitzroy Reef,Barramundi,U,64.5,3.41,net,FV-058,29.3,23.0,True,75.02
+C1211,2023-09-29,Michaelmas Cay,Coral Trout,M,59.2,2.81,line,FV-088,13.4,22.8,True,78.68
+C1990,2023-09-29,Cairns Inlet,Spanish Mackerel,U,85.7,5.82,trap,FV-071,36.3,22.9,True,104.76
+C0899,2023-09-30,Trinity Bay,Grass Emperor,F,39.2,0.83,line,FV-027,35.8,23.3,True,12.45
+C1604,2023-09-30,Cairns Inlet,Coral Trout,F,50.5,1.73,line,FV-034,41.2,23.2,True,48.44
+C0564,2023-09-30,Green Island,Grass Emperor,F,39.3,0.88,trap,FV-058,19.9,22.7,True,13.2
+C0779,2023-09-30,Frankland Islands,Grass Emperor,U,28.4,0.34,line,FV-088,21.4,23.9,True,5.1
+C1993,2023-10-01,Green Island,Grass Emperor,M,33.7,0.64,net,FV-034,35.9,23.5,True,9.6
+C0316,2023-10-01,Trinity Bay,Red Emperor,M,52.5,1.81,line,FV-088,33.4,23.2,True,47.06
+C1732,2023-10-02,Michaelmas Cay,Coral Trout,M,47.2,1.47,trap,FV-041,25.7,23.4,True,41.16
+C1115,2023-10-02,Frankland Islands,Barramundi,M,53.8,2.12,net,FV-071,16.4,23.5,False,46.64
+C0018,2023-10-02,Fitzroy Reef,Coral Trout,F,55.9,2.42,trap,FV-012,43.4,23.4,True,67.76
+C1994,2023-10-03,Cairns Inlet,Coral Trout,M,41.2,0.95,line,FV-027,29.6,23.0,True,26.6
+C0033,2023-10-04,Frankland Islands,Barramundi,U,50.5,1.77,trap,FV-027,33.3,23.0,False,38.94
+C1721,2023-10-04,Trinity Bay,Barramundi,F,66.6,4.09,net,FV-012,32.5,22.4,True,89.98
+C1253,2023-10-04,Green Island,Coral Trout,F,35.9,0.63,spear,FV-034,13.0,23.2,False,17.64
+C0654,2023-10-05,Trinity Bay,Grass Emperor,M,38.1,0.81,spear,FV-041,42.8,23.3,True,12.15
+C0049,2023-10-06,Michaelmas Cay,Spanish Mackerel,F,83.4,4.7,line,FV-088,38.5,23.4,True,84.6
+C1908,2023-10-06,Cairns Inlet,Mangrove Jack,F,52.2,1.81,line,FV-071,20.1,23.4,True,36.2
+C1261,2023-10-07,Trinity Bay,Mangrove Jack,U,56.5,2.75,line,FV-041,36.7,21.4,True,55.0
+C1398,2023-10-07,Cairns Inlet,Coral Trout,F,38.1,0.83,trap,FV-034,10.9,22.4,True,23.24
+C0056,2023-10-08,Michaelmas Cay,Barramundi,M,61.7,3.27,line,FV-063,11.2,23.0,True,71.94
+C0371,2023-10-08,Trinity Bay,Barramundi,M,73.6,5.44,line,FV-034,16.9,23.8,True,119.68
+C1210,2023-10-08,Green Island,Red Emperor,M,51.1,1.66,spear,FV-063,31.2,22.9,True,43.16
+C0618,2023-10-08,Cairns Inlet,Spanish Mackerel,U,79.8,5.05,net,FV-058,28.1,23.4,True,90.9
+C0169,2023-10-08,Green Island,Barramundi,F,62.0,3.56,trap,FV-041,24.6,23.8,True,78.32
+C1965,2023-10-08,Michaelmas Cay,Red Emperor,M,50.8,1.96,line,FV-071,8.8,23.8,True,50.96
+C1228,2023-10-08,Fitzroy Reef,Spanish Mackerel,U,69.4,2.74,line,FV-071,12.8,22.8,False,49.32
+C1692,2023-10-09,Frankland Islands,Mangrove Jack,M,39.7,0.97,line,FV-063,33.6,23.7,True,19.4
+C0296,2023-10-09,Green Island,Red Emperor,M,51.5,1.98,line,FV-088,25.3,23.7,True,51.48
+C1025,2023-10-09,Frankland Islands,Barramundi,M,65.2,4.01,trap,FV-012,35.3,22.9,True,88.22
+C1427,2023-10-09,Trinity Bay,Red Emperor,F,51.7,2.25,trap,FV-041,5.7,23.7,True,58.5
+C0852,2023-10-09,Green Island,Coral Trout,F,32.6,0.52,spear,FV-034,42.9,23.9,False,14.56
+C1628,2023-10-11,Michaelmas Cay,Grass Emperor,U,40.4,1.04,line,FV-088,18.6,22.6,True,15.6
+C0621,2023-10-11,Frankland Islands,Coral Trout,M,44.9,1.43,spear,FV-034,22.7,22.8,True,40.04
+C0304,2023-10-12,Cairns Inlet,Spanish Mackerel,U,81.1,4.91,net,FV-088,35.2,23.5,True,88.38
+C0784,2023-10-12,Cairns Inlet,Spanish Mackerel,M,93.7,7.61,spear,FV-058,17.5,22.5,True,136.98
+C0421,2023-10-12,Green Island,Mangrove Jack,M,49.4,1.58,spear,FV-041,12.3,23.1,True,31.6
+C0036,2023-10-12,Fitzroy Reef,Mangrove Jack,M,34.1,0.5,line,FV-071,33.2,22.5,False,10.0
+C1804,2023-10-12,Frankland Islands,Mangrove Jack,M,44.1,1.3,line,FV-088,37.3,24.1,True,26.0
+C0403,2023-10-13,Trinity Bay,Coral Trout,F,58.1,2.96,line,FV-088,9.2,22.7,True,82.88
+C0546,2023-10-13,Green Island,Barramundi,M,53.9,2.25,line,FV-071,4.0,23.9,False,49.5
+C0847,2023-10-13,Fitzroy Reef,Barramundi,M,64.5,4.11,trap,FV-058,10.1,22.6,True,90.42
+C0512,2023-10-14,Frankland Islands,Barramundi,U,74.4,6.38,line,FV-063,32.6,23.5,True,140.36
+C0481,2023-10-14,Trinity Bay,Mangrove Jack,M,42.6,1.13,spear,FV-012,23.2,23.0,True,22.6
+C0872,2023-10-14,Frankland Islands,Coral Trout,U,32.8,0.47,trap,FV-071,28.3,23.7,False,13.16
+C1573,2023-10-14,Michaelmas Cay,Grass Emperor,M,40.8,1.01,spear,FV-012,44.6,23.7,True,15.15
+C1128,2023-10-15,Cairns Inlet,Mangrove Jack,U,40.4,0.75,spear,FV-034,37.5,23.9,True,15.0
+C1301,2023-10-15,Green Island,Red Emperor,F,43.3,0.92,line,FV-071,5.7,22.6,False,23.92
+C0396,2023-10-15,Fitzroy Reef,Grass Emperor,F,31.5,0.52,spear,FV-034,43.0,23.8,True,7.8
+C0464,2023-10-15,Frankland Islands,Coral Trout,F,44.4,1.36,line,FV-012,7.9,22.5,True,38.08
+C1717,2023-10-16,Michaelmas Cay,Red Emperor,M,63.8,3.95,net,FV-058,5.9,23.9,True,102.7
+C0663,2023-10-16,Michaelmas Cay,Spanish Mackerel,F,83.9,4.8,spear,FV-058,12.5,23.3,True,86.4
+C0904,2023-10-16,Frankland Islands,Coral Trout,M,38.9,0.86,spear,FV-034,44.1,23.6,True,24.08
+C0042,2023-10-16,Frankland Islands,Mangrove Jack,U,30.2,0.37,net,FV-071,28.1,22.2,False,7.4
+C1654,2023-10-17,Green Island,Barramundi,F,51.9,1.91,net,FV-041,4.4,23.4,False,42.02
+C0649,2023-10-17,Green Island,Mangrove Jack,M,27.4,0.28,net,FV-071,37.3,22.5,False,5.6
+C1904,2023-10-18,Trinity Bay,Red Emperor,F,48.6,1.68,net,FV-058,14.4,23.4,True,43.68
+C0979,2023-10-18,Frankland Islands,Barramundi,U,54.0,1.94,spear,FV-071,22.6,23.1,False,42.68
+C0702,2023-10-18,Green Island,Mangrove Jack,M,31.8,0.46,spear,FV-034,37.5,23.0,False,9.2
+C1129,2023-10-19,Green Island,Spanish Mackerel,M,85.9,6.19,line,FV-041,22.3,22.8,True,111.42
+C0100,2023-10-19,Trinity Bay,Coral Trout,F,43.5,1.26,trap,FV-063,5.4,23.6,True,35.28
+C0543,2023-10-20,Frankland Islands,Barramundi,F,75.3,5.8,net,FV-041,34.5,22.6,True,127.6
+C1672,2023-10-20,Green Island,Grass Emperor,F,22.3,0.14,trap,FV-012,19.6,22.3,False,2.1
+C0957,2023-10-20,Fitzroy Reef,Barramundi,F,78.3,7.36,spear,FV-012,29.8,22.4,True,161.92
+C1534,2023-10-21,Cairns Inlet,Mangrove Jack,M,40.9,1.02,net,FV-027,9.0,23.2,True,20.4
+C0420,2023-10-21,Michaelmas Cay,Grass Emperor,F,42.1,1.31,net,FV-027,9.4,23.1,True,19.65
+C1050,2023-10-21,Trinity Bay,Barramundi,F,76.4,6.65,line,FV-071,7.7,24.5,True,146.3
+C1917,2023-10-21,Cairns Inlet,Coral Trout,M,50.8,1.89,trap,FV-012,31.4,23.2,True,52.92
+C0309,2023-10-21,Cairns Inlet,Spanish Mackerel,F,74.3,3.95,net,FV-027,25.4,23.6,False,71.1
+C1719,2023-10-21,Cairns Inlet,Grass Emperor,F,21.4,0.14,spear,FV-034,22.6,22.8,False,2.1
+C0498,2023-10-22,Trinity Bay,Coral Trout,M,43.7,1.06,line,FV-034,33.5,25.6,True,29.68
+C0335,2023-10-22,Green Island,Barramundi,M,68.6,4.3,trap,FV-027,31.8,23.1,True,94.6
+C0238,2023-10-23,Michaelmas Cay,Grass Emperor,F,26.5,0.32,spear,FV-034,6.0,22.7,False,4.8
+C0659,2023-10-23,Trinity Bay,Red Emperor,F,47.1,1.48,line,FV-012,24.4,23.3,True,38.48
+C0917,2023-10-23,Trinity Bay,Grass Emperor,U,49.2,1.86,line,FV-041,35.6,24.5,True,27.9
+C1109,2023-10-24,Trinity Bay,Mangrove Jack,M,39.9,1.02,net,FV-063,32.1,24.6,True,20.4
+C0496,2023-10-24,Green Island,Coral Trout,M,38.0,0.7,line,FV-012,8.7,23.7,True,19.6
+C1716,2023-10-25,Michaelmas Cay,Mangrove Jack,M,40.2,0.81,net,FV-012,44.0,24.7,True,16.2
+C1173,2023-10-25,Trinity Bay,Grass Emperor,F,32.2,0.54,trap,FV-027,26.5,23.4,True,8.1
+C1985,2023-10-25,Trinity Bay,Barramundi,F,57.3,3.16,spear,FV-034,10.4,23.3,False,69.52
+C1725,2023-10-25,Fitzroy Reef,Grass Emperor,F,41.4,1.19,spear,FV-034,11.8,22.8,True,17.85
+C0449,2023-10-25,Trinity Bay,Coral Trout,F,56.6,2.45,net,FV-027,12.5,23.0,True,68.6
+C0220,2023-10-25,Michaelmas Cay,Spanish Mackerel,F,74.9,3.75,spear,FV-034,32.0,23.3,False,67.5
+C1400,2023-10-25,Trinity Bay,Coral Trout,U,55.4,2.33,net,FV-012,41.8,23.2,True,65.24
+C0601,2023-10-26,Michaelmas Cay,Coral Trout,M,43.1,1.09,spear,FV-071,29.5,23.1,True,30.52
+C1489,2023-10-26,Cairns Inlet,Barramundi,M,71.3,5.37,line,FV-063,24.8,23.5,True,118.14
+C1327,2023-10-26,Cairns Inlet,Spanish Mackerel,M,88.8,5.85,trap,FV-088,7.7,22.9,True,105.3
+C0994,2023-10-26,Fitzroy Reef,Coral Trout,U,46.0,1.18,line,FV-041,31.0,22.9,True,33.04
+C1493,2023-10-27,Fitzroy Reef,Spanish Mackerel,M,83.0,4.49,spear,FV-088,22.5,22.6,True,80.82
+C0456,2023-10-27,Michaelmas Cay,Mangrove Jack,M,33.8,0.62,spear,FV-041,3.1,24.1,False,12.4
+C0287,2023-10-28,Fitzroy Reef,Mangrove Jack,U,35.6,0.57,line,FV-071,9.8,22.7,True,11.4
+C1472,2023-10-28,Michaelmas Cay,Coral Trout,F,40.9,0.85,trap,FV-063,42.2,23.5,True,23.8
+C1947,2023-10-28,Green Island,Red Emperor,M,51.9,2.23,trap,FV-063,33.6,22.0,True,57.98
+C0332,2023-10-28,Frankland Islands,Barramundi,F,58.0,2.87,spear,FV-027,12.5,24.0,True,63.14
+C0385,2023-10-28,Trinity Bay,Barramundi,M,88.1,9.53,trap,FV-058,37.1,23.6,True,209.66
+C0832,2023-10-29,Fitzroy Reef,Red Emperor,M,54.3,,line,FV-071,14.1,23.4,True,57.98
+C1130,2023-10-29,Cairns Inlet,Grass Emperor,M,49.3,1.92,net,FV-063,12.2,23.0,True,28.8
+C0841,2023-10-30,Frankland Islands,Coral Trout,F,58.8,2.97,spear,FV-012,32.3,22.1,True,83.16
+C0651,2023-10-30,Cairns Inlet,Mangrove Jack,M,46.3,1.38,net,FV-041,13.2,23.6,True,27.6
+C1101,2023-10-30,Frankland Islands,Grass Emperor,F,38.6,1.03,net,FV-027,40.1,23.9,True,15.45
+C0891,2023-10-30,Michaelmas Cay,Red Emperor,F,58.0,2.91,line,FV-088,13.3,23.6,True,75.66
+C1528,2023-10-30,Frankland Islands,Barramundi,F,65.8,3.52,trap,FV-088,34.7,23.0,True,77.44
+C1507,2023-10-31,Green Island,Spanish Mackerel,F,84.3,5.44,spear,FV-088,22.4,23.8,True,97.92
+C1606,2023-10-31,Trinity Bay,Spanish Mackerel,M,86.2,5.23,spear,FV-063,44.5,23.3,True,94.14
+C0924,2023-10-31,Trinity Bay,Red Emperor,F,46.4,1.43,spear,FV-027,30.8,22.6,True,37.18
+C0985,2023-11-01,Trinity Bay,Grass Emperor,F,38.4,0.86,trap,FV-027,23.9,23.9,True,12.9
+C1669,2023-11-01,Trinity Bay,Mangrove Jack,F,43.7,1.17,line,FV-058,6.9,24.4,True,23.4
+C1240,2023-11-01,Frankland Islands,Barramundi,M,62.5,3.28,line,FV-058,36.7,22.9,True,72.16
+C0048,2023-11-01,Cairns Inlet,Spanish Mackerel,F,77.5,3.94,net,FV-071,26.4,23.3,True,70.92
+C0376,2023-11-02,Michaelmas Cay,Spanish Mackerel,M,79.9,4.52,line,FV-088,5.6,23.2,True,81.36
+C1620,2023-11-03,Trinity Bay,Barramundi,M,64.0,4.0,spear,FV-034,43.6,24.9,True,88.0
+C0781,2023-11-03,Frankland Islands,Red Emperor,U,56.5,2.4,spear,FV-027,25.5,23.6,True,62.4
+C1347,2023-11-03,Trinity Bay,Spanish Mackerel,M,69.5,3.06,spear,FV-034,23.4,23.7,False,55.08
+C0053,2023-11-04,Michaelmas Cay,Mangrove Jack,M,36.7,0.77,net,FV-088,25.9,22.9,True,15.4
+C0051,2023-11-04,Fitzroy Reef,Coral Trout,U,40.7,0.87,line,FV-041,18.6,24.6,True,24.36
+C0749,2023-11-05,Michaelmas Cay,Red Emperor,M,44.6,1.24,spear,FV-034,43.5,23.3,False,32.24
+C0492,2023-11-05,Green Island,Mangrove Jack,M,34.5,0.63,line,FV-058,41.3,22.8,False,12.6
+C1375,2023-11-08,Fitzroy Reef,Barramundi,M,72.1,4.67,spear,FV-088,44.8,24.1,True,102.74
+C1593,2023-11-08,Cairns Inlet,Barramundi,U,73.9,5.55,line,FV-088,35.8,23.5,True,122.1
+C1844,2023-11-09,Trinity Bay,Coral Trout,F,45.2,1.19,net,FV-027,5.4,24.6,True,33.32
+C0166,2023-11-09,Michaelmas Cay,Mangrove Jack,M,42.2,1.05,line,FV-041,14.6,24.6,True,21.0
+C0594,2023-11-09,Cairns Inlet,Barramundi,F,65.3,4.04,line,FV-041,39.0,24.0,True,88.88
+C1955,2023-11-10,Michaelmas Cay,Spanish Mackerel,U,80.1,5.0,net,FV-027,31.6,23.0,True,90.0
+C0610,2023-11-10,Green Island,Red Emperor,U,47.0,1.57,trap,FV-041,17.0,23.8,True,40.82
+C0491,2023-11-10,Trinity Bay,Barramundi,M,66.2,3.76,line,FV-027,10.0,23.5,True,82.72
+C1188,2023-11-10,Trinity Bay,Mangrove Jack,F,47.3,1.43,trap,FV-058,26.5,23.5,True,28.6
+C0072,2023-11-10,Cairns Inlet,Barramundi,M,59.2,3.0,line,FV-071,22.0,22.8,True,66.0
+C0999,2023-11-10,Cairns Inlet,Coral Trout,M,47.9,1.39,trap,FV-088,16.4,22.5,True,38.92
+C0771,2023-11-11,Michaelmas Cay,Barramundi,M,59.8,,trap,FV-058,19.6,23.3,True,63.8
+C1632,2023-11-11,Michaelmas Cay,Barramundi,F,56.6,2.57,spear,FV-034,20.4,23.5,False,56.54
+C0688,2023-11-12,Trinity Bay,Coral Trout,M,50.6,1.91,net,FV-027,21.4,23.1,True,53.48
+C1622,2023-11-12,Cairns Inlet,Mangrove Jack,F,38.1,0.79,line,FV-012,29.4,23.8,True,15.8
+C1148,2023-11-13,Cairns Inlet,Grass Emperor,U,31.6,0.45,line,FV-088,30.0,24.1,True,6.75
+C0364,2023-11-13,Trinity Bay,Red Emperor,M,64.5,3.9,line,FV-058,38.0,23.6,True,101.4
+C1827,2023-11-14,Cairns Inlet,Coral Trout,F,46.9,1.35,line,FV-012,43.4,23.5,True,37.8
+C1983,2023-11-14,Green Island,Coral Trout,F,42.6,1.1,spear,FV-034,19.0,24.5,True,30.8
+C0020,2023-11-14,Green Island,Mangrove Jack,M,39.4,0.84,line,FV-063,13.6,24.5,True,16.8
+C0523,2023-11-14,Trinity Bay,Mangrove Jack,M,48.2,1.54,line,FV-034,41.2,24.3,True,30.8
+C0099,2023-11-15,Frankland Islands,Grass Emperor,U,34.7,0.58,net,FV-063,27.2,23.2,True,8.7
+C1876,2023-11-15,Trinity Bay,Mangrove Jack,F,49.9,1.75,line,FV-041,3.6,24.1,True,35.0
+C1857,2023-11-15,Fitzroy Reef,Coral Trout,F,48.9,1.89,line,FV-088,17.6,25.1,True,52.92
+C0708,2023-11-15,Fitzroy Reef,Red Emperor,M,45.2,1.4,trap,FV-058,9.8,24.1,True,36.4
+C1329,2023-11-15,Cairns Inlet,Mangrove Jack,F,52.7,2.18,trap,FV-071,20.7,23.2,True,43.6
+C0709,2023-11-16,Frankland Islands,Grass Emperor,F,25.7,0.26,line,FV-071,37.5,23.8,False,3.9
+C0236,2023-11-16,Green Island,Grass Emperor,M,34.4,0.73,line,FV-071,25.3,24.1,True,10.95
+C0549,2023-11-17,Fitzroy Reef,Mangrove Jack,M,45.1,1.52,line,FV-034,44.3,23.3,True,30.4
+C0163,2023-11-17,Trinity Bay,Barramundi,M,60.2,3.34,spear,FV-041,4.0,23.9,True,73.48
+C1246,2023-11-17,Fitzroy Reef,Grass Emperor,U,36.1,0.78,spear,FV-071,26.4,23.0,True,11.7
+C0934,2023-11-17,Frankland Islands,Coral Trout,,35.1,0.67,net,FV-041,11.3,23.4,False,18.76
+C0563,2023-11-17,Trinity Bay,Barramundi,M,60.3,3.27,trap,FV-063,20.3,24.0,True,71.94
+C1839,2023-11-17,Green Island,Grass Emperor,F,35.1,0.58,spear,FV-012,25.5,24.2,True,8.7
+C0285,2023-11-18,Green Island,Mangrove Jack,M,58.3,2.77,trap,FV-058,32.8,24.4,True,55.4
+C0514,2023-11-19,Fitzroy Reef,Barramundi,M,68.4,4.21,line,FV-027,43.1,24.1,True,92.62
+C0882,2023-11-19,Frankland Islands,Coral Trout,F,48.8,1.68,spear,FV-012,24.2,24.0,True,47.04
+C1539,2023-11-19,Trinity Bay,Red Emperor,M,57.4,2.53,line,FV-012,42.0,24.1,True,65.78
+C1164,2023-11-19,Green Island,Barramundi,F,67.9,3.97,line,FV-027,19.2,23.7,True,87.34
+C1905,2023-11-19,Cairns Inlet,Coral Trout,M,62.9,3.44,line,FV-027,22.7,24.7,True,96.32
+C0810,2023-11-19,Trinity Bay,Barramundi,M,69.3,4.72,net,FV-041,40.6,24.4,True,103.84
+C0664,2023-11-20,Michaelmas Cay,Spanish Mackerel,F,81.8,4.36,line,FV-027,7.3,23.7,True,78.48
+C1019,2023-11-20,Frankland Islands,Coral Trout,U,58.5,2.89,spear,FV-088,14.9,24.2,True,80.92
+C0134,2023-11-20,Cairns Inlet,Barramundi,U,62.8,3.53,line,FV-041,15.3,23.4,True,77.66
+C1026,2023-11-20,Fitzroy Reef,Mangrove Jack,F,36.9,0.67,line,FV-012,19.1,24.8,True,13.4
+C0996,2023-11-21,Green Island,Coral Trout,M,34.2,0.53,line,FV-071,14.3,24.0,False,14.84
+C1307,2023-11-21,Frankland Islands,Red Emperor,F,63.5,3.97,line,FV-063,9.0,24.2,True,103.22
+C1110,2023-11-21,Frankland Islands,Barramundi,U,73.6,5.74,trap,FV-027,19.2,24.3,True,126.28
+C0883,2023-11-22,Fitzroy Reef,Coral Trout,F,43.2,1.11,spear,FV-034,11.2,25.0,True,31.08
+C1452,2023-11-23,Green Island,Barramundi,F,66.3,3.29,spear,FV-058,29.9,25.3,True,72.38
+C1177,2023-11-23,Green Island,Grass Emperor,M,38.8,0.76,net,FV-012,20.6,23.3,True,11.4
+C1343,2023-11-23,Cairns Inlet,Coral Trout,M,38.7,0.8,line,FV-058,7.9,24.1,True,22.4
+C1920,2023-11-23,Fitzroy Reef,Barramundi,F,58.3,3.25,spear,FV-041,41.9,23.5,True,71.5
+C1956,2023-11-24,Green Island,Coral Trout,F,50.2,1.67,net,FV-012,30.2,24.7,True,46.76
+C0246,2023-11-24,Frankland Islands,Mangrove Jack,M,50.9,1.74,trap,FV-063,4.8,24.3,True,34.8
+C1441,2023-11-26,Green Island,Mangrove Jack,M,38.7,0.94,line,FV-027,20.7,25.2,True,18.8
+C0299,2023-11-27,Cairns Inlet,Mangrove Jack,M,38.1,0.84,line,FV-027,5.9,24.9,True,16.8
+C1863,2023-11-27,Trinity Bay,Barramundi,F,59.0,3.15,spear,FV-012,44.4,24.2,True,69.3
+C0161,2023-11-27,Fitzroy Reef,Coral Trout,M,51.6,1.89,net,FV-058,12.9,23.6,True,52.92
+C1991,2023-11-27,Green Island,Grass Emperor,F,34.3,0.58,line,FV-027,36.1,24.4,True,8.7
+C0951,2023-11-28,Frankland Islands,Grass Emperor,M,38.6,0.99,net,FV-034,40.6,24.4,True,14.85
+C1140,2023-11-29,Trinity Bay,Spanish Mackerel,F,76.5,3.8,line,FV-088,43.8,23.6,True,68.4
+C0252,2023-11-30,Frankland Islands,Grass Emperor,M,42.1,1.09,trap,FV-071,40.8,24.1,True,16.35
+C1401,2023-11-30,Cairns Inlet,Red Emperor,M,46.9,1.51,net,FV-034,19.6,25.8,True,39.26
+C0155,2023-12-01,Cairns Inlet,Red Emperor,M,59.0,3.3,line,FV-012,7.3,24.1,True,85.8
+C0431,2023-12-01,Frankland Islands,Spanish Mackerel,U,70.6,3.3,net,FV-071,34.6,23.9,False,59.4
+C0074,2023-12-02,Trinity Bay,Mangrove Jack,F,40.5,0.98,trap,FV-058,23.6,24.3,True,19.6
+C0484,2023-12-02,Fitzroy Reef,Mangrove Jack,F,59.0,2.93,net,FV-012,12.9,24.3,True,58.6
+C1421,2023-12-02,Fitzroy Reef,Spanish Mackerel,M,88.3,5.81,net,FV-058,29.7,24.9,True,104.58
+C1940,2023-12-02,Frankland Islands,Grass Emperor,U,35.8,0.7,spear,FV-027,14.1,23.9,True,10.5
+C1000,2023-12-04,Michaelmas Cay,Mangrove Jack,F,62.1,3.64,trap,FV-088,12.6,24.6,True,72.8
+C1185,2023-12-04,Cairns Inlet,Barramundi,F,64.7,4.25,line,FV-071,7.4,25.9,True,93.5
+C1057,2023-12-04,Cairns Inlet,Coral Trout,M,71.4,5.63,line,FV-041,34.9,23.9,True,157.64
+C1525,2023-12-04,Frankland Islands,Mangrove Jack,M,39.9,0.96,line,FV-063,10.4,25.0,True,19.2
+C1685,2023-12-05,Michaelmas Cay,Mangrove Jack,M,41.4,1.21,trap,FV-058,40.8,24.7,True,24.2
+C0812,2023-12-05,Green Island,Coral Trout,M,32.8,0.49,line,FV-058,20.8,25.1,False,13.72
+C0147,2023-12-05,Green Island,Barramundi,F,68.9,3.84,spear,FV-027,10.9,25.6,True,84.48
+C1332,2023-12-05,Frankland Islands,Mangrove Jack,M,45.0,1.15,net,FV-088,7.6,25.2,True,23.0
+C0435,2023-12-06,Cairns Inlet,Barramundi,M,66.7,4.3,line,FV-034,38.9,25.5,True,94.6
+C0307,2023-12-06,Trinity Bay,Barramundi,M,60.2,3.0,line,FV-063,9.9,25.8,True,66.0
+C0251,2023-12-06,Frankland Islands,Spanish Mackerel,F,70.5,2.7,spear,FV-034,9.4,23.9,False,48.6
+C1338,2023-12-07,Cairns Inlet,Spanish Mackerel,F,85.1,5.78,line,FV-058,7.6,24.3,True,104.04
+C1448,2023-12-08,Frankland Islands,Spanish Mackerel,U,77.4,4.02,line,FV-012,34.9,25.5,True,72.36
+C1011,2023-12-08,Green Island,Mangrove Jack,F,46.2,1.48,net,FV-034,9.0,23.7,True,29.6
+C1095,2023-12-09,Frankland Islands,Coral Trout,F,54.3,2.35,trap,FV-041,36.2,24.9,True,65.8
+C1465,2023-12-09,Fitzroy Reef,Barramundi,U,62.1,3.29,line,FV-012,36.3,25.1,True,72.38
+C1016,2023-12-10,Trinity Bay,Coral Trout,M,42.2,1.06,spear,FV-063,24.2,25.3,True,29.68
+C1394,2023-12-10,Michaelmas Cay,Grass Emperor,U,24.8,0.22,spear,FV-034,24.2,24.8,False,3.3
+C0401,2023-12-10,Fitzroy Reef,Spanish Mackerel,M,78.2,3.62,trap,FV-041,13.3,23.8,True,65.16
+C0868,2023-12-10,Trinity Bay,Grass Emperor,F,30.9,0.44,trap,FV-058,8.5,24.6,True,6.6
+C0655,2023-12-11,Trinity Bay,Barramundi,F,58.8,2.88,line,FV-041,33.1,25.1,True,63.36
+C0314,2023-12-11,Frankland Islands,Barramundi,F,53.5,2.36,trap,FV-058,11.5,24.6,False,51.92
+C0276,2023-12-12,Fitzroy Reef,Red Emperor,M,50.9,2.05,line,FV-027,42.8,25.6,True,53.3
+C0766,2023-12-13,Fitzroy Reef,Red Emperor,M,44.3,1.18,line,FV-034,40.8,25.1,False,30.68
+C1516,2023-12-13,Frankland Islands,Red Emperor,M,63.9,3.35,trap,FV-063,21.6,25.9,True,87.1
+C1434,2023-12-13,Cairns Inlet,Red Emperor,M,49.6,1.77,line,FV-058,8.8,24.3,True,46.02
+C1776,2023-12-13,Frankland Islands,Barramundi,M,73.1,5.87,spear,FV-012,36.6,24.8,True,129.14
+C1202,2023-12-14,Fitzroy Reef,Coral Trout,U,29.0,0.35,trap,FV-071,12.6,25.9,False,9.8
+C0599,2023-12-14,Fitzroy Reef,Mangrove Jack,U,45.4,1.21,spear,FV-012,24.9,24.8,True,24.2
+C1851,2023-12-14,Cairns Inlet,Spanish Mackerel,M,77.7,3.89,line,FV-012,9.1,25.2,True,70.02
+C0441,2023-12-14,Trinity Bay,Red Emperor,M,43.6,1.11,net,FV-071,21.5,25.7,False,28.86
+C1288,2023-12-14,Michaelmas Cay,Mangrove Jack,M,43.8,1.25,line,FV-071,20.6,25.1,True,25.0
+C0794,2023-12-14,Trinity Bay,Red Emperor,M,52.7,2.23,line,FV-058,34.2,24.7,True,57.98
+C0341,2023-12-15,Frankland Islands,Coral Trout,M,34.0,0.58,line,FV-063,10.5,26.8,False,16.24
+C1666,2023-12-16,Green Island,Spanish Mackerel,U,72.9,3.2,trap,FV-071,29.1,25.1,False,57.6
+C1047,2023-12-17,Trinity Bay,Coral Trout,M,47.1,1.3,line,FV-063,37.9,25.9,True,36.4
+C0880,2023-12-17,Fitzroy Reef,Barramundi,F,52.9,2.03,line,FV-071,25.7,25.8,False,44.66
+C0213,2023-12-17,Cairns Inlet,Barramundi,M,84.9,7.39,line,FV-063,24.4,24.5,True,162.58
+C1605,2023-12-17,Michaelmas Cay,Spanish Mackerel,F,75.9,3.62,line,FV-027,33.8,24.9,True,65.16
+C1258,2023-12-17,Frankland Islands,Coral Trout,F,46.5,1.15,line,FV-071,10.8,26.4,True,32.2
+C1435,2023-12-17,Green Island,Spanish Mackerel,M,88.9,5.98,trap,FV-041,9.3,25.2,True,107.64
+C0259,2023-12-17,Cairns Inlet,Barramundi,U,53.6,2.14,line,FV-071,28.5,25.1,False,47.08
+C1486,2023-12-19,Fitzroy Reef,Mangrove Jack,F,42.2,1.08,line,FV-088,17.5,25.6,True,21.6
+C0363,2023-12-19,Green Island,Grass Emperor,U,36.5,0.63,line,FV-071,28.6,26.1,True,9.45
+C1791,2023-12-19,Michaelmas Cay,Grass Emperor,F,44.8,1.32,line,FV-071,43.6,25.7,True,19.8
+C1682,2023-12-19,Trinity Bay,Mangrove Jack,U,34.1,0.56,line,FV-071,13.6,25.7,False,11.2
+C1561,2023-12-19,Cairns Inlet,Grass Emperor,M,35.1,0.62,net,FV-063,34.2,25.3,True,9.3
+C1340,2023-12-19,Fitzroy Reef,Spanish Mackerel,F,83.8,5.33,net,FV-063,27.9,26.8,True,95.94
+C1747,2023-12-20,Green Island,Barramundi,M,65.9,3.75,line,FV-063,8.2,26.1,True,82.5
+C1182,2023-12-20,Green Island,Red Emperor,M,54.1,2.52,net,FV-063,39.5,25.6,True,65.52
+C0196,2023-12-22,Frankland Islands,Mangrove Jack,U,41.1,0.88,net,FV-027,14.3,25.1,True,17.6
+C0817,2023-12-22,Trinity Bay,Barramundi,U,63.7,3.65,line,FV-012,10.5,25.2,True,80.3
+C1008,2023-12-22,Cairns Inlet,Coral Trout,M,38.3,0.79,net,FV-027,23.0,,True,22.12
+C0956,2023-12-22,Trinity Bay,Barramundi,U,71.7,3.79,line,FV-027,26.9,25.6,True,83.38
+C0381,2023-12-22,Michaelmas Cay,Coral Trout,M,39.0,0.8,spear,FV-027,29.7,26.4,True,22.4
+C1031,2023-12-23,Trinity Bay,Coral Trout,F,54.2,2.18,net,FV-071,10.7,25.6,True,61.04
+C0608,2023-12-23,Michaelmas Cay,Red Emperor,F,48.3,1.54,trap,FV-027,29.4,26.3,True,40.04
+C1805,2023-12-23,Green Island,Barramundi,M,68.4,4.11,line,FV-088,3.7,25.1,True,90.42
+C1257,2023-12-24,Michaelmas Cay,Coral Trout,M,47.5,1.63,line,FV-041,42.6,24.5,True,45.64
+C0054,2023-12-25,Cairns Inlet,Mangrove Jack,M,37.5,0.82,net,FV-034,5.6,25.2,True,16.4
+C0149,2023-12-26,Trinity Bay,Barramundi,M,78.7,7.84,net,FV-041,12.1,25.7,True,172.48
+C0050,2023-12-27,Trinity Bay,Mangrove Jack,F,31.3,0.37,spear,FV-041,30.9,25.1,False,7.4
+C0526,2023-12-27,Michaelmas Cay,Spanish Mackerel,F,90.4,6.39,trap,FV-012,7.3,25.9,True,115.02
+C0348,2023-12-28,Green Island,Spanish Mackerel,F,91.4,7.58,line,FV-027,38.4,26.3,True,136.44
+C1322,2023-12-28,Trinity Bay,Barramundi,M,60.8,2.99,net,FV-071,6.9,26.6,True,65.78
+C1060,2023-12-28,Trinity Bay,Coral Trout,U,47.3,1.45,line,FV-071,44.8,25.1,True,40.6
+C0756,2023-12-28,Fitzroy Reef,Grass Emperor,U,29.8,0.4,net,FV-041,11.6,26.2,True,6.0
+C1444,2023-12-29,Green Island,Coral Trout,U,41.6,0.94,spear,FV-058,30.1,26.6,True,26.32
+C1526,2023-12-29,Frankland Islands,Spanish Mackerel,M,100.5,9.83,line,FV-058,25.8,25.1,True,176.94
+C0509,2023-12-29,Fitzroy Reef,Grass Emperor,M,34.7,0.67,line,FV-027,9.5,25.7,True,10.05
+C0142,2023-12-30,Cairns Inlet,Red Emperor,M,51.5,2.11,line,FV-063,8.0,26.7,True,54.86
+C1276,2023-12-30,Green Island,Mangrove Jack,F,42.1,1.07,line,FV-012,4.2,24.9,True,21.4
+C0680,2023-12-30,Cairns Inlet,Grass Emperor,F,28.2,0.28,line,FV-063,22.8,26.4,True,4.2
+C0416,2023-12-30,Trinity Bay,Barramundi,F,66.6,4.03,net,FV-088,12.0,25.9,True,88.66
+C1075,2023-12-30,Trinity Bay,Coral Trout,M,31.8,0.42,trap,FV-041,13.4,25.3,False,11.76
+C0210,2023-12-30,Trinity Bay,Barramundi,M,60.8,2.98,net,FV-027,32.1,26.0,True,65.56
+C0572,2023-12-31,Green Island,Barramundi,F,74.5,6.17,line,FV-088,30.9,25.5,True,135.74
+C1777,2023-12-31,Cairns Inlet,Mangrove Jack,M,36.5,0.74,line,FV-071,35.2,25.8,True,14.8
+C0432,2023-12-31,Green Island,Coral Trout,M,47.5,1.48,trap,FV-034,25.9,26.2,True,41.44
+C1578,2024-01-01,Frankland Islands,Spanish Mackerel,M,88.1,5.73,net,FV-058,5.2,25.5,True,103.14
+C1523,2024-01-01,Trinity Bay,Coral Trout,F,43.8,1.24,line,FV-012,35.6,25.7,True,34.72
+C0815,2024-01-02,Trinity Bay,Red Emperor,F,44.6,1.29,net,FV-071,22.7,27.0,False,33.54
+C1926,2024-01-04,Cairns Inlet,Barramundi,F,58.4,2.73,line,FV-088,31.3,26.4,True,60.06
+C0548,2024-01-04,Fitzroy Reef,Mangrove Jack,U,40.9,0.8,trap,FV-034,12.4,24.9,True,16.0
+C0097,2024-01-05,Trinity Bay,Coral Trout,M,37.8,0.75,spear,FV-034,40.7,25.9,False,21.0
+C1436,2024-01-05,Trinity Bay,Coral Trout,U,48.9,1.52,line,FV-063,20.9,25.0,True,42.56
+C0151,2024-01-05,Cairns Inlet,Coral Trout,U,43.6,1.04,spear,FV-041,42.5,26.3,True,29.12
+C1009,2024-01-05,Michaelmas Cay,Mangrove Jack,F,28.8,0.32,line,FV-071,13.9,25.2,False,6.4
+C1167,2024-01-05,Fitzroy Reef,Barramundi,M,66.2,4.41,spear,FV-041,23.3,25.7,True,97.02
+C0652,2024-01-08,Trinity Bay,Red Emperor,M,61.8,3.03,trap,FV-071,27.7,26.2,True,78.78
+C0865,2024-01-08,Frankland Islands,Grass Emperor,M,26.5,0.31,trap,FV-058,38.6,26.6,False,4.65
+C0630,2024-01-09,Cairns Inlet,Grass Emperor,F,31.9,0.55,spear,FV-088,21.6,28.0,True,8.25
+C0611,2024-01-09,Frankland Islands,Red Emperor,F,54.1,2.14,line,FV-088,9.3,26.5,True,55.64
+C0125,2024-01-09,Green Island,Grass Emperor,M,36.2,0.7,trap,FV-088,6.6,25.8,True,10.5
+C1678,2024-01-10,Cairns Inlet,Red Emperor,U,54.0,2.21,line,FV-027,37.7,26.9,True,57.46
+C0763,2024-01-10,Fitzroy Reef,Barramundi,F,54.6,2.37,spear,FV-034,41.8,25.5,False,52.14
+C0535,2024-01-11,Frankland Islands,Coral Trout,F,31.9,0.49,line,FV-034,9.7,26.4,False,13.72
+C0424,2024-01-11,Trinity Bay,Spanish Mackerel,M,88.3,5.09,trap,FV-088,29.2,25.9,True,91.62
+C0218,2024-01-11,Trinity Bay,Red Emperor,M,67.8,4.21,line,FV-034,27.4,26.1,True,109.46
+C1478,2024-01-11,Fitzroy Reef,Coral Trout,M,46.9,1.45,spear,FV-058,40.1,25.8,True,40.6
+C0559,2024-01-11,Trinity Bay,Mangrove Jack,F,54.8,2.33,line,FV-071,24.3,26.1,True,46.6
+C0791,2024-01-12,Cairns Inlet,Spanish Mackerel,M,74.0,3.59,trap,FV-027,34.3,26.6,False,64.62
+C0828,2024-01-13,Michaelmas Cay,Barramundi,M,65.0,3.75,net,FV-041,38.5,25.9,True,82.5
+C1795,2024-01-13,Fitzroy Reef,Barramundi,F,59.8,3.29,spear,FV-088,11.7,28.0,True,72.38
+C0160,2024-01-13,Green Island,Grass Emperor,F,27.0,0.29,net,FV-012,19.9,26.5,False,4.35
+C1309,2024-01-15,Frankland Islands,Red Emperor,M,49.3,1.77,line,FV-012,39.1,25.6,True,46.02
+C0199,2024-01-15,Cairns Inlet,Red Emperor,U,37.2,0.65,trap,FV-027,37.3,26.7,False,16.9
+C1296,2024-01-16,Green Island,Mangrove Jack,F,46.7,1.59,line,FV-071,12.6,26.4,True,31.8
+C1171,2024-01-16,Trinity Bay,Barramundi,M,59.8,2.94,trap,FV-034,14.9,25.6,True,64.68
+C1287,2024-01-17,Michaelmas Cay,Grass Emperor,F,31.9,0.5,spear,FV-058,33.9,26.8,True,7.5
+C1324,2024-01-17,Fitzroy Reef,Barramundi,F,78.5,7.23,trap,FV-058,29.3,28.3,True,159.06
+C1978,2024-01-17,Frankland Islands,Mangrove Jack,F,39.5,0.75,net,FV-058,11.0,26.5,True,15.0
+C0752,2024-01-18,Fitzroy Reef,Coral Trout,F,34.6,0.55,line,FV-063,4.4,26.6,False,15.4
+C1849,2024-01-18,Frankland Islands,Red Emperor,U,65.6,3.85,line,FV-012,3.4,26.1,True,100.1
+C1061,2024-01-18,Michaelmas Cay,Mangrove Jack,F,41.2,1.03,net,FV-041,6.4,26.8,True,20.6
+C1055,2024-01-19,Green Island,Coral Trout,U,40.8,0.75,net,FV-058,26.7,28.1,True,21.0
+C1430,2024-01-19,Cairns Inlet,Red Emperor,U,62.6,3.51,line,FV-027,36.7,27.8,True,91.26
+C1303,2024-01-20,Trinity Bay,Mangrove Jack,F,50.9,2.13,line,FV-058,38.1,27.5,True,42.6
+C1451,2024-01-20,Green Island,Red Emperor,F,48.7,1.77,net,FV-063,3.1,27.7,True,46.02
+C1319,2024-01-21,Cairns Inlet,Grass Emperor,M,46.2,1.67,line,FV-063,25.6,26.8,True,25.05
+C1376,2024-01-21,Trinity Bay,Coral Trout,U,41.0,0.9,net,FV-071,6.2,27.7,True,25.2
+C1042,2024-01-21,Michaelmas Cay,Mangrove Jack,F,49.8,1.83,line,FV-027,8.6,27.1,True,36.6
+C0426,2024-01-22,Trinity Bay,Spanish Mackerel,F,89.2,6.41,trap,FV-012,41.1,26.6,True,115.38
+C1704,2024-01-22,Michaelmas Cay,Red Emperor,M,54.9,2.56,net,FV-058,29.4,27.6,True,66.56
+C0472,2024-01-22,Cairns Inlet,Mangrove Jack,M,46.2,1.51,line,FV-058,6.4,26.7,True,30.2
+C0493,2024-01-22,Green Island,Barramundi,F,73.8,5.97,spear,FV-088,14.2,27.0,True,131.34
+C1701,2024-01-23,Green Island,Red Emperor,M,49.2,1.49,line,FV-058,42.7,26.1,True,38.74
+C1471,2024-01-23,Fitzroy Reef,Barramundi,F,73.3,5.13,trap,FV-088,28.4,26.4,True,112.86
+C1691,2024-01-24,Michaelmas Cay,Grass Emperor,M,29.6,0.41,trap,FV-012,10.4,27.8,True,6.15
+C0360,2024-01-24,Michaelmas Cay,Red Emperor,U,55.2,2.4,trap,FV-027,19.6,27.3,True,62.4
+C1809,2024-01-25,Green Island,Spanish Mackerel,F,71.1,3.14,line,FV-027,15.3,27.2,False,56.52
+C0527,2024-01-25,Frankland Islands,Red Emperor,M,53.2,1.95,net,FV-027,40.3,27.2,True,50.7
+C1330,2024-01-25,Michaelmas Cay,Barramundi,M,65.5,3.63,line,FV-027,22.4,27.1,True,79.86
+C0820,2024-01-25,Cairns Inlet,Grass Emperor,U,45.8,1.49,trap,FV-063,17.9,26.4,True,22.35
+C0542,2024-01-25,Cairns Inlet,Grass Emperor,M,22.5,0.18,spear,FV-034,10.2,26.9,False,2.7
+C1335,2024-01-26,Trinity Bay,Mangrove Jack,U,30.9,0.47,line,FV-058,29.7,28.2,False,9.4
+C0761,2024-01-27,Frankland Islands,Grass Emperor,U,47.4,1.63,trap,FV-041,5.2,26.5,True,24.45
+C0153,2024-01-27,Michaelmas Cay,Grass Emperor,M,33.7,0.61,trap,FV-058,42.6,27.0,True,9.15
+C0031,2024-01-27,Cairns Inlet,Mangrove Jack,U,43.0,1.06,line,FV-063,33.3,28.3,True,21.2
+C0410,2024-01-28,Green Island,Coral Trout,M,36.3,0.69,spear,FV-088,3.4,28.7,False,19.32
+C1668,2024-01-28,Fitzroy Reef,Grass Emperor,M,25.4,0.25,spear,FV-063,39.2,27.2,False,3.75
+C0919,2024-01-29,Trinity Bay,Spanish Mackerel,F,74.8,3.46,spear,FV-034,18.6,27.5,False,62.28
+C1974,2024-01-29,Frankland Islands,Coral Trout,U,32.4,0.5,line,FV-012,16.4,28.5,False,14.0
+C0280,2024-01-30,Frankland Islands,Barramundi,M,52.4,2.0,trap,FV-071,44.4,27.6,False,44.0
+C0473,2024-01-30,Green Island,Coral Trout,M,46.9,1.27,line,FV-027,14.0,26.5,True,35.56
+C0407,2024-01-30,Frankland Islands,Coral Trout,M,57.7,3.01,trap,FV-041,27.9,28.4,True,84.28
+C1454,2024-01-30,Cairns Inlet,Coral Trout,F,31.5,0.44,line,FV-041,32.0,25.8,False,12.32
+C0743,2024-01-30,Frankland Islands,Red Emperor,M,54.4,2.08,line,FV-058,19.7,27.7,True,54.08
+C1299,2024-01-31,Frankland Islands,Spanish Mackerel,U,75.9,3.57,line,FV-058,3.5,27.9,True,64.26
+C1207,2024-01-31,Michaelmas Cay,Barramundi,F,61.0,3.71,line,FV-058,9.7,27.3,True,81.62
+C1209,2024-01-31,Trinity Bay,Mangrove Jack,F,49.0,1.5,line,FV-027,34.6,28.2,True,30.0
+C0016,2024-01-31,Frankland Islands,Barramundi,F,58.9,2.81,line,FV-063,13.5,27.1,True,61.82
+C0685,2024-02-01,Frankland Islands,Mangrove Jack,M,36.7,0.71,line,FV-041,24.1,27.2,True,14.2
+C0377,2024-02-01,Cairns Inlet,Red Emperor,M,66.7,4.43,line,FV-071,38.4,27.6,True,115.18
+C0860,2024-02-01,Trinity Bay,Mangrove Jack,F,37.9,0.75,net,FV-071,22.6,27.4,True,15.0
+C0947,2024-02-02,Cairns Inlet,Red Emperor,F,45.5,1.27,line,FV-027,8.6,28.5,True,33.02
+C1642,2024-02-02,Fitzroy Reef,Barramundi,F,78.5,7.45,trap,FV-063,15.0,27.5,True,163.9
+C0328,2024-02-02,Trinity Bay,Spanish Mackerel,F,87.4,6.07,line,FV-058,10.1,28.4,True,109.26
+C1913,2024-02-03,Cairns Inlet,Barramundi,U,72.5,5.72,net,FV-041,12.1,26.5,True,125.84
+C0040,2024-02-03,Frankland Islands,Barramundi,F,70.9,4.38,trap,FV-027,4.7,28.0,True,96.36
+C0433,2024-02-04,Michaelmas Cay,Spanish Mackerel,F,85.9,6.58,trap,FV-071,30.6,29.1,True,118.44
+C0656,2024-02-05,Fitzroy Reef,Barramundi,M,68.5,4.86,line,FV-027,31.8,27.3,True,106.92
+C1157,2024-02-05,Cairns Inlet,Spanish Mackerel,F,89.4,6.16,line,FV-063,37.0,27.0,True,110.88
+C0466,2024-02-05,Trinity Bay,Red Emperor,U,61.9,3.39,trap,FV-088,19.7,28.1,True,88.14
+C1742,2024-02-05,Michaelmas Cay,Red Emperor,F,39.8,0.89,trap,FV-071,19.9,27.8,False,23.14
+C1068,2024-02-06,Frankland Islands,Mangrove Jack,F,46.5,1.34,trap,FV-034,6.7,26.7,True,26.8
+C1584,2024-02-06,Michaelmas Cay,Mangrove Jack,F,36.3,0.75,line,FV-071,23.4,27.2,True,15.0
+C1243,2024-02-06,Frankland Islands,Barramundi,M,53.4,1.97,trap,FV-088,35.7,27.8,False,43.34
+C1395,2024-02-07,Cairns Inlet,Red Emperor,M,60.7,3.37,trap,FV-058,26.8,28.0,True,87.62
+C1765,2024-02-07,Fitzroy Reef,Coral Trout,F,44.8,1.37,line,FV-012,34.1,28.4,True,38.36
+C1065,2024-02-08,Fitzroy Reef,Red Emperor,F,64.0,3.48,trap,FV-041,37.2,28.3,True,90.48
+C1587,2024-02-08,Fitzroy Reef,Coral Trout,U,46.1,1.35,trap,FV-063,30.1,28.3,True,37.8
+C1957,2024-02-09,Fitzroy Reef,Mangrove Jack,U,35.1,0.57,trap,FV-071,13.5,28.0,True,11.4
+C0366,2024-02-09,Green Island,Grass Emperor,F,27.3,0.31,trap,FV-012,39.4,26.5,False,4.65
+C0593,2024-02-09,Green Island,Grass Emperor,F,39.3,0.94,spear,FV-012,38.7,27.4,True,14.1
+C0203,2024-02-09,Michaelmas Cay,Red Emperor,U,52.4,2.26,line,FV-063,19.2,27.7,True,58.76
+C0735,2024-02-10,Cairns Inlet,Barramundi,M,67.3,4.23,line,FV-058,33.8,28.5,True,93.06
+C0729,2024-02-11,Trinity Bay,Grass Emperor,F,32.3,0.54,line,FV-027,5.2,28.0,True,8.1
+C1076,2024-02-13,Green Island,Coral Trout,F,43.8,1.25,net,FV-058,15.2,28.2,True,35.0
+C1748,2024-02-13,Frankland Islands,Barramundi,F,64.7,4.2,trap,FV-027,25.1,28.0,True,92.4
+C0959,2024-02-13,Cairns Inlet,Red Emperor,F,38.0,0.71,net,FV-071,34.6,28.6,False,18.46
+C1602,2024-02-13,Frankland Islands,Mangrove Jack,F,43.7,1.13,net,FV-058,20.5,28.1,True,22.6
+C1490,2024-02-13,Cairns Inlet,Mangrove Jack,U,37.4,0.63,trap,FV-088,32.3,27.7,True,12.6
+C1225,2024-02-14,Trinity Bay,Red Emperor,M,49.4,1.66,line,FV-088,13.3,27.0,True,43.16
+C1886,2024-02-14,Frankland Islands,Spanish Mackerel,M,91.3,6.55,line,FV-088,29.1,28.2,True,117.9
+C1372,2024-02-14,Fitzroy Reef,Grass Emperor,U,23.4,0.2,trap,FV-034,41.7,27.4,False,3.0
+C1817,2024-02-14,Frankland Islands,Red Emperor,M,62.1,3.04,net,FV-027,17.8,28.3,True,79.04
+C0411,2024-02-15,Trinity Bay,Red Emperor,M,44.2,1.37,line,FV-071,17.4,28.5,False,35.62
+C1467,2024-02-15,Frankland Islands,Grass Emperor,F,35.3,0.58,spear,FV-071,28.4,28.0,True,8.7
+C1927,2024-02-15,Fitzroy Reef,Spanish Mackerel,M,78.3,4.16,trap,FV-027,5.3,29.8,True,74.88
+C0141,2024-02-16,Frankland Islands,Coral Trout,M,40.7,1.05,line,FV-041,40.5,27.3,True,29.4
+C0404,2024-02-16,Green Island,Grass Emperor,F,23.9,0.2,line,FV-088,30.7,26.5,False,3.0
+C1029,2024-02-16,Frankland Islands,Spanish Mackerel,U,98.3,7.79,net,FV-063,41.3,27.5,True,140.22
+C0671,2024-02-16,Fitzroy Reef,Grass Emperor,M,39.6,1.02,line,FV-071,26.8,27.7,True,15.3
+C0968,2024-02-16,Frankland Islands,Red Emperor,F,51.8,1.85,net,FV-063,21.5,27.8,True,48.1
+C1108,2024-02-17,Frankland Islands,Mangrove Jack,M,45.4,1.19,trap,FV-063,6.7,27.4,True,23.8
+C0589,2024-02-17,Frankland Islands,Barramundi,U,49.8,1.76,line,FV-027,13.7,28.4,False,38.72
+C0723,2024-02-17,Trinity Bay,Red Emperor,U,47.0,1.46,line,FV-012,16.4,29.0,True,37.96
+C1124,2024-02-17,Frankland Islands,Coral Trout,M,42.8,1.08,trap,FV-027,16.3,27.8,True,30.24
+C0961,2024-02-17,Green Island,Grass Emperor,F,31.3,0.48,line,FV-027,10.0,28.1,True,7.2
+C1576,2024-02-18,Cairns Inlet,Mangrove Jack,F,32.1,0.49,line,FV-034,9.7,29.0,False,9.8
+C0633,2024-02-18,Fitzroy Reef,Grass Emperor,F,36.8,0.81,net,FV-063,42.1,28.4,True,12.15
+C0010,2024-02-19,Cairns Inlet,Barramundi,F,74.2,5.83,line,FV-027,26.0,28.9,True,128.26
+C0691,2024-02-19,Frankland Islands,Barramundi,M,65.0,3.92,spear,FV-058,17.8,27.9,True,86.24
+C0021,2024-02-19,Cairns Inlet,Coral Trout,U,52.6,2.02,net,FV-088,42.4,28.8,True,56.56
+C1533,2024-02-19,Cairns Inlet,Red Emperor,M,48.5,1.57,line,FV-058,29.5,28.9,True,40.82
+C1184,2024-02-20,Green Island,Red Emperor,U,54.1,2.24,spear,FV-027,5.5,27.9,True,58.24
+C1988,2024-02-20,Fitzroy Reef,Grass Emperor,F,22.2,0.18,spear,FV-071,44.2,28.2,False,2.7
+C0734,2024-02-21,Trinity Bay,Barramundi,F,76.8,6.68,trap,FV-027,43.1,,True,146.96
+C1650,2024-02-21,Green Island,Spanish Mackerel,F,85.1,5.29,spear,FV-012,17.4,29.0,True,95.22
+C0115,2024-02-21,Michaelmas Cay,Coral Trout,M,56.3,2.29,line,FV-063,15.3,28.4,True,64.12
+C0066,2024-02-23,Trinity Bay,Coral Trout,M,49.3,1.75,trap,FV-034,38.6,29.1,True,49.0
+C1567,2024-02-24,Michaelmas Cay,Red Emperor,M,52.0,2.07,spear,FV-088,20.3,28.6,True,53.82
+C1300,2024-02-24,Fitzroy Reef,Red Emperor,U,48.2,1.53,line,FV-071,22.0,27.7,True,39.78
+C0682,2024-02-24,Trinity Bay,Grass Emperor,M,30.0,0.41,line,FV-063,4.4,28.0,True,6.15
+C1921,2024-02-26,Michaelmas Cay,Red Emperor,U,46.5,1.42,spear,FV-034,3.2,28.8,True,36.92
+C1667,2024-02-26,Cairns Inlet,Spanish Mackerel,M,84.5,5.39,trap,FV-088,4.7,28.6,True,97.02
+C1708,2024-02-26,Fitzroy Reef,Coral Trout,F,49.7,1.85,line,FV-071,33.1,28.4,True,51.8
+C0528,2024-02-27,Michaelmas Cay,Red Emperor,U,41.3,1.09,spear,FV-034,23.3,27.4,False,28.34
+C1822,2024-02-27,Trinity Bay,Red Emperor,M,50.1,1.91,spear,FV-088,31.8,28.3,True,49.66
+C0907,2024-02-27,Michaelmas Cay,Spanish Mackerel,M,79.9,4.29,spear,FV-058,29.9,28.6,True,77.22
+C1835,2024-02-28,Frankland Islands,Barramundi,M,59.3,2.89,line,FV-034,23.1,29.2,True,63.58
+C1548,2024-02-28,Green Island,Red Emperor,U,47.2,1.37,line,FV-088,39.5,28.3,True,35.62
+C0102,2024-02-28,Michaelmas Cay,Grass Emperor,M,40.1,0.94,spear,FV-034,15.1,29.7,True,14.1
+C0454,2024-02-29,Fitzroy Reef,Red Emperor,U,39.4,0.83,spear,FV-034,39.5,27.9,False,21.58
+C0479,2024-02-29,Green Island,Grass Emperor,U,35.9,0.68,trap,FV-012,25.3,27.7,True,10.2
+C1312,2024-02-29,Trinity Bay,Barramundi,U,60.9,3.53,line,FV-012,27.9,29.4,True,77.66
+C0002,2024-03-01,Trinity Bay,Barramundi,F,66.7,4.18,line,FV-012,44.8,28.3,True,91.96
+C0547,2024-03-01,Green Island,Coral Trout,M,48.0,1.37,net,FV-071,3.3,28.8,True,38.36
+C0915,2024-03-01,Michaelmas Cay,Mangrove Jack,M,36.9,0.57,line,FV-034,27.7,28.7,True,11.4
+C1389,2024-03-01,Cairns Inlet,Spanish Mackerel,M,79.3,4.25,line,FV-058,44.6,28.4,True,76.5
+C1982,2024-03-02,Trinity Bay,Red Emperor,M,49.6,1.86,trap,FV-071,8.2,28.8,True,48.36
+C0409,2024-03-02,Frankland Islands,Mangrove Jack,U,44.1,1.19,line,FV-058,26.9,27.9,True,23.8
+C1752,2024-03-02,Cairns Inlet,Coral Trout,U,58.0,,line,FV-063,4.8,28.0,True,71.68
+C1657,2024-03-03,Frankland Islands,Red Emperor,F,48.6,1.49,line,FV-012,44.8,30.4,True,38.74
+C1424,2024-03-04,Michaelmas Cay,Coral Trout,F,43.9,1.27,net,FV-027,29.4,29.0,True,35.56
+C1321,2024-03-04,Frankland Islands,Red Emperor,U,44.3,1.09,trap,FV-088,4.3,29.5,False,28.34
+C0895,2024-03-04,Frankland Islands,Red Emperor,M,65.2,4.02,line,FV-041,11.5,28.5,True,104.52
+C1689,2024-03-04,Fitzroy Reef,Barramundi,M,63.9,3.91,trap,FV-034,34.9,29.1,True,86.02
+C0925,2024-03-05,Michaelmas Cay,Barramundi,F,55.7,2.64,net,FV-012,27.8,29.9,False,58.08
+C0448,2024-03-05,Frankland Islands,Barramundi,M,68.8,4.87,line,FV-063,13.4,28.1,True,107.14
+C0372,2024-03-05,Frankland Islands,Mangrove Jack,F,29.3,0.35,spear,FV-034,17.9,28.9,False,7.0
+C1676,2024-03-06,Cairns Inlet,Grass Emperor,M,29.6,0.43,line,FV-034,33.5,28.4,True,6.45
+C0190,2024-03-06,Frankland Islands,Barramundi,U,60.9,3.39,line,FV-034,17.3,28.4,True,74.58
+C0522,2024-03-06,Green Island,Spanish Mackerel,F,91.5,6.35,trap,FV-041,4.8,28.5,True,114.3
+C0089,2024-03-07,Michaelmas Cay,Coral Trout,M,51.5,1.84,spear,FV-071,11.4,28.2,True,51.52
+C1989,2024-03-07,Trinity Bay,Spanish Mackerel,F,80.0,4.26,spear,FV-088,4.2,29.3,True,76.68
+C1003,2024-03-08,Cairns Inlet,Coral Trout,U,47.8,1.76,trap,FV-071,31.1,29.2,True,49.28
+C0777,2024-03-08,Cairns Inlet,Grass Emperor,F,21.2,0.14,line,FV-063,23.6,29.1,False,2.1
+C0047,2024-03-09,Frankland Islands,Barramundi,U,54.6,1.97,line,FV-071,32.7,28.2,False,43.34
+C0189,2024-03-09,Frankland Islands,Red Emperor,U,60.1,2.85,line,FV-071,10.4,29.0,True,74.1
+C0415,2024-03-10,Green Island,Grass Emperor,M,33.9,0.59,spear,FV-088,34.4,28.7,True,8.85
+C1470,2024-03-11,Cairns Inlet,Spanish Mackerel,F,90.1,6.02,net,FV-058,43.9,28.2,True,108.36
+C0026,2024-03-11,Green Island,Grass Emperor,F,35.9,0.69,trap,FV-012,19.0,28.9,True,10.35
+C0666,2024-03-11,Cairns Inlet,Barramundi,M,55.8,2.09,spear,FV-034,15.0,28.4,False,45.98
+C0168,2024-03-11,Green Island,Mangrove Jack,M,38.8,0.82,line,FV-063,20.1,29.3,True,16.4
+C1693,2024-03-12,Green Island,Grass Emperor,U,44.5,1.52,net,FV-063,6.8,29.2,True,22.8
+C1383,2024-03-12,Green Island,Mangrove Jack,F,52.2,1.97,line,FV-012,23.0,28.6,True,39.4
+C1116,2024-03-13,Green Island,Mangrove Jack,F,46.6,1.46,line,FV-088,39.4,28.6,True,29.2
+C0006,2024-03-13,Fitzroy Reef,Mangrove Jack,M,48.3,1.59,line,FV-063,9.3,29.3,True,31.8
+C0551,2024-03-14,Trinity Bay,Mangrove Jack,M,34.7,0.58,line,FV-088,32.8,29.4,False,11.6
+C0061,2024-03-14,Fitzroy Reef,Mangrove Jack,U,50.1,1.55,spear,FV-088,4.4,27.3,True,31.0
+C1675,2024-03-14,Fitzroy Reef,Barramundi,U,58.3,2.35,line,FV-034,9.6,28.3,True,51.7
+C0966,2024-03-15,Frankland Islands,Grass Emperor,M,42.0,1.16,trap,FV-063,42.6,27.9,True,17.4
+C0706,2024-03-15,Fitzroy Reef,Mangrove Jack,F,43.8,1.18,net,FV-034,37.3,29.3,True,23.6
+C1896,2024-03-15,Trinity Bay,Spanish Mackerel,F,91.2,6.35,line,FV-041,43.5,27.9,True,114.3
+C1316,2024-03-15,Frankland Islands,Grass Emperor,M,29.5,0.41,line,FV-041,13.6,28.8,True,6.15
+C0921,2024-03-16,Green Island,Coral Trout,U,40.1,0.89,net,FV-058,30.5,28.2,True,24.92
+C1882,2024-03-16,Green Island,Spanish Mackerel,F,77.1,4.02,line,FV-058,8.2,29.5,True,72.36
+C0103,2024-03-16,Frankland Islands,Grass Emperor,F,22.5,0.17,trap,FV-058,5.9,28.9,False,2.55
+C0718,2024-03-16,Cairns Inlet,Spanish Mackerel,F,84.8,5.04,line,FV-058,17.8,28.9,True,90.72
+C1281,2024-03-17,Michaelmas Cay,Mangrove Jack,F,41.0,0.9,net,FV-063,43.2,28.7,True,18.0
+C1035,2024-03-17,Cairns Inlet,Grass Emperor,U,28.3,0.39,line,FV-041,41.9,29.2,True,5.85
+C0438,2024-03-17,Fitzroy Reef,Barramundi,F,65.9,4.21,line,FV-027,32.0,30.5,True,92.62
+C0329,2024-03-17,Frankland Islands,Coral Trout,U,36.1,0.6,line,FV-034,21.4,29.5,False,16.8
+C0076,2024-03-17,Frankland Islands,Coral Trout,M,50.0,1.47,line,FV-034,41.2,29.2,True,41.16
+C0867,2024-03-18,Fitzroy Reef,Spanish Mackerel,F,70.9,2.89,spear,FV-034,14.7,29.0,False,52.02
+C1361,2024-03-18,Frankland Islands,Mangrove Jack,M,47.9,1.54,trap,FV-034,9.9,29.1,True,30.8
+C0261,2024-03-18,Frankland Islands,Barramundi,M,73.1,6.06,line,FV-027,4.3,29.0,True,133.32
+C0849,2024-03-19,Trinity Bay,Grass Emperor,F,32.4,0.58,net,FV-063,6.3,29.1,True,8.7
+C1238,2024-03-19,Trinity Bay,Spanish Mackerel,M,81.8,4.75,spear,FV-027,35.6,28.8,True,85.5
+C1414,2024-03-19,Frankland Islands,Grass Emperor,M,41.5,1.12,net,FV-041,25.3,29.4,True,16.8
+C0604,2024-03-19,Fitzroy Reef,Mangrove Jack,F,34.5,0.58,line,FV-034,38.8,29.2,False,11.6
+C1289,2024-03-19,Fitzroy Reef,Grass Emperor,M,29.5,0.42,trap,FV-058,5.4,28.3,True,6.3
+C1227,2024-03-20,Michaelmas Cay,Red Emperor,F,47.6,1.5,net,FV-058,21.0,29.1,True,39.0
+C1627,2024-03-21,Michaelmas Cay,Mangrove Jack,M,50.1,1.57,spear,FV-063,15.4,30.4,True,31.4
+C1474,2024-03-22,Michaelmas Cay,Mangrove Jack,F,41.4,0.92,spear,FV-063,35.4,28.7,True,18.4
+C0980,2024-03-22,Trinity Bay,Spanish Mackerel,F,84.5,5.41,line,FV-063,37.9,29.0,True,97.38
+C1585,2024-03-22,Cairns Inlet,Grass Emperor,M,24.0,0.19,net,FV-058,29.3,29.1,False,2.85
+C0746,2024-03-22,Green Island,Coral Trout,F,50.3,1.78,line,FV-058,4.5,29.0,True,49.84
+C0978,2024-03-23,Fitzroy Reef,Barramundi,U,61.5,3.31,net,FV-058,28.4,29.1,True,72.82
+C1554,2024-03-23,Frankland Islands,Spanish Mackerel,F,92.4,7.02,trap,FV-088,11.9,29.9,True,126.36
+C0711,2024-03-23,Green Island,Mangrove Jack,M,39.1,0.91,net,FV-063,19.1,28.1,True,18.2
+C0837,2024-03-23,Green Island,Mangrove Jack,M,44.9,1.29,net,FV-041,23.7,29.3,True,25.8
+C0239,2024-03-23,Green Island,Barramundi,F,56.3,2.85,line,FV-071,36.9,28.5,False,62.7
+C1494,2024-03-24,Frankland Islands,Mangrove Jack,U,40.5,0.93,net,FV-027,32.6,30.3,True,18.6
+C1807,2024-03-25,Fitzroy Reef,Grass Emperor,M,23.6,0.23,net,FV-071,5.2,28.0,False,3.45
+C1135,2024-03-25,Cairns Inlet,Barramundi,F,59.0,2.41,trap,FV-063,41.2,28.8,True,53.02
+C0413,2024-03-25,Michaelmas Cay,Coral Trout,F,34.0,0.6,line,FV-088,32.7,29.2,False,16.8
+C1259,2024-03-25,Fitzroy Reef,Coral Trout,U,44.0,1.05,trap,FV-058,43.3,29.1,True,29.4
+C1463,2024-03-26,Frankland Islands,Mangrove Jack,F,46.4,1.52,trap,FV-071,9.1,29.7,True,30.4
+C0660,2024-03-26,Green Island,Mangrove Jack,F,46.4,1.28,line,FV-088,39.0,29.0,True,25.6
+C0667,2024-03-26,Trinity Bay,Grass Emperor,F,31.8,0.5,trap,FV-058,32.2,28.5,True,7.5
+C1781,2024-03-26,Green Island,Coral Trout,M,57.6,2.66,line,FV-027,32.2,29.1,True,74.48
+C1959,2024-03-27,Michaelmas Cay,Mangrove Jack,F,52.4,1.98,line,FV-088,37.4,28.7,True,39.6
+C0948,2024-03-27,Green Island,Mangrove Jack,M,36.1,0.66,line,FV-041,29.2,27.9,True,13.2
+C1054,2024-03-27,Cairns Inlet,Red Emperor,F,39.8,1.0,spear,FV-034,36.7,28.0,False,26.0
+C0754,2024-03-27,Trinity Bay,Mangrove Jack,U,48.3,1.53,line,FV-027,13.2,29.2,True,30.6
+C1499,2024-03-29,Fitzroy Reef,Coral Trout,U,53.4,2.4,trap,FV-058,3.8,28.6,True,67.2
+C0714,2024-03-29,Frankland Islands,Coral Trout,U,41.8,1.02,line,FV-027,43.8,27.7,True,28.56
+C1891,2024-03-29,Frankland Islands,Barramundi,M,52.7,2.05,line,FV-071,5.1,28.9,False,45.1
+C0858,2024-03-29,Cairns Inlet,Coral Trout,F,48.3,1.5,net,FV-071,25.1,28.0,True,42.0
+C1127,2024-03-29,Trinity Bay,Barramundi,M,63.9,3.64,spear,FV-041,13.5,29.1,True,80.08
+C1783,2024-03-30,Frankland Islands,Mangrove Jack,M,41.1,0.99,line,FV-088,41.9,29.6,True,19.8
+C1092,2024-03-30,Michaelmas Cay,Grass Emperor,F,32.4,0.52,spear,FV-088,6.4,29.9,True,7.8
+C1073,2024-03-30,Green Island,Barramundi,U,69.5,4.83,trap,FV-034,10.4,29.1,True,106.26
+C0070,2024-03-30,Fitzroy Reef,Coral Trout,M,47.4,1.57,net,FV-012,27.0,29.0,True,43.96
+C1415,2024-03-31,Fitzroy Reef,Red Emperor,M,55.1,2.53,trap,FV-071,35.6,28.2,True,65.78
+C0297,2024-03-31,Michaelmas Cay,Grass Emperor,F,36.8,0.76,line,FV-041,18.9,28.9,True,11.4
+C1763,2024-03-31,Cairns Inlet,Mangrove Jack,M,32.6,0.48,line,FV-071,38.4,29.1,False,9.6
+C1821,2024-03-31,Michaelmas Cay,Coral Trout,U,44.0,1.13,net,FV-058,28.4,29.6,True,31.64
+C0139,2024-03-31,Trinity Bay,Grass Emperor,F,34.6,0.65,net,FV-063,18.9,30.0,True,9.75
+C1828,2024-04-01,Cairns Inlet,Spanish Mackerel,F,83.7,5.36,line,FV-071,30.6,28.4,True,96.48
+C0001,2024-04-01,Frankland Islands,Grass Emperor,F,29.8,0.38,line,FV-088,37.5,28.7,True,5.7
+C0188,2024-04-01,Green Island,Spanish Mackerel,M,83.5,5.41,line,FV-012,42.0,28.3,True,97.38
+C0632,2024-04-02,Michaelmas Cay,Grass Emperor,U,36.2,0.83,line,FV-034,34.9,28.7,True,12.45
+C0374,2024-04-03,Frankland Islands,Red Emperor,F,53.4,2.26,trap,FV-071,30.7,28.8,True,58.76
+C0273,2024-04-03,Green Island,Mangrove Jack,M,37.6,0.74,line,FV-071,22.5,29.4,True,14.8
+C1887,2024-04-03,Frankland Islands,Spanish Mackerel,M,81.7,4.7,trap,FV-088,22.9,28.9,True,84.6
+C1085,2024-04-03,Trinity Bay,Red Emperor,M,40.0,0.93,spear,FV-071,15.5,29.0,False,24.18
+C0039,2024-04-04,Fitzroy Reef,Spanish Mackerel,U,86.5,5.95,spear,FV-063,7.8,29.2,True,107.1
+C1374,2024-04-04,Fitzroy Reef,Coral Trout,M,41.4,0.98,net,FV-058,5.4,28.9,True,27.44
+C1861,2024-04-05,Green Island,Mangrove Jack,U,35.8,0.62,line,FV-088,19.0,28.4,True,12.4
+C1992,2024-04-05,Fitzroy Reef,Barramundi,U,63.6,3.38,line,FV-012,15.5,29.2,True,74.36
+C0434,2024-04-05,Michaelmas Cay,Barramundi,M,58.1,3.12,line,FV-088,32.0,29.3,True,68.64
+C1532,2024-04-05,Green Island,Spanish Mackerel,F,69.7,2.56,line,FV-071,8.0,30.0,False,46.08
+C1391,2024-04-05,Michaelmas Cay,Grass Emperor,F,27.3,0.31,trap,FV-088,18.8,29.9,False,4.65
+C0486,2024-04-05,Fitzroy Reef,Mangrove Jack,M,32.0,0.49,spear,FV-034,5.4,29.2,False,9.8
+C1931,2024-04-06,Trinity Bay,Red Emperor,F,51.0,1.92,spear,FV-012,8.5,29.3,True,49.92
+C0747,2024-04-06,Trinity Bay,Barramundi,U,73.6,6.19,spear,FV-071,23.0,28.7,True,136.18
+C0738,2024-04-06,Green Island,Barramundi,M,57.5,2.48,spear,FV-034,4.3,28.5,False,54.56
+C0617,2024-04-06,Green Island,Grass Emperor,M,31.9,0.44,trap,FV-012,38.7,29.9,True,6.6
+C0568,2024-04-06,Green Island,Coral Trout,F,44.9,1.31,trap,FV-063,36.8,29.7,True,36.68
+C1842,2024-04-06,Frankland Islands,Mangrove Jack,F,32.2,0.46,spear,FV-071,43.7,29.8,False,9.2
+C1951,2024-04-07,Trinity Bay,Barramundi,F,65.1,3.43,net,FV-034,32.9,29.6,True,75.46
+C0707,2024-04-07,Michaelmas Cay,Coral Trout,F,35.4,0.6,spear,FV-071,32.7,29.7,False,16.8
+C1440,2024-04-08,Michaelmas Cay,Mangrove Jack,M,49.6,1.73,line,FV-088,17.4,28.5,True,34.6
+C1260,2024-04-08,Michaelmas Cay,Mangrove Jack,F,46.2,1.42,line,FV-027,27.6,28.3,True,28.4
+C0634,2024-04-08,Michaelmas Cay,Barramundi,F,75.1,6.49,spear,FV-071,38.6,29.0,True,142.78
+C0019,2024-04-09,Frankland Islands,Coral Trout,U,35.8,0.58,net,FV-041,7.8,28.7,False,16.24
+C1373,2024-04-10,Michaelmas Cay,Coral Trout,M,57.1,2.52,line,FV-058,21.3,28.8,True,70.56
+C1460,2024-04-10,Green Island,Coral Trout,F,43.7,1.17,line,FV-088,41.4,29.8,True,32.76
+C1564,2024-04-10,Fitzroy Reef,Red Emperor,M,41.4,1.02,trap,FV-063,24.6,29.1,False,26.52
+C0661,2024-04-11,Green Island,Coral Trout,M,39.3,0.84,line,FV-027,22.4,28.2,True,23.52
+C1111,2024-04-13,Green Island,Grass Emperor,F,39.8,1.09,line,FV-041,42.1,28.5,True,16.35
+C0055,2024-04-15,Frankland Islands,Barramundi,M,65.3,3.9,trap,FV-034,11.5,30.0,True,85.8
+C0451,2024-04-15,Green Island,Mangrove Jack,M,38.6,0.75,trap,FV-058,31.7,28.9,True,15.0
+C1813,2024-04-15,Michaelmas Cay,Coral Trout,M,50.2,1.6,spear,FV-058,35.8,29.6,True,44.8
+C0124,2024-04-15,Cairns Inlet,Barramundi,M,69.1,4.5,net,FV-041,23.7,28.3,True,99.0
+C1239,2024-04-15,Fitzroy Reef,Mangrove Jack,U,42.9,1.12,line,FV-088,45.0,28.8,True,22.4
+C1337,2024-04-16,Michaelmas Cay,Mangrove Jack,U,41.3,0.81,line,FV-058,36.4,28.8,True,16.2
+C0574,2024-04-16,Fitzroy Reef,Grass Emperor,M,31.0,0.46,line,FV-027,16.2,28.0,True,6.9
+C0495,2024-04-16,Cairns Inlet,Grass Emperor,U,27.4,0.33,spear,FV-034,5.0,28.2,False,4.95
+C0104,2024-04-16,Michaelmas Cay,Coral Trout,M,38.8,0.8,spear,FV-034,10.5,28.3,True,22.4
+C0577,2024-04-17,Trinity Bay,Mangrove Jack,M,31.6,0.4,trap,FV-063,4.3,28.5,False,8.0
+C1720,2024-04-18,Michaelmas Cay,Barramundi,F,58.8,3.01,net,FV-027,5.1,28.7,True,66.22
+C1290,2024-04-18,Cairns Inlet,Mangrove Jack,F,30.8,0.34,spear,FV-034,10.7,29.3,False,6.8
+C1378,2024-04-19,Frankland Islands,Barramundi,F,67.2,4.38,line,FV-012,25.0,29.1,True,96.36
+C1168,2024-04-19,Trinity Bay,Spanish Mackerel,M,81.9,4.14,line,FV-041,44.0,29.4,True,74.52
+C0112,2024-04-19,Cairns Inlet,Coral Trout,U,39.7,1.04,trap,FV-063,22.5,28.3,True,29.12
+C0911,2024-04-19,Cairns Inlet,Grass Emperor,F,32.8,0.64,line,FV-088,18.1,28.6,True,9.6
+C1780,2024-04-20,Trinity Bay,Spanish Mackerel,M,91.4,7.54,line,FV-071,23.0,29.0,True,135.72
+C1645,2024-04-21,Cairns Inlet,Coral Trout,F,54.1,2.09,trap,FV-063,6.1,28.9,True,58.52
+C1761,2024-04-21,Fitzroy Reef,Barramundi,M,82.2,8.32,trap,FV-041,18.9,29.3,True,183.04
+C1621,2024-04-22,Fitzroy Reef,Red Emperor,M,66.8,4.28,line,FV-088,24.2,28.8,True,111.28
+C0092,2024-04-22,Frankland Islands,Coral Trout,M,44.9,1.34,line,FV-012,29.7,29.0,True,37.52
+C1125,2024-04-22,Green Island,Barramundi,U,64.5,3.64,line,FV-071,33.8,29.7,True,80.08
+C1387,2024-04-22,Fitzroy Reef,Spanish Mackerel,M,86.4,5.48,spear,FV-012,25.9,28.9,True,98.64
+C0504,2024-04-23,Frankland Islands,Red Emperor,F,56.4,2.53,line,FV-041,38.7,27.5,True,65.78
+C1875,2024-04-23,Fitzroy Reef,Barramundi,U,57.6,2.5,spear,FV-034,17.3,28.7,False,55.0
+C1755,2024-04-23,Cairns Inlet,Barramundi,M,71.3,4.49,net,FV-088,13.1,29.0,True,98.78
+C0830,2024-04-23,Trinity Bay,Grass Emperor,M,43.4,1.37,line,FV-063,32.4,29.4,True,20.55
+C0801,2024-04-24,Fitzroy Reef,Mangrove Jack,U,40.2,1.04,line,FV-034,14.3,29.0,True,20.8
+C1366,2024-04-24,Frankland Islands,Grass Emperor,F,45.6,1.45,line,FV-088,41.2,28.0,True,21.75
+C1442,2024-04-25,Fitzroy Reef,Mangrove Jack,U,37.3,0.69,trap,FV-058,34.8,29.3,True,13.8
+C1592,2024-04-26,Frankland Islands,Barramundi,U,71.8,5.24,line,FV-071,17.2,29.3,True,115.28
+C1575,2024-04-26,Fitzroy Reef,Barramundi,M,59.3,2.67,spear,FV-034,7.3,28.8,True,58.74
+C0843,2024-04-27,Michaelmas Cay,Barramundi,U,62.7,3.73,line,FV-041,27.8,27.7,True,82.06
+C0217,2024-04-28,Fitzroy Reef,Mangrove Jack,M,52.3,1.79,net,FV-071,21.8,27.2,True,35.8
+C1788,2024-04-28,Frankland Islands,Red Emperor,M,38.5,0.82,spear,FV-071,5.4,29.3,False,21.32
+C1154,2024-04-29,Green Island,Barramundi,M,63.0,3.37,net,FV-027,5.4,29.5,True,74.14
+C0908,2024-05-01,Green Island,Spanish Mackerel,U,93.5,6.94,line,FV-027,40.4,28.5,True,124.92
+C0390,2024-05-01,Michaelmas Cay,Barramundi,F,72.7,5.88,line,FV-041,4.8,27.0,True,129.36
+C0788,2024-05-02,Cairns Inlet,Mangrove Jack,M,35.1,0.59,trap,FV-088,35.3,28.5,True,11.8
+C1644,2024-05-02,Cairns Inlet,Barramundi,F,51.9,1.81,line,FV-027,38.5,28.7,False,39.82
+C1403,2024-05-02,Trinity Bay,Grass Emperor,M,26.1,0.29,net,FV-071,11.5,28.1,False,4.35
+C1423,2024-05-03,Green Island,Coral Trout,M,50.8,1.7,line,FV-063,15.2,28.7,True,47.6
+C0699,2024-05-04,Fitzroy Reef,Barramundi,U,62.3,3.32,line,FV-063,11.5,27.4,True,73.04
+C0760,2024-05-05,Green Island,Spanish Mackerel,M,88.0,5.84,trap,FV-058,32.6,29.3,True,105.12
+C1311,2024-05-05,Frankland Islands,Spanish Mackerel,F,81.3,4.8,spear,FV-027,7.2,29.7,True,86.4
+C0616,2024-05-05,Trinity Bay,Spanish Mackerel,F,82.1,4.62,net,FV-027,22.7,28.8,True,83.16
+C0305,2024-05-05,Cairns Inlet,Spanish Mackerel,U,85.4,5.31,line,FV-027,6.7,28.0,True,95.58
+C0283,2024-05-06,Green Island,Mangrove Jack,M,45.0,1.17,trap,FV-088,11.9,29.3,True,23.4
+C0954,2024-05-06,Cairns Inlet,Barramundi,F,58.9,2.63,line,FV-088,20.1,28.6,True,57.86
+C1883,2024-05-07,Frankland Islands,Red Emperor,U,45.5,1.41,net,FV-041,3.2,27.7,True,36.66
+C1925,2024-05-07,Green Island,Barramundi,M,67.0,4.27,net,FV-027,31.8,28.1,True,93.94
+C1519,2024-05-07,Frankland Islands,Coral Trout,F,35.1,0.6,net,FV-058,30.8,27.3,False,16.8
+C0861,2024-05-07,Michaelmas Cay,Grass Emperor,F,47.0,1.63,trap,FV-027,30.1,28.2,True,24.45
+C1411,2024-05-07,Michaelmas Cay,Barramundi,M,62.1,3.4,line,FV-088,24.1,26.7,True,74.8
+C0379,2024-05-08,Green Island,Mangrove Jack,U,43.5,1.08,line,FV-027,14.8,28.5,True,21.6
+C0780,2024-05-09,Frankland Islands,Spanish Mackerel,U,84.6,5.34,net,FV-088,22.1,29.1,True,96.12
+C0408,2024-05-09,Green Island,Barramundi,F,52.9,1.78,line,FV-034,36.8,28.1,False,39.16
+C0475,2024-05-09,Trinity Bay,Barramundi,U,64.9,4.46,line,FV-071,22.2,29.5,True,98.12
+C1250,2024-05-10,Fitzroy Reef,Barramundi,F,81.3,7.38,line,FV-088,40.9,28.4,True,162.36
+C1298,2024-05-10,Michaelmas Cay,Red Emperor,M,41.5,0.97,line,FV-071,22.6,28.5,False,25.22
+C1104,2024-05-10,Frankland Islands,Mangrove Jack,F,49.1,1.47,spear,FV-063,12.4,28.7,True,29.4
+C0676,2024-05-10,Cairns Inlet,Barramundi,U,70.8,4.65,trap,FV-012,28.6,28.8,True,102.3
+C1789,2024-05-11,Green Island,Barramundi,M,60.9,2.59,line,FV-058,7.7,28.4,True,56.98
+C1583,2024-05-11,Trinity Bay,Red Emperor,F,62.0,3.37,trap,FV-088,38.4,28.2,True,87.62
+C0871,2024-05-11,Green Island,Mangrove Jack,F,35.8,0.64,net,FV-088,3.6,28.9,True,12.8
+C1049,2024-05-11,Cairns Inlet,Spanish Mackerel,F,89.9,6.35,trap,FV-088,25.2,28.6,True,114.3
+C1687,2024-05-12,Green Island,Grass Emperor,M,33.8,0.6,line,FV-012,3.4,29.2,True,9.0
+C1160,2024-05-12,Trinity Bay,Coral Trout,M,56.4,2.52,spear,FV-027,9.3,28.4,True,70.56
+C0884,2024-05-12,Frankland Islands,Red Emperor,F,63.2,3.25,line,FV-058,4.3,28.1,True,84.5
+C1767,2024-05-13,Green Island,Barramundi,F,66.2,4.02,line,FV-027,38.0,28.6,True,88.44
+C1306,2024-05-13,Fitzroy Reef,Red Emperor,U,48.3,1.72,net,FV-088,42.9,28.6,True,44.72
+C1418,2024-05-13,Frankland Islands,Coral Trout,M,35.2,0.61,trap,FV-012,22.7,26.7,False,17.08
+C0733,2024-05-13,Frankland Islands,Red Emperor,U,48.8,1.98,net,FV-063,30.0,27.6,True,51.48
+C1939,2024-05-13,Trinity Bay,Mangrove Jack,F,43.5,1.05,line,FV-012,7.5,28.5,True,21.0
+C0737,2024-05-13,Cairns Inlet,Coral Trout,U,35.4,0.66,line,FV-012,15.7,29.0,False,18.48
+C1446,2024-05-15,Green Island,Red Emperor,F,47.3,1.64,line,FV-012,24.1,28.3,True,42.64
+C1431,2024-05-15,Frankland Islands,Barramundi,F,78.4,7.02,trap,FV-012,17.0,27.6,True,154.44
+C0154,2024-05-16,Fitzroy Reef,Coral Trout,F,40.0,0.82,line,FV-012,35.8,27.3,True,22.96
+C1010,2024-05-16,Fitzroy Reef,Barramundi,M,59.0,2.72,spear,FV-027,16.6,28.6,True,59.84
+C0477,2024-05-16,Michaelmas Cay,Barramundi,M,62.2,3.07,line,FV-071,42.0,27.6,True,67.54
+C1890,2024-05-17,Green Island,Grass Emperor,M,29.7,0.41,net,FV-088,26.7,27.7,True,6.15
+C1793,2024-05-18,Trinity Bay,Coral Trout,F,35.8,0.59,line,FV-058,10.4,28.1,False,16.52
+C0221,2024-05-18,Frankland Islands,Barramundi,F,62.1,3.36,trap,FV-034,8.1,27.2,True,73.92
+C0730,2024-05-18,Frankland Islands,Coral Trout,F,50.6,1.81,line,FV-063,4.7,28.4,True,50.68
+C0289,2024-05-19,Trinity Bay,Coral Trout,M,48.7,1.52,line,FV-027,29.4,27.7,True,42.56
+C1229,2024-05-19,Trinity Bay,Barramundi,M,52.0,1.91,net,FV-012,41.8,27.7,False,42.02
+C1232,2024-05-19,Cairns Inlet,Grass Emperor,F,32.8,0.54,line,FV-063,42.7,28.9,True,8.1
+C1046,2024-05-19,Michaelmas Cay,Coral Trout,U,34.2,0.62,spear,FV-041,25.1,28.1,False,17.36
+C1885,2024-05-20,Michaelmas Cay,Coral Trout,M,32.2,0.49,spear,FV-034,35.8,27.8,False,13.72
+C0683,2024-05-20,Green Island,Mangrove Jack,F,36.1,0.67,trap,FV-088,32.9,28.0,True,13.4
+C0467,2024-05-20,Michaelmas Cay,Grass Emperor,M,37.9,0.87,line,FV-063,10.7,28.1,True,13.05
+C0470,2024-05-21,Michaelmas Cay,Red Emperor,M,39.8,0.81,spear,FV-041,13.5,28.3,False,21.06
+C0397,2024-05-22,Green Island,Grass Emperor,M,48.2,1.88,line,FV-041,27.2,28.3,True,28.2
+C0174,2024-05-22,Cairns Inlet,Spanish Mackerel,M,83.9,5.3,line,FV-058,4.6,27.3,True,95.4
+C0792,2024-05-22,Michaelmas Cay,Barramundi,M,69.9,4.39,net,FV-041,24.2,27.4,True,96.58
+C0225,2024-05-23,Fitzroy Reef,Barramundi,U,66.5,3.85,net,FV-088,33.9,28.5,True,84.7
+C1123,2024-05-23,Michaelmas Cay,Red Emperor,F,58.1,2.77,line,FV-063,24.5,27.8,True,72.02
+C0392,2024-05-24,Cairns Inlet,Barramundi,M,66.4,4.46,line,FV-071,18.4,28.7,True,98.12
+C1884,2024-05-24,Michaelmas Cay,Spanish Mackerel,U,80.2,4.99,line,FV-034,43.1,27.6,True,89.82
+C1169,2024-05-24,Frankland Islands,Barramundi,U,54.1,2.19,spear,FV-034,39.9,27.5,False,48.18
+C0986,2024-05-24,Cairns Inlet,Red Emperor,M,59.2,2.9,line,FV-041,28.1,27.9,True,75.4
+C0375,2024-05-24,Fitzroy Reef,Mangrove Jack,M,43.4,1.23,line,FV-058,28.4,27.6,True,24.6
+C1684,2024-05-25,Michaelmas Cay,Coral Trout,M,48.8,1.64,trap,FV-088,23.4,26.3,True,45.92
+C1429,2024-05-26,Trinity Bay,Grass Emperor,F,35.8,0.68,line,FV-012,42.3,29.2,True,10.2
+C1406,2024-05-26,Cairns Inlet,Mangrove Jack,F,40.7,1.04,line,FV-058,18.9,27.1,True,20.8
+C1081,2024-05-26,Trinity Bay,Barramundi,F,67.6,4.83,line,FV-088,24.4,27.5,True,106.26
+C0678,2024-05-27,Green Island,Red Emperor,F,59.9,2.87,trap,FV-058,41.2,27.6,True,74.62
+C1858,2024-05-27,Frankland Islands,Red Emperor,F,54.8,2.2,net,FV-088,42.6,27.9,True,57.2
+C1840,2024-05-27,Green Island,Barramundi,F,67.1,4.03,trap,FV-041,29.5,28.2,True,88.66
+C0177,2024-05-28,Michaelmas Cay,Barramundi,M,60.1,3.02,line,FV-088,44.7,28.2,True,66.44
+C1404,2024-05-28,Cairns Inlet,Mangrove Jack,F,35.8,0.62,line,FV-027,37.6,28.0,True,12.4
+C0176,2024-05-28,Michaelmas Cay,Barramundi,F,62.3,3.35,net,FV-088,3.7,28.9,True,73.7
+C0243,2024-05-29,Frankland Islands,Mangrove Jack,F,40.8,0.98,trap,FV-058,41.6,27.6,True,19.6
+C0998,2024-05-29,Trinity Bay,Mangrove Jack,U,49.1,1.62,net,FV-063,39.5,27.8,True,32.4
+C1018,2024-05-29,Fitzroy Reef,Red Emperor,F,70.3,5.05,trap,FV-027,23.1,28.4,True,131.3
+C1529,2024-05-29,Michaelmas Cay,Grass Emperor,F,44.9,1.29,line,FV-041,20.8,27.7,True,19.35
+C1859,2024-05-30,Green Island,Barramundi,U,61.9,2.58,trap,FV-027,6.7,27.2,True,56.76
+C1122,2024-05-30,Green Island,Grass Emperor,U,49.8,2.12,trap,FV-088,9.5,27.1,True,31.8
+C0098,2024-05-31,Trinity Bay,Grass Emperor,F,39.4,0.79,line,FV-071,5.3,27.6,True,11.85
+C1565,2024-05-31,Fitzroy Reef,Coral Trout,M,47.1,1.38,line,FV-041,32.8,27.7,True,38.64
+C0150,2024-05-31,Trinity Bay,Barramundi,M,61.9,3.06,net,FV-088,36.5,28.7,True,67.32
+C0428,2024-05-31,Trinity Bay,Grass Emperor,F,28.8,0.35,line,FV-041,14.2,28.0,True,5.25
+C0357,2024-05-31,Fitzroy Reef,Coral Trout,M,42.3,1.06,spear,FV-063,31.2,27.5,True,29.68
+C0576,2024-05-31,Fitzroy Reef,Grass Emperor,F,36.2,0.76,spear,FV-058,23.4,26.6,True,11.4
+C1426,2024-06-01,Frankland Islands,Coral Trout,F,47.2,1.41,trap,FV-041,10.7,26.2,True,39.48
+C0182,2024-06-01,Fitzroy Reef,Spanish Mackerel,M,81.3,4.49,spear,FV-063,30.8,28.1,True,80.82
+C1089,2024-06-03,Michaelmas Cay,Spanish Mackerel,M,98.4,7.71,line,FV-041,17.5,27.6,True,138.78
+C0352,2024-06-03,Cairns Inlet,Barramundi,M,58.8,2.68,spear,FV-027,31.9,27.7,True,58.96
+C0798,2024-06-04,Frankland Islands,Grass Emperor,F,26.9,0.29,line,FV-071,25.7,26.8,False,4.35
+C1893,2024-06-04,Green Island,Grass Emperor,F,47.8,1.6,spear,FV-041,40.8,27.5,True,24.0
+C0393,2024-06-04,Michaelmas Cay,Barramundi,U,69.5,5.56,line,FV-071,20.7,27.2,True,122.32
+C1045,2024-06-04,Frankland Islands,Barramundi,U,58.3,2.66,line,FV-034,44.4,28.3,True,58.52
+C0143,2024-06-05,Cairns Inlet,Grass Emperor,F,25.0,0.26,trap,FV-034,15.1,26.8,False,3.9
+C0278,2024-06-05,Cairns Inlet,Coral Trout,M,41.0,1.1,net,FV-041,24.7,27.6,True,30.8
+C0395,2024-06-05,Green Island,Grass Emperor,U,33.1,0.59,trap,FV-041,24.2,27.8,True,8.85
+C1743,2024-06-05,Frankland Islands,Spanish Mackerel,U,77.1,3.96,line,FV-071,20.5,27.5,True,71.28
+C1278,2024-06-05,Fitzroy Reef,Spanish Mackerel,U,94.1,7.77,line,FV-058,31.7,27.6,True,139.86
+C1143,2024-06-05,Green Island,Mangrove Jack,F,42.8,1.13,line,FV-041,33.9,27.1,True,22.6
+C0353,2024-06-05,Michaelmas Cay,Grass Emperor,M,38.6,0.84,trap,FV-027,18.2,26.7,True,12.6
+C0292,2024-06-06,Green Island,Red Emperor,U,49.6,1.84,trap,FV-088,12.6,26.2,True,47.84
+C0606,2024-06-06,Trinity Bay,Red Emperor,M,41.2,1.02,net,FV-027,23.5,28.1,False,26.52
+C0705,2024-06-06,Michaelmas Cay,Spanish Mackerel,F,76.3,3.65,line,FV-012,21.6,27.8,True,65.7
+C1476,2024-06-07,Fitzroy Reef,Grass Emperor,F,40.8,1.02,line,FV-027,25.7,27.9,True,15.3
+C1100,2024-06-07,Cairns Inlet,Barramundi,U,59.6,3.13,net,FV-041,29.7,27.2,True,68.86
+C1756,2024-06-07,Fitzroy Reef,Red Emperor,U,59.3,3.14,line,FV-058,17.4,27.1,True,81.64
+C1522,2024-06-07,Michaelmas Cay,Barramundi,F,60.3,2.7,line,FV-088,13.8,27.4,True,59.4
+C0388,2024-06-07,Green Island,Barramundi,M,61.6,3.05,trap,FV-027,5.7,27.9,True,67.1
+C1614,2024-06-07,Cairns Inlet,Mangrove Jack,M,49.2,1.63,trap,FV-058,14.2,27.9,True,32.6
+C1113,2024-06-08,Cairns Inlet,Coral Trout,U,46.5,1.34,trap,FV-088,7.1,27.1,True,37.52
+C0017,2024-06-08,Fitzroy Reef,Red Emperor,U,50.4,1.64,line,FV-034,11.9,26.7,True,42.64
+C0044,2024-06-09,Cairns Inlet,Grass Emperor,F,22.5,0.15,spear,FV-034,31.1,27.9,False,2.25
+C1012,2024-06-09,Trinity Bay,Mangrove Jack,F,35.2,0.6,line,FV-041,35.7,27.4,True,12.0
+C1803,2024-06-09,Cairns Inlet,Mangrove Jack,F,47.3,1.56,line,FV-027,23.0,27.0,True,31.2
+C1590,2024-06-10,Frankland Islands,Mangrove Jack,U,53.5,2.18,spear,FV-041,36.6,25.9,True,43.6
+C1514,2024-06-10,Michaelmas Cay,Red Emperor,F,48.9,1.78,trap,FV-088,30.6,26.9,True,46.28
+C0437,2024-06-11,Green Island,Grass Emperor,M,29.9,0.4,trap,FV-058,11.6,27.6,True,6.0
+C0274,2024-06-12,Fitzroy Reef,Coral Trout,M,43.8,1.1,trap,FV-088,43.7,26.8,True,30.8
+C0064,2024-06-12,Michaelmas Cay,Barramundi,M,53.5,2.17,spear,FV-034,38.8,27.3,False,47.74
+C1172,2024-06-12,Green Island,Spanish Mackerel,F,92.6,6.45,net,FV-034,12.6,27.1,True,116.1
+C1286,2024-06-13,Trinity Bay,Red Emperor,M,40.0,0.96,trap,FV-063,15.8,27.0,False,24.96
+C1569,2024-06-13,Fitzroy Reef,Barramundi,U,61.6,2.98,trap,FV-034,4.0,27.2,True,65.56
+C1506,2024-06-13,Michaelmas Cay,Barramundi,M,63.3,4.07,line,FV-034,29.6,26.5,True,89.54
+C0291,2024-06-14,Fitzroy Reef,Coral Trout,F,39.4,0.9,line,FV-088,27.3,26.4,True,25.2
+C1635,2024-06-15,Frankland Islands,Barramundi,M,71.2,5.79,line,FV-041,29.7,26.9,True,127.38
+C1935,2024-06-15,Cairns Inlet,Barramundi,M,58.8,2.89,line,FV-041,32.2,26.8,True,63.58
+C1798,2024-06-15,Fitzroy Reef,Coral Trout,M,42.6,1.1,trap,FV-041,36.6,27.7,True,30.8
+C0553,2024-06-16,Green Island,Grass Emperor,M,31.2,0.41,spear,FV-012,38.9,28.1,True,6.15
+C0452,2024-06-16,Frankland Islands,Mangrove Jack,F,30.5,0.33,spear,FV-071,12.6,26.5,False,6.6
+C0715,2024-06-17,Frankland Islands,Red Emperor,M,79.3,8.17,net,FV-041,20.4,27.0,True,212.42
+C1856,2024-06-17,Fitzroy Reef,Red Emperor,F,55.4,2.59,line,FV-071,38.2,27.4,True,67.34
+C1331,2024-06-17,Fitzroy Reef,Spanish Mackerel,M,88.5,6.42,line,FV-012,37.8,26.6,True,115.56
+C0202,2024-06-17,Fitzroy Reef,Mangrove Jack,M,32.6,0.54,trap,FV-041,37.6,,False,10.8
+C1641,2024-06-17,Green Island,Coral Trout,F,46.4,1.26,line,FV-012,38.8,26.3,True,35.28
+C0226,2024-06-18,Trinity Bay,Barramundi,M,64.4,3.98,trap,FV-063,33.8,26.3,True,87.56
+C0179,2024-06-18,Trinity Bay,Mangrove Jack,F,51.3,2.13,trap,FV-012,35.8,27.1,True,42.6
+C1802,2024-06-18,Trinity Bay,Mangrove Jack,U,45.2,1.4,trap,FV-012,13.6,26.8,True,28.0
+C1727,2024-06-18,Fitzroy Reef,Coral Trout,M,41.3,0.94,spear,FV-088,5.0,26.8,True,26.32
+C0400,2024-06-18,Green Island,Barramundi,F,62.7,3.54,trap,FV-012,32.5,27.0,True,77.88
+C0398,2024-06-19,Frankland Islands,Coral Trout,M,48.2,1.7,net,FV-027,34.9,26.0,True,47.6
+C1090,2024-06-19,Green Island,Coral Trout,U,44.9,1.06,trap,FV-027,8.0,25.6,True,29.68
+C0429,2024-06-21,Cairns Inlet,Coral Trout,F,38.8,0.72,line,FV-088,3.6,26.4,True,20.16
+C0772,2024-06-21,Michaelmas Cay,Red Emperor,M,51.8,1.88,trap,FV-027,18.9,25.9,True,48.88
+C1574,2024-06-21,Fitzroy Reef,Coral Trout,F,53.4,1.95,line,FV-088,25.8,26.1,True,54.6
+C1349,2024-06-21,Cairns Inlet,Barramundi,M,58.7,2.82,line,FV-063,40.8,26.0,True,62.04
+C1093,2024-06-22,Fitzroy Reef,Coral Trout,F,39.1,0.81,line,FV-034,37.5,25.3,True,22.68
+C0525,2024-06-22,Michaelmas Cay,Coral Trout,U,58.3,2.87,net,FV-088,41.7,25.2,True,80.36
+C1552,2024-06-22,Frankland Islands,Barramundi,F,68.3,4.77,line,FV-027,24.8,26.7,True,104.94
+C0755,2024-06-22,Frankland Islands,Red Emperor,U,59.9,2.83,line,FV-058,21.8,27.1,True,73.58
+C0539,2024-06-24,Fitzroy Reef,Coral Trout,M,50.9,1.73,line,FV-034,5.4,26.0,True,48.44
+C1850,2024-06-24,Michaelmas Cay,Barramundi,M,62.1,2.97,line,FV-063,3.6,25.3,True,65.34
+C0762,2024-06-24,Michaelmas Cay,Mangrove Jack,M,42.2,1.11,line,FV-071,8.9,26.3,True,22.2
+C1869,2024-06-24,Fitzroy Reef,Red Emperor,U,53.7,2.06,line,FV-041,12.8,26.7,True,53.56
+C1484,2024-06-24,Trinity Bay,Grass Emperor,U,31.9,0.49,line,FV-088,43.8,26.3,True,7.35
+C0840,2024-06-24,Michaelmas Cay,Coral Trout,F,44.3,1.16,spear,FV-071,11.8,26.5,True,32.48
+C1961,2024-06-25,Fitzroy Reef,Coral Trout,U,43.7,1.25,line,FV-027,41.9,27.2,True,35.0
+C0418,2024-06-25,Frankland Islands,Coral Trout,F,28.1,0.31,spear,FV-034,9.7,25.5,False,8.68
+C1212,2024-06-25,Fitzroy Reef,Mangrove Jack,F,48.5,1.45,net,FV-034,4.4,25.6,True,29.0
+C1599,2024-06-26,Fitzroy Reef,Spanish Mackerel,M,78.4,4.34,net,FV-088,8.8,26.4,True,78.12
+C1572,2024-06-26,Fitzroy Reef,Barramundi,F,68.7,4.15,net,FV-027,25.9,26.7,True,91.3
+C1715,2024-06-27,Trinity Bay,Red Emperor,M,57.7,2.45,trap,FV-058,44.4,25.5,True,63.7
+C0117,2024-06-27,Green Island,Mangrove Jack,U,26.4,0.23,spear,FV-063,7.1,26.7,False,4.6
+C0230,2024-06-27,Fitzroy Reef,Grass Emperor,M,39.9,1.11,line,FV-058,27.1,26.5,True,16.65
+C1750,2024-06-27,Trinity Bay,Barramundi,F,79.1,8.05,line,FV-063,15.9,26.1,True,177.1
+C1568,2024-06-28,Green Island,Red Emperor,M,53.9,2.22,line,FV-027,18.6,25.9,True,57.72
+C0194,2024-06-28,Fitzroy Reef,Spanish Mackerel,F,83.8,5.03,net,FV-071,25.3,25.6,True,90.54
+C1550,2024-06-28,Michaelmas Cay,Barramundi,F,64.0,3.9,net,FV-058,18.2,25.7,True,85.8
+C1929,2024-06-29,Michaelmas Cay,Spanish Mackerel,U,82.8,5.24,net,FV-041,31.5,25.8,True,94.32
+C1420,2024-06-29,Fitzroy Reef,Coral Trout,M,44.6,1.19,line,FV-088,6.3,25.4,True,33.32
+C1838,2024-06-29,Michaelmas Cay,Grass Emperor,M,48.9,1.78,net,FV-088,40.5,26.5,True,26.7
+C0234,2024-06-29,Michaelmas Cay,Barramundi,F,54.3,2.23,spear,FV-063,36.1,25.9,False,49.06
+C1390,2024-06-29,Frankland Islands,Barramundi,U,71.2,5.28,line,FV-034,19.1,26.1,True,116.16
+C0739,2024-06-30,Frankland Islands,Red Emperor,U,53.8,2.01,line,FV-063,3.9,25.8,True,52.26
+C1334,2024-07-01,Trinity Bay,Spanish Mackerel,M,88.7,5.92,trap,FV-063,10.2,26.2,True,106.56
+C1114,2024-07-01,Fitzroy Reef,Mangrove Jack,U,46.1,1.15,net,FV-034,32.8,26.3,True,23.0
+C0878,2024-07-01,Cairns Inlet,Grass Emperor,M,36.1,0.76,line,FV-041,40.1,25.9,True,11.4
+C0602,2024-07-01,Fitzroy Reef,Grass Emperor,F,42.0,1.23,line,FV-058,35.6,26.4,True,18.45
+C0206,2024-07-02,Green Island,Coral Trout,F,58.7,2.84,line,FV-071,22.8,25.3,True,79.52
+C1069,2024-07-02,Green Island,Coral Trout,F,52.6,1.89,line,FV-088,10.4,25.6,True,52.92
+C1823,2024-07-03,Cairns Inlet,Mangrove Jack,M,30.7,0.45,spear,FV-034,40.4,24.6,False,9.0
+C1437,2024-07-03,Fitzroy Reef,Red Emperor,U,67.9,5.01,line,FV-063,11.5,25.3,True,130.26
+C1144,2024-07-03,Cairns Inlet,Coral Trout,F,52.2,2.02,spear,FV-088,41.3,26.0,True,56.56
+C0013,2024-07-04,Frankland Islands,Mangrove Jack,F,37.0,0.72,net,FV-058,36.3,25.7,True,14.4
+C0631,2024-07-04,Fitzroy Reef,Coral Trout,F,49.4,1.71,line,FV-034,27.0,24.7,True,47.88
+C1866,2024-07-04,Frankland Islands,Barramundi,F,65.3,3.62,line,FV-012,18.6,25.8,True,79.64
+C0081,2024-07-05,Cairns Inlet,Barramundi,F,58.4,3.28,line,FV-041,8.9,26.1,True,72.16
+C1094,2024-07-05,Cairns Inlet,Barramundi,U,68.8,4.47,line,FV-041,16.8,25.4,True,98.34
+C0205,2024-07-05,Frankland Islands,Mangrove Jack,F,42.4,1.09,net,FV-012,24.1,27.0,True,21.8
+C0757,2024-07-06,Cairns Inlet,Barramundi,M,63.1,3.17,net,FV-058,15.2,25.3,True,69.74
+C1197,2024-07-06,Trinity Bay,Mangrove Jack,U,35.9,0.63,net,FV-058,4.9,25.0,True,12.6
+C1819,2024-07-07,Michaelmas Cay,Grass Emperor,M,31.6,0.47,line,FV-071,38.8,26.5,True,7.05
+C1696,2024-07-07,Michaelmas Cay,Coral Trout,M,38.1,0.84,line,FV-012,14.7,25.5,True,23.52
+C1339,2024-07-08,Cairns Inlet,Barramundi,M,65.1,3.84,spear,FV-034,19.2,26.0,True,84.48
+C1248,2024-07-08,Cairns Inlet,Spanish Mackerel,M,82.7,4.55,line,FV-012,36.6,25.5,True,81.9
+C1527,2024-07-08,Cairns Inlet,Mangrove Jack,U,50.8,1.71,trap,FV-027,27.9,25.7,True,34.2
+C0164,2024-07-08,Frankland Islands,Red Emperor,F,58.3,2.42,spear,FV-034,22.4,25.5,True,62.92
+C0312,2024-07-09,Trinity Bay,Spanish Mackerel,U,71.6,2.96,line,FV-088,16.5,26.1,False,53.28
+C0198,2024-07-09,Cairns Inlet,Barramundi,M,66.1,4.35,trap,FV-012,26.4,25.8,True,95.7
+C2000,2024-07-09,Michaelmas Cay,Coral Trout,M,56.0,2.77,net,FV-034,38.4,25.9,True,77.56
+C0863,2024-07-09,Michaelmas Cay,Coral Trout,M,51.2,1.78,line,FV-088,29.8,25.3,True,49.84
+C0944,2024-07-09,Green Island,Mangrove Jack,M,52.4,2.01,spear,FV-088,44.7,25.9,True,40.2
+C1922,2024-07-09,Green Island,Barramundi,M,71.4,4.9,spear,FV-063,19.7,25.1,True,107.8
+C1785,2024-07-10,Frankland Islands,Grass Emperor,M,36.5,0.73,line,FV-088,30.9,25.7,True,10.95
+C1936,2024-07-11,Trinity Bay,Red Emperor,F,53.1,2.44,net,FV-088,10.8,26.0,True,63.44
+C0807,2024-07-11,Trinity Bay,Mangrove Jack,U,31.7,0.42,trap,FV-034,10.3,,False,8.4
+C0067,2024-07-12,Frankland Islands,Red Emperor,F,52.7,2.44,trap,FV-063,34.8,25.5,True,63.44
+C0237,2024-07-12,Cairns Inlet,Coral Trout,F,48.9,1.37,spear,FV-041,39.0,26.0,True,38.36
+C1305,2024-07-12,Frankland Islands,Coral Trout,U,38.7,0.81,trap,FV-088,11.6,26.2,True,22.68
+C1938,2024-07-12,Cairns Inlet,Red Emperor,F,54.9,2.39,line,FV-012,5.5,26.4,True,62.14
+C1705,2024-07-12,Cairns Inlet,Coral Trout,M,49.7,1.3,line,FV-071,43.0,25.8,True,36.4
+C0127,2024-07-12,Trinity Bay,Coral Trout,M,47.6,1.62,spear,FV-034,38.4,26.1,True,45.36
+C0785,2024-07-13,Trinity Bay,Mangrove Jack,U,46.7,1.32,line,FV-012,30.4,24.5,True,26.4
+C0609,2024-07-14,Fitzroy Reef,Mangrove Jack,F,39.5,0.73,line,FV-041,29.6,25.2,True,14.6
+C1760,2024-07-14,Fitzroy Reef,Grass Emperor,F,37.5,0.77,spear,FV-012,21.1,25.4,True,11.55
+C0963,2024-07-14,Fitzroy Reef,Barramundi,M,68.6,4.97,line,FV-034,24.3,26.0,True,109.34
+C1824,2024-07-14,Trinity Bay,Coral Trout,U,37.7,0.75,line,FV-071,14.9,25.2,False,21.0
+C1713,2024-07-14,Trinity Bay,Red Emperor,M,50.8,2.13,line,FV-063,10.5,24.7,True,55.38
+C0515,2024-07-15,Trinity Bay,Grass Emperor,F,37.0,0.8,line,FV-088,34.6,24.7,True,12.0
+C0057,2024-07-15,Cairns Inlet,Spanish Mackerel,F,81.3,4.76,trap,FV-071,17.4,25.3,True,85.68
+C1759,2024-07-15,Michaelmas Cay,Mangrove Jack,F,45.2,1.43,line,FV-088,42.9,25.5,True,28.6
+C0613,2024-07-15,Trinity Bay,Spanish Mackerel,M,88.5,5.3,line,FV-063,32.8,25.9,True,95.4
+C1730,2024-07-16,Frankland Islands,Grass Emperor,M,24.9,0.21,line,FV-041,31.3,24.8,False,3.15
+C0045,2024-07-16,Cairns Inlet,Coral Trout,F,44.8,1.19,spear,FV-058,33.3,25.0,True,33.32
+C0157,2024-07-17,Fitzroy Reef,Coral Trout,M,62.4,3.51,net,FV-012,7.4,26.0,True,98.28
+C1615,2024-07-17,Trinity Bay,Red Emperor,F,56.8,3.01,trap,FV-041,37.0,25.0,True,78.26
+C1808,2024-07-17,Fitzroy Reef,Spanish Mackerel,F,69.4,3.1,trap,FV-041,25.2,26.1,False,55.8
+C0952,2024-07-17,Michaelmas Cay,Coral Trout,F,49.6,1.52,net,FV-041,26.7,24.5,True,42.56
+C1498,2024-07-17,Frankland Islands,Coral Trout,M,43.0,1.21,trap,FV-041,37.5,24.6,True,33.88
+C1816,2024-07-18,Frankland Islands,Grass Emperor,F,29.0,0.37,net,FV-034,28.7,25.8,True,5.55
+C0580,2024-07-18,Trinity Bay,Mangrove Jack,M,40.1,0.95,line,FV-058,43.7,24.8,True,19.0
+C1558,2024-07-18,Frankland Islands,Coral Trout,F,35.2,0.64,net,FV-058,39.8,24.7,False,17.92
+C0345,2024-07-18,Cairns Inlet,Mangrove Jack,U,37.5,0.75,trap,FV-041,27.8,24.7,True,15.0
+C1149,2024-07-19,Cairns Inlet,Coral Trout,F,35.1,0.64,net,FV-071,40.0,24.9,False,17.92
+C0793,2024-07-19,Frankland Islands,Spanish Mackerel,M,82.2,4.55,line,FV-027,13.0,26.0,True,81.9
+C0152,2024-07-20,Green Island,Mangrove Jack,U,36.7,0.62,line,FV-027,17.7,25.3,True,12.4
+C0698,2024-07-20,Frankland Islands,Barramundi,F,60.4,3.59,net,FV-041,26.0,24.7,True,78.98
+C0178,2024-07-21,Michaelmas Cay,Barramundi,M,64.4,3.38,net,FV-034,9.8,25.1,True,74.36
+C1928,2024-07-21,Trinity Bay,Mangrove Jack,F,45.2,1.25,line,FV-058,32.1,25.2,True,25.0
+C1923,2024-07-21,Green Island,Barramundi,F,52.9,1.9,spear,FV-071,23.1,24.5,False,41.8
+C1700,2024-07-22,Fitzroy Reef,Mangrove Jack,U,32.4,0.52,spear,FV-034,4.1,24.4,False,10.4
+C0340,2024-07-22,Fitzroy Reef,Coral Trout,U,44.4,1.21,trap,FV-063,42.7,24.9,True,33.88
+C0458,2024-07-22,Cairns Inlet,Coral Trout,F,44.3,1.17,line,FV-071,40.5,24.5,True,32.76
+C1034,2024-07-23,Fitzroy Reef,Spanish Mackerel,F,73.9,3.32,spear,FV-034,29.6,25.5,False,59.76
+C1695,2024-07-23,Trinity Bay,Red Emperor,F,52.9,1.88,net,FV-063,34.0,26.2,True,48.88
+C1147,2024-07-23,Fitzroy Reef,Coral Trout,M,42.4,1.14,spear,FV-063,31.3,25.3,True,31.92
+C0319,2024-07-24,Michaelmas Cay,Barramundi,U,61.2,3.2,line,FV-063,25.1,25.2,True,70.4
+C1462,2024-07-24,Cairns Inlet,Spanish Mackerel,F,71.3,3.4,line,FV-071,8.8,24.6,False,61.2
+C1292,2024-07-24,Cairns Inlet,Spanish Mackerel,F,93.3,7.86,line,FV-041,39.0,24.2,True,141.48
+C0255,2024-07-24,Frankland Islands,Coral Trout,F,43.9,1.14,line,FV-012,26.1,25.0,True,31.92
+C0242,2024-07-25,Fitzroy Reef,Coral Trout,F,56.2,2.63,trap,FV-041,42.3,24.7,True,73.64
+C1555,2024-07-25,Green Island,Mangrove Jack,M,39.7,0.88,line,FV-071,8.0,24.9,True,17.6
+C0476,2024-07-26,Michaelmas Cay,Barramundi,F,69.2,5.41,line,FV-088,19.0,25.4,True,119.02
+C1629,2024-07-26,Cairns Inlet,Mangrove Jack,M,36.0,0.59,trap,FV-041,31.9,24.6,True,11.8
+C1189,2024-07-26,Frankland Islands,Barramundi,F,74.3,5.45,spear,FV-088,29.2,24.4,True,119.9
+C1740,2024-07-27,Frankland Islands,Coral Trout,M,36.2,0.44,trap,FV-071,34.8,24.5,False,12.32
+C1399,2024-07-28,Fitzroy Reef,Grass Emperor,F,35.4,0.66,spear,FV-088,38.7,24.3,True,9.9
+C0571,2024-07-28,Michaelmas Cay,Mangrove Jack,F,35.6,0.62,spear,FV-063,4.9,25.1,True,12.4
+C0953,2024-07-28,Fitzroy Reef,Spanish Mackerel,M,83.0,4.31,trap,FV-058,42.0,24.0,True,77.58
+C1088,2024-07-28,Green Island,Mangrove Jack,F,41.6,1.02,spear,FV-012,29.0,24.3,True,20.4
+C0065,2024-07-29,Fitzroy Reef,Barramundi,F,61.8,2.71,net,FV-012,42.4,24.8,True,59.62
+C0615,2024-07-30,Trinity Bay,Red Emperor,M,60.1,3.42,trap,FV-058,6.8,25.3,True,88.92
+C0480,2024-07-30,Green Island,Red Emperor,U,54.4,2.36,spear,FV-063,29.7,25.0,True,61.36
+C1273,2024-07-30,Trinity Bay,Mangrove Jack,M,44.0,1.2,line,FV-071,16.3,25.2,True,24.0
+C0012,2024-07-30,Frankland Islands,Red Emperor,M,56.5,2.56,trap,FV-041,9.3,23.9,True,66.56
+C0854,2024-07-30,Green Island,Mangrove Jack,M,39.9,0.91,net,FV-058,23.3,24.5,True,18.2
+C0136,2024-07-31,Michaelmas Cay,Red Emperor,F,52.3,1.95,spear,FV-063,14.1,24.4,True,50.7
+C1369,2024-07-31,Cairns Inlet,Coral Trout,M,41.3,1.0,line,FV-071,25.3,24.7,True,28.0
+C0946,2024-07-31,Michaelmas Cay,Barramundi,F,74.3,5.15,spear,FV-012,6.9,23.6,True,113.3
+C0700,2024-08-01,Trinity Bay,Spanish Mackerel,U,72.5,3.09,trap,FV-088,35.6,23.0,False,55.62
+C1903,2024-08-01,Michaelmas Cay,Barramundi,F,60.4,3.08,net,FV-058,21.5,24.4,True,67.76
+C0224,2024-08-02,Trinity Bay,Mangrove Jack,M,42.0,1.01,line,FV-063,23.4,25.4,True,20.2
+C0024,2024-08-03,Green Island,Grass Emperor,U,27.7,0.3,trap,FV-071,30.8,24.3,False,4.5
+C1236,2024-08-03,Michaelmas Cay,Mangrove Jack,F,36.4,0.59,trap,FV-027,16.9,23.1,True,11.8
+C0874,2024-08-04,Fitzroy Reef,Coral Trout,F,49.8,1.84,line,FV-012,23.3,24.0,True,51.52
+C0983,2024-08-04,Frankland Islands,Coral Trout,F,48.6,1.47,line,FV-027,42.1,25.1,True,41.16
+C1631,2024-08-04,Trinity Bay,Coral Trout,U,48.6,1.5,line,FV-012,18.8,23.6,True,42.0
+C0244,2024-08-04,Frankland Islands,Coral Trout,F,41.3,1.04,line,FV-012,41.9,23.3,True,29.12
+C0453,2024-08-04,Fitzroy Reef,Barramundi,F,64.1,2.78,net,FV-071,8.1,23.2,True,61.16
+C1328,2024-08-05,Frankland Islands,Grass Emperor,F,37.9,0.77,trap,FV-012,30.5,24.9,True,11.55
+C1342,2024-08-05,Trinity Bay,Coral Trout,M,43.7,1.12,line,FV-058,16.9,25.5,True,31.36
+C1022,2024-08-05,Michaelmas Cay,Grass Emperor,F,51.1,2.15,net,FV-063,35.6,24.4,True,32.25
+C0795,2024-08-06,Fitzroy Reef,Coral Trout,F,31.2,0.38,trap,FV-058,12.7,25.0,False,10.64
+C1070,2024-08-06,Cairns Inlet,Red Emperor,U,59.6,3.2,line,FV-041,17.2,24.0,True,83.2
+C1464,2024-08-07,Michaelmas Cay,Mangrove Jack,F,32.2,0.47,trap,FV-058,6.5,24.7,False,9.4
+C1949,2024-08-07,Green Island,Mangrove Jack,M,52.0,2.15,line,FV-027,38.0,24.0,True,43.0
+C1634,2024-08-08,Michaelmas Cay,Barramundi,M,75.6,6.12,trap,FV-058,3.3,24.4,True,134.64
+C1749,2024-08-08,Fitzroy Reef,Barramundi,U,57.1,3.06,line,FV-041,33.8,23.6,False,67.32
+C1975,2024-08-09,Michaelmas Cay,Grass Emperor,M,48.7,1.82,line,FV-088,20.7,23.4,True,27.3
+C0834,2024-08-10,Green Island,Mangrove Jack,M,30.4,0.37,line,FV-034,25.8,23.8,False,7.4
+C0025,2024-08-10,Cairns Inlet,Barramundi,F,59.8,2.8,spear,FV-063,30.3,25.3,True,61.6
+C1439,2024-08-10,Trinity Bay,Coral Trout,M,35.0,0.54,spear,FV-034,5.9,23.9,False,15.12
+C1846,2024-08-11,Green Island,Spanish Mackerel,M,73.5,3.08,trap,FV-041,24.4,24.3,False,55.44
+C0823,2024-08-11,Trinity Bay,Grass Emperor,M,31.5,0.48,net,FV-012,6.3,23.9,True,7.2
+C0704,2024-08-11,Frankland Islands,Barramundi,F,59.6,3.06,line,FV-063,34.7,25.4,True,67.32
+C1351,2024-08-12,Green Island,Barramundi,M,66.9,4.17,line,FV-071,32.6,23.5,True,91.74
+C0595,2024-08-12,Frankland Islands,Spanish Mackerel,U,77.5,4.06,line,FV-027,44.0,24.7,True,73.08
+C0977,2024-08-12,Michaelmas Cay,Mangrove Jack,M,45.5,1.58,spear,FV-058,20.7,24.8,True,31.6
+C1447,2024-08-13,Michaelmas Cay,Mangrove Jack,F,49.6,1.6,trap,FV-034,4.3,24.0,True,32.0
+C0814,2024-08-16,Fitzroy Reef,Coral Trout,U,37.2,0.72,spear,FV-071,27.6,23.4,False,20.16
+C0582,2024-08-17,Cairns Inlet,Coral Trout,M,46.7,1.53,trap,FV-058,15.9,23.3,True,42.84
+C1275,2024-08-17,Frankland Islands,Coral Trout,F,38.6,0.65,line,FV-071,27.5,24.2,True,18.2
+C1779,2024-08-18,Frankland Islands,Barramundi,F,60.4,3.38,line,FV-027,10.3,23.9,True,74.36
+C0270,2024-08-18,Trinity Bay,Coral Trout,F,49.1,1.81,trap,FV-071,41.7,24.2,True,50.68
+C0902,2024-08-20,Fitzroy Reef,Mangrove Jack,M,31.9,0.42,line,FV-071,37.6,24.0,False,8.4
+C0095,2024-08-20,Green Island,Red Emperor,F,53.8,2.04,spear,FV-063,32.1,23.1,True,53.04
+C0271,2024-08-20,Frankland Islands,Mangrove Jack,M,38.7,0.71,spear,FV-012,14.4,23.4,True,14.2
+C0075,2024-08-20,Michaelmas Cay,Coral Trout,F,60.4,3.02,line,FV-088,25.8,24.1,True,84.56
+C0584,2024-08-21,Cairns Inlet,Red Emperor,F,51.8,2.01,line,FV-041,37.9,23.6,True,52.26
+C1547,2024-08-21,Fitzroy Reef,Barramundi,F,61.8,3.22,spear,FV-012,18.4,23.6,True,70.84
+C0338,2024-08-21,Green Island,Grass Emperor,M,45.3,1.39,trap,FV-012,8.5,23.1,True,20.85
+C1363,2024-08-22,Frankland Islands,Mangrove Jack,F,29.4,0.34,line,FV-063,22.6,24.1,False,6.8
+C1610,2024-08-22,Trinity Bay,Spanish Mackerel,F,94.3,7.24,trap,FV-034,34.5,24.3,True,130.32
+C1214,2024-08-22,Frankland Islands,Mangrove Jack,M,28.8,0.33,line,FV-071,37.5,23.8,False,6.6
+C1485,2024-08-23,Trinity Bay,Red Emperor,F,47.4,1.61,spear,FV-027,17.0,24.6,True,41.86
+C0058,2024-08-23,Green Island,Spanish Mackerel,U,73.3,3.41,trap,FV-071,10.3,23.4,False,61.38
+C0565,2024-08-24,Trinity Bay,Barramundi,F,54.0,1.98,trap,FV-071,37.0,23.7,False,43.56
+C1509,2024-08-25,Trinity Bay,Mangrove Jack,F,49.1,1.65,spear,FV-034,24.6,22.9,True,33.0
+C1293,2024-08-25,Frankland Islands,Coral Trout,M,45.2,1.27,net,FV-058,25.9,23.5,True,35.56
+C0643,2024-08-25,Michaelmas Cay,Spanish Mackerel,M,75.6,3.79,spear,FV-027,20.6,24.2,True,68.22
+C0380,2024-08-25,Trinity Bay,Mangrove Jack,F,44.2,1.17,trap,FV-058,36.1,23.5,True,23.4
+C1479,2024-08-26,Michaelmas Cay,Coral Trout,M,42.4,1.09,spear,FV-012,10.0,22.1,True,30.52
+C1233,2024-08-26,Green Island,Red Emperor,M,63.7,3.83,spear,FV-058,44.9,23.6,True,99.58
+C1087,2024-08-27,Michaelmas Cay,Coral Trout,M,49.0,1.46,spear,FV-058,43.5,23.7,True,40.88
+C0347,2024-08-27,Fitzroy Reef,Coral Trout,M,50.5,1.87,spear,FV-041,6.9,23.1,True,52.36
+C0333,2024-08-27,Michaelmas Cay,Barramundi,M,71.0,4.91,line,FV-088,29.4,23.3,True,108.02
+C0701,2024-08-28,Trinity Bay,Coral Trout,M,42.5,1.16,trap,FV-034,27.7,23.0,True,32.48
+C0567,2024-08-28,Michaelmas Cay,Coral Trout,M,54.9,2.61,spear,FV-027,19.1,24.6,True,73.08
+C1707,2024-08-28,Cairns Inlet,Barramundi,M,69.9,5.28,trap,FV-058,11.9,22.9,True,116.16
+C1966,2024-08-28,Trinity Bay,Spanish Mackerel,F,84.2,5.53,net,FV-012,29.2,23.4,True,99.54
+C0893,2024-08-29,Fitzroy Reef,Grass Emperor,M,37.2,0.77,spear,FV-012,40.7,23.0,True,11.55
+C0373,2024-08-29,Trinity Bay,Coral Trout,M,42.3,1.09,line,FV-027,16.1,22.2,True,30.52
+C1674,2024-08-29,Michaelmas Cay,Mangrove Jack,F,32.0,0.46,line,FV-071,43.8,23.2,False,9.2
+C1589,2024-08-29,Fitzroy Reef,Spanish Mackerel,M,79.2,4.41,line,FV-058,8.6,23.3,True,79.38
+C1107,2024-08-30,Trinity Bay,Barramundi,M,59.8,3.53,spear,FV-071,16.1,24.2,True,77.66
+C0343,2024-08-30,Fitzroy Reef,Coral Trout,F,49.4,1.91,line,FV-058,20.8,24.2,True,53.48
+C0027,2024-08-30,Frankland Islands,Barramundi,F,61.2,2.37,line,FV-063,6.4,23.4,True,52.14
+C0561,2024-09-01,Fitzroy Reef,Spanish Mackerel,M,79.0,4.24,net,FV-071,17.0,23.4,True,76.32
+C1637,2024-09-01,Green Island,Grass Emperor,M,28.8,0.38,spear,FV-027,9.8,23.2,True,5.7
+C1218,2024-09-01,Green Island,Mangrove Jack,M,50.4,1.85,line,FV-027,20.2,23.2,True,37.0
+C0648,2024-09-01,Green Island,Coral Trout,M,43.5,1.15,line,FV-088,21.2,23.9,True,32.2
+C0713,2024-09-01,Cairns Inlet,Mangrove Jack,F,45.9,1.37,spear,FV-058,29.4,23.3,True,27.4
+C0939,2024-09-01,Frankland Islands,Barramundi,F,55.6,2.14,line,FV-071,16.5,23.5,False,47.08
+C0186,2024-09-02,Cairns Inlet,Grass Emperor,F,30.2,0.42,spear,FV-071,6.6,24.4,True,6.3
+C1166,2024-09-02,Michaelmas Cay,Red Emperor,M,41.4,1.0,net,FV-071,13.7,22.9,False,26.0
+C1753,2024-09-02,Cairns Inlet,Mangrove Jack,F,32.6,0.52,trap,FV-041,15.4,22.9,False,10.4
+C1163,2024-09-02,Cairns Inlet,Grass Emperor,F,33.5,0.55,net,FV-027,18.6,23.4,True,8.25
+C1987,2024-09-02,Frankland Islands,Red Emperor,M,57.8,3.11,line,FV-012,27.0,23.3,True,80.86
+C1103,2024-09-02,Cairns Inlet,Mangrove Jack,U,30.1,0.37,spear,FV-034,32.2,23.8,False,7.4
+C1483,2024-09-02,Trinity Bay,Barramundi,F,72.7,5.87,net,FV-058,26.8,24.1,True,129.14
+C0494,2024-09-02,Frankland Islands,Spanish Mackerel,M,83.0,5.25,line,FV-071,13.6,24.4,True,94.5
+C0260,2024-09-02,Frankland Islands,Red Emperor,F,53.1,2.15,line,FV-027,30.0,23.8,True,55.9
+C0485,2024-09-04,Trinity Bay,Red Emperor,F,48.4,1.68,spear,FV-012,29.4,24.3,True,43.68
+C0804,2024-09-04,Green Island,Coral Trout,F,38.8,0.81,trap,FV-088,39.8,23.6,True,22.68
+C0829,2024-09-04,Green Island,Coral Trout,U,50.4,1.69,trap,FV-071,12.9,23.5,True,47.32
+C0354,2024-09-05,Frankland Islands,Grass Emperor,F,33.0,0.63,net,FV-058,24.1,23.3,True,9.45
+C0096,2024-09-05,Fitzroy Reef,Spanish Mackerel,M,84.3,5.71,spear,FV-027,39.4,23.1,True,102.78
+C1274,2024-09-06,Green Island,Mangrove Jack,M,40.4,0.88,net,FV-063,36.8,22.4,True,17.6
+C1709,2024-09-06,Frankland Islands,Coral Trout,U,49.5,1.51,line,FV-063,31.9,23.1,True,42.28
+C0232,2024-09-06,Cairns Inlet,Mangrove Jack,M,41.3,0.92,trap,FV-012,41.8,23.3,True,18.4
+C0443,2024-09-06,Green Island,Grass Emperor,F,35.1,0.69,trap,FV-088,37.8,23.3,True,10.35
+C1267,2024-09-06,Fitzroy Reef,Red Emperor,M,40.9,1.05,net,FV-071,24.6,22.9,False,27.3
+C1538,2024-09-07,Frankland Islands,Barramundi,M,72.9,6.24,line,FV-041,5.3,23.2,True,137.28
+C1360,2024-09-07,Trinity Bay,Barramundi,M,70.6,5.19,net,FV-027,26.8,24.1,True,114.18
+C0936,2024-09-07,Frankland Islands,Spanish Mackerel,M,84.6,5.36,line,FV-027,7.0,24.7,True,96.48
+C1265,2024-09-07,Cairns Inlet,Spanish Mackerel,M,84.2,5.09,spear,FV-071,19.1,22.6,True,91.62
+C1722,2024-09-07,Frankland Islands,Coral Trout,F,54.9,2.47,line,FV-058,25.3,23.1,True,69.16
+C0627,2024-09-08,Cairns Inlet,Spanish Mackerel,F,83.6,5.99,trap,FV-071,12.0,22.9,True,107.82
+C0208,2024-09-08,Fitzroy Reef,Spanish Mackerel,U,86.4,5.59,net,FV-034,10.4,23.3,True,100.62
+C0286,2024-09-08,Frankland Islands,Spanish Mackerel,U,77.2,3.87,net,FV-058,18.6,22.8,True,69.66
+C1536,2024-09-08,Fitzroy Reef,Barramundi,F,54.4,2.01,spear,FV-034,21.9,23.7,False,44.22
+C1930,2024-09-09,Frankland Islands,Mangrove Jack,F,42.2,0.98,net,FV-071,40.1,22.5,True,19.6
+C0028,2024-09-09,Green Island,Barramundi,M,54.1,2.18,line,FV-041,6.4,23.5,False,47.96
+C1652,2024-09-10,Fitzroy Reef,Mangrove Jack,F,44.4,1.0,line,FV-012,32.3,23.1,True,20.0
+C0361,2024-09-10,Michaelmas Cay,Mangrove Jack,M,45.8,1.48,spear,FV-058,29.4,23.0,True,29.6
+C1601,2024-09-11,Michaelmas Cay,Red Emperor,U,51.6,2.23,line,FV-041,15.1,23.7,True,57.98
+C1912,2024-09-11,Cairns Inlet,Red Emperor,F,47.6,1.39,line,FV-088,32.1,22.8,True,36.14
+C1754,2024-09-11,Frankland Islands,Red Emperor,F,57.0,2.65,line,FV-034,7.2,23.4,True,68.9
+C0719,2024-09-11,Cairns Inlet,Spanish Mackerel,M,89.5,5.08,trap,FV-058,43.9,23.1,True,91.44
+C1962,2024-09-12,Michaelmas Cay,Mangrove Jack,F,44.9,1.31,net,FV-027,21.2,23.9,True,26.2
+C1179,2024-09-12,Fitzroy Reef,Coral Trout,M,59.6,2.95,trap,FV-027,40.6,22.7,True,82.6
+C1535,2024-09-12,Frankland Islands,Mangrove Jack,U,46.9,1.67,line,FV-071,42.1,23.3,True,33.4
+C1152,2024-09-12,Michaelmas Cay,Coral Trout,M,33.1,0.51,trap,FV-063,17.5,22.5,False,14.28
+C0378,2024-09-13,Fitzroy Reef,Coral Trout,F,54.7,2.01,trap,FV-071,44.6,23.8,True,56.28
+C1308,2024-09-13,Frankland Islands,Red Emperor,F,54.6,2.41,trap,FV-041,42.0,23.8,True,62.66
+C1345,2024-09-14,Green Island,Red Emperor,F,48.7,1.9,line,FV-088,32.6,23.3,True,49.4
+C1191,2024-09-14,Frankland Islands,Red Emperor,M,47.3,1.47,net,FV-027,22.1,22.7,True,38.22
+C1937,2024-09-14,Michaelmas Cay,Mangrove Jack,M,39.1,0.78,trap,FV-041,14.7,22.5,True,15.6
+C0382,2024-09-14,Michaelmas Cay,Red Emperor,M,46.7,1.64,line,FV-012,15.6,23.5,True,42.64
+C0108,2024-09-14,Green Island,Barramundi,M,66.3,3.52,net,FV-027,44.6,23.3,True,77.44
+C1818,2024-09-15,Green Island,Red Emperor,U,43.5,1.28,line,FV-088,42.7,,False,33.28
+C0566,2024-09-16,Green Island,Coral Trout,M,55.0,2.38,trap,FV-058,43.0,23.1,True,66.64
+C0038,2024-09-16,Fitzroy Reef,Coral Trout,F,40.0,0.91,line,FV-012,25.1,23.3,True,25.48
+C0658,2024-09-17,Trinity Bay,Grass Emperor,U,29.9,0.38,net,FV-027,21.4,23.1,True,5.7
+C0910,2024-09-18,Cairns Inlet,Coral Trout,M,35.7,0.62,line,FV-071,31.8,23.0,False,17.36
+C0422,2024-09-19,Fitzroy Reef,Red Emperor,M,51.7,2.34,net,FV-012,39.8,23.5,True,60.84
+C0731,2024-09-19,Michaelmas Cay,Coral Trout,F,33.6,0.59,trap,FV-058,6.4,22.5,False,16.52
+C0533,2024-09-20,Cairns Inlet,Coral Trout,U,33.0,0.49,line,FV-012,19.3,,False,13.72
+C0856,2024-09-20,Michaelmas Cay,Red Emperor,M,51.2,1.73,net,FV-012,13.5,21.8,True,44.98
+C0639,2024-09-21,Frankland Islands,Coral Trout,F,52.7,2.02,line,FV-012,39.2,23.9,True,56.56
+C0269,2024-09-21,Cairns Inlet,Red Emperor,F,50.6,,line,FV-027,33.8,21.9,True,40.3
+C1136,2024-09-22,Cairns Inlet,Barramundi,F,56.8,2.78,spear,FV-034,38.5,23.6,False,61.16
+C1607,2024-09-22,Frankland Islands,Coral Trout,M,39.5,0.94,spear,FV-027,41.8,22.6,True,26.32
+C0928,2024-09-22,Cairns Inlet,Coral Trout,F,43.0,1.05,trap,FV-088,15.1,22.8,True,29.4
+C0641,2024-09-23,Frankland Islands,Mangrove Jack,M,55.7,2.26,line,FV-063,13.3,22.9,True,45.2
+C1056,2024-09-23,Cairns Inlet,Coral Trout,F,51.7,1.92,line,FV-088,38.6,23.1,True,53.76
+C0501,2024-09-24,Green Island,Red Emperor,F,52.7,2.33,line,FV-071,30.2,23.8,True,60.58
+C1543,2024-09-24,Green Island,Spanish Mackerel,M,76.7,3.35,net,FV-041,5.7,23.1,True,60.3
+C1416,2024-09-25,Frankland Islands,Barramundi,M,69.2,5.01,spear,FV-041,34.0,22.9,True,110.22
+C0446,2024-09-25,Cairns Inlet,Coral Trout,F,42.7,0.98,line,FV-041,28.3,22.9,True,27.44
+C1833,2024-09-26,Michaelmas Cay,Mangrove Jack,M,40.0,0.98,line,FV-034,25.5,23.1,True,19.6
+C1546,2024-09-26,Trinity Bay,Spanish Mackerel,F,71.5,3.12,spear,FV-034,39.0,22.1,False,56.16
+C1899,2024-09-27,Cairns Inlet,Coral Trout,U,57.8,2.37,line,FV-041,25.7,22.6,True,66.36
+C0105,2024-09-27,Frankland Islands,Mangrove Jack,U,41.9,1.02,line,FV-063,8.3,22.9,True,20.4
+C0622,2024-09-27,Michaelmas Cay,Coral Trout,M,54.6,2.16,net,FV-034,3.4,22.8,True,60.48
+C0886,2024-09-27,Cairns Inlet,Spanish Mackerel,U,80.2,4.7,trap,FV-041,9.0,22.0,True,84.6
+C1853,2024-09-28,Michaelmas Cay,Coral Trout,F,57.1,2.76,line,FV-071,35.7,23.3,True,77.28
+C0253,2024-09-28,Cairns Inlet,Mangrove Jack,U,44.5,1.38,line,FV-034,41.6,22.2,True,27.6
+C1072,2024-09-29,Cairns Inlet,Mangrove Jack,F,45.7,1.37,line,FV-027,18.3,23.1,True,27.4
+C1194,2024-09-30,Cairns Inlet,Coral Trout,M,52.2,1.95,trap,FV-063,5.7,22.8,True,54.6
+C0032,2024-09-30,Michaelmas Cay,Mangrove Jack,F,43.8,1.15,trap,FV-063,34.8,23.9,True,23.0
+C0562,2024-09-30,Frankland Islands,Barramundi,F,63.2,3.28,net,FV-041,31.1,23.0,True,72.16
+C0462,2024-09-30,Cairns Inlet,Coral Trout,U,43.1,1.03,line,FV-058,20.2,22.8,True,28.84
+C0520,2024-10-01,Frankland Islands,Barramundi,M,74.7,5.97,line,FV-071,6.1,23.7,True,131.34
+C1745,2024-10-01,Michaelmas Cay,Coral Trout,F,43.8,1.01,trap,FV-041,4.9,22.2,True,28.28
+C1481,2024-10-02,Michaelmas Cay,Grass Emperor,M,46.2,1.52,line,FV-012,40.4,22.4,True,22.8
+C1226,2024-10-02,Trinity Bay,Barramundi,M,57.3,2.7,line,FV-071,14.3,22.5,False,59.4
+C0768,2024-10-02,Frankland Islands,Mangrove Jack,F,52.7,1.85,line,FV-041,34.4,22.8,True,37.0
+C1032,2024-10-02,Cairns Inlet,Red Emperor,M,52.3,2.01,trap,FV-088,43.0,23.5,True,52.26
+C0769,2024-10-03,Green Island,Red Emperor,F,46.4,1.45,line,FV-063,23.2,22.6,True,37.7
+C0317,2024-10-03,Trinity Bay,Coral Trout,F,50.2,1.75,line,FV-012,22.8,22.2,True,49.0
+C0740,2024-10-04,Fitzroy Reef,Spanish Mackerel,M,81.9,4.62,net,FV-012,7.7,23.3,True,83.16
+C0170,2024-10-04,Green Island,Mangrove Jack,M,47.8,1.63,trap,FV-071,32.4,23.1,True,32.6
+C0536,2024-10-04,Fitzroy Reef,Coral Trout,M,49.7,1.68,line,FV-041,4.8,22.0,True,47.04
+C1492,2024-10-04,Frankland Islands,Coral Trout,F,43.5,1.12,line,FV-041,38.8,23.3,True,31.36
+C0090,2024-10-06,Trinity Bay,Red Emperor,M,50.1,1.79,line,FV-034,32.5,23.5,True,46.54
+C0204,2024-10-06,Fitzroy Reef,Spanish Mackerel,M,82.6,4.86,line,FV-063,27.6,23.8,True,87.48
+C0004,2024-10-06,Fitzroy Reef,Spanish Mackerel,U,79.7,4.1,line,FV-058,18.5,23.0,True,73.8
+C0114,2024-10-08,Trinity Bay,Coral Trout,M,49.4,1.85,line,FV-088,37.5,23.7,True,51.8
+C0877,2024-10-09,Frankland Islands,Grass Emperor,F,25.3,0.27,line,FV-063,28.1,23.3,False,4.05
+C1537,2024-10-09,Fitzroy Reef,Coral Trout,M,40.7,0.96,line,FV-071,34.5,23.8,True,26.88
+C1508,2024-10-09,Trinity Bay,Coral Trout,F,48.3,1.57,line,FV-041,22.3,22.9,True,43.96
+C1083,2024-10-09,Fitzroy Reef,Coral Trout,M,41.2,0.87,line,FV-063,39.0,23.5,True,24.36
+C1002,2024-10-10,Frankland Islands,Mangrove Jack,M,56.3,2.55,net,FV-088,4.8,22.6,True,51.0
+C0483,2024-10-10,Fitzroy Reef,Coral Trout,F,56.9,2.56,line,FV-071,28.3,22.5,True,71.68
+C1661,2024-10-10,Trinity Bay,Barramundi,U,74.3,5.56,trap,FV-012,24.2,23.3,True,122.32
+C1106,2024-10-10,Fitzroy Reef,Mangrove Jack,M,37.4,0.7,spear,FV-058,39.4,24.5,True,14.0
+C0717,2024-10-10,Michaelmas Cay,Coral Trout,F,34.3,0.49,spear,FV-034,9.2,22.1,False,13.72
+C0406,2024-10-11,Cairns Inlet,Spanish Mackerel,M,78.7,3.98,trap,FV-058,4.4,23.8,True,71.64
+C0670,2024-10-11,Frankland Islands,Barramundi,F,61.1,2.78,trap,FV-012,13.0,23.7,True,61.16
+C0318,2024-10-11,Cairns Inlet,Barramundi,M,69.3,4.28,line,FV-041,35.9,22.2,True,94.16
+C1458,2024-10-11,Fitzroy Reef,Coral Trout,M,35.9,0.64,spear,FV-034,29.4,23.1,False,17.92
+C0949,2024-10-12,Michaelmas Cay,Grass Emperor,U,46.1,1.5,spear,FV-041,34.4,22.5,True,22.5
+C0214,2024-10-13,Trinity Bay,Barramundi,M,64.8,4.07,net,FV-034,18.1,22.2,True,89.54
+C1638,2024-10-13,Trinity Bay,Spanish Mackerel,U,84.7,5.95,trap,FV-012,38.2,23.2,True,107.1
+C0503,2024-10-14,Fitzroy Reef,Mangrove Jack,U,47.5,1.53,line,FV-058,41.4,22.3,True,30.6
+C1040,2024-10-15,Michaelmas Cay,Coral Trout,U,42.3,1.1,spear,FV-027,26.4,22.4,True,30.8
+C0445,2024-10-15,Michaelmas Cay,Coral Trout,U,53.8,1.87,line,FV-071,21.4,23.1,True,52.36
+C0770,2024-10-15,Green Island,Grass Emperor,F,25.7,0.24,line,FV-071,28.6,23.8,False,3.6
+C0687,2024-10-16,Cairns Inlet,Spanish Mackerel,U,71.5,3.48,net,FV-041,27.9,23.8,False,62.64
+C0900,2024-10-16,Frankland Islands,Barramundi,M,59.6,2.58,line,FV-088,33.3,23.9,True,56.76
+C1894,2024-10-16,Michaelmas Cay,Spanish Mackerel,U,69.5,2.93,net,FV-058,23.2,21.6,False,52.74
+C0920,2024-10-17,Trinity Bay,Coral Trout,M,47.6,1.34,line,FV-088,14.8,24.3,True,37.52
+C0552,2024-10-17,Trinity Bay,Grass Emperor,M,50.0,1.91,net,FV-088,31.7,23.1,True,28.65
+C0370,2024-10-18,Frankland Islands,Coral Trout,M,40.3,0.9,line,FV-034,8.2,22.7,True,25.2
+C0668,2024-10-18,Trinity Bay,Mangrove Jack,M,41.9,1.14,spear,FV-034,28.1,23.3,True,22.8
+C1728,2024-10-18,Michaelmas Cay,Barramundi,F,57.9,2.59,line,FV-071,35.5,23.1,False,56.98
+C1206,2024-10-19,Michaelmas Cay,Spanish Mackerel,F,91.5,6.01,line,FV-063,23.1,22.7,True,108.18
+C0315,2024-10-19,Frankland Islands,Grass Emperor,M,33.3,0.55,line,FV-041,28.0,22.4,True,8.25
+C1797,2024-10-20,Trinity Bay,Mangrove Jack,F,34.8,0.65,trap,FV-034,38.0,23.8,False,13.0
+C0518,2024-10-20,Michaelmas Cay,Mangrove Jack,F,29.8,0.36,spear,FV-034,15.3,23.3,False,7.2
+C0290,2024-10-20,Trinity Bay,Spanish Mackerel,F,79.5,4.51,net,FV-063,23.6,22.8,True,81.18
+C0903,2024-10-20,Trinity Bay,Coral Trout,U,44.2,1.27,line,FV-058,11.3,23.5,True,35.56
+C0212,2024-10-21,Trinity Bay,Spanish Mackerel,M,83.0,5.18,net,FV-088,18.0,22.9,True,93.24
+C0306,2024-10-21,Michaelmas Cay,Coral Trout,F,56.3,2.5,net,FV-012,27.7,22.8,True,70.0
+C1898,2024-10-21,Fitzroy Reef,Mangrove Jack,F,51.3,1.96,trap,FV-058,36.3,23.7,True,39.2
+C0974,2024-10-21,Cairns Inlet,Spanish Mackerel,F,72.1,2.95,net,FV-034,42.1,23.7,False,53.1
+C1201,2024-10-22,Frankland Islands,Mangrove Jack,F,43.3,1.04,spear,FV-041,31.5,22.7,True,20.8
+C0009,2024-10-22,Green Island,Red Emperor,F,63.7,3.63,spear,FV-058,40.1,23.1,True,94.38
+C0201,2024-10-23,Fitzroy Reef,Mangrove Jack,F,38.1,0.79,line,FV-034,34.6,23.1,True,15.8
+C0336,2024-10-23,Michaelmas Cay,Barramundi,F,68.4,4.9,spear,FV-063,21.3,23.3,True,107.8
+C0180,2024-10-24,Fitzroy Reef,Spanish Mackerel,M,80.1,4.27,line,FV-041,13.4,23.6,True,76.86
+C0156,2024-10-24,Cairns Inlet,Grass Emperor,F,28.8,0.36,net,FV-027,21.5,22.8,True,5.4
+C1433,2024-10-25,Green Island,Coral Trout,U,42.0,1.0,trap,FV-027,32.4,23.8,True,28.0
+C1995,2024-10-25,Fitzroy Reef,Mangrove Jack,F,54.4,2.48,trap,FV-088,9.5,23.9,True,49.6
+C1832,2024-10-25,Frankland Islands,Spanish Mackerel,F,90.0,6.79,net,FV-058,9.8,23.2,True,122.22
+C0367,2024-10-26,Fitzroy Reef,Grass Emperor,F,39.0,0.86,net,FV-034,43.7,24.2,True,12.9
+C0219,2024-10-26,Cairns Inlet,Grass Emperor,M,22.4,0.18,spear,FV-034,29.2,23.3,False,2.7
+C0976,2024-10-26,Green Island,Mangrove Jack,M,39.8,0.87,trap,FV-071,17.9,23.2,True,17.4
+C1291,2024-10-26,Cairns Inlet,Coral Trout,F,36.6,0.63,spear,FV-034,35.3,24.3,False,17.64
+C0833,2024-10-27,Cairns Inlet,Red Emperor,F,54.5,2.34,line,FV-041,20.4,22.7,True,60.84
+C1771,2024-10-27,Trinity Bay,Red Emperor,M,52.7,2.17,net,FV-041,39.9,24.0,True,56.42
+C1222,2024-10-27,Cairns Inlet,Spanish Mackerel,M,84.6,5.18,net,FV-071,35.5,23.3,True,93.24
+C0945,2024-10-27,Fitzroy Reef,Coral Trout,F,45.0,1.15,line,FV-058,18.8,24.0,True,32.2
+C0950,2024-10-27,Trinity Bay,Spanish Mackerel,M,88.5,5.57,line,FV-088,9.0,23.1,True,100.26
+C1461,2024-10-27,Fitzroy Reef,Barramundi,M,62.4,3.34,line,FV-041,18.6,23.3,True,73.48
+C0129,2024-10-28,Fitzroy Reef,Barramundi,F,54.6,2.43,spear,FV-071,40.4,22.8,False,53.46
+C0827,2024-10-28,Michaelmas Cay,Mangrove Jack,M,37.0,0.81,net,FV-058,32.5,24.3,True,16.2
+C0898,2024-10-28,Fitzroy Reef,Red Emperor,F,53.2,2.32,line,FV-041,13.8,21.9,True,60.32
+C0046,2024-10-29,Cairns Inlet,Coral Trout,M,48.4,1.53,spear,FV-041,29.5,23.1,True,42.84
+C1595,2024-10-29,Frankland Islands,Red Emperor,U,43.0,1.12,line,FV-012,26.9,23.5,False,29.12
+C1563,2024-10-31,Michaelmas Cay,Mangrove Jack,M,46.8,1.33,net,FV-063,28.9,23.1,True,26.6
+C0351,2024-10-31,Frankland Islands,Red Emperor,F,60.2,2.79,line,FV-088,36.4,22.8,True,72.54
+C0303,2024-10-31,Fitzroy Reef,Barramundi,M,59.4,2.91,trap,FV-063,38.1,23.0,True,64.02
+C0088,2024-10-31,Trinity Bay,Mangrove Jack,F,43.6,1.21,line,FV-063,13.6,24.0,True,24.2
+C0519,2024-11-01,Michaelmas Cay,Barramundi,F,74.3,6.31,line,FV-063,31.4,24.9,True,138.82
+C1623,2024-11-01,Green Island,Grass Emperor,M,43.9,1.07,net,FV-088,36.4,23.5,True,16.05
+C1826,2024-11-01,Green Island,Barramundi,F,69.7,4.93,line,FV-058,10.9,22.5,True,108.46
+C0859,2024-11-01,Fitzroy Reef,Coral Trout,M,42.6,1.14,line,FV-071,34.6,23.4,True,31.92
+C0988,2024-11-01,Green Island,Spanish Mackerel,F,77.8,3.99,line,FV-063,18.6,23.7,True,71.82
+C1579,2024-11-02,Cairns Inlet,Coral Trout,M,41.9,0.96,line,FV-041,7.3,23.7,True,26.88
+C0229,2024-11-02,Trinity Bay,Coral Trout,U,51.0,1.76,net,FV-058,24.3,24.2,True,49.28
+C0300,2024-11-03,Green Island,Mangrove Jack,M,42.6,1.03,net,FV-041,12.1,24.4,True,20.6
+C0084,2024-11-03,Michaelmas Cay,Red Emperor,U,46.6,1.42,spear,FV-058,20.3,23.7,True,36.92
+C1333,2024-11-04,Frankland Islands,Barramundi,F,54.4,2.21,spear,FV-034,31.5,23.4,False,48.62
+C0653,2024-11-04,Cairns Inlet,Spanish Mackerel,M,81.3,4.41,trap,FV-027,4.1,23.1,True,79.38
+C1782,2024-11-05,Michaelmas Cay,Barramundi,F,89.2,10.28,spear,FV-012,15.9,23.6,True,226.16
+C0391,2024-11-05,Green Island,Coral Trout,M,38.0,0.8,spear,FV-088,32.2,23.0,True,22.4
+C0992,2024-11-06,Trinity Bay,Grass Emperor,U,56.3,3.03,trap,FV-088,33.5,24.3,True,45.45
+C0971,2024-11-06,Frankland Islands,Coral Trout,F,45.3,1.27,net,FV-063,19.0,23.7,True,35.56
+C1234,2024-11-06,Green Island,Spanish Mackerel,F,84.0,5.09,line,FV-012,36.3,24.3,True,91.62
+C1834,2024-11-06,Fitzroy Reef,Coral Trout,F,32.1,0.55,trap,FV-027,3.8,23.2,False,15.4
+C1970,2024-11-07,Cairns Inlet,Mangrove Jack,F,43.7,1.07,net,FV-071,23.9,22.8,True,21.4
+C0620,2024-11-07,Cairns Inlet,Mangrove Jack,F,35.0,0.61,line,FV-012,17.8,24.7,True,12.2
+C0541,2024-11-07,Frankland Islands,Grass Emperor,M,46.2,1.43,net,FV-027,32.0,23.3,True,21.45
+C1053,2024-11-07,Frankland Islands,Mangrove Jack,M,42.2,1.17,spear,FV-058,5.8,23.8,True,23.4
+C0578,2024-11-07,Green Island,Coral Trout,F,32.6,0.46,line,FV-012,18.5,24.5,False,12.88
+C1681,2024-11-07,Cairns Inlet,Red Emperor,U,50.0,1.64,line,FV-071,42.3,23.5,True,42.64
+C1004,2024-11-07,Michaelmas Cay,Coral Trout,M,44.7,1.39,spear,FV-041,7.3,24.0,True,38.92
+C1217,2024-11-08,Frankland Islands,Mangrove Jack,U,34.7,0.53,line,FV-071,22.0,23.2,False,10.6
+C0506,2024-11-08,Frankland Islands,Mangrove Jack,F,45.9,1.23,line,FV-063,20.6,22.9,True,24.6
+C0640,2024-11-08,Fitzroy Reef,Barramundi,M,64.0,3.85,net,FV-012,23.5,23.3,True,84.7
+C0624,2024-11-08,Trinity Bay,Grass Emperor,U,32.2,0.53,net,FV-088,7.5,23.6,True,7.95
+C1731,2024-11-08,Green Island,Spanish Mackerel,M,78.5,4.38,line,FV-027,15.2,23.7,True,78.84
+C0741,2024-11-08,Fitzroy Reef,Mangrove Jack,F,43.6,1.09,trap,FV-041,14.6,22.4,True,21.8
+C0530,2024-11-08,Trinity Bay,Barramundi,F,77.3,5.54,net,FV-027,39.1,23.6,True,121.88
+C1051,2024-11-09,Michaelmas Cay,Grass Emperor,M,25.5,0.24,net,FV-071,31.3,24.2,False,3.6
+C0505,2024-11-09,Trinity Bay,Spanish Mackerel,M,81.2,4.45,spear,FV-071,6.9,23.2,True,80.1
+C0119,2024-11-11,Cairns Inlet,Coral Trout,M,48.6,1.65,net,FV-027,34.9,23.6,True,46.2
+C0710,2024-11-12,Frankland Islands,Spanish Mackerel,F,69.5,2.93,net,FV-071,10.8,24.3,False,52.74
+C0716,2024-11-12,Green Island,Coral Trout,M,49.4,1.58,spear,FV-088,31.6,23.2,True,44.24
+C1870,2024-11-13,Fitzroy Reef,Barramundi,F,68.8,4.56,trap,FV-027,40.2,25.7,True,100.32
+C0943,2024-11-13,Cairns Inlet,Barramundi,U,54.8,2.46,trap,FV-088,31.9,24.3,False,54.12
+C0310,2024-11-13,Cairns Inlet,Grass Emperor,F,46.1,1.66,trap,FV-063,18.3,23.7,True,24.9
+C1033,2024-11-13,Green Island,Coral Trout,F,51.1,1.86,spear,FV-012,4.9,23.7,True,52.08
+C1096,2024-11-14,Green Island,Barramundi,M,78.0,7.55,line,FV-058,6.4,24.2,True,166.1
+C0052,2024-11-14,Michaelmas Cay,Grass Emperor,,37.1,0.92,spear,FV-041,6.1,23.3,True,13.8
+C1180,2024-11-14,Michaelmas Cay,Grass Emperor,U,29.8,0.4,line,FV-071,6.0,23.2,True,6.0
+C0894,2024-11-14,Trinity Bay,Mangrove Jack,F,40.8,0.95,spear,FV-027,41.9,24.0,True,19.0
+C0183,2024-11-15,Trinity Bay,Barramundi,U,74.7,6.65,spear,FV-034,40.2,23.3,True,146.3
+C0619,2024-11-16,Fitzroy Reef,Coral Trout,M,38.9,0.78,line,FV-034,32.7,24.0,True,21.84
+C0819,2024-11-16,Frankland Islands,Coral Trout,U,38.0,0.8,line,FV-041,44.1,24.9,True,22.4
+C1902,2024-11-17,Cairns Inlet,Grass Emperor,M,26.2,0.27,trap,FV-071,30.9,24.3,False,4.05
+C1660,2024-11-17,Frankland Islands,Barramundi,F,53.0,2.23,line,FV-088,36.2,24.0,False,49.06
+C1918,2024-11-17,Cairns Inlet,Grass Emperor,M,22.6,0.18,trap,FV-012,4.5,24.1,False,2.7
+C1487,2024-11-18,Frankland Islands,Red Emperor,F,39.9,0.93,spear,FV-034,32.6,24.6,False,24.18
+C0693,2024-11-18,Cairns Inlet,Red Emperor,U,51.3,2.07,spear,FV-034,37.1,24.1,True,53.82
+C1551,2024-11-18,Frankland Islands,Barramundi,M,73.1,5.21,line,FV-088,31.5,23.6,True,114.62
+C0822,2024-11-19,Fitzroy Reef,Spanish Mackerel,M,84.3,5.19,spear,FV-058,42.7,24.5,True,93.42
+C0241,2024-11-19,Green Island,Barramundi,M,58.6,2.72,net,FV-088,29.7,23.9,True,59.84
+C0508,2024-11-20,Green Island,Red Emperor,F,58.3,2.82,net,FV-034,33.4,23.5,True,73.32
+C1279,2024-11-20,Cairns Inlet,Coral Trout,F,58.2,3.27,line,FV-034,36.7,22.9,True,91.56
+C1410,2024-11-20,Frankland Islands,Red Emperor,F,46.8,1.4,line,FV-012,12.6,24.1,True,36.4
+C0463,2024-11-20,Cairns Inlet,Coral Trout,F,56.1,2.53,line,FV-063,4.4,24.1,True,70.84
+C1408,2024-11-20,Green Island,Spanish Mackerel,U,89.7,6.79,spear,FV-041,38.0,24.4,True,122.22
+C0853,2024-11-21,Fitzroy Reef,Spanish Mackerel,M,79.5,4.78,spear,FV-012,12.5,24.4,True,86.04
+C1242,2024-11-21,Michaelmas Cay,Barramundi,M,71.1,5.41,line,FV-063,18.9,24.5,True,119.02
+C1688,2024-11-22,Cairns Inlet,Coral Trout,U,40.4,1.02,line,FV-041,26.0,24.8,True,28.56
+C0417,2024-11-22,Green Island,Mangrove Jack,M,54.5,2.24,trap,FV-088,10.9,24.3,True,44.8
+C1204,2024-11-23,Fitzroy Reef,Grass Emperor,M,34.7,0.66,net,FV-041,27.9,24.1,True,9.9
+C0389,2024-11-23,Frankland Islands,Barramundi,M,64.2,3.35,line,FV-063,8.3,24.5,True,73.7
+C1126,2024-11-24,Fitzroy Reef,Red Emperor,M,60.1,2.95,line,FV-041,6.5,25.2,True,76.7
+C0629,2024-11-24,Green Island,Spanish Mackerel,F,85.5,6.36,line,FV-012,9.9,23.2,True,114.48
+C0758,2024-11-24,Trinity Bay,Barramundi,F,62.4,3.79,spear,FV-027,18.2,24.4,True,83.38
+C0673,2024-11-25,Frankland Islands,Coral Trout,F,39.4,0.77,net,FV-088,43.0,24.1,True,21.56
+C1468,2024-11-25,Cairns Inlet,Mangrove Jack,U,27.9,0.31,line,FV-071,40.6,25.0,False,6.2
+C0557,2024-11-26,Cairns Inlet,Mangrove Jack,M,37.2,0.72,net,FV-088,17.3,24.6,True,14.4
+C0015,2024-11-26,Michaelmas Cay,Spanish Mackerel,U,82.5,4.83,trap,FV-012,27.4,24.0,True,86.94
+C0121,2024-11-26,Michaelmas Cay,Barramundi,U,64.1,4.02,spear,FV-012,37.2,23.9,True,88.44
+C1597,2024-11-26,Frankland Islands,Red Emperor,M,66.8,4.41,trap,FV-063,41.4,23.7,True,114.66
+C1252,2024-11-28,Frankland Islands,Grass Emperor,U,31.3,0.46,line,FV-041,34.9,24.5,True,6.9
+C0844,2024-11-29,Cairns Inlet,Coral Trout,F,43.5,1.19,net,FV-063,3.3,24.0,True,33.32
+C1633,2024-11-29,Michaelmas Cay,Barramundi,M,56.0,2.4,spear,FV-034,7.8,23.5,False,52.8
+C0248,2024-11-29,Green Island,Spanish Mackerel,F,82.1,4.59,spear,FV-027,32.7,24.5,True,82.62
+C1671,2024-11-29,Fitzroy Reef,Mangrove Jack,M,57.9,2.8,line,FV-027,27.4,24.5,True,56.0
+C0960,2024-11-30,Trinity Bay,Coral Trout,F,57.2,2.94,net,FV-058,24.9,24.4,True,82.32
+C0824,2024-11-30,Green Island,Spanish Mackerel,U,73.1,2.93,spear,FV-071,31.7,24.3,False,52.74
+C1735,2024-11-30,Frankland Islands,Coral Trout,F,43.0,1.11,line,FV-058,37.6,25.0,True,31.08
+C1625,2024-11-30,Cairns Inlet,Barramundi,M,66.3,4.44,spear,FV-027,32.7,23.5,True,97.68
+C0109,2024-12-01,Trinity Bay,Coral Trout,U,40.0,0.81,line,FV-041,16.4,25.5,True,22.68
+C1608,2024-12-01,Frankland Islands,Mangrove Jack,F,52.3,2.13,line,FV-034,30.9,23.9,True,42.6
+C1196,2024-12-01,Cairns Inlet,Coral Trout,M,59.7,3.11,line,FV-088,31.7,26.3,True,87.08
+C1449,2024-12-01,Michaelmas Cay,Barramundi,M,70.5,5.46,line,FV-063,40.6,24.7,True,120.12
+C1814,2024-12-01,Michaelmas Cay,Barramundi,M,57.2,2.9,spear,FV-012,8.6,23.6,False,63.8
+C0583,2024-12-02,Frankland Islands,Coral Trout,,32.8,0.44,trap,FV-034,27.5,24.8,False,12.32
+C1562,2024-12-02,Green Island,Barramundi,F,68.6,4.8,trap,FV-063,6.0,25.1,True,105.6
+C0831,2024-12-03,Green Island,Mangrove Jack,M,36.9,0.74,net,FV-012,19.0,25.4,True,14.8
+C1195,2024-12-03,Green Island,Barramundi,M,54.2,2.22,line,FV-012,35.8,25.1,False,48.84
+C0873,2024-12-03,Cairns Inlet,Coral Trout,F,50.3,1.89,trap,FV-012,16.0,25.5,True,52.92
+C1919,2024-12-03,Frankland Islands,Grass Emperor,M,35.8,0.77,trap,FV-058,20.8,24.5,True,11.55
+C1058,2024-12-07,Trinity Bay,Barramundi,U,58.2,2.83,line,FV-058,8.7,24.8,True,62.26
+C1456,2024-12-08,Frankland Islands,Mangrove Jack,U,45.2,1.52,line,FV-027,18.9,25.0,True,30.4
+C1021,2024-12-08,Green Island,Barramundi,M,78.6,7.27,spear,FV-041,25.2,25.5,True,159.94
+C1384,2024-12-08,Frankland Islands,Red Emperor,F,52.1,2.12,line,FV-012,6.7,24.4,True,55.12
+C1223,2024-12-08,Fitzroy Reef,Grass Emperor,M,27.0,0.3,trap,FV-071,41.4,24.9,False,4.5
+C0402,2024-12-08,Michaelmas Cay,Mangrove Jack,F,45.7,1.3,line,FV-071,13.2,25.0,True,26.0
+C0106,2024-12-08,Fitzroy Reef,Grass Emperor,F,25.1,0.24,spear,FV-034,27.5,24.7,False,3.6
+C0355,2024-12-08,Michaelmas Cay,Red Emperor,F,42.4,1.06,trap,FV-041,18.8,25.0,False,27.56
+C0346,2024-12-09,Fitzroy Reef,Red Emperor,F,40.8,1.07,trap,FV-071,21.8,24.5,False,27.82
+C1663,2024-12-09,Michaelmas Cay,Spanish Mackerel,M,82.3,5.03,spear,FV-041,28.6,24.8,True,90.54
+C1224,2024-12-09,Trinity Bay,Mangrove Jack,M,39.0,0.83,trap,FV-071,32.6,24.8,True,16.6
+C0665,2024-12-10,Green Island,Barramundi,M,69.0,4.75,line,FV-063,17.4,24.5,True,104.5
+C1247,2024-12-10,Cairns Inlet,Coral Trout,F,50.8,2.13,spear,FV-088,43.1,24.8,True,59.64
+C1624,2024-12-10,Michaelmas Cay,Coral Trout,U,63.8,3.52,trap,FV-012,43.1,25.4,True,98.56
+C1161,2024-12-12,Fitzroy Reef,Coral Trout,,42.7,1.2,spear,FV-071,41.6,24.9,True,33.6
+C1739,2024-12-13,Green Island,Spanish Mackerel,M,79.5,4.11,line,FV-012,8.3,24.5,True,73.98
+C0207,2024-12-13,Green Island,Grass Emperor,,33.6,0.57,line,FV-012,25.1,26.0,True,8.55
+C0750,2024-12-13,Michaelmas Cay,Grass Emperor,M,38.8,0.84,spear,FV-027,10.8,26.2,True,12.6
+C0650,2024-12-13,Trinity Bay,Coral Trout,M,42.8,1.0,trap,FV-058,16.7,26.2,True,28.0
+C0901,2024-12-13,Fitzroy Reef,Barramundi,F,49.3,1.71,spear,FV-034,39.5,24.6,False,37.62
+C1796,2024-12-14,Green Island,Red Emperor,M,63.1,3.88,line,FV-063,24.1,25.1,True,100.88
+C1963,2024-12-14,Green Island,Red Emperor,M,48.4,1.8,spear,FV-027,17.9,25.9,True,46.8
+C1980,2024-12-15,Frankland Islands,Barramundi,M,62.1,3.18,line,FV-058,18.2,24.8,True,69.96
+C1310,2024-12-15,Trinity Bay,Red Emperor,F,48.4,1.59,line,FV-027,29.0,24.8,True,41.34
+C1097,2024-12-15,Trinity Bay,Barramundi,F,53.9,2.25,spear,FV-034,16.4,26.3,False,49.5
+C0797,2024-12-16,Cairns Inlet,Mangrove Jack,M,47.2,1.81,line,FV-058,8.5,24.8,True,36.2
+C0876,2024-12-16,Michaelmas Cay,Red Emperor,U,38.6,0.8,line,FV-041,13.3,25.9,False,20.8
+C1364,2024-12-16,Michaelmas Cay,Grass Emperor,U,36.1,0.75,spear,FV-041,5.3,24.8,True,11.25
+C0646,2024-12-16,Green Island,Coral Trout,F,53.9,2.44,line,FV-063,29.5,24.3,True,68.32
+C1283,2024-12-16,Fitzroy Reef,Red Emperor,M,68.7,5.76,line,FV-088,8.7,26.1,True,149.76
+C0007,2024-12-16,Trinity Bay,Red Emperor,M,54.4,2.34,net,FV-058,13.1,25.2,True,60.84
+C1362,2024-12-17,Michaelmas Cay,Coral Trout,M,43.5,1.24,spear,FV-063,33.9,24.9,True,34.72
+C0835,2024-12-17,Green Island,Grass Emperor,F,37.3,0.79,trap,FV-027,29.0,24.5,True,11.85
+C1868,2024-12-17,Fitzroy Reef,Mangrove Jack,F,50.7,2.07,trap,FV-012,41.6,25.3,True,41.4
+C1772,2024-12-18,Green Island,Barramundi,U,58.7,2.42,trap,FV-034,4.2,25.9,True,53.24
+C1368,2024-12-18,Trinity Bay,Barramundi,M,67.6,4.39,trap,FV-034,4.8,25.2,True,96.58
+C0862,2024-12-18,Michaelmas Cay,Coral Trout,M,39.7,1.03,spear,FV-041,37.0,26.4,True,28.84
+C1673,2024-12-18,Fitzroy Reef,Barramundi,M,56.2,2.4,trap,FV-041,29.9,25.0,False,52.8
+C0427,2024-12-19,Cairns Inlet,Barramundi,M,73.5,5.3,trap,FV-088,5.0,26.0,True,116.6
+C0172,2024-12-19,Cairns Inlet,Coral Trout,F,55.4,2.3,line,FV-027,30.5,25.3,True,64.4
+C1264,2024-12-19,Frankland Islands,Spanish Mackerel,M,95.2,7.53,net,FV-063,32.8,25.0,True,135.54
+C1241,2024-12-20,Fitzroy Reef,Red Emperor,M,54.3,1.99,spear,FV-088,9.0,25.7,True,51.74
+C1787,2024-12-20,Michaelmas Cay,Grass Emperor,M,41.6,1.16,line,FV-041,37.9,25.7,True,17.4
+C0675,2024-12-20,Trinity Bay,Barramundi,F,76.6,5.74,line,FV-012,20.1,25.8,True,126.28
+C1091,2024-12-20,Trinity Bay,Mangrove Jack,U,44.8,1.25,trap,FV-088,17.1,25.7,True,25.0
+C1640,2024-12-20,Fitzroy Reef,Spanish Mackerel,U,82.3,5.39,line,FV-041,32.5,25.3,True,97.02
+C0773,2024-12-21,Green Island,Grass Emperor,M,38.4,0.92,net,FV-041,3.2,25.3,True,13.8
+C0914,2024-12-22,Green Island,Barramundi,F,72.3,4.96,spear,FV-063,6.5,24.3,True,109.12
+C1121,2024-12-22,Green Island,Mangrove Jack,M,50.0,1.86,trap,FV-071,35.9,24.6,True,37.2
+C1723,2024-12-22,Trinity Bay,Coral Trout,U,40.4,0.97,trap,FV-041,44.9,25.6,True,27.16
+C1263,2024-12-22,Cairns Inlet,Coral Trout,F,38.8,0.77,net,FV-071,38.7,25.4,True,21.56
+C0962,2024-12-22,Michaelmas Cay,Mangrove Jack,U,32.3,0.46,line,FV-071,24.6,25.7,False,9.2
+C0369,2024-12-23,Cairns Inlet,Coral Trout,F,43.4,1.14,spear,FV-058,24.4,25.4,True,31.92
+C0896,2024-12-23,Cairns Inlet,Red Emperor,M,47.1,1.53,line,FV-012,12.0,25.3,True,39.78
+C1511,2024-12-23,Green Island,Coral Trout,M,36.9,0.64,line,FV-058,17.9,25.1,False,17.92
+C0003,2024-12-23,Green Island,Coral Trout,F,37.7,0.75,line,FV-034,22.6,25.3,False,21.0
+C1453,2024-12-24,Trinity Bay,Spanish Mackerel,M,73.6,3.4,line,FV-012,29.5,26.0,False,61.2
+C1825,2024-12-24,Green Island,Mangrove Jack,F,35.9,0.6,line,FV-012,11.8,26.2,True,12.0
+C1662,2024-12-24,Michaelmas Cay,Coral Trout,F,42.1,1.08,trap,FV-041,20.1,25.8,True,30.24
+C0857,2024-12-25,Green Island,Coral Trout,U,46.0,1.38,net,FV-063,32.8,25.8,True,38.64
+C0502,2024-12-25,Cairns Inlet,Barramundi,M,67.3,4.0,spear,FV-041,14.6,27.1,True,88.0
+C0356,2024-12-26,Fitzroy Reef,Coral Trout,F,34.1,0.5,trap,FV-088,38.8,25.9,False,14.0
+C0085,2024-12-26,Cairns Inlet,Barramundi,F,60.7,2.82,spear,FV-012,20.0,24.6,True,62.04
+C0037,2024-12-28,Trinity Bay,Grass Emperor,M,49.7,1.85,line,FV-088,4.4,25.9,True,27.75
+C1015,2024-12-28,Cairns Inlet,Barramundi,F,66.8,4.85,line,FV-012,13.2,25.5,True,106.7
+C1417,2024-12-28,Cairns Inlet,Barramundi,F,59.1,3.14,line,FV-041,3.4,26.2,True,69.08
+C1954,2024-12-29,Michaelmas Cay,Grass Emperor,F,24.0,0.18,spear,FV-034,18.8,26.7,False,2.7
+C0905,2024-12-30,Trinity Bay,Mangrove Jack,M,40.4,0.93,line,FV-058,27.9,26.4,True,18.6
+C1512,2024-12-30,Green Island,Mangrove Jack,U,40.3,0.97,line,FV-034,18.5,25.5,True,19.4
+C1120,2024-12-30,Trinity Bay,Coral Trout,M,55.5,2.36,trap,FV-058,13.2,26.4,True,66.08
+C1998,2024-12-31,Trinity Bay,Grass Emperor,M,36.6,0.81,spear,FV-041,3.7,25.4,True,12.15

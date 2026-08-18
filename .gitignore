@@ -1,0 +1,15 @@
+# R
+.Rhistory
+.RData
+.Rproj.user/
+.Ruserdata
+*_cache/
+*_files/
+
+# knitr intermediates
+*.knit.md
+*.utf8.md
+
+# OS
+.DS_Store
+Thumbs.db

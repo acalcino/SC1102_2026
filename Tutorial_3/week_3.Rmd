@@ -1,0 +1,208 @@
+---
+title: "SC1102: R Bootcamp Week 3"
+output:
+  html_document:
+    toc: true
+    toc_depth: '4'
+  pdf_document:
+    toc: true
+    toc_depth: '4'
+date: "2026 Trimester 3"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[&larr; Back to the SC1102 course page](../)
+
+> **DRAFT OUTLINE — not yet written.** This page is a structural skeleton for Week 3.
+> Week 3 was the least specified of the three, so this outline takes a position on what it should be
+> and flags the choices that are Andrew's to make.
+
+## Building your own RMarkdown document ##
+
+**Goal:** students produce a short, complete, self-contained report — text, code, tables and figures in one file — that anyone can knit and get exactly their result. This is the capstone and the handover point to the El Niño module.
+
+**The one-sentence version:** Week 1 you made R do things, Week 2 you made it do them again, this week you make it explain itself.
+
+### The nice piece of symmetry ###
+
+This tutorial, and both of the previous two, *are* RMarkdown documents. The `.Rmd` source files are in the course repository. Opening `week_1.Rmd` in RStudio and knitting it is a legitimate part of this week's lesson — students see that the thing they have been reading all bootcamp is the thing they are now building.
+
+---
+
+## Lecture (1 hour) — One document instead of three ##
+
+### Learning objectives ###
+
+- Explain why keeping code, results and prose in separate files causes them to drift apart.
+- Identify the three parts of an RMarkdown document: YAML header, markdown text, code chunks.
+- Use chunk options to control what appears in the output.
+- Use inline code so that numbers in prose are computed, never typed.
+- Knit a document to HTML and to Word.
+
+### Topics to cover ###
+
+**1. The problem, demonstrated live.**
+Open a script, a Word document, and a figure. Change one number in the data. Now count how many places have to be updated by hand — and how many would silently stay wrong if you forgot. This is the entire motivation; spend real time on it.
+
+**2. Literate programming.**
+The idea: a document written for a human to read, with the code that produced it embedded in place. The code and the claim about the code cannot get out of sync, because they are the same file.
+
+**3. Anatomy of an `.Rmd`.**
+
+- **YAML header** — the fenced block at the top. Title, author, date, output format.
+- **Markdown text** — headings with `#`, `**bold**`, `*italic*`, lists, links, images.
+- **Code chunks** — fenced with ```` ```{r} ```` and ```` ``` ````. Run when you knit.
+
+**4. Knitting.** The Knit button. What actually happens: R runs every chunk *in a fresh session*, in order, top to bottom, then pandoc turns the results into HTML/Word/PDF.
+
+The consequence students must internalise: **the knit does not see your Environment.** If an object was created in the console and not in a chunk, knitting fails. This is Week 2's lesson enforced by the tooling, and it is the single biggest source of Week 3 frustration — introduce it early rather than letting them discover it at 11pm.
+
+**5. Chunk options.**
+
+| Option | Effect |
+|---|---|
+| `echo = FALSE` | run the code, hide the code, show the result |
+| `eval = FALSE` | show the code, don't run it |
+| `include = FALSE` | run it, show nothing (used for setup chunks) |
+| `message = FALSE`, `warning = FALSE` | suppress package chatter |
+| `fig.width`, `fig.height`, `fig.cap` | control and caption figures |
+
+**6. Inline code — the killer feature.**
+
+Writing this in a sentence:
+
+```{r echo=FALSE, results='asis'}
+cat("> The mean catch weight was",
+    knitr::inline_expr("round(mean(fisheries$weight_kg), 2)"),
+    "kg.")
+```
+
+puts the *computed* value in the prose. Change the data, re-knit, and the sentence updates itself. Contrast with typing the number in by hand and watching it go stale the first time anyone touches the data.
+
+**7. Output formats.** `html_document`, `word_document`, `pdf_document` — one source, several deliverables. Note that PDF needs a LaTeX installation; HTML and Word do not, so keep students on those.
+
+> **Excel bridge.** A spreadsheet with a chart pasted into a Word report is three artefacts that agree
+> with each other only by luck and vigilance. An RMarkdown document is one artefact that cannot
+> disagree with itself.
+
+---
+
+## Plotting for the report ##
+
+> **STRUCTURAL NOTE — see COVERAGE.md.** The required-topics list includes line plots, axis labels,
+> titles, horizontal reference lines, and colour/line type/width. In the original nine-week-style plan
+> these had their own week. In the three-week structure they fit most naturally here, taught as
+> *"making the figures your report needs"* rather than as an abstract plotting lesson. This section
+> assumes that choice.
+
+```{r eval=FALSE}
+# Daily mean catch weight, as a line
+daily <- aggregate(weight_kg ~ date, data = fisheries, FUN = mean)
+
+plot(daily$date, daily$weight_kg,
+     type = "l",                          # "l" for line
+     xlab = "Date",
+     ylab = "Mean catch weight (kg)",
+     main = "Mean catch weight over the 2023 season",
+     col  = "steelblue",
+     lwd  = 2)
+
+# A horizontal reference line at the season average
+abline(h = mean(daily$weight_kg), col = "firebrick", lty = 2, lwd = 2)
+
+legend("topright",
+       legend = c("Daily mean", "Season mean"),
+       col    = c("steelblue", "firebrick"),
+       lty    = c(1, 2),
+       lwd    = 2)
+```
+
+Points to draw out: `type = "l"` vs the default points; `col` by name or number; `lty` 1–6 for solid/dashed/dotted; `lwd` as a multiplier; why `main`, `xlab` and `ylab` are not optional in a report; and that a figure needs units.
+
+---
+
+## Practical (2 hours) — Build the report ##
+
+### Part A — Get the machinery working (≈40 min) ###
+
+1. **File > New File > R Markdown.** Accept the defaults, knit it immediately, look at the result next to the source. Nothing else — just prove the button works.
+2. **Dissect the template.** Find the YAML header, the setup chunk, a code chunk, some prose. Delete the boilerplate.
+3. **Edit the YAML.** Title, own name, `output: html_document`.
+4. **Markdown practice.** Headings, a bulleted list, some bold text, a link. Knit again.
+5. **First real chunk.** Read `data/fisheries.csv` in a chunk with `include = FALSE`. Knit. Confirm it works from a clean session.
+6. **Deliberate failure.** Create an object in the console, refer to it in a chunk, knit, read the error, fix it by moving the code into a chunk. Do this *on purpose*, early.
+7. **Inline code.** Write a sentence containing a computed number. Change something upstream and re-knit to watch it update.
+
+### Part B — The capstone (≈80 min) ###
+
+> **The brief — "A short report on the 2023 fisheries data"**
+>
+> Write a one-to-two page RMarkdown report answering **one** question you choose from the list below
+> (or one of your own, approved by your demonstrator). The report must knit from a clean session on
+> a machine that is not yours.
+>
+> **Choose a question:**
+>
+> - Are undersized catches concentrated in particular vessels, or spread evenly across the fleet?
+> - Does catch weight change across the season, and is there a pattern worth explaining?
+> - Do different gear types catch different species, sizes, or values?
+> - Is water temperature associated with what gets caught, or how much?
+> - Which sites are the most valuable per catch, and does that hold across species?
+>
+> **Your report must contain:**
+>
+> - [ ] A YAML header with a title, your name, and a date
+> - [ ] A short introduction in your own words stating the question
+> - [ ] A methods section describing what you did to the data
+> - [ ] Data read with a **relative path**, from a chunk (Week 2)
+> - [ ] At least one type conversion, correctly justified (Week 1)
+> - [ ] At least **one table** (`knitr::kable()` makes it presentable)
+> - [ ] At least **one figure** with axis labels, units, a title and a caption
+> - [ ] At least **one number in the prose produced by inline code**
+> - [ ] A setup chunk hidden with `include = FALSE`
+> - [ ] A short conclusion — what the data does and does not let you say
+> - [ ] It knits to HTML with no errors, from a restarted R session
+
+Useful during Part B:
+
+```{r eval=FALSE}
+# A presentable table
+knitr::kable(head(summary_table),
+             caption = "Undersized catch rate by vessel")
+
+# A captioned, sized figure — set these in the chunk header:
+# ```{r fig.width = 7, fig.height = 4.5, fig.cap = "Mean catch weight by month."}
+```
+
+---
+
+## Synthesis (1 hour) — Peer review and the bridge to El Niño ##
+
+- **Knit someone else's.** Swap folders. Knit your partner's report from a restarted session, on your machine. Anything that fails is a finding, not a failure — this is exactly what peer review is.
+- **Troubleshooting clinic.** The recurring RMarkdown errors, worked through together:
+    - `object 'x' not found` — it only ever existed in your Environment
+    - `cannot open file` — path is relative to the `.Rmd`, not to wherever you think you are
+    - a chunk that works when run manually but not on knit — order dependency
+    - unbalanced backticks and a document that won't knit at all
+- **Show the source.** Open `week_1.Rmd` from the course repository and knit it. The thing they have been reading for three weeks turns out to be the thing they just learned to build.
+- **The bridge.** What the El Niño module will assume they can already do: read a public dataset, check and fix its types, write a script that runs from clean, plot a time series with proper labels, and hand in an RMarkdown report. That is exactly the three weeks they have just done — the difference is that the science gets harder, not the R.
+- **Exit ticket.** One thing you can now do in R that you could not do in Excel.
+
+---
+
+## Open questions for Week 3 ##
+
+Flagged for Andrew rather than decided here:
+
+1. **Assessment.** Is the capstone report assessed, and if so how — completion, a rubric, or peer marking? The checklist above is written so it can serve as a rubric if wanted.
+2. **Individual or pair?** Weeks 1 and 2 use pair programming. The capstone might be better individual, if it feeds an assessment.
+3. **Functions.** Currently outlined in Week 2. If Week 2 is overfull, they move here (see COVERAGE.md).
+4. **Dataset.** The capstone uses the fisheries data for continuity. An alternative is to hand out a small ENSO/climate dataset for the capstone so the bridge to the final module is literal rather than thematic.
+5. **Output format.** Whether to require HTML only, or also have them knit to Word (useful, but introduces a second set of formatting quirks).
+
+---
+
+*SC1102 R Bootcamp, James Cook University. [Course home](../)*

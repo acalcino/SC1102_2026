@@ -1,0 +1,319 @@
+---
+title: "SC1102: R Bootcamp Week 1"
+output:
+  html_document:
+    toc: true
+    toc_depth: '4'
+  pdf_document:
+    toc: true
+    toc_depth: '4'
+date: "2026 Trimester 3"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[&larr; Back to the SC1102 course page](../)
+
+## Welcome to R ##
+<!-- In lecture 1 we introduced you to R. R is a statistical programming language designed at its core to be flexible, scalable and extensible as well as completely free and open source. During this lecture we compared and contrasted R with MS Excel, pointing out advantages and disadvantages of the two options for reproducible and reliable data analysis. We also learnt about the different design philosophies between the two approaches and how the two can achieve very similar outputs by utilising completely different data structures. During this lecture we briefly introduced some basic commands for creating and manipulating data in R and today we are going to put that theory into practice. -->
+
+In module 1 of SC1102, you were introduced to data analysis in Excel where you modelled fisheries data. During this and the next two tutorials we will use these same datasets for analysis in R. To begin with today though, we'll start off with some basic commands in R using one of the datasets built into base R (base R meaning R on its own without any extra libraries loaded).
+
+## PRE-WORK - to be completed before arriving to the tutorial ##
+In order for us to do anything in the tutorial, you will need to have both R and RStudio installed on your machine.
+
+## Working with an in-built dataset ##
+### Importing a dataset ###
+We are going to use a dataset built into base R called `mtcars`. These data were extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models). But don't take my word for it, open RStudio and have a look yourself.
+
+```{r, results='hide'}
+# First, import the dataset using the data() function and then use the help function '?'
+# By the way, any text you see following a '#' symbol is termed a comment.
+# Comments allow you to annotate code but nothing within them is executed.
+data("mtcars")
+?mtcars
+
+```
+
+In the bottom right pane, you should see that the `Help` tab has popped up with a description of this dataset. Under `Format` you'll notice that it mentions that it is a `dataframe` type object. We can confirm that using the `class` command.
+
+```{r, results='hide'}
+# Check out the class of the mtcars dataset
+class(mtcars)
+
+```
+
+Let's have a quick look at the contents.
+
+```{r, results='hide'}
+# The head command simply prints the first six rows to the screen
+head(mtcars)
+
+# Or another way to do the same thing
+mtcars[1:6, ]
+
+# Or if you just wanted to see the first four rows and six columns
+mtcars[1:4, 1:6]
+
+```
+
+As we learnt in the lecture, dataframes are made up of equal length vectors arranged as a table. We also learnt that all values within a vector must be the same data type. Let's have a look at the composition of `mtcars`.
+
+```{r, results='hide'}
+# Check out the structure of the mtcars dataset using the str() function
+str(mtcars)
+
+```
+
+Here you can see that the dataframe is made up of 11 vectors, each defined by a column name using the `$` symbol, and all of which in this case are numerical vectors.
+
+### R as a calculator ###
+At its heart, R is just a big calculator. In the console you can run basic mathematical operations directly.
+
+```{r, results='hide'}
+# Some basic sums
+2+5
+2*5
+2/5
+2-5
+2^5
+
+# Let's store the value of a couple of these as variables and then do some calculations with them
+x <- 2/5
+y <- 2^5
+z <- x^y
+z
+
+```
+
+This is going to be handy here because for most Australians, miles per gallon (column 1 of mtcars) doesn't mean much. Let's have a go at converting these units into something more comprehensible.
+
+```{r}
+# To convert mpg to kpl, multiply by 0.425. Let's store these values in a new vector
+kpl <- mtcars$mpg * 0.425      # fuel economy in km per litre
+
+# Have a look at the new kpl values
+print(kpl)
+
+# Check the class
+class(kpl)
+
+```
+
+This is what we call `vectorised arithmetic`, which just means arithmetic conducted over a series of numbers contained within a vector. Now that we have the converted values, we can add them to the dataframe as a new column.
+
+```{r, results='hide'}
+# Add the kpl values to the mtcars dataframe as a new column
+mtcars$kpl <- kpl
+
+# Have a quick look at the first six rows of mtcars using the head() function
+head(mtcars)
+
+# As the mpg column is now redundant, we can remove it by setting it to NULL
+mtcars$mpg = NULL
+head(mtcars)
+
+```
+
+## Working with our own defined datasets ##
+### Creating vectors and performing some vectorised arithmetic ###
+Let's create three vectors, one for height, one for weight and one for sex so that we can calculate BMI. This is also a good point to talk about data types.
+
+```{r, results='hide'}
+# Create name vector. As these are character strings, each name should be placed between quotation marks
+name <-c("John", "Mary", "Steven", "Bob", "Max", "Steph", "Shane", "Sharon", "Anthony", "Molly")
+
+# Create a weight vector. As these are integers, each needs the suffix L to tell R that it is not a floating point number
+weight <- c(72L, 60L, 121L, 92L, 63L, 68L, 87L, 70L, 75L, 62L)     # mass in kg
+
+# Create a height vector. As these have decimal places, they will be imported as floating point or "numeric"
+height <- c(1.70, 1.56, 1.82, 1.9, 1.68, 1.72, 1.81, 1.75, 1.77, 1.69)   # height in m
+
+# Create a sex vector. As this is categorical, we use as.factor() to define them
+sex <- as.factor(c("M", "F", "M", "M", "M", "F", "M", "F", "M", "F"))
+
+# Investigate the class of each vector
+class(name)
+class(weight)
+class(height)
+class(sex)
+
+# Create dataframe from these four vectors
+pop_stats <- data.frame(
+  name = name,
+  height = height,
+  weight = weight,
+  sex = sex
+)
+
+# Now let's calculate BMI and include this as a new column
+pop_stats$BMI <- pop_stats$weight / pop_stats$height^2     # BMI in kg/m^2
+print(pop_stats)
+
+```
+
+Just say that after creating our vector, we decided that it might be useful to include weight as a floating point number, we can convert this column using the ``as.numeric()`` function.
+
+```{r, results='hide'}
+# Convert the weight column in our dataframe from an integer type to a numeric type
+pop_stats$weight <- as.numeric(pop_stats$weight)
+
+class(pop_stats$weight)
+
+```
+
+Now let's calculate the mean and standard deviation of our calculated BMI using the formulas:
+$$Mean = \bar{x} = \sum x_i/n$$
+$$SD=\sqrt(\sum(x_i-\bar{x})^2/(n-1))$$
+Where:\
+$x_i$ = all the observations\
+$n$ = the total number of observations\
+$\bar{x}$ = the mean of all observations
+
+Let's give it a go
+
+```{r, results='hide'}
+# First calculate the mean
+mean_bmi <- sum(pop_stats$BMI)/length(pop_stats$BMI)
+print(mean_bmi)
+
+# Then the standard deviation
+sd_bmi <- sqrt(sum((pop_stats$BMI - mean_bmi)^2)/(length(pop_stats$BMI)-1))
+print(sd_bmi)
+
+```
+
+Great, but do you really need to type all that out every time you want to calculate a mean and standard deviation? No! For almost every simple formula you could think of, someone is likely to have already written a function for it. In our case, functions to calculate mean and standard deviation are baked into base R.
+
+```{r, results='hide'}
+# Calculate the mean bmi
+mean_bmi_func <- mean(pop_stats$BMI)
+
+# Calculate the standard deviation of BMI
+sd_bmi_func <- sd(pop_stats$BMI)
+
+# Now check that our calculated numbers are equal to these
+mean_bmi == mean_bmi_func
+sd_bmi == sd_bmi_func
+
+```
+
+Are these values significantly different from the hypothesised mean of 22.5? We could calculate this manually using the formula:
+
+$$t=\frac{\bar{x}-\mu_0}{s/\sqrt n}$$
+But no need to bother when we have an in-built t-test function
+
+```{r, results='hide'}
+# Run a simple student's t test
+t.test(pop_stats$BMI, mu = 22.5)
+
+```
+
+## Working with external datasets ##
+### Importing a csv ###
+A common format people use to record data is the ``csv`` format. These ``Comma Separated Values`` files are arranged in rows and columns with values separated by commas. These can be generated manually but they are also a file format option that you can save spreadsheets as in programs such as Excel. A related file format is the ``tsv`` or ``Tab Separated Values`` format where instead of commas, values are separated by tabs.
+
+Unfortunately base R doesn't include functions to import Excel spreadsheet data directly but fortunately, it is very easy to export Excel spreadsheets as .csv files.
+
+![Saving a spreadsheet as a CSV](images/excel_csv.png)
+
+Today we are going to work with a csv that can be found on the subject LearnJCU page under Week 4/tutorials called ``fisheries.csv``. Download this to your own computer and then open it up to have a look at it.
+
+Before we hand it to R, let's look at the file the way the computer sees it — as plain text. The `readLines()` function reads a file one line at a time, and `cat()` prints those lines to the screen.
+
+```{r}
+# Read the first five lines of the raw file and print them
+cat(readLines("fisheries.csv", n = 5), sep = "\n")
+
+```
+
+This is pretty ugly in its raw form but once we import it into R, you'll see that it takes on the nice, clean format of a dataframe type object.
+
+```{r}
+# Import the dataset using the read.csv() function
+fisheries <- read.csv("fisheries.csv")
+
+# Have a look at the first five rows and six columns
+fisheries[1:5, 1:6]
+
+# Check out the class of each vector in the data frame
+str(fisheries)
+
+```
+
+One thing you'll notice is that the ``$date`` column isn't recognised as a date type vector, rather as a character type. Change this using the ``as.Date()`` function. The ``$legal_size`` column is also included as a ``character`` type, not a TRUE/FALSE ``logical`` type. This also needs to be fixed.
+
+```{r}
+# Convert the date vector from character to date type
+fisheries$date <- as.Date(fisheries$date)
+
+# Convert $legal_size to logical
+fisheries$legal_size <- as.logical(fisheries$legal_size)
+
+# Check that the change worked
+str(fisheries)
+
+```
+
+There are plenty of ways that data frames can be manipulated so let's try out a few.
+
+```{r}
+# First let's create a data frame from the fisheries data frame but just with the first four columns
+fisheries_reduced <- fisheries[, 1:4]
+
+# That comma is important. It indicates that you want all rows, but only columns one to four.
+# Next let's create another data frame that includes $catch_id, $vessel, $legal_size and $gear
+legal <- fisheries[, c("catch_id", "vessel", "legal_size", "gear")]
+
+# Again, that comma indicates that we want all rows here.
+# Another thing we can do is merge data frames as long as the two contributing data frames have at least one shared column. In our case, both sub data frames include the $catch_id column
+merged_df <- merge(fisheries_reduced, legal, by = "catch_id")
+
+```
+
+Of course it would make more sense in this case to have just included the columns we wanted in the original subset but this was just meant as an exercise.
+
+Now what we want to find out is whether any particular vessel is responsible for an outsized number of illegal sized catches. The first way to do this is to extract the relevant information and display it as a table.
+
+```{r}
+# Create a table of legal and illegally sized catches per vessel
+legal_table <- table(fisheries$vessel, fisheries$legal_size)
+
+print(legal_table)
+
+# Check the class() of your table while you're at it
+class(legal_table)
+
+```
+
+Immediately there are two vessels that stand out, but it would be good to have a more visual method of observing these differences.
+
+```{r}
+# Create new table from the original table with proportions rather than raw numbers to account for differing numbers of catches using prop.table()
+prop_tab <- prop.table(legal_table, 1)
+
+# The , 1 ensures that each row equals 1 rather than the sum of all values across the table
+
+# Create a bar chart of just the undersized catches
+barplot((prop_tab)[, "FALSE"])
+
+# We can modify this plot to include titles and you can increase the y axis limit to 0.5
+barplot((prop_tab)[, "FALSE"],
+        ylab = "Proportion of undersized catches",
+        xlab = "Vessel ID",
+        ylim = c(0, 0.5))
+
+# To see all barplot() options
+?barplot
+
+```
+
+## Before you go ##
+
+You have made a figure from real fisheries data in your first week of R. Next week we stop typing into the console and start writing **scripts** — files you can save, re-run, and hand to someone else so they get exactly the same answer you did.
+
+---
+
+*SC1102 R Bootcamp, James Cook University. [Course home](../)*

@@ -1,0 +1,15 @@
+title: SC1102 - R Bootcamp
+description: From spreadsheets to code
+
+plugins:
+- jekyll-remote-theme
+remote_theme: pages-themes/slate@v0.2.0
+
+# Keep source and working files out of the published site
+exclude:
+  - README.md
+  - COVERAGE.md
+  - "*.Rproj"
+  - .Rproj.user
+  - .Rhistory
+  - .RData
