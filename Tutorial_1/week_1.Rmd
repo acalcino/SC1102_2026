@@ -221,13 +221,41 @@ Unfortunately base R doesn't include functions to import Excel spreadsheet data 
 
 Today we are going to work with a csv that can be found on the subject LearnJCU page under Week 4/tutorials called ``fisheries.csv``. Download this to your own computer and then open it up to have a look at it.
 
-Before we hand it to R, let's look at the file the way the computer sees it — as plain text. The `readLines()` function reads a file one line at a time, and `cat()` prints those lines to the screen.
+#### Peeking at a file without opening it ####
+
+Before we hand the file to R, let's look at it the way the computer sees it — as plain text. There is a `Terminal` tab sitting next to the `Console` in RStudio, which gives you a command line. The command to print the first few lines of a file depends on which operating system you are using.
+
+**macOS or Linux** — use ``head``:
+
+```{bash eval=FALSE}
+head -n 5 fisheries.csv
+```
+
+**Windows** — use PowerShell's ``Get-Content``:
+
+```powershell
+Get-Content fisheries.csv -Head 5
+```
+
+> **Why the difference?** ``head`` is one of the Unix "coreutils", a set of small text-handling
+> programs that macOS and Linux have both inherited from Unix and ship with by default. Windows grew
+> up separately, so its shells (``cmd`` and PowerShell) have their own commands instead — hence
+> ``Get-Content``. Microsoft has been closing the gap: Windows now ships ``curl``, ``tar`` and
+> ``ssh``, and in 2026 released a *Coreutils for Windows* package that adds ``head``, ``tail``,
+> ``grep`` and around a hundred others. It is not installed by default though, so on a fresh Windows
+> machine ``head`` still won't work.
+
+#### The portable way — do it in R ####
+
+Every one of you has R, whatever machine you are sitting at, so R is the one place this is guaranteed to work. The ``readLines()`` function reads a file one line at a time, and ``cat()`` prints those lines to the screen.
 
 ```{r}
 # Read the first five lines of the raw file and print them
 cat(readLines("fisheries.csv", n = 5), sep = "\n")
 
 ```
+
+This is a small but useful habit: when a task can be done either in the shell or in R, doing it in R means it is part of your analysis and it will run on anyone's machine.
 
 This is pretty ugly in its raw form but once we import it into R, you'll see that it takes on the nice, clean format of a dataframe type object.
 

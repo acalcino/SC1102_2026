@@ -67,13 +67,20 @@ The content, structure and voice are Andrew's. What changed:
 
 1. **Hardcoded paths removed.** `/home/andrew/Documents/teaching/2026/TR3/SC1102/fisheries.csv` →
    `fisheries.csv`; same for the image. The tutorial now knits anywhere.
-2. **The `{bash}` chunk is gone.** `head fisheries.csv` needed a Unix shell, so it would have failed
-   for every Windows student. Replaced with portable R that teaches two required topics at once:
-   `cat(readLines("fisheries.csv", n = 5), sep = "\n")`.
+2. **The `{bash}` chunk now shows both operating systems, and R does the actual work.** The original
+   `head fisheries.csv` would have failed for every Windows student. The section now gives three
+   things: `head -n 5` for macOS/Linux and `Get-Content ... -Head 5` for Windows PowerShell (both
+   `eval=FALSE`, shown but not run), followed by
+   `cat(readLines("fisheries.csv", n = 5), sep = "\n")` as the portable version that actually
+   executes and produces the output in the document. A short boxed note explains why Windows has no
+   `head`. Note that knitr has **no PowerShell engine** (`knitr::knit_engines$get()` lists `bash`,
+   `sh`, `zsh`, `awk`, `sed`… but nothing for PowerShell), so the Windows command is a plain
+   ```` ```powershell ```` fenced block rather than a chunk — it is highlighted but never run.
 3. **`excel_csv.png` regenerated.** The original screenshot was not in the folder. Replaced with a
    drawn diagram (spreadsheet → arrow → raw CSV text) which shows what a CSV *is*, not just which menu
-   item to click. Source SVG is in `Tutorial_1/images/` if you want to edit it. Swap in a real
-   screenshot instead if you prefer.
+   item to click. Each record sits on one line, and the CSV line numbers are aligned with the
+   spreadsheet row numbers so "row 3 = line 3" reads off the picture. Source SVG is in
+   `Tutorial_1/images/` if you want to edit it. Swap in a real screenshot instead if you prefer.
 4. **The trailing to-do list was removed** from the bottom of the tutorial and turned into this file,
    so nothing is lost but students do not see a list of headings with no content under them.
 5. **Unit comments added** to four variables (`kpl`, `weight`, `height`, `BMI`) — see row 5 above.

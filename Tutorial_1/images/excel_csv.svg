@@ -81,30 +81,40 @@
 
   <!-- ================= ARROW ================= -->
   <g>
-    <line x1="445" y1="196" x2="555" y2="196" stroke="#2b6a8f" stroke-width="3"/>
-    <polygon points="555,196 541,189 541,203" fill="#2b6a8f"/>
-    <text x="500" y="171" font-size="12.5" font-weight="700" fill="#2b6a8f" text-anchor="middle">File &gt; Save As</text>
-    <text x="500" y="187" font-size="12.5" font-weight="700" fill="#2b6a8f" text-anchor="middle">CSV format</text>
+    <line x1="432" y1="196" x2="548" y2="196" stroke="#2b6a8f" stroke-width="3"/>
+    <polygon points="548,196 534,189 534,203" fill="#2b6a8f"/>
+    <text x="490" y="171" font-size="12.5" font-weight="700" fill="#2b6a8f" text-anchor="middle">File &gt; Save As</text>
+    <text x="490" y="187" font-size="12.5" font-weight="700" fill="#2b6a8f" text-anchor="middle">CSV format</text>
   </g>
 
   <!-- ================= RIGHT: plain text ================= -->
-  <text x="560" y="38" font-size="19" font-weight="700" fill="#1f3a4d">A plain text file</text>
-  <text x="560" y="60" font-size="14" fill="#5b7186">fisheries.csv — one line per row, values split by commas</text>
+  <text x="556" y="38" font-size="19" font-weight="700" fill="#1f3a4d">A plain text file</text>
+  <text x="556" y="60" font-size="14" fill="#5b7186">fisheries.csv — one spreadsheet row = one line of text</text>
 
-  <rect x="560" y="78" width="400" height="220" fill="#f7f9fa" stroke="#b9c6d1" stroke-width="1.5" rx="3"/>
-  <g font-family="Courier New, Courier, monospace" font-size="11.5">
-    <text x="574" y="106" fill="#1f3a4d" font-weight="700">catch_id<tspan fill="#c1440e">,</tspan>date<tspan fill="#c1440e">,</tspan>site<tspan fill="#c1440e">,</tspan>species<tspan fill="#c1440e">,</tspan>sex</text>
-    <text x="574" y="134" fill="#33475b">C1968<tspan fill="#c1440e">,</tspan>2023-01-01<tspan fill="#c1440e">,</tspan>Green Island<tspan fill="#c1440e">,</tspan></text>
-    <text x="574" y="150" fill="#33475b">Red Emperor<tspan fill="#c1440e">,</tspan>F</text>
-    <text x="574" y="178" fill="#33475b">C1553<tspan fill="#c1440e">,</tspan>2023-01-01<tspan fill="#c1440e">,</tspan>Michaelmas Cay<tspan fill="#c1440e">,</tspan></text>
-    <text x="574" y="194" fill="#33475b">Mangrove Jack<tspan fill="#c1440e">,</tspan>M</text>
-    <text x="574" y="222" fill="#33475b">C0472<tspan fill="#c1440e">,</tspan>2023-01-02<tspan fill="#c1440e">,</tspan>Green Island<tspan fill="#c1440e">,</tspan></text>
-    <text x="574" y="238" fill="#33475b">Coral Trout<tspan fill="#c1440e">,</tspan>F</text>
-    <text x="574" y="266" fill="#9aa9b6">...</text>
+  <rect x="556" y="78" width="404" height="220" fill="#f7f9fa" stroke="#b9c6d1" stroke-width="1.5" rx="3"/>
+
+  <!-- line numbers, aligned to the spreadsheet rows on the left -->
+  <g font-size="12" fill="#9aa9b6" text-anchor="end">
+    <text x="578" y="125">1</text>
+    <text x="578" y="157">2</text>
+    <text x="578" y="189">3</text>
+    <text x="578" y="221">4</text>
+    <text x="578" y="253">5</text>
+  </g>
+  <line x1="586" y1="88" x2="586" y2="288" stroke="#dfe6ec" stroke-width="1"/>
+
+  <!-- one record per line, baselines matching the spreadsheet rows exactly -->
+  <g font-family="Courier New, Courier, monospace" font-size="11" fill="#33475b">
+    <text x="596" y="125">catch_id<tspan fill="#c1440e">,</tspan>date<tspan fill="#c1440e">,</tspan>site<tspan fill="#c1440e">,</tspan>species<tspan fill="#c1440e">,</tspan>sex</text>
+    <text x="596" y="157">C1968<tspan fill="#c1440e">,</tspan>2023-01-01<tspan fill="#c1440e">,</tspan>Green Island<tspan fill="#c1440e">,</tspan>Red Emperor<tspan fill="#c1440e">,</tspan>F</text>
+    <text x="596" y="189">C1553<tspan fill="#c1440e">,</tspan>2023-01-01<tspan fill="#c1440e">,</tspan>Michaelmas Cay<tspan fill="#c1440e">,</tspan>Mangrove Jack<tspan fill="#c1440e">,</tspan>M</text>
+    <text x="596" y="221">C0472<tspan fill="#c1440e">,</tspan>2023-01-02<tspan fill="#c1440e">,</tspan>Green Island<tspan fill="#c1440e">,</tspan>Coral Trout<tspan fill="#c1440e">,</tspan>F</text>
+    <text x="596" y="253">C1104<tspan fill="#c1440e">,</tspan>2023-01-02<tspan fill="#c1440e">,</tspan>Upolu Cay<tspan fill="#c1440e">,</tspan>Red Emperor<tspan fill="#c1440e">,</tspan>M</text>
+    <text x="596" y="285" fill="#9aa9b6">...</text>
   </g>
 
   <!-- caption -->
   <rect x="40" y="318" width="920" height="42" fill="#eef4f8" rx="4"/>
   <text x="60" y="336" font-size="13" fill="#1f3a4d" font-weight="700">Same data, no spreadsheet.</text>
-  <text x="60" y="353" font-size="13" fill="#33475b">A CSV keeps only the values and the commas that separate them — no colours, no fonts, no formulas. That is exactly what R wants.</text>
+  <text x="60" y="353" font-size="13" fill="#33475b">A CSV keeps only the values and the commas that separate them — no colours, no fonts, no formulas, no cells. That is exactly what R wants.</text>
 </svg>
