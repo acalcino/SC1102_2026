@@ -9,18 +9,13 @@ Developed by Andrew Calcino, James Cook University.
 
 Welcome to the SC1102 R Bootcamp. Here you will find all the materials required for the tutorial component of the bootcamp.
 
-You have just spent three weeks modelling environmental and fisheries data in Excel. Over the next three weeks you will learn to do the same kind of work — and a good deal more — in **R**. The goal is not to make you a programmer. It is to make you comfortable enough in R that when you reach the El Niño modelling module, you can spend your effort on the science rather than on the software.
+You have just spent three weeks modelling environmental and fisheries data in Excel. Over the next three weeks you will learn to do the same kind of work, and a good deal more in **R**. The goal is not to make you a programmer. It is to make you comfortable enough in R that when you reach the El Niño modelling module, you can spend your effort on the science rather than on the software.
 
 Each week has three parts: a **one hour lecture**, a **two hour practical** (the tutorials below), and a **one hour synthesis session**.
 
 ## Before you start
 
-You will need **R** and **RStudio** installed on your own machine before Week 1.
-
-- Download R: [cran.r-project.org](https://cran.r-project.org/)
-- Download RStudio Desktop: [posit.co/download/rstudio-desktop](https://posit.co/download/rstudio-desktop/)
-
-Install R first, then RStudio. Both are free.
+You will need **R** and **RStudio** installed on your own machine before Week 1. Detailed instructions for how to install R and RStudio can be found on the course website under Module 4.
 
 ## Course Outline
 
