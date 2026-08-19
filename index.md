@@ -5,8 +5,6 @@ title: SC1102 - R Bootcamp
 
 # Tutorial materials for SC1102
 
-Developed by Andrew Calcino, James Cook University.
-
 Welcome to the SC1102 R Bootcamp. Here you will find all the materials required for the tutorial component of the bootcamp.
 
 You have just spent three weeks modelling environmental and fisheries data in Excel. Over the next three weeks you will learn to do the same kind of work, and a good deal more in **R**. The goal is not to make you a programmer. It is to make you comfortable enough in R that when you reach the El Niño modelling module, you can spend your effort on the science rather than on the software.
