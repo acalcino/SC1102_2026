@@ -307,9 +307,11 @@ Try and do the same thing in Excel. Open either the ``.csv`` file or the ``.xlsx
 
 ![A merged tab built by copy-and-paste](images/excel.png)
 
+
 A third option is direct the cells in a new tab to read particular cells in the original tab using the ``=`` symbol. Try this out for yourself. Create a new tab, click in cell ``A1``, type ``=`` and then click across to cell ``A1`` in the original tab and press enter. This will populate your cell in your new tab with the correct data from the original tab. Now use this approach to fill in the whole table with the correct columns.
 
 ![A tab built using formulas](images/excel_formula.png)
+
 
 This is better than the copy paste method as anyone looking at your sheet will be able to see that the data in the new tab is directly referenced from the data in the original raw data tab. The problem is though that this person is very unlikely to check every single cell in the 2001x7 spreadsheet and so if a small type was introduced into the formula in a particular cell at some point, this is very unlikely to be picked up. It was also a laborious process creating this spreadsheet that involved many mouse clicks as opposed to the three lines of code used in the R approach. This issue will also worsen if the table was to grow. Imagine a situation where the original table was a 2001x1000 spreadsheet and you needed to pull out 50 randomly placed columns to create your new tab. In R, this would still be a three line command where the only the number of column names in step two would expand but to do this in excel would be a multi-mouse click nightmare.
 
@@ -347,6 +349,7 @@ barplot((prop_tab)[, "FALSE"],
 ?barplot
 
 ```
+
 For a bit of fun, have a go at trying to produce an equivalent plot in Excel without throwing your computer across the room and storming out in anger. First you need to create a new tab with the correct columns, in a new cell copy the ``Vessel ID`` again and then use the ``Data/Remove Duplicates`` tool to create a unique list, then use find and replace to change all the ``True`` and ``False`` entries into ``TRUE`` and ``FALSE``, then use ``=COUNTIFS($A:$A,D2,$B:$B,FALSE)/COUNTIF($A:$A,D2)`` to calculate the proportion of illegal catches per vessel, then plot the whole thing using the barchart tool. Basically, it's a whole lot of clicking and not a whole lot of fun.
 
 ![](images/excel_smh.png)

@@ -16,233 +16,62 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [&larr; Back to the SC1102 course page](../)
 
-> **DRAFT OUTLINE — not yet written.** This page is a structural skeleton for Week 2.
-> Section headings, learning objectives and the intended code for each step are laid out
-> below so the shape of the session can be reviewed before the prose is written.
+## Welcome back to R ##
+Oh, you're still here! Great!
 
-## Writing scripts and reproducibility ##
+Clearly last week was so intellectually stimulating, you've come back for more. Well good news, this week we are tacking ``reproducibility!``. 
 
-**Goal:** students stop typing into the console and start writing scripts that they, and anyone else, can re-run from scratch and get an identical answer.
+What is reproducibility I hear you ask? 
 
-**The one-sentence version:** last week you made R do things; this week you make R do things *again*.
+Great question! Reproducibilty is the ability to reproduce a set of results given an input dataset and an accurate set of methods. In science, there aren't many concepts more important than reproducbility. If you conduct a bunch of analyses or experiments to obtain a set of results, but the next person to attempt what you did can't do so because either the initial input data is missing or corrupted, or the methodology by which you obtained your results is incomplete or inaccurate, you may as well have not done the analysis in the first place. If your scientific argument is based on an intellectual framework something like this:
 
----
+<div align="center">
+  ![](images/trustmebro.png)
+</div>
 
-## Lecture (1 hour) — Why anyone should be able to re-run your work ##
+then it might be time to step out of the lab and head back to tiktok.
 
-*Live-coded, as per Week 1.*
+But it's not just in science where reproducibility matters.
 
-### Learning objectives ###
+<div align="center">
+  ![](images/nailedit.png)
+</div>
 
-- Explain what "reproducible" means for a data analysis, and why science depends on it.
-- Describe the difference between the console and a script, and when to use each.
-- Explain what a working directory is and why absolute file paths break other people's computers.
-- Set up an RStudio Project with a sensible folder structure.
-- Recognise the habits that quietly make an analysis irreproducible.
+The need to publish your methods and workflows in a reproducible way is absolutely critical, but the problem is, it's often incredibly boring and tedious. Luckily for you, we're working in R where producing reproducible code is baked into the fabric of the whole language. Last week we learnt some basic commands in order take in some data, manipulate it and process it but the issue is that what we did can't be easily recreated because it was all written and executed in the console. If I were to ask you right now to reproduce the final plot we created last week, you'd have to write out all the lines of R code again in order to do so. What we need is a way to save our code so that we can execute it on demand, whenever we like with the confidence that we'll end up with exactly the same set of results each time. What we want is ``automatable, deterministic code``.
 
-### Topics to cover ###
+So today, rather than typing code into the console, we are going to build an R script. To launch a new one, click ``File``/``New File``/``R script`` and you'll see it open up in the top left panel of RStudio.
 
-**1. The console is a whiteboard; the script is the record.**
-Everything from Week 1 is gone the moment you close RStudio. Nothing you did is recoverable, checkable or shareable. That is fine for exploring and fatal for science.
+The first thing we typically to is write a comment line at the top with the name of the script and any extra information you'd like to provide users, after which we save it as a ``.R`` file. Last week I briefly mentioned comments but from now on, comments become critical. In case you don't remember, a comment is a line of text or code that is preceeded with a ``#`` character. In R, anything following a ``#`` will not be executed which means we can use this symbol to annotate our code in order to make it easier for other users or future versions of ourselves to read. It's much easier to read a line of free text than trying to interpret often convoluted code base and so we use comments wherever we have code in order to make it clear what the code does and why its there.
 
-**2. What reproducibility actually means.**
-Same data + same code → same result, obtained by someone else, on a different machine, later. Three failure modes to name explicitly:
+![](images/myfirstscript.png)
 
-- I can't re-run it (the steps only existed in my head or in my console history)
-- You can't re-run it (it depends on something only on my machine)
-- Nobody can re-run it (the raw data got edited in place and the original is gone)
+See in that first tab I have named my script ``myfirstscript.R``. You can do the same by saving yours into a logical location in your directory. Last we we spoke about good folder structure and so while keeping that in mind, create a new folder using whatever method you like ensuring that your naming system is consistent and logical, and then save your new script there by clicking ``File``/``Save As``.
 
-**3. Cautionary tale.**
-The Reinhart–Rogoff spreadsheet error (Herndon, Ash & Pollin, 2013) — an averaging range in Excel that omitted several countries, in a paper used to argue for austerity policy. The error was only found because someone eventually got hold of the actual spreadsheet.
+Next up we'll do something that is a little pedantic but I'm including it here to reinforce what it means to produce truly reproducible R code. We are going to check what version of R we are using and we're going to write a a couple of lines that will warn users of our code if they are about to use a different version of R to the one it was initially created with. 99% of the time, if someone has a slightly different version of R, the code will still execute perfectly but occasionally new updates will include changes that alter how code may be interpreted. This can sometimes kill the code outright so that it doesn't execute, or it might alter the type of output produced. Here's the code block:
 
-> **VERIFY BEFORE LECTURING** — this story is flagged in the project notes as needing a source check. Herndon, Ash & Pollin (2013), *Cambridge Journal of Economics*, is the critique paper. Confirm the specific details you plan to state out loud.
-
-**4. The working directory — R's "you are here".**
-
-```{r eval=FALSE}
-getwd()      # where am I?
-list.files() # what can I see from here?
-```
-
-Absolute vs relative paths. Why this line is a bug, not a path:
-
-```{r eval=FALSE}
-# Don't do this. It works on exactly one computer in the world.
-fisheries <- read.csv("/home/andrew/Documents/teaching/2026/TR3/SC1102/fisheries.csv")
-```
-
-> **Teaching note — use the real example.** The first version of the Week 1 tutorial had exactly this
-> line in it, and it broke the moment the file moved to a different machine. Worth showing: this is a
-> mistake everyone makes, including the person writing the tutorial.
-
-**5. RStudio Projects as the fix.**
-A `.Rproj` file marks the top of your project. Open the project and the working directory is set for you, every time, on every machine. Relative paths then just work.
-
-**6. A folder structure that scales.**
+```{r}
+# Check your current version of R
+R.version.string
 
 ```
-SC1102/
-├── SC1102.Rproj
-├── data/          <- raw data. Read from here. NEVER write to here.
-├── scripts/       <- your .R files
-├── figures/       <- plots your script produces
-└── outputs/       <- processed data your script produces
+
+For me, the version is 4.5.1, for you probably something else. We're now going to store this string as a variable and execute a block of code to test whether the currently used version is the same or not. Of course here it will be exactly the same but if you were to later try to execute this on another machine, it may not be the case.
+
+```{r}
+# Create the variable from the output of the command
+R_version <- R.version.string
+
+# Perform the test
+if(R_version == "R version 4.5.1 (2025-06-13)") {
+    print("R version 4.5.1")
+} else {
+    print("You are using a different version of R. Switch to version 4.5.1 to ensure reproducibilty")
+  }
+
 ```
 
-The rule worth repeating all week: **raw data is read-only.** If you need to fix something, fix it in code, not in the file.
+What we just did was an ``if-then-else`` statement which is common to many if not all languages. They way it works is you say ``if`` some condition is met, ``then`` do this particular thing, but if it's not true (``else``) then do this other thing. In R, ``then`` is not written explicitly, it's implied by the open ``{`` curly brace.
 
-**7. Habits that quietly break reproducibility.**
-
-- Saving and restoring `.RData` (turn it off: Tools > Global Options > uncheck "Restore .RData", set "Save workspace" to Never)
-- Relying on objects that are in your Environment but not in your script
-- `rm(list = ls())` — feels like a reset, isn't one (loaded packages and options survive). Session > Restart R is the real thing.
-- Running lines out of order until it works
-
-**8. `sessionInfo()`** — recording what versions of everything you used.
-
-> **Excel bridge.** In Excel, the analysis and the data are the same object, so "re-running" it isn't a thing you can even ask for. In R the data sits still and the script is the thing you keep, edit, share and re-run. That separation is the entire point.
-
----
-
-## Practical (2 hours) — Build a project, write a script ##
-
-Students convert last week's console session into a real script inside a real project. Pair programming; predict-then-run.
-
-### Step 1 — Create the Project ###
-
-File > New Project > New Directory > New Project. Name it `SC1102`. Then create the subfolders and move `fisheries.csv` into `data/`.
-
-```{r eval=FALSE}
-dir.create("data")
-dir.create("scripts")
-dir.create("figures")
-dir.create("outputs")
-```
-
-### Step 2 — Start a script with a header block ###
-
-```{r eval=FALSE}
-# ------------------------------------------------------------
-# Week 2: cleaning the fisheries catch data
-# Author:  <your name>
-# Date:    2026-##-##
-# Purpose: read the raw catch records, fix the column types,
-#          and save a cleaned version for later analysis.
-# ------------------------------------------------------------
-```
-
-### Step 3 — Read with a relative path ###
-
-```{r eval=FALSE}
-fisheries <- read.csv("data/fisheries.csv")   # 2000 catch records
-str(fisheries)
-```
-
-### Step 4 — Rebuild Week 1's work as a script ###
-
-Type the type-conversions from Week 1 into the script rather than the console. Same code, permanent home.
-
-```{r eval=FALSE}
-fisheries$date       <- as.Date(fisheries$date)
-fisheries$legal_size <- as.logical(fisheries$legal_size)
-```
-
-### Step 5 — The real test: restart and source ###
-
-Session > Restart R (Ctrl/Cmd + Shift + F10), then run the whole script from a clean slate.
-
-```{r eval=FALSE}
-source("scripts/week_2.R")
-```
-
-If it runs, it is reproducible. If it doesn't, you have just found a dependency you didn't know you had. This step is the point of the whole session.
-
-### Step 6 — Break it and fix it ###
-
-Deliberately sabotage the script and read the error:
-
-| Sabotage | Error students should learn to read |
-|---|---|
-| Use an absolute path | `cannot open file ... No such file or directory` |
-| Misspell the filename | same error — teaches that R is not guessing for you |
-| Move a line above the one that creates its input | `object 'fisheries' not found` |
-| Delete a closing bracket | `unexpected symbol` / console stuck on `+` |
-
-### Step 7 — Reading the Excel file directly ###
-
-```{r eval=FALSE}
-library(readxl)
-fisheries_xl <- read_excel("data/fisheries.xlsx")
-```
-
-Compare with `read.csv()`. Note that `read_excel()` guesses column types differently — another reason to always run `str()` after reading anything in.
-
-### Step 8 — Building text with `paste()` ###
-
-```{r eval=FALSE}
-# A label for a figure or a site code
-paste(fisheries$site, fisheries$vessel, sep = "_")
-
-# A filename that records when it was made
-outfile <- paste0("outputs/fisheries_clean_", Sys.Date(), ".csv")
-```
-
-### Step 9 — Write outputs from code, never by hand ###
-
-```{r eval=FALSE}
-write.csv(fisheries, outfile, row.names = FALSE)
-
-png("figures/undersized_by_vessel.png", width = 800, height = 600)
-barplot(prop_tab[, "FALSE"],
-        ylab = "Proportion of undersized catches",
-        xlab = "Vessel ID",
-        ylim = c(0, 0.5))
-dev.off()
-```
-
-The point: the figure in your report is produced by the script, so it can never drift out of date.
-
-### Step 10 — Don't repeat yourself: writing a function ###
-
-> **OPEN DECISION — see COVERAGE.md.** Functions have to live somewhere in the new three-week
-> structure. They sit naturally here ("you have written the same three lines three times — wrap them
-> up"), but Week 2 is already a full session. The alternative is to move functions into Week 3 as part
-> of building the report. Flagged for Andrew to choose.
-
-```{r eval=FALSE}
-# What a function is: a named recipe that takes inputs and returns an output.
-# You have already used dozens: mean(), read.csv(), as.Date().
-
-# Defining one
-kg_to_lb <- function(kg) {
-  kg * 2.205        # mass in lb
-}
-
-# Executing it
-kg_to_lb(3.71)
-fisheries$weight_lb <- kg_to_lb(fisheries$weight_kg)
-```
-
-### Step 11 — Record your session ###
-
-```{r eval=FALSE}
-sessionInfo()
-```
-
-> **End-of-week win.** Finish by deleting the `figures/` folder, restarting R, sourcing the script,
-> and watching the figure rebuild itself from nothing. That moment — the analysis regenerating
-> itself — is what reproducibility feels like.
-
----
-
-## Synthesis (1 hour) — Can someone else run your work? ##
-
-- **The swap.** Pairs exchange project folders. Can you run your partner's script without editing a single line? Anything you had to change is a reproducibility bug — name it and fix it together.
-- **Failure gallery.** Work through the classic breakages as a class: absolute paths, missing `data/` folder, an object that only existed in the Environment, a package that was never loaded.
-- **Discussion.** If a journal asked for your analysis in five years, what would you need to hand over? What would still work?
-- **Exit ticket.** One habit from this week you will keep, and one thing still confusing.
-- **Preview Week 3.** *"Right now your analysis and your write-up are two separate things, and the numbers in your write-up are already going stale. Next week they become one document."*
-
----
+So to break this down, what the code says is, if your version of R is 4.5.1, that is the output of the ``R.version.string`` command is precisely ``R version 4.5.1 (2025-06-13)``, then print the text ``R version 4.5.1``, however if the ouput of ``R.version.string`` is anything else, print that long line of text instead. This code will not kill anything, it will just provide the user with the information that they are using a different version of R to the one that was intended by the programmer (you!) and so to proceed with caution.
 
 *SC1102 R Bootcamp, James Cook University. [Course home](../)*

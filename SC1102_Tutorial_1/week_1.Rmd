@@ -306,9 +306,13 @@ Of course it would make more sense in this case to have just included the column
 Try and do the same thing in Excel. Open either the ``.csv`` file or the ``.xlsx`` file and try to manipulate it to produce the same outcome as ``merged_df``. How would you go about doing this? Would you just delete the columns you aren't interested in? This would work but what if you later decided that you needed those data? Maybe you'd create a new spreadsheet or a new tab and copy and paste the data from the original into this. This would also work but it introduces the possibility of human error where you accidentally click or copy the wrong column. The other issue is that there is now no record in your new tab of where these data came from. Excel doesn't record your copy and paste procedure anywhere so a new person looking at your table for the first time will have no easy way to validate that the data in the new tab is a reliable manipulation of the original raw data as they cannot see how it was produced.
 
 ![](images/excel.png)
+
+
 A third option is direct the cells in a new tab to read particular cells in the original tab using the ``=`` symbol. Try this out for yourself. Create a new tab, click in cell ``A1``, type ``=`` and then click across to cell ``A1`` in the original tab and press enter. This will populate your cell in your new tab with the correct data from the original tab. Now use this approach to fill in the whole table with the correct columns.
 
 ![](images/excel_formula.png)
+
+
 This is better than the copy paste method as anyone looking at your sheet will be able to see that the data in the new tab is directly referenced from the data in the original raw data tab. The problem is though that this person is very unlikely to check every single cell in the 2001x7 spreadsheet and so if a small type was introduced into the formula in a particular cell at some point, this is very unlikely to be picked up. It was also a laborious process creating this spreadsheet that involved many mouse clicks as opposed to the three lines of code used in the R approach. This issue will also worsen if the table was to grow. Imagine a situation where the original table was a 2001x1000 spreadsheet and you needed to pull out 50 randomly placed columns to create your new tab. In R, this would still be a three line command where the only the number of column names in step two would expand but to do this in excel would be a multi-mouse click nightmare.
 
 Now what we want to find out is whether any particular vessel is responsible for an outsized number of illegal sized catches. The first way to do this in R is to extract the relevant information and display it as a table.

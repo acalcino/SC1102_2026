@@ -13,3 +13,4 @@ exclude:
   - .Rproj.user
   - .Rhistory
   - .RData
+  - "*_plan.Rmd"
