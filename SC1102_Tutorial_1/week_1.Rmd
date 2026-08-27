@@ -185,7 +185,7 @@ print(sd_bmi)
 
 ```
 
-Great, but do you really need to type all that out every time you want to calculate a mean and standard deviation? No! For almost every simple formula you could think of, someone is likely to have already written a function for it. In our case, functions to calculate mean and standard deviation are baked into base R.
+Great, but do you really need to type all that out every time you want to calculate a mean and standard deviation? No! For almost every simple formula you could think of, someone is likely to have already written a function for it. You've already used a bunch of functions in order to get to this point (``head()``, ``class()``, ``str()``, etc) and if it wasn't already clear, these are built in commands that abstract away a whole bunch of code so that you can call them up using one simple instruction. Luckily for us here, functions to calculate mean and standard deviation are also baked into base R.
 
 ```{r, results='hide'}
 # Calculate the mean bmi
@@ -211,56 +211,56 @@ t.test(pop_stats$BMI, mu = 22.5)
 
 ```
 
-## Working with external datasets ##
+## Working with external datasets and comparing R to Excel ##
 ### Importing a csv ###
 A common format people use to record data is the ``csv`` format. These ``Comma Separated Values`` files are arranged in rows and columns with values separated by commas. These can be generated manually but they are also a file format option that you can save spreadsheets as in programs such as Excel. A related file format is the ``tsv`` or ``Tab Separated Values`` format where instead of commas, values are separated by tabs.
 
 Unfortunately base R doesn't include functions to import Excel spreadsheet data directly but fortunately, it is very easy to export Excel spreadsheets as .csv files.
 
-![Saving a spreadsheet as a CSV](images/excel_csv.png)
+![](images/excel_csv.png)
 
-Today we are going to work with a csv that can be found on the subject LearnJCU page under Week 4/tutorials called ``fisheries.csv``. Download this to your own computer and then open it up to have a look at it.
+Today we are going to work with a csv called ``fisheries.csv`` which can be found [here](https://acalcino.github.io/SC1102_2026/SC1102_Tutorial_1/fisheries.csv). When you download this file to your own machine, make sure you put it in a logical location where you'll keep all the files generated as part of this component of the course. As I'm on a Mac, I'll create a director at ``~/Documents/teaching/2026/TR3/SC1102/`` and put it in there. This might look like a very long directory structure but if you organise your computer this way, your future self will thank you as months or years from now, you'll understand exactly what this file is and from where it came. If you are on a Windows machine, maybe try something like ``C:\Users\YourUsername\Documents\teaching\2026\TR3\SC1102\``. You can create these directories by just using Finder on Mac or File Explorer on Windows. What I do not recommend is just putting the file in your downloads folder or Desktop and naming it something like ``file1.csv``.
+
+If you'd prefer to use R to create these folders, try this but remember to modify the directory structure to suit your needs.
+
+```{r eval=FALSE}
+dir.create(
+"~/Documents/teaching/2026/TR3/SC1102/",
+recursive = TRUE
+)
+
+```
+
+Once your directory structure is organised, download the file to the correct location. You can also find an excel version of this file [here](https://acalcino.github.io/SC1102_2026/SC1102_Tutorial_1/fisheries.xlsx) which you can download to the same folder you just created.
 
 #### Peeking at a file without opening it ####
 
-Before we hand the file to R, let's look at it the way the computer sees it — as plain text. There is a `Terminal` tab sitting next to the `Console` in RStudio, which gives you a command line. The command to print the first few lines of a file depends on which operating system you are using.
+Before we hand the file to R, let's have a look at it. If you like, you can simply open the file by navigating to it in Finder or File Explorer and opening it with Notepad/TextEdit/Word or whatever program you prefer. Alternatively, you can view it the way the computer sees it as plain text. To do this, open RStudio and look at the window in the bottom left. There you'll find a `Terminal` tab sitting next to the `Console`, and this gives you access to a command line where you can use ``shell`` commands as opposed to ``R`` commands. The command to print the first few lines of a file depends on which operating system you are using and where you've saved your file.
 
 **macOS or Linux** — use ``head``:
 
 ```{bash eval=FALSE}
-head -n 5 fisheries.csv
+head -n 5 ~/Documents/teaching/2026/TR3/SC1102/fisheries.csv
+
 ```
 
 **Windows** — use PowerShell's ``Get-Content``:
 
 ```powershell
-Get-Content fisheries.csv -Head 5
+Get-Content C:\Users\YourUsername\Documents\teaching\TR3\SC1102\fisheries.csv -Head 5
+
 ```
 
-> **Why the difference?** ``head`` is one of the Unix "coreutils", a set of small text-handling
-> programs that macOS and Linux have both inherited from Unix and ship with by default. Windows grew
-> up separately, so its shells (``cmd`` and PowerShell) have their own commands instead — hence
-> ``Get-Content``. Microsoft has been closing the gap: Windows now ships ``curl``, ``tar`` and
-> ``ssh``, and in 2026 released a *Coreutils for Windows* package that adds ``head``, ``tail``,
-> ``grep`` and around a hundred others. It is not installed by default though, so on a fresh Windows
-> machine ``head`` still won't work.
+This is pretty ugly in its raw form but once we import it into R, you'll see that it takes on the nice, clean format of a data frame type object. If you're interested in ``shell`` scripting then we encourage you to look into this yourself, but as far as this course is concerned, this is the last you'll see of it.
 
 #### The portable way — do it in R ####
-
-Every one of you has R, whatever machine you are sitting at, so R is the one place this is guaranteed to work. The ``readLines()`` function reads a file one line at a time, and ``cat()`` prints those lines to the screen.
-
-```{r}
-# Read the first five lines of the raw file and print them
-cat(readLines("fisheries.csv", n = 5), sep = "\n")
-
-```
-
-This is a small but useful habit: when a task can be done either in the shell or in R, doing it in R means it is part of your analysis and it will run on anyone's machine.
-
-This is pretty ugly in its raw form but once we import it into R, you'll see that it takes on the nice, clean format of a dataframe type object.
+Every one of you has R, whatever machine you are sitting at, so R is the one place this is guaranteed to work and to work in the same way on every machine regardless of the operating system installed.
 
 ```{r}
-# Import the dataset using the read.csv() function
+# Import the dataset using the read.csv() function.
+# A bare file name works when the file is in R's current working directory.
+# If you saved it somewhere else, hand read.csv() the full path instead, e.g.
+# read.csv("~/Documents/teaching/2026/TR3/SC1102/fisheries.csv")
 fisheries <- read.csv("fisheries.csv")
 
 # Have a look at the first five rows and six columns
@@ -303,7 +303,15 @@ merged_df <- merge(fisheries_reduced, legal, by = "catch_id")
 
 Of course it would make more sense in this case to have just included the columns we wanted in the original subset but this was just meant as an exercise.
 
-Now what we want to find out is whether any particular vessel is responsible for an outsized number of illegal sized catches. The first way to do this is to extract the relevant information and display it as a table.
+Try and do the same thing in Excel. Open either the ``.csv`` file or the ``.xlsx`` file and try to manipulate it to produce the same outcome as ``merged_df``. How would you go about doing this? Would you just delete the columns you aren't interested in? This would work but what if you later decided that you needed those data? Maybe you'd create a new spreadsheet or a new tab and copy and paste the data from the original into this. This would also work but it introduces the possibility of human error where you accidentally click or copy the wrong column. The other issue is that there is now no record in your new tab of where these data came from. Excel doesn't record your copy and paste procedure anywhere so a new person looking at your table for the first time will have no easy way to validate that the data in the new tab is a reliable manipulation of the original raw data as they cannot see how it was produced.
+
+![](images/excel.png)
+A third option is direct the cells in a new tab to read particular cells in the original tab using the ``=`` symbol. Try this out for yourself. Create a new tab, click in cell ``A1``, type ``=`` and then click across to cell ``A1`` in the original tab and press enter. This will populate your cell in your new tab with the correct data from the original tab. Now use this approach to fill in the whole table with the correct columns.
+
+![](images/excel_formula.png)
+This is better than the copy paste method as anyone looking at your sheet will be able to see that the data in the new tab is directly referenced from the data in the original raw data tab. The problem is though that this person is very unlikely to check every single cell in the 2001x7 spreadsheet and so if a small type was introduced into the formula in a particular cell at some point, this is very unlikely to be picked up. It was also a laborious process creating this spreadsheet that involved many mouse clicks as opposed to the three lines of code used in the R approach. This issue will also worsen if the table was to grow. Imagine a situation where the original table was a 2001x1000 spreadsheet and you needed to pull out 50 randomly placed columns to create your new tab. In R, this would still be a three line command where the only the number of column names in step two would expand but to do this in excel would be a multi-mouse click nightmare.
+
+Now what we want to find out is whether any particular vessel is responsible for an outsized number of illegal sized catches. The first way to do this in R is to extract the relevant information and display it as a table.
 
 ```{r}
 # Create a table of legal and illegally sized catches per vessel
@@ -337,10 +345,15 @@ barplot((prop_tab)[, "FALSE"],
 ?barplot
 
 ```
+For a bit of fun, have a go at trying to produce an equivalent plot in Excel without throwing your computer across the room and storming out in anger. First you need to create a new tab with the correct columns, in a new cell copy the ``Vessel ID`` again and then use the ``Data/Remove Duplicates`` tool to create a unique list, then use find and replace to change all the ``True`` and ``False`` entries into ``TRUE`` and ``FALSE``, then use ``=COUNTIFS($A:$A,D2,$B:$B,FALSE)/COUNTIF($A:$A,D2)`` to calculate the proportion of illegal catches per vessel, then plot the whole thing using the barchart tool. Basically, it's a whole lot of clicking and not a whole lot of fun.
+
+  ![](images/excel_smh.png)
+
+And after all this, you have a messy spreadsheet with data and plots located in the one place compared with the R approach where you have a few clean lines of reproducible code and a plot you can export in your favourite image format.
 
 ## Before you go ##
 
-You have made a figure from real fisheries data in your first week of R. Next week we stop typing into the console and start writing **scripts** — files you can save, re-run, and hand to someone else so they get exactly the same answer you did.
+You have made a figure from some dummy fisheries data in your first week of R. Next week we stop typing into the console and start writing **scripts** — files you can save, re-run, and hand to someone else so they get exactly the same answer you did.
 
 ---
 

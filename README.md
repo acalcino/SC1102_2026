@@ -1,4 +1,4 @@
-# Tutorial materials for SC1102 — R Bootcamp
+# Tutorial materials for SC1102 / SC1109 — R Bootcamp
 
 Developed by Andrew Calcino, James Cook University.
 
@@ -12,11 +12,16 @@ rather than on teaching R from scratch.
 Each week runs as a one hour lecture, a two hour practical (the tutorials in this repository), and a
 one hour synthesis session.
 
+The same three tutorials are published for two subject codes, **SC1102** and **SC1109**. The content is
+identical; the `SC1109_*` folders differ only in the subject code used in titles, links and folder
+examples. Edit a week in `SC1102_Tutorial_N/`, then mirror the change into `SC1109_Tutorial_N/` and
+re-knit both.
+
 | Week | Topic | Tutorial | Status |
 |---|---|---|---|
-| 1 | Meet R — your first commands | [`Tutorial_1/week_1.Rmd`](Tutorial_1/week_1.Rmd) | written |
-| 2 | Writing scripts and reproducibility | [`Tutorial_2/week_2.Rmd`](Tutorial_2/week_2.Rmd) | outline |
-| 3 | Building your own RMarkdown document | [`Tutorial_3/week_3.Rmd`](Tutorial_3/week_3.Rmd) | outline |
+| 1 | Meet R — your first commands | [`SC1102_Tutorial_1/week_1.Rmd`](SC1102_Tutorial_1/week_1.Rmd) · [`SC1109_Tutorial_1/week_1.Rmd`](SC1109_Tutorial_1/week_1.Rmd) | written |
+| 2 | Writing scripts and reproducibility | [`SC1102_Tutorial_2/week_2.Rmd`](SC1102_Tutorial_2/week_2.Rmd) · [`SC1109_Tutorial_2/week_2.Rmd`](SC1109_Tutorial_2/week_2.Rmd) | outline |
+| 3 | Building your own RMarkdown document | [`SC1102_Tutorial_3/week_3.Rmd`](SC1102_Tutorial_3/week_3.Rmd) · [`SC1109_Tutorial_3/week_3.Rmd`](SC1109_Tutorial_3/week_3.Rmd) | outline |
 
 See [COVERAGE.md](COVERAGE.md) for the required-topic map, the open decisions, and a record of what
 changed when Week 1 was ported into this repository.
@@ -30,14 +35,17 @@ SC1102_2026/
 ├── README.md              this file
 ├── COVERAGE.md            topic coverage map and open decisions
 ├── SC1102_2026.Rproj      open this in RStudio
-├── Tutorial_1/
+├── SC1102_Tutorial_1/
 │   ├── week_1.Rmd         source — edit this
 │   ├── week_1.html        knitted output — served by the site
 │   ├── fisheries.csv      2000 catch records
 │   ├── fisheries.xlsx     the same data as a workbook
 │   └── images/
-├── Tutorial_2/
-└── Tutorial_3/
+├── SC1102_Tutorial_2/
+├── SC1102_Tutorial_3/
+├── SC1109_Tutorial_1/     SC1109 mirror of the above
+├── SC1109_Tutorial_2/
+└── SC1109_Tutorial_3/
 ```
 
 ## Working on this
@@ -49,9 +57,11 @@ that isn't knitted won't appear.
 To rebuild everything from the command line:
 
 ```r
-rmarkdown::render("Tutorial_1/week_1.Rmd")
-rmarkdown::render("Tutorial_2/week_2.Rmd")
-rmarkdown::render("Tutorial_3/week_3.Rmd")
+for (code in c("SC1102", "SC1109")) {
+  rmarkdown::render(sprintf("%s_Tutorial_1/week_1.Rmd", code))
+  rmarkdown::render(sprintf("%s_Tutorial_2/week_2.Rmd", code))
+  rmarkdown::render(sprintf("%s_Tutorial_3/week_3.Rmd", code))
+}
 ```
 
 Requires `rmarkdown`, `knitr` and (for Week 2 onwards) `readxl`.

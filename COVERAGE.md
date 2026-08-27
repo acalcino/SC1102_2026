@@ -80,7 +80,7 @@ The content, structure and voice are Andrew's. What changed:
    drawn diagram (spreadsheet → arrow → raw CSV text) which shows what a CSV *is*, not just which menu
    item to click. Each record sits on one line, and the CSV line numbers are aligned with the
    spreadsheet row numbers so "row 3 = line 3" reads off the picture. Source SVG is in
-   `Tutorial_1/images/` if you want to edit it. Swap in a real screenshot instead if you prefer.
+   `SC1102_Tutorial_1/images/` if you want to edit it. Swap in a real screenshot instead if you prefer.
 4. **The trailing to-do list was removed** from the bottom of the tutorial and turned into this file,
    so nothing is lost but students do not see a list of headings with no content under them.
 5. **Unit comments added** to four variables (`kpl`, `weight`, `height`, `BMI`) — see row 5 above.
