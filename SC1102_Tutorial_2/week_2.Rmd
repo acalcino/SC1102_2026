@@ -1,10 +1,13 @@
 ---
-title: "SC1102: R Bootcamp Week 2"
+title: 'SC1102: R Bootcamp Week 2'
 output:
   html_document:
     toc: true
     toc_depth: '4'
   pdf_document:
+    toc: true
+    toc_depth: '4'
+  word_document:
     toc: true
     toc_depth: '4'
 date: "2026 Trimester 3"
@@ -29,7 +32,7 @@ Great question! Reproducibilty is the ability to reproduce a set of results give
   ![](images/trustmebro.png)
 </div>
 
-then it might be time to step out of the lab and head back to tiktok.
+then it might be time to step away from the science and head back to tiktok.
 
 But it's not just in science where reproducibility matters.
 
@@ -41,7 +44,7 @@ The need to publish your methods and workflows in a reproducible way is absolute
 
 So today, rather than typing code into the console, we are going to build an R script. To launch a new one, click ``File``/``New File``/``R script`` and you'll see it open up in the top left panel of RStudio.
 
-The first thing we typically to is write a comment line at the top with the name of the script and any extra information you'd like to provide users, after which we save it as a ``.R`` file. Last week I briefly mentioned comments but from now on, comments become critical. In case you don't remember, a comment is a line of text or code that is preceeded with a ``#`` character. In R, anything following a ``#`` will not be executed which means we can use this symbol to annotate our code in order to make it easier for other users or future versions of ourselves to read. It's much easier to read a line of free text than trying to interpret often convoluted code base and so we use comments wherever we have code in order to make it clear what the code does and why its there.
+The first thing we typically do is write a comment line at the top with the name of the script and any extra information you'd like to provide users, after which we save it as a ``.R`` file. Last week I briefly mentioned comments but from now on, comments become critical. In case you don't remember, a comment is a line of text or code that is preceded with a ``#`` character. In R, anything following a ``#`` will not be executed which means we can use this symbol to annotate our code in order to make it easier for other users or future versions of ourselves to read. It's much easier to read a line of free text than trying to interpret an often convoluted code base and so we use comments wherever we have code in order to make it clear what the code does and why its there.
 
 ![](images/myfirstscript.png)
 
@@ -70,8 +73,231 @@ if(R_version == "R version 4.5.1 (2025-06-13)") {
 
 ```
 
-What we just did was an ``if-then-else`` statement which is common to many if not all languages. They way it works is you say ``if`` some condition is met, ``then`` do this particular thing, but if it's not true (``else``) then do this other thing. In R, ``then`` is not written explicitly, it's implied by the open ``{`` curly brace.
+What we just did was an ``if-then-else`` statement which is common to many languages. They way it works is you say ``if`` some condition is met, ``then`` do this particular thing, but if it's not true (``else``) then do this other thing. In R, ``then`` is not written explicitly, it's implied by the open ``{`` curly brace.
 
-So to break this down, what the code says is, if your version of R is 4.5.1, that is the output of the ``R.version.string`` command is precisely ``R version 4.5.1 (2025-06-13)``, then print the text ``R version 4.5.1``, however if the ouput of ``R.version.string`` is anything else, print that long line of text instead. This code will not kill anything, it will just provide the user with the information that they are using a different version of R to the one that was intended by the programmer (you!) and so to proceed with caution.
+So to break this down, what the code says is, if your version of R is 4.5.1, that is the output of the ``R.version.string`` command is precisely ``R version 4.5.1 (2025-06-13)``, then print the text ``R version 4.5.1``, however if the output of ``R.version.string`` is anything else, print that long line of text instead. This code will not kill anything, it will just provide the user with the information that they are using a different version of R to the one that was intended by the programmer (you!) and so to proceed with caution.
+
+## So, is this it or are we actually going to do something today? ##
+
+Great question, past me! We are in fact, going to do something and that something is produce a script that takes in a dataset that you've seen before, perform a bunch of functions on it and then create a few plots. The fun part though is that at the end of this process, we're going to share the script we've written with one of our classmates to see whether or not they can run the code as it was intended, and produce the results exactly as we had done ourselves. If we can achieve this, then we can be sure that we've created reproducible code that will produce a consistent result regardless of who runs it.
+
+First up, the data. We're going to work with the paramecium population growth data you saw in the first section of this course and you can download a copy of this from the [tutorial website](https://acalcino.github.io/SC1102_2026/). As we mentioned last week, directory structure is critically important so download this file to a logical place on your machine so we can find it easily to import it.
+
+Now I want to introduce the concept of a ``working directory``. This is a directory that you specify, usually at the top of your script that acts like your home base. Any file in this directory will be accessible directly from R and any file outside of it can be reached using a relative or a full path. Let's set our working directory, import the data set we just downloaded and then produce a quick scatter plot to look at it. Remember, this week we are building a script so make sure you do this in the top left panel in your script and not just in the console in the bottom left panel.
+
+```{r}
+# Set working directory
+setwd("~/Documents/teaching/2026/TR3/SC1102/tutorial_2")
+
+# Import the dataset which is located in this directory
+paramecium <- read.csv("Paramecium_aurelia.csv")
+
+```
+
+Now produce a simple plot to visualise the data.
+
+``` {r}
+# Produce a simple scatter plot of the data
+plot(paramecium$Time..days., paramecium$Paramecium,
+     # pch tells it what shape point to plot
+     pch = 19,
+     xlab = "Time (days)",
+     ylab = "Population size (N)",
+     main = "Paramecium population growth")
+
+```
+
+First, let's fit a linear model. In a linear model, the population increases by the **same amount each day**. The formula for a linear fit is:
+
+$$N = a + b * Time$$
+Where:
+
+```
+N = Number of individuals
+a = y intercept when time = 0
+b = the slope ie. the rate of change of N per day
+```
+
+So what we need to do is to work out the slope and the y intercept. There are two ways we could do this, the long but clearly presented way that includes all working, or the short and slightly obfuscated way that abstracts away all the maths. The short way, which is the way most sane people would use in R is to use the ``lm()`` function built into R.
+
+
+```{r}
+# Model a linear fit 
+linear_fit <- lm(Paramecium ~ Time..days., data = paramecium)
+
+# Then have a look at the results
+linear_fit
+
+```
+
+So the intercept is at 17.91 and the slope is 37.25, making the formula:
+
+$$N = 17.91 + 37.25 * Time$$
+
+Now the more difficult way would be to calculate the slope and the y intercept by hand calculating the slope ``b``:
+
+$$b = \frac{∑(xi​−\bar{x})(yi​−\bar{y}​)}{∑(xi​−\bar{x})^2}$$
+and the y intercept ``a``
+
+$$a=\bar{y}​−b\bar{x}$$
+Where:
+
+```
+x = time in days
+y = number of paramecium
+x_bar = mean(x)
+y_bar = mean(y)
+```
+
+Now while this looks like lots of fun and it actually shows the maths behind the calculations, in reality people are always going to go along with using well established, built in functions in the place of writing everything out long form. 
+
+Let's plot the trend line calculated using the ``lm()`` function.
+
+```{r}
+# Produce the same scatter plot of the data
+plot(paramecium$Time..days., paramecium$Paramecium,
+     # pch tells it what shape point to plot
+     pch = 19,
+     xlab = "Time (days)",
+     ylab = "Population size (N)",
+     main = "Paramecium population growth")
+
+# Overlay the trendline
+abline(linear_fit, col = "red", lwd = 2)
+
+# Check out the R2 (Multiple R2) value
+summary(linear_fit)
+
+```
+
+Even though the R2 value isn't too bad, we should all know that a linear trend is not realistic for modelling natural population growth. The only reason we get an R2 as good as we do is because the experiment was terminated only just after population growth appears to have ceased. What do you think might have happened to the R2 if the experiment had been allowed to carry on for another 10 or 100 days? 
+
+Let's try test out a geometric or exponential model, which you'll remember states that the rate of change is proportional to the current population size, independent of population density. First we'll visualise this on a production function ``G(N) vs N`` for the population.
+
+```{r}
+# Create an integer vector of all but the final final number of observations
+N_t <- paramecium$Paramecium[-20]
+
+# Calculate lambda (N_t+1/N_t)
+lambda <- paramecium$Paramecium[-1] / N_t
+
+# Calculate R
+R <- lambda - 1
+
+# Calculate G(N) as RN
+GN <- R*N_t
+
+# Plot N_t vs R
+plot(N_t, GN, 
+     pch = 19, 
+     xlab = "N", 
+     ylab = "G(N)",
+     main = "Production function")
+
+# Geometric: G(N) = RN, a straight line through the origin with a slope calcualted from the mean of R
+abline(a = 0, b = mean(R), col = "blue")
+
+```
+
+In the geometric model, ``R`` is constant which is why we choose the mean of ``R``. ``R`` does not depend on the population size. Since ``G(N) = RN``, ``G(N)`` will grow proportional to how many individuals there are, with a slope of ``R``. So how well does our geometric trend line do at explaining the variance in our observations?
+
+```{r}
+# Calculate R2 value
+# Predicted G(N) from the geometric model
+pred_geo <- mean(R) * N_t
+
+# Calculate residual sum of squares
+rss <- sum((GN - pred_geo)^2)
+
+# Calculate total sum of squares
+tss <- sum((GN - mean(GN))^2)
+
+# Calcualte the R2
+1 - rss/tss
+
+```
+
+So, a negative number. This is worse than useless. It essentially means that our trendline is even worse than guessing the average, which would be a flat line at ``mean(R) * N_t``
+
+
+
+
+
+
+
+
+
+
+
+Again, we could manually calculate everything we need for a geometic model of our data, or we could go with using a built in function. Let's just go with the function ``nls()`` (Nonlinear Least Squares).
+
+```{r}
+# Use the nls() function to calculate the geometric model
+# N0 = N in first row, R = the estimated growth rate (37% from linear model)
+geometric_fit <- nls(Paramecium ~ N0 * (1 + R)^Time..days.,
+                     data = paramecium,
+                     start = list(N0 = 2, R = 0.4))
+
+summary(geometric_fit)
+
+```
+
+``nls()`` doesn't calculate an R2 value so we'll have to do it manually.
+
+```{r}
+# Calculate residual sum of squares
+rss_geometric <- sum(residuals(geometric_fit)^2)
+
+# Calculate total sum of squares
+tss_geometric <- sum((paramecium$Paramecium - mean(paramecium$Paramecium))^2)
+
+# Calculate R2
+r2_geometric <- 1 - rss_geometric/tss_geometric
+r2_geometric
+
+```
+
+Now let's overlay this trend line on our plot. Unfortunately this isn't quite as simple as with the linear regression
+
+```{r}
+# Produce the same scatter plot of the data
+plot(paramecium$Time..days., paramecium$Paramecium,
+     # pch tells it what shape point to plot
+     pch = 19,
+     xlab = "Time (days)",
+     ylab = "Population size (N)",
+     main = "Paramecium population growth")
+
+# Create 200 evenly spaced points on the x axis between 0 and 19
+time_seq <- seq(0, 19, length.out = 200)
+
+# Use predict() to predict the values of y at these points given our model
+pred <- predict(geometric_fit, newdata = data.frame(Time..days. = time_seq))
+
+# Join up these points to create a curve
+lines(time_seq, pred, col = "blue", lwd = 2)
+
+# Put the linear regression line on here too
+abline(linear_fit, col = "red", lwd = 2)
+
+```
+
+Total rubbish. Let's try our third and final fit - logistic regression. Remember, 
+
+```{r}
+# Extract out all but the final (20th) row
+N <- paramecium$Paramecium[-20]
+
+# Create a numeric vector of the growth rate by dividing the difference in population size from one day to the next by the actual number on the previous day
+R   <- diff(paramecium$Paramecium) / N
+
+# Plot per capita increase (R) vs population size (N)
+plot(N, R, pch = 19, xlab = "N", ylab = "R")
+R_fit <- lm(R ~ N)
+abline(R_fit, col = "red")
+
+```
+
+---
 
 *SC1102 R Bootcamp, James Cook University. [Course home](../)*

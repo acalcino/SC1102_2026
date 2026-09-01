@@ -3,7 +3,7 @@ layout: default
 title: SC1102 - R Bootcamp
 ---
 
-# Tutorial materials for SC1102
+# Tutorial materials for SC1102 and SC1109
 
 Welcome to the SC1102/SC1109 R Bootcamp. Here you will find all the materials required for the tutorial component of the bootcamp.
 
@@ -32,12 +32,16 @@ Week 2: [Writing scripts and reproducibility](SC1109_Tutorial_2/week_2.html)
 
 Week 3: [Building your own RMarkdown document](SC1109_Tutorial_3/week_3.html)
 
-## Data
+## Data sets
 
-Each tutorial folder contains the data files it needs. You can also download them directly:
+Week 1
 
 - [fisheries.csv](SC1102_Tutorial_1/fisheries.csv) — 2000 catch records from the Excel module
 - [fisheries.xlsx](SC1102_Tutorial_1/fisheries.xlsx) — the same data as an Excel workbook
+
+Week 2
+
+- [Paramecium_aurelia.csv](SC1102_Tutorial_2/Paramecium_aurelia.csv) - Paramecium population growth data
 
 ## Where this is going
 
