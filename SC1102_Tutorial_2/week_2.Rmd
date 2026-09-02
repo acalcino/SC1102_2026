@@ -20,13 +20,13 @@ knitr::opts_chunk$set(echo = TRUE)
 [&larr; Back to the SC1102 course page](../)
 
 ## Welcome back to R ##
-Oh, you're still here! Great!
+Oh, I see you're still here! Great!
 
-Clearly last week was so intellectually stimulating, you've come back for more. Well good news, this week we are tacking ``reproducibility!``. 
+Clearly last week was so intellectually stimulating, you've come back for more. Well good news, this week we are tackling ``reproducibility!``. 
 
 What is reproducibility I hear you ask? 
 
-Great question! Reproducibilty is the ability to reproduce a set of results given an input dataset and an accurate set of methods. In science, there aren't many concepts more important than reproducbility. If you conduct a bunch of analyses or experiments to obtain a set of results, but the next person to attempt what you did can't do so because either the initial input data is missing or corrupted, or the methodology by which you obtained your results is incomplete or inaccurate, you may as well have not done the analysis in the first place. If your scientific argument is based on an intellectual framework something like this:
+Great question! Reproducibility is the ability to reproduce a set of results given an input dataset and an accurate set of methods. In science, there aren't many concepts more important than reproducibility. If you conduct a bunch of analyses or experiments to obtain a set of results, but the next person to attempt what you did can't do so because either the initial input data is missing or corrupted, or the methodology by which you obtained your results is incomplete or inaccurate, you may as well have not done the analysis in the first place. If your scientific argument is based on an intellectual framework that looks something like this:
 
 <div align="center">
   ![](images/trustmebro.png)
@@ -34,7 +34,7 @@ Great question! Reproducibilty is the ability to reproduce a set of results give
 
 then it might be time to step away from the science and head back to tiktok.
 
-But it's not just in science where reproducibility matters.
+It's not just in science where reproducibility matters either.
 
 <div align="center">
   ![](images/nailedit.png)
@@ -44,11 +44,11 @@ The need to publish your methods and workflows in a reproducible way is absolute
 
 So today, rather than typing code into the console, we are going to build an R script. To launch a new one, click ``File``/``New File``/``R script`` and you'll see it open up in the top left panel of RStudio.
 
-The first thing we typically do is write a comment line at the top with the name of the script and any extra information you'd like to provide users, after which we save it as a ``.R`` file. Last week I briefly mentioned comments but from now on, comments become critical. In case you don't remember, a comment is a line of text or code that is preceded with a ``#`` character. In R, anything following a ``#`` will not be executed which means we can use this symbol to annotate our code in order to make it easier for other users or future versions of ourselves to read. It's much easier to read a line of free text than trying to interpret an often convoluted code base and so we use comments wherever we have code in order to make it clear what the code does and why its there.
+The first thing we typically do is write a comment line at the top with the name of the script and any extra information you'd like to provide users, after which we save it as a ``.R`` file. Last week I briefly mentioned comments but from now on, comments become critical. In case you don't remember, a comment is a line of text or code that is preceded with a ``#`` character. In R, anything following a ``#`` will not be executed which means we can use this symbol to annotate our code in order to make it easier for other users or future versions of ourselves to read. It's much easier to read a line of free text than trying to interpret an often convoluted code base and so we use comments wherever we have code in order to make it clear what the code does and why its there. Today you **must** make sure that **every bit of code you write is thorougly commented!** If you write a line of code, make sure there is a comment above it detailing what it does. The more detail the better. Future you will thank past you for commenting heavily.
 
 ![](images/myfirstscript.png)
 
-See in that first tab I have named my script ``myfirstscript.R``. You can do the same by saving yours into a logical location in your directory. Last we we spoke about good folder structure and so while keeping that in mind, create a new folder using whatever method you like ensuring that your naming system is consistent and logical, and then save your new script there by clicking ``File``/``Save As``.
+See in that first tab I have named my script ``myfirstscript.R``. You can do the same by saving yours into a logical location in your directory. Last week we spoke about good folder structure and so while keeping that in mind, create a new folder using whatever method you like ensuring that your naming system is consistent and logical, and then save your new script there by clicking ``File``/``Save As``.
 
 Next up we'll do something that is a little pedantic but I'm including it here to reinforce what it means to produce truly reproducible R code. We are going to check what version of R we are using and we're going to write a a couple of lines that will warn users of our code if they are about to use a different version of R to the one it was initially created with. 99% of the time, if someone has a slightly different version of R, the code will still execute perfectly but occasionally new updates will include changes that alter how code may be interpreted. This can sometimes kill the code outright so that it doesn't execute, or it might alter the type of output produced. Here's the code block:
 
@@ -107,6 +107,8 @@ plot(paramecium$Time..days., paramecium$Paramecium,
 
 ```
 
+## Linear model ##
+
 First, let's fit a linear model. In a linear model, the population increases by the **same amount each day**. The formula for a linear fit is:
 
 $$N = a + b * Time$$
@@ -151,7 +153,7 @@ y_bar = mean(y)
 
 Now while this looks like lots of fun and it actually shows the maths behind the calculations, in reality people are always going to go along with using well established, built in functions in the place of writing everything out long form. 
 
-Let's plot the trend line calculated using the ``lm()`` function.
+Let's plot the trend line on an Polulation size (N) vs Time (days) plot calculated using the ``lm()`` function.
 
 ```{r}
 # Produce the same scatter plot of the data
@@ -172,10 +174,12 @@ summary(linear_fit)
 
 Even though the R2 value isn't too bad, we should all know that a linear trend is not realistic for modelling natural population growth. The only reason we get an R2 as good as we do is because the experiment was terminated only just after population growth appears to have ceased. What do you think might have happened to the R2 if the experiment had been allowed to carry on for another 10 or 100 days? 
 
-Let's try test out a geometric or exponential model, which you'll remember states that the rate of change is proportional to the current population size, independent of population density. First we'll visualise this on a production function ``G(N) vs N`` for the population.
+## Geometric model ##
+
+Let's try test out a geometric or exponential model, which you'll remember states that the rate of change is proportional to the current population size, independent of population density. Relative to time, population growth under a geometric model is exponential as ``R`` is constant. Rather than trying to fit an exponential curve to a population size vs time plot, we can fit a horizontal to a per capita growth rate ``R`` vs population size ``N`` plot.
 
 ```{r}
-# Create an integer vector of all but the final final number of observations
+# Create an integer vector of all but the final number of observations
 N_t <- paramecium$Paramecium[-20]
 
 # Calculate lambda (N_t+1/N_t)
@@ -184,18 +188,37 @@ lambda <- paramecium$Paramecium[-1] / N_t
 # Calculate R
 R <- lambda - 1
 
+# Plot N vs R
+plot(N_t, R, 
+     pch = 19, 
+     xlab = "N", 
+     ylab = "R",
+     main = "Per capita growth rate vs population size")
+
+# Fit geometric growth model - constant R
+abline(h = mean(R), 
+       col = "blue")
+
+```
+
+Nothing too exciting here. Alternatively, we can plot population growth rate ``G(N)`` vs population size ``N`` plot. As you will remember from chapter 5 of the text book, this is also known as the ``production function``. If growth is truly geometric, we'd expect population growth rate ``G(N)`` to track population size ``N``.
+
+```{r}
 # Calculate G(N) as RN
 GN <- R*N_t
 
-# Plot N_t vs R
+# Plot N vs G(N)
 plot(N_t, GN, 
      pch = 19, 
      xlab = "N", 
      ylab = "G(N)",
      main = "Production function")
 
-# Geometric: G(N) = RN, a straight line through the origin with a slope calcualted from the mean of R
+# Geometric: G(N) = RN, a straight line through the origin with a slope calculated from the mean of R
 abline(a = 0, b = mean(R), col = "blue")
+
+# Also plot the R2 base line at mean(GN)
+abline(h = mean(GN), col = "green")
 
 ```
 
@@ -212,52 +235,123 @@ rss <- sum((GN - pred_geo)^2)
 # Calculate total sum of squares
 tss <- sum((GN - mean(GN))^2)
 
-# Calcualte the R2
+# Calculate the R2
 1 - rss/tss
 
 ```
 
-So, a negative number. This is worse than useless. It essentially means that our trendline is even worse than guessing the average, which would be a flat line at ``mean(R) * N_t``
+So, a negative number. This is worse than useless. It essentially means that our trend line is even worse than guessing the average, which would be a flat line at ``mean(GN)``. You can see that the geometric model doesn't do a terrible job for the lower values of ``N``, but after this, things go awry. This suggests that we might be approaching the carrying capacity of the experimental environment. If we want to take the concept of density dependent carrying capacity into account, we're going to need a new model. Fortunately for us, we have the logistic model that does just this.
 
+## Logistic model ##
 
+In the logistic model, the population growth rate ``G(N)`` will begin to decline with increasing population size ``N`` once the population size has reached half the carrying capacity ``K`` of the environment. This is because in the logistic model: $$R = a + bN $$
 
+per capita growth rate is at its theoretical maximum at ``N=0`` and declines with a slope ``b``. This growth rate upper limit is denoted as R<sub>0</sub>
+$$b = -\frac{R_0}{K}$$
+Substituting this into the equation ``G(N) = RN`` where the y intercept ``a`` is the same as the value of R at a population size of 0, we get the logistic growth equation: $$G(N) = R_0 \left(1 - \frac{N}{K}\right)N$$
 
-
-
-
-
-
-
-
-Again, we could manually calculate everything we need for a geometic model of our data, or we could go with using a built in function. Let's just go with the function ``nls()`` (Nonlinear Least Squares).
+So the logistic growth equation is the same as the geometric growth equation ``G(N) = RN`` with the addition of this one factor ``(1-N/K)`` that takes into account the population size at any given moment relative to the carrying capacity of the environment. Let's fit the logistic growth curve to the G(N) vs N plot to compare it to the geometric growth curve.
 
 ```{r}
-# Use the nls() function to calculate the geometric model
-# N0 = N in first row, R = the estimated growth rate (37% from linear model)
-geometric_fit <- nls(Paramecium ~ N0 * (1 + R)^Time..days.,
-                     data = paramecium,
-                     start = list(N0 = 2, R = 0.4))
+# Fit the linear relationship between R and N
+R_fit <- lm(R ~ N_t)
 
-summary(geometric_fit)
+# Plot N vs R
+plot(N_t, R, 
+     pch = 19, 
+     xlab = "N", 
+     ylab = "R",
+     main = "Per capita growth rate vs population size")
+
+# Fit geometric growth model - constant R
+abline(h = mean(R), 
+       col = "blue")
+
+# Fit the logistic model - R declines as population density increases
+abline(R_fit, 
+       col = "darkgreen")
 
 ```
 
-``nls()`` doesn't calculate an R2 value so we'll have to do it manually.
+This is clearly a much better fit. Let's see how it compares to the geometric model on the G(N) vs N plot.
 
 ```{r}
-# Calculate residual sum of squares
-rss_geometric <- sum(residuals(geometric_fit)^2)
+# R at N=0
+R0 <- coef(R_fit)[1]
 
-# Calculate total sum of squares
-tss_geometric <- sum((paramecium$Paramecium - mean(paramecium$Paramecium))^2)
+# Carrying capacity K at x intercept which is -R0/slope
+# Wrap it in as.numeric() to ensure you just get a numeric result
+K  <- as.numeric(-coef(R_fit)[1] / coef(R_fit)[2])
 
-# Calculate R2
-r2_geometric <- 1 - rss_geometric/tss_geometric
-r2_geometric
+# Plot N vs G(N)
+plot(N_t, GN, 
+     pch = 19, 
+     xlab = "N", 
+     ylab = "G(N)",
+     main = "Production function")
+
+# Geometric: G(N) = RN, a straight line through the origin with a slope calculated from the mean of R
+abline(a = 0, b = mean(R), col = "blue")
+
+# Smooth sequence of N values to draw the curve through
+N_seq <- seq(0, 700, length.out = 200)
+
+# Now plot the line using the logistic growth equation
+lines(N_seq, R0 * (1 - N_seq/K) * N_seq, col = "darkgreen")
+
+# Include a horizontal at G(N) = 0
+abline(h = 0, col = "grey40")
+
+# Include vertical lines at K and K/2
+abline(v = K, col = "grey40", lty = 2)
+abline(v = K/2, col = "grey40", lty = 2)
 
 ```
 
-Now let's overlay this trend line on our plot. Unfortunately this isn't quite as simple as with the linear regression
+Let's bring this all back to the original population size vs time plot.
+
+```{r}
+# Set up empty vectors to hold the projected population size numbers
+geometric_pred <- numeric(20)
+logistic_pred <- numeric(20)
+
+# Initiate both models at 2 to reflect the initial population size in the data
+geometric_pred[1] <- 2
+logistic_pred[1] <- 2
+
+# Model expected population growth under the geometric model. G(N) = RN so we add R multiplied by the current population size number of individuals each day
+for (i in 1:19) {
+  geometric_pred[i + 1] <- geometric_pred[i] + mean(R) * geometric_pred[i]
+}
+
+# Model expected population growth under the logistic model. G(N) = R0(1 - N/K)N so the rate at which individuals are added per day (G(N)), changes relative to the current population size and the carrying capacity of the environment
+for (i in 1:19) {
+  logistic_pred[i + 1] <- logistic_pred[i] + R0 * (1 - logistic_pred[i]/K) * logistic_pred[i]
+}
+
+```
+
+Here we've introduced a new R structure called a ``for loop``. This takes on the structure, for every instance of a variable ``i``, perform the following function. In the case above, our ``for loop`` says, for every integer between 1 and 19, update the object (either ``geometric_pred`` or ``logistic_pred``) to include the output of the stated function. Print out ``geometric_pred`` and have a look at what it now contains.
+
+```{r}
+print(geometric_pred)
+
+```
+
+Just to satisfy yourself that you understand what's going on here, try and calculate the second value in this vector using the same formula ``i + 1 = i + mean(R) * i``. In our case, ``i`` = 2:
+
+```{r}
+geometric_pred[1]
+
+```
+
+and ``mean(R)`` is 0.4793129. So the second value ``i + 1`` equals: 
+
+```{r}
+2 + mean(R) *2
+```
+
+That should equal the second number in your vector exactly. Alright, now that we have these predicted population growth rates, let plot them to see how they compare to our observed population size numbers.
 
 ```{r}
 # Produce the same scatter plot of the data
@@ -268,35 +362,40 @@ plot(paramecium$Time..days., paramecium$Paramecium,
      ylab = "Population size (N)",
      main = "Paramecium population growth")
 
-# Create 200 evenly spaced points on the x axis between 0 and 19
-time_seq <- seq(0, 19, length.out = 200)
-
-# Use predict() to predict the values of y at these points given our model
-pred <- predict(geometric_fit, newdata = data.frame(Time..days. = time_seq))
-
-# Join up these points to create a curve
-lines(time_seq, pred, col = "blue", lwd = 2)
-
-# Put the linear regression line on here too
+# First, fit the linear model
 abline(linear_fit, col = "red", lwd = 2)
 
+#Next, the geometric model predicted curve
+lines(0:19, geometric_pred, col = "blue", lwd = 2)
+
+# And finally the logistic model predicted curve
+lines(0:19, logistic_pred, col = "darkgreen", lwd = 2)
+
+# Add a legend
+legend("topleft", bty = "n", lwd = 2,
+       col = c("red", "blue", "darkgreen"),
+       legend = c("Linear", "Geometric", "Logistic"))
+
 ```
 
-Total rubbish. Let's try our third and final fit - logistic regression. Remember, 
+And finally, lets see which one fits the data best.
 
 ```{r}
-# Extract out all but the final (20th) row
-N <- paramecium$Paramecium[-20]
+# Total sum of squares for N vs time
+tss_N <- sum((paramecium$Paramecium - mean(paramecium$Paramecium))^2)
 
-# Create a numeric vector of the growth rate by dividing the difference in population size from one day to the next by the actual number on the previous day
-R   <- diff(paramecium$Paramecium) / N
-
-# Plot per capita increase (R) vs population size (N)
-plot(N, R, pch = 19, xlab = "N", ylab = "R")
-R_fit <- lm(R ~ N)
-abline(R_fit, col = "red")
+# R2 for each model
+1 - sum((paramecium$Paramecium - fitted(linear_fit))^2) / tss_N
+1 - sum((paramecium$Paramecium - geometric_pred)^2) / tss_N
+1 - sum((paramecium$Paramecium - logistic_pred)^2) / tss_N
 
 ```
+
+So there you have it, we have a clear winner. 
+
+Now the fun part. Is your code portable and reproducible? Everything you have done today should have been written in a ``.R`` script which you've been diligently saving to your own machine. Now is the time to send this piece of code to the person sitting next to you to see if they can run it themselves.
+
+When you receive the script from your partner, there will be one modification you will have to make. At the very start of the day we set our working directory using ``setwd()`` before reading in the initial dataset using the ``read.csv()`` command. Chances are that you and your partner set different working directories to one another, so before executing your partner's script, you will have to modify this one line of code to ensure that it will read in the correct data set from wherever it is located on your computer. Do that then run the script by hitting the ``Source`` button in the top right of the script panel, or by highlighting the whole script and hitting ``Run``.
 
 ---
 
