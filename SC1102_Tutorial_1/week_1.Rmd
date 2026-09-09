@@ -337,10 +337,10 @@ prop_tab <- prop.table(legal_table, 1)
 # The , 1 ensures that each row equals 1 rather than the sum of all values across the table
 
 # Create a bar chart of just the undersized catches
-barplot((prop_tab)[, "FALSE"])
+barplot((prop_tab)[, "False"])
 
 # We can modify this plot to include titles and you can increase the y axis limit to 0.5
-barplot((prop_tab)[, "FALSE"],
+barplot((prop_tab)[, "False"],
         ylab = "Proportion of undersized catches",
         xlab = "Vessel ID",
         ylim = c(0, 0.5))

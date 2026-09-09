@@ -1,5 +1,5 @@
 ---
-title: 'SC1102: R Bootcamp Week 2'
+title: 'SC1109: R Bootcamp Week 2'
 output:
   html_document:
     toc: true
@@ -15,9 +15,10 @@ date: "2026 Trimester 3"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
 ```
 
-[&larr; Back to the SC1102 course page](../)
+[&larr; Back to the SC1109 course page](../)
 
 ## Welcome back to R ##
 Oh, I see you're still here! Great!
@@ -34,13 +35,7 @@ Great question! Reproducibility is the ability to reproduce a set of results giv
 
 then it might be time to step away from the science and head back to tiktok.
 
-It's not just in science where reproducibility matters either.
-
-<div align="center">
-  ![](images/nailedit.png)
-</div>
-
-The need to publish your methods and workflows in a reproducible way is absolutely critical, but the problem is, it's often incredibly boring and tedious. Luckily for you, we're working in R where producing reproducible code is baked into the fabric of the whole language. Last week we learnt some basic commands in order take in some data, manipulate it and process it but the issue is that what we did can't be easily recreated because it was all written and executed in the console. If I were to ask you right now to reproduce the final plot we created last week, you'd have to write out all the lines of R code again in order to do so. What we need is a way to save our code so that we can execute it on demand, whenever we like with the confidence that we'll end up with exactly the same set of results each time. What we want is ``automatable, deterministic code``.
+The need to publish your methods and workflows in a reproducible way is absolutely critical, but the problem is, it's often incredibly boring and tedious. Luckily for you, we're working in R where producing reproducible code is baked into the fabric of the whole language. Last week we learnt some basic commands in order take in some data, manipulate it and process it but the issue is that what we did can't be easily recreated because it was all written and executed in the console. If I were to ask you right now to reproduce the final plot we created last week, you'd have to write out all the lines of R code again in order to do so. What we need is a way to save our code so that we can execute it on demand, whenever we like with the confidence that we'll end up with exactly the same set of results each time. What we want is automatable, deterministic code.
 
 So today, rather than typing code into the console, we are going to build an R script. To launch a new one, click ``File``/``New File``/``R script`` and you'll see it open up in the top left panel of RStudio.
 
@@ -81,7 +76,7 @@ So to break this down, what the code says is, if your version of R is 4.5.1, tha
 
 Another great question, past me! We are in fact, going to do something and that something is produce a script that takes in a data set that you've seen before, perform a bunch of functions on it and then create a few plots. The fun part though is that at the end of this process, we're going to share the script we've written with one of our classmates to see whether or not they can run the code as it was intended, and produce the results exactly as we had done ourselves. If we can achieve this, then we can be sure that we've created reproducible code that will produce a consistent result regardless of who runs it.
 
-First up, the data. We're going to work with the paramecium population growth data you saw in the first section of this course and you can download a copy of this from the [tutorial website](https://acalcino.github.io/SC1102_2026/). As we mentioned last week, directory structure is critically important so download this file to a logical place on your machine so we can find it easily to import it.
+First up, the data. We're going to work with the paramecium population growth data you saw in the first section of this course and you can download a copy of this from the [tutorial website](https://acalcino.github.io/SC1109_2026/). As we mentioned last week, directory structure is critically important so download this file to a logical place on your machine so we can find it easily to import it.
 
 Now I want to introduce the concept of a ``working directory``. This is a directory that you specify, usually at the top of your script that acts like your home base. Any file in this directory will be accessible directly from R and any file outside of it can be reached using a relative or a full path. Let's set our working directory, import the data set we just downloaded and then produce a quick scatter plot to look at it. 
 
@@ -91,7 +86,7 @@ First up, create the directory that will become your working directory and remem
 
 ```{r eval = FALSE}
 # Create the directory you will use for your working directory
-dir.create("~/Documents/teaching/2026/TR3/SC1102/tutorial_2")
+dir.create("~/Documents/teaching/2026/TR3/SC1109/tutorial_2")
 
 ```
 
@@ -99,27 +94,31 @@ Once this is done make sure to put the ``Paramecium_aurelia.csv`` file into it, 
 
 ```{r}
 # Set working directory
-setwd("~/Documents/teaching/2026/TR3/SC1102/tutorial_2")
+setwd("~/Documents/teaching/2026/TR3/SC1109/tutorial_2")
 
 # Import the dataset which is located in this directory
 paramecium <- read.csv("Paramecium_aurelia.csv")
 
 ```
 
-Now we want to produce a simple plot to visualise the data but the issue is, we don't just want to see it in the plot window in RStudio, we also want to save a copy as an image file so that we can look at it later. To do this, we'll first plot our data and then we'll run the command ``dev.copy()`` to copy the contents of the plot window to an image file.
+Now we want to produce a simple plot to visualise the data but the issue is, we don't just want to see it in the plot window in RStudio, we also want to save a copy as an image file so that we can look at it later. To do this, we'll first plot our data using ``ggplot()`` and then we'll run the command ``ggsave()`` to save the plot to an image file.
 
 ``` {r}
-# Produce a simple scatter plot of the data
-plot(paramecium$Time..days., paramecium$Paramecium,
-     # pch tells it what shape point to plot
-     pch = 19,
-     xlab = "Time (days)",
-     ylab = "Population size (N)",
-     main = "Paramecium population growth")
+# Load the ggplot2 library
+library(ggplot2)
+
+# Produce a simple scatter plot of the data using ggplot
+p1 <- ggplot(paramecium, aes(x = Time..days., y = Paramecium)) +
+  geom_point(size = 2) +
+  labs(x = "Time (days)",
+       y = "Population size (N)",
+       title = "Paramecium population growth")
+
+# Display the plot
+p1
 
 # Save the plot as an image file to our working directory.
-dev.copy(png, "paramecium_growth_n_vs_time.png", width = 1600, height = 1200, res = 300)
-dev.off()
+ggsave("paramecium_growth_n_vs_time.png", plot = p1, width = 1600/300, height = 1200/300, dpi = 300)
 
 ```
 
@@ -172,20 +171,22 @@ While this looks like lots of fun and it actually shows the maths behind the cal
 Let's plot the trend line on an Population size (N) vs Time (days) plot calculated using the ``lm()`` function.
 
 ```{r}
-# Produce the same scatter plot of the data
-plot(paramecium$Time..days., paramecium$Paramecium,
-     # pch tells it what shape point to plot
-     pch = 19,
-     xlab = "Time (days)",
-     ylab = "Population size (N)",
-     main = "Paramecium population growth")
+# Produce the same scatter plot of the data using ggplot
+p2 <- ggplot(paramecium, aes(x = Time..days., y = Paramecium)) +
+  geom_point(size = 2) +
+  # Overlay the trendline using the coefficients from linear_fit
+  geom_abline(intercept = coef(linear_fit)[1],
+              slope = coef(linear_fit)[2],
+              color = "red", linewidth = 1) +
+  labs(x = "Time (days)",
+       y = "Population size (N)",
+       title = "Paramecium population growth")
 
-# Overlay the trendline
-abline(linear_fit, col = "red", lwd = 2)
+# Display the plot
+p2
 
 # Save the plot as an image
-dev.copy(png, "paramecium_growth_linear.png", width = 1600, height = 1200, res = 300)
-dev.off()
+ggsave("paramecium_growth_linear.png", plot = p2, width = 1600/300, height = 1200/300, dpi = 300)
 
 # Check out the R2 (Multiple R2) value
 summary(linear_fit)
@@ -214,20 +215,21 @@ lambda <- paramecium$Paramecium[-1] / N_t
 # Calculate R
 R <- lambda - 1
 
-# Plot N vs R
-plot(N_t, R, 
-     pch = 19, 
-     xlab = "N", 
-     ylab = "R",
-     main = "Per capita growth rate vs population size")
+# Put N_t and R into a data frame for ggplot
+geo_df <- data.frame(N_t = N_t, R = R)
 
-# Fit geometric growth model - constant R
-abline(h = mean(R), 
-       col = "blue")
+# Plot N vs R
+p3 <- ggplot(geo_df, aes(x = N_t, y = R)) +
+  geom_point(size = 2) +
+  # Fit geometric growth model - constant R
+  geom_hline(yintercept = mean(R), color = "blue") +
+  labs(x = "N", y = "R", title = "Per capita growth rate vs population size")
+
+# Display the plot
+p3
 
 # And again, save this plot as an image
-dev.copy(png, "paramecium_growth_geometric_n_vs_r.png", width = 1600, height = 1200, res = 300)
-dev.off()
+ggsave("paramecium_growth_geometric_n_vs_r.png", plot = p3, width = 1600/300, height = 1200/300, dpi = 300)
 
 ```
 
@@ -237,22 +239,23 @@ Nothing too exciting here. Alternatively, we can plot population growth rate ``G
 # Calculate G(N) as RN
 GN <- R*N_t
 
+# Put N_t and GN into a data frame for ggplot
+prod_df <- data.frame(N_t = N_t, GN = GN)
+
 # Plot N vs G(N)
-plot(N_t, GN, 
-     pch = 19, 
-     xlab = "N", 
-     ylab = "G(N)",
-     main = "Production function")
+p4 <- ggplot(prod_df, aes(x = N_t, y = GN)) +
+  geom_point(size = 2) +
+  # Geometric: G(N) = RN, a straight line through the origin with a slope calculated from the mean of R
+  geom_abline(intercept = 0, slope = mean(R), color = "blue") +
+  # Also plot the R2 base line at mean(GN)
+  geom_hline(yintercept = mean(GN), color = "green") +
+  labs(x = "N", y = "G(N)", title = "Production function")
 
-# Geometric: G(N) = RN, a straight line through the origin with a slope calculated from the mean of R
-abline(a = 0, b = mean(R), col = "blue")
-
-# Also plot the R2 base line at mean(GN)
-abline(h = mean(GN), col = "green")
+# Display the plot
+p4
 
 # And save
-dev.copy(png, "paramecium_growth_production_function.png", width = 1600, height = 1200, res = 300)
-dev.off()
+ggsave("paramecium_growth_production_function.png", plot = p4, width = 1600/300, height = 1200/300, dpi = 300)
 
 ```
 
@@ -291,23 +294,19 @@ So the logistic growth equation is the same as the geometric growth equation ``G
 R_fit <- lm(R ~ N_t)
 
 # Plot N vs R
-plot(N_t, R, 
-     pch = 19, 
-     xlab = "N", 
-     ylab = "R",
-     main = "Per capita growth rate vs population size")
+p5 <- ggplot(geo_df, aes(x = N_t, y = R)) +
+  geom_point(size = 2) +
+  # Fit geometric growth model - constant R
+  geom_hline(yintercept = mean(R), color = "blue") +
+  # Fit the logistic model - R declines as population density increases
+  geom_abline(intercept = coef(R_fit)[1], slope = coef(R_fit)[2], color = "darkgreen") +
+  labs(x = "N", y = "R", title = "Per capita growth rate vs population size")
 
-# Fit geometric growth model - constant R
-abline(h = mean(R), 
-       col = "blue")
-
-# Fit the logistic model - R declines as population density increases
-abline(R_fit, 
-       col = "darkgreen")
+# Display the plot
+p5
 
 # Save
-dev.copy(png, "paramecium_growth_logistic_n_vs_r.png", width = 1600, height = 1200, res = 300)
-dev.off()
+ggsave("paramecium_growth_logistic_n_vs_r.png", plot = p5, width = 1600/300, height = 1200/300, dpi = 300)
 
 ```
 
@@ -321,32 +320,34 @@ R0 <- coef(R_fit)[1]
 # Wrap it in as.numeric() to ensure you just get a numeric result
 K  <- as.numeric(-coef(R_fit)[1] / coef(R_fit)[2])
 
-# Plot N vs G(N)
-plot(N_t, GN, 
-     pch = 19, 
-     xlab = "N", 
-     ylab = "G(N)",
-     main = "Production function")
-
-# Geometric: G(N) = RN, a straight line through the origin with a slope calculated from the mean of R
-abline(a = 0, b = mean(R), col = "blue")
-
 # Smooth sequence of N values to draw the curve through
 N_seq <- seq(0, 700, length.out = 200)
 
-# Now plot the line using the logistic growth equation
-lines(N_seq, R0 * (1 - N_seq/K) * N_seq, col = "darkgreen")
+# Put the logistic curve into a data frame for ggplot
+logistic_curve <- data.frame(
+  N_seq = N_seq,
+  G_logistic = R0 * (1 - N_seq/K) * N_seq
+)
 
-# Include a horizontal at G(N) = 0
-abline(h = 0, col = "grey40")
+# Plot N vs G(N)
+p6 <- ggplot(prod_df, aes(x = N_t, y = GN)) +
+  geom_point(size = 2) +
+  # Geometric: G(N) = RN, a straight line through the origin with a slope calculated from the mean of R
+  geom_abline(intercept = 0, slope = mean(R), color = "blue") +
+  # Now plot the line using the logistic growth equation
+  geom_line(data = logistic_curve, aes(x = N_seq, y = G_logistic), color = "darkgreen") +
+  # Include a horizontal at G(N) = 0
+  geom_hline(yintercept = 0, color = "grey40") +
+  # Include vertical lines at K and K/2
+  geom_vline(xintercept = K, color = "grey40", linetype = "dashed") +
+  geom_vline(xintercept = K/2, color = "grey40", linetype = "dashed") +
+  labs(x = "N", y = "G(N)", title = "Production function")
 
-# Include vertical lines at K and K/2
-abline(v = K, col = "grey40", lty = 2)
-abline(v = K/2, col = "grey40", lty = 2)
+# Display the plot
+p6
 
 # Save
-dev.copy(png, "paramecium_growth_all_models_gn_vs_n.png", width = 1600, height = 1200, res = 300)
-dev.off()
+ggsave("paramecium_growth_all_models_gn_vs_n.png", plot = p6, width = 1600/300, height = 1200/300, dpi = 300)
 
 ```
 
@@ -403,31 +404,37 @@ geometric_pred[2] == 2 + mean(R) * 2
 Alright, now that we have these predicted population growth rates, lets plot them to see how they compare to our observed population size numbers.
 
 ```{r}
+# Put the geometric and logistic predictions into a data frame for ggplot
+pred_df <- data.frame(
+  Time = 0:19,
+  Geometric = geometric_pred,
+  Logistic = logistic_pred
+)
+
 # Produce the same scatter plot of the data
-plot(paramecium$Time..days., paramecium$Paramecium,
-     # pch tells it what shape point to plot
-     pch = 19,
-     xlab = "Time (days)",
-     ylab = "Population size (N)",
-     main = "Paramecium population growth")
+p7 <- ggplot(paramecium, aes(x = Time..days., y = Paramecium)) +
+  geom_point(size = 2) +
+  # First, fit the linear model
+  geom_abline(aes(intercept = coef(linear_fit)[1], slope = coef(linear_fit)[2], color = "Linear"),
+              linewidth = 1) +
+  # Next, the geometric model predicted curve
+  geom_line(data = pred_df, aes(x = Time, y = Geometric, color = "Geometric"), linewidth = 1) +
+  # And finally the logistic model predicted curve
+  geom_line(data = pred_df, aes(x = Time, y = Logistic, color = "Logistic"), linewidth = 1) +
+  # Add a legend
+  scale_color_manual(name = NULL, values = c("Linear" = "red", "Geometric" = "blue", "Logistic" = "darkgreen")) +
+  # Add labels
+  labs(x = "Time (days)", y = "Population size (N)", title = "Paramecium population growth") +
+  # Limit y axis to 1000 as the geometric line gets out of control by day 19
+  coord_cartesian(ylim = c(0, 1000)) +
+  # Set the position of the legend
+  theme(legend.position = c(0.15, 0.85), legend.background = element_blank())
 
-# First, fit the linear model
-abline(linear_fit, col = "red", lwd = 2)
-
-#Next, the geometric model predicted curve
-lines(0:19, geometric_pred, col = "blue", lwd = 2)
-
-# And finally the logistic model predicted curve
-lines(0:19, logistic_pred, col = "darkgreen", lwd = 2)
-
-# Add a legend
-legend("topleft", bty = "n", lwd = 2,
-       col = c("red", "blue", "darkgreen"),
-       legend = c("Linear", "Geometric", "Logistic"))
+# Display the plot
+p7
 
 # Save
-dev.copy(png, "paramecium_growth_all_models_n_vs_time.png", width = 1600, height = 1200, res = 300)
-dev.off()
+ggsave("paramecium_growth_all_models_n_vs_time.png", plot = p7, width = 1600/300, height = 1200/300, dpi = 300)
 
 ```
 
@@ -466,4 +473,4 @@ When you receive the script from your partner, there will be one modification yo
 
 ---
 
-*SC1102 R Bootcamp, James Cook University. [Course home](../)*
+*SC1109 R Bootcamp, James Cook University. [Course home](../)*
