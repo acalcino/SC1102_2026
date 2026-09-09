@@ -20,13 +20,11 @@ knitr::opts_chunk$set(echo = TRUE)
 [&larr; Back to the SC1102 course page](../)
 
 ## Welcome back to R ##
-Oh, I see you're still here! Great!
-
-Clearly last week was so intellectually stimulating, you've come back for more. Well good news, this week we are tackling ``reproducibility!``. 
+This week we are tackling ``reproducibility!``. 
 
 What is reproducibility I hear you ask? 
 
-Great question! Reproducibility is the ability to reproduce a set of results given an input dataset and an accurate set of methods. In science, there aren't many concepts more important than reproducibility. If you conduct a bunch of analyses or experiments to obtain a set of results, but the next person to attempt what you did can't do so because either the initial input data is missing or corrupted, or the methodology by which you obtained your results is incomplete or inaccurate, you may as well have not done the analysis in the first place. If your scientific argument is based on an intellectual framework that looks something like this:
+Great question! Reproducibility is the ability to reproduce a set of results given an input data set and an well defined set of methods. In science, there aren't many concepts more important than reproducibility. If you conduct a bunch of analyses or experiments to obtain a set of results, but the next person to attempt what you did can't do so because either the initial input data is missing or corrupted, or the methodology by which you obtained your results is incomplete or inaccurate, you may as well have not done the analysis in the first place. If your scientific rationale is based on an intellectual framework that looks something like this:
 
 <div align="center">
   ![](images/trustmebro.png)
@@ -34,13 +32,7 @@ Great question! Reproducibility is the ability to reproduce a set of results giv
 
 then it might be time to step away from the science and head back to tiktok.
 
-It's not just in science where reproducibility matters either.
-
-<div align="center">
-  ![](images/nailedit.png)
-</div>
-
-The need to publish your methods and workflows in a reproducible way is absolutely critical, but the problem is, it's often incredibly boring and tedious. Luckily for you, we're working in R where producing reproducible code is baked into the fabric of the whole language. Last week we learnt some basic commands in order take in some data, manipulate it and process it but the issue is that what we did can't be easily recreated because it was all written and executed in the console. If I were to ask you right now to reproduce the final plot we created last week, you'd have to write out all the lines of R code again in order to do so. What we need is a way to save our code so that we can execute it on demand, whenever we like with the confidence that we'll end up with exactly the same set of results each time. What we want is ``automatable, deterministic code``.
+The need to publish your methods and workflows in a reproducible way is absolutely critical, but the problem is, it's often incredibly boring and tedious. Luckily for you, we're working in R where producing reproducible code is baked into the fabric of the whole language. Last week we learnt some basic commands in order take in some data, manipulate it and process it but the issue is that what we did can't be easily recreated because it was all written and executed in the console. If I were to ask you right now to reproduce the final plot we created last week, you'd have to write out all the lines of R code again in order to do so. What we need is a way to save our code so that we can execute it on demand, whenever we like with the confidence that we'll end up with exactly the same set of results each time. What we want is automatable, deterministic code.
 
 So today, rather than typing code into the console, we are going to build an R script. To launch a new one, click ``File``/``New File``/``R script`` and you'll see it open up in the top left panel of RStudio.
 
