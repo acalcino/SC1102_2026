@@ -19,18 +19,18 @@ You will need **R** and **RStudio** installed on your own machine before Week 1.
 
 Week 1: [Meet R — your first commands](SC1102_Tutorial_1/week_1.html)
 
-Week 2: [Writing scripts and reproducibility](SC1102_Tutorial_2/week_2.html)
+<!-- Week 2: [Writing scripts and reproducibility](SC1102_Tutorial_2/week_2.html)
 
-Week 3: [Building your own RMarkdown document](SC1102_Tutorial_3/week_3.html)
+Week 3: [Building your own RMarkdown document](SC1102_Tutorial_3/week_3.html) --->
 
 
 ## Course Outline - SC1109
 
 Week 1: [Meet R — your first commands](SC1109_Tutorial_1/week_1.html)
 
-Week 2: [Writing scripts and reproducibility](SC1109_Tutorial_2/week_2.html)
+<!-- Week 2: [Writing scripts and reproducibility](SC1109_Tutorial_2/week_2.html)
 
-Week 3: [Building your own RMarkdown document](SC1109_Tutorial_3/week_3.html)
+Week 3: [Building your own RMarkdown document](SC1109_Tutorial_3/week_3.html) --->
 
 ## Data sets
 
@@ -39,10 +39,11 @@ Week 1
 - [fisheries.csv](SC1102_Tutorial_1/fisheries.csv) — 2000 catch records from the Excel module
 - [fisheries.xlsx](SC1102_Tutorial_1/fisheries.xlsx) — the same data as an Excel workbook
 
-Week 2
+<!-- Week 2
 
 - [Paramecium_aurelia.csv](SC1102_Tutorial_2/Paramecium_aurelia.csv) - Paramecium population growth data
-
+ --->
+ 
 ## Where this is going
 
 By the end of Week 3 you will have written a short, complete report in RMarkdown: text, code, tables and figures in a single document that anyone can re-run and get exactly your result. That document is the format the El Niño modelling module expects.
