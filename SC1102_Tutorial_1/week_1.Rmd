@@ -331,7 +331,7 @@ merged_df <- merge(fisheries_reduced, legal, by = "catch_id")
 
 Of course it would make more sense in this case to have just included the columns we wanted in the original subset but this was just meant as an exercise.
 
-Try and do the same thing in Excel. Open either the ``.csv`` file or the ``.xlsx`` file and try to manipulate it to produce the same outcome as ``merged_df``. How would you go about doing this? Would you just delete the columns you aren't interested in? This would work but what if you later decided that you needed those data? Maybe you'd create a new spreadsheet or a new tab and copy and paste the data from the original one into this. This would also work but it introduces the possibility of human error where you accidentally click or copy the wrong column. The other issue is that there is now no record in your new tab of where these data came from. Excel doesn't record your copy and paste procedure anywhere so a new person looking at your table for the first time will have no easy way to validate that the data in the new tab is a reliable manipulation of the original raw data as they cannot see how it was produced.
+**OPTIONAL:** Try and do the same thing in Excel. Open either the ``.csv`` file or the ``.xlsx`` file and try to manipulate it to produce the same outcome as ``merged_df``. How would you go about doing this? Would you just delete the columns you aren't interested in? This would work but what if you later decided that you needed those data? Maybe you'd create a new spreadsheet or a new tab and copy and paste the data from the original one into this. This would also work but it introduces the possibility of human error where you accidentally click or copy the wrong column. The other issue is that there is now no record in your new tab of where these data came from. Excel doesn't record your copy and paste procedure anywhere so a new person looking at your table for the first time will have no easy way to validate that the data in the new tab is a reliable manipulation of the original raw data as they cannot see how it was produced.
 
 ![](images/excel.png)
 
@@ -377,6 +377,7 @@ barplot(prop_tab[, "FALSE"],
 ?barplot
 
 ```
+
 For a bit of fun (lol), have a go at trying to produce an equivalent plot in Excel without throwing your computer across the room and storming out in anger. First you need to create a new tab with the correct columns, then in a new cell copy the ``Vessel ID`` again and then use the ``Data/Remove Duplicates`` tool to create a unique list, then use find and replace to change all the ``True`` and ``False`` entries into ``TRUE`` and ``FALSE``, then use ``=COUNTIFS($A:$A,D2,$B:$B,FALSE)/COUNTIF($A:$A,D2)`` to calculate the proportion of illegal catches per vessel, then plot the whole thing using the barchart tool. Basically, it's a whole lot of clicking and not a whole lot of fun.
 
   ![](images/excel_smh.png)
