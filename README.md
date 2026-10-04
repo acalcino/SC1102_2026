@@ -5,26 +5,20 @@ Developed by Andrew Calcino, James Cook University.
 Live site: **<https://acalcino.github.io/SC1102_2026/>**
 
 A three-week R bootcamp for first-year students with no programming background. It sits between an
-Excel-based environmental/fisheries modelling module and a final module in which students use R to
-model El Niño events from public datasets. The aim is that the final module can focus on the science
+Excel-based population growth/fisheries modelling section and a final section in which students use R to
+model El Niño events from public datasets. The aim is that the final section can focus on the science
 rather than on teaching R from scratch.
 
 Each week runs as a one hour lecture, a two hour practical (the tutorials in this repository), and a
 one hour synthesis session.
 
-The same three tutorials are published for two subject codes, **SC1102** and **SC1109**. The content is
-identical; the `SC1109_*` folders differ only in the subject code used in titles, links and folder
-examples. Edit a week in `SC1102_Tutorial_N/`, then mirror the change into `SC1109_Tutorial_N/` and
-re-knit both.
+The same three tutorials are published for two subject codes, **SC1102** and **SC1109**.
 
 | Week | Topic | Tutorial | Status |
 |---|---|---|---|
 | 1 | Meet R — your first commands | [`SC1102_Tutorial_1/week_1.Rmd`](SC1102_Tutorial_1/week_1.Rmd) · [`SC1109_Tutorial_1/week_1.Rmd`](SC1109_Tutorial_1/week_1.Rmd) | written |
 | 2 | Writing scripts and reproducibility | [`SC1102_Tutorial_2/week_2.Rmd`](SC1102_Tutorial_2/week_2.Rmd) · [`SC1109_Tutorial_2/week_2.Rmd`](SC1109_Tutorial_2/week_2.Rmd) | outline |
 | 3 | Building your own RMarkdown document | [`SC1102_Tutorial_3/week_3.Rmd`](SC1102_Tutorial_3/week_3.Rmd) · [`SC1109_Tutorial_3/week_3.Rmd`](SC1109_Tutorial_3/week_3.Rmd) | outline |
-
-See [COVERAGE.md](COVERAGE.md) for the required-topic map, the open decisions, and a record of what
-changed when Week 1 was ported into this repository.
 
 ## Repository layout
 
@@ -33,7 +27,6 @@ SC1102_2026/
 ├── _config.yml            Jekyll config (slate remote theme)
 ├── index.md               the landing page
 ├── README.md              this file
-├── COVERAGE.md            topic coverage map and open decisions
 ├── SC1102_2026.Rproj      open this in RStudio
 ├── SC1102_Tutorial_1/
 │   ├── week_1.Rmd         source — edit this
@@ -77,8 +70,7 @@ styling rather than the slate theme.
 
 `fisheries.csv` — 2000 catch records with columns `catch_id`, `date`, `site`, `species`, `sex`,
 `length_cm`, `weight_kg`, `gear`, `vessel`, `depth_m`, `water_temp_c`, `legal_size`, `value_aud`.
-Eight vessels across several reef sites. The same data students worked with in the Excel module, so
-they arrive already knowing what the columns mean.
+Eight vessels across several reef sites.
 
 Note that `legal_size` arrives as the strings `"True"`/`"False"` and `date` as text — both are
 deliberate, and fixing them is part of the Week 1 tutorial.

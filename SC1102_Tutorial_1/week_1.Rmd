@@ -17,19 +17,53 @@ knitr::opts_chunk$set(echo = TRUE)
 [&larr; Back to the SC1102 course page](../)
 
 ## Welcome to R ##
-<!-- In lecture 1 we introduced you to R. R is a statistical programming language designed at its core to be flexible, scalable and extensible as well as completely free and open source. During this lecture we compared and contrasted R with MS Excel, pointing out advantages and disadvantages of the two options for reproducible and reliable data analysis. We also learnt about the different design philosophies between the two approaches and how the two can achieve very similar outputs by utilising completely different data structures. During this lecture we briefly introduced some basic commands for creating and manipulating data in R and today we are going to put that theory into practice. -->
+In lecture 1 we introduced you to R. Designed originally as a statistical programming language, R has grown to cover many use cases as it has been adopted across the sciences due to its flexible, scalable and extensible implementation. During this lecture we compared and contrasted R with MS Excel, pointing out advantages and disadvantages of the two options. We also learnt about the different design philosophies between the two approaches and how the two can achieve very similar outputs by utilising completely different data structures. During this lecture we briefly introduced a few basic commands for creating and manipulating data in R and today we are going to put that theory into practice.
 
-In module 1 of SC1102, you were introduced to data analysis in Excel where you modelled fisheries data. During this and the next two tutorials we will use these same datasets for analysis in R. To begin with today though, we'll start off with some basic commands in R using one of the datasets built into base R (base R meaning R on its own without any extra libraries loaded).
+In modules 1-3 of SC1102, you were introduced to data analysis in Excel where you modeled population growth and fisheries data. In next week's tutorial we will use one of these same datasets for analysis in R but to begin with today, we'll start off learning some basic R commands using one of the datasets built into base R (base R meaning R on its own without any extra libraries loaded).
 
 ## PRE-WORK - to be completed before arriving to the tutorial ##
-In order for us to do anything in the tutorial, you will need to have both R and RStudio installed on your machine.
+In order for us to do anything in the tutorial, you will need to have both R and RStudio installed on your machine. Detailed instructions for this are on the course website.
+
+## Setting up your project ##
+Before we write any code, we're going to create a home for everything we do in today's tutorial. Make sure to choose a logical location. As I'm on a Mac, I'll use ``~/Documents/teaching/2026/TR3/SC1102/SC1102_tut1/``. On Windows, something like ``C:/Users/YourUsername/Documents/teaching/2026/TR3/SC1102/SC1102_tut1/`` works well. This might look like a very long directory structure, but if you organise your computer this way, your future self will thank you. Months or years from now, you'll know exactly what each file is and where it came from. What I do not recommend is dumping files in your Downloads folder or on your Desktop with names like ``file1.csv``.
+
+You can create these folders using Finder on Mac or File Explorer on Windows, or with R:
+
+```{r eval=FALSE}
+# !!Remember to change these paths to suit your own directory structure!!
+
+# On Mac or Linux
+dir.create("~/Documents/teaching/2026/TR3/SC1102/SC1102_tut1", recursive = TRUE)
+
+# On Windows (in R, ~ already points to your Documents folder)
+dir.create("~/teaching/2026/TR3/SC1102/SC1102_tut1", recursive = TRUE)
+```
+
+Now we'll turn the ``SC1102_tut1`` folder into an **RStudio project**. A project is a folder that R treats as home. Whenever you open it, R's `working directory` (the folder R looks in when you give it a file name) is automatically set to that folder. There will be a bit more on the working directory later on.
+
+1. In RStudio, go to **File > New Project > Existing Directory**.
+2. Click **Browse**, navigate to your ``SC1102_tut1`` folder and click **Create Project**.
+3. RStudio will restart, and a file called ``SC1102_tut1.Rproj`` will appear in the `Files` pane (bottom right).
+
+From now on, whenever you work on this tutorial, open it by double-clicking ``SC1102_tut1.Rproj`` (or using **File > Open Project**).
+
+If you are using Posit Cloud, you are already working inside a project, so you can skip this section.
+
+Let's check where R is looking:
+
+```{r eval=FALSE}
+getwd()
+
+```
+
+This should print the path to your ``SC1102_tut1`` folder.
 
 ## Working with an in-built dataset ##
-### Importing a dataset ###
-We are going to use a dataset built into base R called `mtcars`. These data were extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models). But don't take my word for it, open RStudio and have a look yourself.
+### Loading the dataset ###
+We are going to use a dataset built into base R called `mtcars`. These data were extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models). But don't take my word for it, have a look yourself.
 
 ```{r, results='hide'}
-# First, import the dataset using the data() function and then use the help function '?'
+# First, load the dataset using the data() function and then use the help function '?'
 # By the way, any text you see following a '#' symbol is termed a comment.
 # Comments allow you to annotate code but nothing within them is executed.
 data("mtcars")
@@ -40,7 +74,7 @@ data("mtcars")
 In the bottom right pane, you should see that the `Help` tab has popped up with a description of this dataset. Under `Format` you'll notice that it mentions that it is a `dataframe` type object. We can confirm that using the `class` command.
 
 ```{r, results='hide'}
-# Check out the class of the mtcars dataset
+# Check out the type of data structure the mtcars dataset is
 class(mtcars)
 
 ```
@@ -51,10 +85,11 @@ Let's have a quick look at the contents.
 # The head command simply prints the first six rows to the screen
 head(mtcars)
 
-# Or another way to do the same thing
+# Or another way to do the same thing is to define the particular rows and columns we want to display
 mtcars[1:6, ]
 
-# Or if you just wanted to see the first four rows and six columns
+# In the previous command we stated that we wanted to see rows 1 to 6 ([1:6]), and all columns (, )
+# So to just print the first four rows and six columns
 mtcars[1:4, 1:6]
 
 ```
@@ -91,50 +126,50 @@ z
 This is going to be handy here because for most Australians, miles per gallon (column 1 of mtcars) doesn't mean much. Let's have a go at converting these units into something more comprehensible.
 
 ```{r}
-# To convert mpg to kpl, multiply by 0.425. Let's store these values in a new vector
-kpl <- mtcars$mpg * 0.425      # fuel economy in km per litre
+# To convert mpg to litres per 100km, divide 235.215 by mpg. Let's store these values in a new vector
+L_per_100km <- 235.215/mtcars$mpg
 
-# Have a look at the new kpl values
-print(kpl)
+# Have a look at the new efficiency values
+print(L_per_100km)
 
-# Check the class
-class(kpl)
+# Check the data value type
+class(L_per_100km)
 
 ```
 
 This is what we call `vectorised arithmetic`, which just means arithmetic conducted over a series of numbers contained within a vector. Now that we have the converted values, we can add them to the dataframe as a new column.
 
 ```{r, results='hide'}
-# Add the kpl values to the mtcars dataframe as a new column
-mtcars$kpl <- kpl
+# Add the new efficiency values to the mtcars dataframe as a new column
+mtcars$L_per_100km <- L_per_100km
 
 # Have a quick look at the first six rows of mtcars using the head() function
 head(mtcars)
 
 # As the mpg column is now redundant, we can remove it by setting it to NULL
-mtcars$mpg = NULL
+mtcars$mpg <- NULL
 head(mtcars)
 
 ```
 
 ## Working with our own defined datasets ##
 ### Creating vectors and performing some vectorised arithmetic ###
-Let's create three vectors, one for height, one for weight and one for sex so that we can calculate BMI. This is also a good point to talk about data types.
+Let's create four vectors, one for name, one for height, one for weight and one for sex so that we can calculate BMI.
 
 ```{r, results='hide'}
 # Create name vector. As these are character strings, each name should be placed between quotation marks
 name <-c("John", "Mary", "Steven", "Bob", "Max", "Steph", "Shane", "Sharon", "Anthony", "Molly")
 
-# Create a weight vector. As these are integers, each needs the suffix L to tell R that it is not a floating point number
-weight <- c(72L, 60L, 121L, 92L, 63L, 68L, 87L, 70L, 75L, 62L)     # mass in kg
+# Create a weight vector. As these are integers and for this exercise we want the values to be classed as integers, each needs the suffix L to tell R that it is not a floating point number
+weight <- c(72L, 60L, 121L, 92L, 63L, 68L, 87L, 70L, 75L, 62L)
 
 # Create a height vector. As these have decimal places, they will be imported as floating point or "numeric"
-height <- c(1.70, 1.56, 1.82, 1.9, 1.68, 1.72, 1.81, 1.75, 1.77, 1.69)   # height in m
+height <- c(1.70, 1.56, 1.82, 1.9, 1.68, 1.72, 1.81, 1.75, 1.77, 1.69)
 
 # Create a sex vector. As this is categorical, we use as.factor() to define them
 sex <- as.factor(c("M", "F", "M", "M", "M", "F", "M", "F", "M", "F"))
 
-# Investigate the class of each vector
+# Investigate the value type of each vector
 class(name)
 class(weight)
 class(height)
@@ -154,10 +189,10 @@ print(pop_stats)
 
 ```
 
-Just say that after creating our vector, we decided that it might be useful to include weight as a floating point number, we can convert this column using the ``as.numeric()`` function.
+If after creating our vector, we decided that it might be useful to include weight as a floating point number, we can convert this column using the ``as.numeric()`` function.
 
 ```{r, results='hide'}
-# Convert the weight column in our dataframe from an integer type to a numeric type
+# Convert the weight column in our dataframe from an integer value type to a numeric value type
 pop_stats$weight <- as.numeric(pop_stats$weight)
 
 class(pop_stats$weight)
@@ -166,7 +201,7 @@ class(pop_stats$weight)
 
 Now let's calculate the mean and standard deviation of our calculated BMI using the formulas:
 $$Mean = \bar{x} = \sum x_i/n$$
-$$SD=\sqrt(\sum(x_i-\bar{x})^2/(n-1))$$
+$$SD=\sqrt{\sum(x_i-\bar{x})^2/(n-1)}$$
 Where:\
 $x_i$ = all the observations\
 $n$ = the total number of observations\
@@ -185,7 +220,7 @@ print(sd_bmi)
 
 ```
 
-Great, but do you really need to type all that out every time you want to calculate a mean and standard deviation? No! For almost every simple formula you could think of, someone is likely to have already written a function for it. You've already used a bunch of functions in order to get to this point (``head()``, ``class()``, ``str()``, etc) and if it wasn't already clear, these are built in commands that abstract away a whole bunch of code so that you can call them up using one simple instruction. Luckily for us here, functions to calculate mean and standard deviation are also baked into base R.
+Great, but do you really need to type all that out every time you want to calculate a mean and standard deviation? No! For almost every simple formula you could think of, someone is likely to have already written a function for it. You've already used a bunch of functions in order to get to this point (``head()``, ``class()``, ``str()``, etc.) and if it wasn't already clear, these are built in commands that abstract away a whole bunch of code so that you can call them up using one simple instruction. Luckily for us here, functions to calculate mean and standard deviation are also baked into base R.
 
 ```{r, results='hide'}
 # Calculate the mean bmi
@@ -200,13 +235,13 @@ sd_bmi == sd_bmi_func
 
 ```
 
-Are these values significantly different from the hypothesised mean of 22.5? We could calculate this manually using the formula:
+Is the mean BMI of our group significantly different to 22.5? A BMI of 22.5 is about in the middle of what is generally considered a healthy BMI range. We could calculate this manually using the formula:
 
 $$t=\frac{\bar{x}-\mu_0}{s/\sqrt n}$$
 But no need to bother when we have an in-built t-test function
 
 ```{r, results='hide'}
-# Run a simple student's t test
+# Run a simple Student's t test
 t.test(pop_stats$BMI, mu = 22.5)
 
 ```
@@ -219,54 +254,47 @@ Unfortunately base R doesn't include functions to import Excel spreadsheet data 
 
 ![](images/excel_csv.png)
 
-Today we are going to work with a csv called ``fisheries.csv`` which can be found [here](https://acalcino.github.io/SC1102_2026/SC1102_Tutorial_1/fisheries.csv). When you download this file to your own machine, make sure you put it in a logical location where you'll keep all the files generated as part of this component of the course. As I'm on a Mac, I'll create a director at ``~/Documents/teaching/2026/TR3/SC1102/`` and put it in there. This might look like a very long directory structure but if you organise your computer this way, your future self will thank you as months or years from now, you'll understand exactly what this file is and from where it came. If you are on a Windows machine, maybe try something like ``C:\Users\YourUsername\Documents\teaching\2026\TR3\SC1102\``. You can create these directories by just using Finder on Mac or File Explorer on Windows. What I do not recommend is just putting the file in your downloads folder or Desktop and naming it something like ``file1.csv``.
+Today we are going to work with a csv called ``fisheries.csv`` which can be found [here](https://acalcino.github.io/SC1102_2026/SC1102_Tutorial_1/fisheries.csv). When you download this file to your own machine, make sure you put it in your R project directory. You can also find an excel version of this file [here](https://acalcino.github.io/SC1102_2026/SC1102_Tutorial_1/fisheries.xlsx) which you can download to the same folder you just created.
 
-If you'd prefer to use R to create these folders, try this but remember to modify the directory structure to suit your needs.
+### The working directory ###
+In R, an important concept is that of the `working directory`. The working directory is the folder in which you are currently working. If you created an R project, your working directory will be automatically set to that location, however if you are not working in a project, you'll need to set the working directory yourself. Let's have a look at where our current working directory is.
 
 ```{r eval=FALSE}
-dir.create(
-"~/Documents/teaching/2026/TR3/SC1102/",
-recursive = TRUE
-)
+# Check where our working directory is set to
+getwd()
+
+# If necessary (it shouldn't be if you're working in a project), set it to where your files are located
+setwd("/Users/YourUsername/Documents/teaching/2026/TR3/SC1102/SC1102_tut1")
 
 ```
 
-Once your directory structure is organised, download the file to the correct location. You can also find an excel version of this file [here](https://acalcino.github.io/SC1102_2026/SC1102_Tutorial_1/fisheries.xlsx) which you can download to the same folder you just created.
+If you want to do something with a file that isn't directly in this folder, you need to define the path to it either by giving the full path or a relative path. A full path is a complete address that works no matter where your working directory is defined. On a Windows machine, a full path might look something like:
 
-#### Peeking at a file without opening it ####
+``C:/Users/YourUsername/Documents/teaching/2026/TR3/SC1102/SC1102_tut1/other_folder/important_file.txt``
 
-Before we hand the file to R, let's have a look at it. If you like, you can simply open the file by navigating to it in Finder or File Explorer and opening it with Notepad/TextEdit/Word or whatever program you prefer. Alternatively, you can view it the way the computer sees it as plain text. To do this, open RStudio and look at the window in the bottom left. There you'll find a `Terminal` tab sitting next to the `Console`, and this gives you access to a command line where you can use ``shell`` commands as opposed to ``R`` commands. The command to print the first few lines of a file depends on which operating system you are using and where you've saved your file.
+On a Mac: 
 
-**macOS or Linux** — use ``head``:
+``/Users/YourUsername/Documents/teaching/2026/TR3/SC1102/SC1102_tut1/other_folder/important_file.txt``
 
-```{bash eval=FALSE}
-head -n 5 ~/Documents/teaching/2026/TR3/SC1102/fisheries.csv
+This is very long. Given my current working directory, I can instead use a `relative` path to this same file which has the advantage of being much shorter. In this case it will look like this:
 
-```
+``other_folder/important_file.txt``
 
-**Windows** — use PowerShell's ``Get-Content``:
+So the full path defines a location all the way back to the root directory whereas a relative path defines it as relative to your working directory location.
 
-```powershell
-Get-Content C:\Users\YourUsername\Documents\teaching\TR3\SC1102\fisheries.csv -Head 5
-
-```
-
-This is pretty ugly in its raw form but once we import it into R, you'll see that it takes on the nice, clean format of a data frame type object. If you're interested in ``shell`` scripting then we encourage you to look into this yourself, but as far as this course is concerned, this is the last you'll see of it.
-
-#### The portable way — do it in R ####
-Every one of you has R, whatever machine you are sitting at, so R is the one place this is guaranteed to work and to work in the same way on every machine regardless of the operating system installed.
+Now we have our file downloaded and our working directory set, let's import the dataset into R using the in-built `read.csv()` function. If you are using Posit Cloud, use the Upload button in the ``Files`` pane.
 
 ```{r}
 # Import the dataset using the read.csv() function.
-# A bare file name works when the file is in R's current working directory.
-# If you saved it somewhere else, hand read.csv() the full path instead, e.g.
-# read.csv("~/Documents/teaching/2026/TR3/SC1102/fisheries.csv")
+# Remember, a bare file name works when the file is in R's current working directory but if 
+# you saved it somewhere else, specify the full path in read.csv(), e.g.
+# read.csv("/Users/YourUsername/Documents/teaching/2026/TR3/SC1102/SC1102_tut1/fisheries.csv")
 fisheries <- read.csv("fisheries.csv")
 
 # Have a look at the first five rows and six columns
 fisheries[1:5, 1:6]
 
-# Check out the class of each vector in the data frame
+# Check out the value type of each column in the data frame
 str(fisheries)
 
 ```
@@ -303,17 +331,17 @@ merged_df <- merge(fisheries_reduced, legal, by = "catch_id")
 
 Of course it would make more sense in this case to have just included the columns we wanted in the original subset but this was just meant as an exercise.
 
-Try and do the same thing in Excel. Open either the ``.csv`` file or the ``.xlsx`` file and try to manipulate it to produce the same outcome as ``merged_df``. How would you go about doing this? Would you just delete the columns you aren't interested in? This would work but what if you later decided that you needed those data? Maybe you'd create a new spreadsheet or a new tab and copy and paste the data from the original into this. This would also work but it introduces the possibility of human error where you accidentally click or copy the wrong column. The other issue is that there is now no record in your new tab of where these data came from. Excel doesn't record your copy and paste procedure anywhere so a new person looking at your table for the first time will have no easy way to validate that the data in the new tab is a reliable manipulation of the original raw data as they cannot see how it was produced.
+Try and do the same thing in Excel. Open either the ``.csv`` file or the ``.xlsx`` file and try to manipulate it to produce the same outcome as ``merged_df``. How would you go about doing this? Would you just delete the columns you aren't interested in? This would work but what if you later decided that you needed those data? Maybe you'd create a new spreadsheet or a new tab and copy and paste the data from the original one into this. This would also work but it introduces the possibility of human error where you accidentally click or copy the wrong column. The other issue is that there is now no record in your new tab of where these data came from. Excel doesn't record your copy and paste procedure anywhere so a new person looking at your table for the first time will have no easy way to validate that the data in the new tab is a reliable manipulation of the original raw data as they cannot see how it was produced.
 
 ![](images/excel.png)
 
 
-A third option is direct the cells in a new tab to read particular cells in the original tab using the ``=`` symbol. Try this out for yourself. Create a new tab, click in cell ``A1``, type ``=`` and then click across to cell ``A1`` in the original tab and press enter. This will populate your cell in your new tab with the correct data from the original tab. Now use this approach to fill in the whole table with the correct columns.
+A third option is to direct the cells in a new tab to read particular cells in the original tab using the ``=`` symbol. Try this out for yourself. Create a new tab, click in cell ``A1``, type ``=`` and then click across to cell ``A1`` in the original tab and press enter. This will populate your cell in your new tab with the correct data from the original tab. Now use this approach to fill in the whole table with the correct columns.
 
 ![](images/excel_formula.png)
 
 
-This is better than the copy paste method as anyone looking at your sheet will be able to see that the data in the new tab is directly referenced from the data in the original raw data tab. The problem is though that this person is very unlikely to check every single cell in the 2001x7 spreadsheet and so if a small type was introduced into the formula in a particular cell at some point, this is very unlikely to be picked up. It was also a laborious process creating this spreadsheet that involved many mouse clicks as opposed to the three lines of code used in the R approach. This issue will also worsen if the table was to grow. Imagine a situation where the original table was a 2001x1000 spreadsheet and you needed to pull out 50 randomly placed columns to create your new tab. In R, this would still be a three line command where the only the number of column names in step two would expand but to do this in excel would be a multi-mouse click nightmare.
+This is better than the copy paste method as anyone looking at your sheet will be able to see that the data in the new tab is directly referenced from the data in the original raw data tab. The problem though is that this person is very unlikely to check every single cell in the 2000x7 spreadsheet and so if a small typo was introduced into the formula in a particular cell at some point, this is very unlikely to be picked up. It was also a laborious process creating this spreadsheet that involved many mouse clicks as opposed to the three lines of code used in the R approach. This issue will also worsen if the table was to grow. Imagine a situation where the original table was a 2000x1000 spreadsheet and you needed to pull out 50 randomly placed columns to create your new tab. In R, this would still be a three line command whereas in excel it would be a multi-mouse click nightmare.
 
 Now what we want to find out is whether any particular vessel is responsible for an outsized number of illegal sized catches. The first way to do this in R is to extract the relevant information and display it as a table.
 
@@ -323,7 +351,7 @@ legal_table <- table(fisheries$vessel, fisheries$legal_size)
 
 print(legal_table)
 
-# Check the class() of your table while you're at it
+# Check the type of data structure your table is while you're at it
 class(legal_table)
 
 ```
@@ -334,13 +362,13 @@ Immediately there are two vessels that stand out, but it would be good to have a
 # Create new table from the original table with proportions rather than raw numbers to account for differing numbers of catches using prop.table()
 prop_tab <- prop.table(legal_table, 1)
 
-# The , 1 ensures that each row equals 1 rather than the sum of all values across the table
+# The , 1 ensures that the sum of each row equals 1 rather than the sum of all values across the table
 
 # Create a bar chart of just the undersized catches
-barplot((prop_tab)[, "False"])
+barplot(prop_tab[, "FALSE"])
 
 # We can modify this plot to include titles and you can increase the y axis limit to 0.5
-barplot((prop_tab)[, "False"],
+barplot(prop_tab[, "FALSE"],
         ylab = "Proportion of undersized catches",
         xlab = "Vessel ID",
         ylim = c(0, 0.5))
@@ -349,15 +377,30 @@ barplot((prop_tab)[, "False"],
 ?barplot
 
 ```
-For a bit of fun, have a go at trying to produce an equivalent plot in Excel without throwing your computer across the room and storming out in anger. First you need to create a new tab with the correct columns, in a new cell copy the ``Vessel ID`` again and then use the ``Data/Remove Duplicates`` tool to create a unique list, then use find and replace to change all the ``True`` and ``False`` entries into ``TRUE`` and ``FALSE``, then use ``=COUNTIFS($A:$A,D2,$B:$B,FALSE)/COUNTIF($A:$A,D2)`` to calculate the proportion of illegal catches per vessel, then plot the whole thing using the barchart tool. Basically, it's a whole lot of clicking and not a whole lot of fun.
+For a bit of fun (lol), have a go at trying to produce an equivalent plot in Excel without throwing your computer across the room and storming out in anger. First you need to create a new tab with the correct columns, then in a new cell copy the ``Vessel ID`` again and then use the ``Data/Remove Duplicates`` tool to create a unique list, then use find and replace to change all the ``True`` and ``False`` entries into ``TRUE`` and ``FALSE``, then use ``=COUNTIFS($A:$A,D2,$B:$B,FALSE)/COUNTIF($A:$A,D2)`` to calculate the proportion of illegal catches per vessel, then plot the whole thing using the barchart tool. Basically, it's a whole lot of clicking and not a whole lot of fun.
 
   ![](images/excel_smh.png)
 
-And after all this, you have a messy spreadsheet with data and plots located in the one place compared with the R approach where you have a few clean lines of reproducible code and a plot you can export in your favourite image format.
+And after all this, you have a messy spreadsheet with data and plots located in the one place compared with the R approach where you have a few clean lines of reproducible code and a plot you can export in your favourite image format. To save as an image, you can either click the `Export` button in the `Plots` pane, or export it directly:
+
+```{r eval=FALSE}
+# Open a PNG file to draw into. Remember if you don't give a path then this will be saved to your working directory
+png("undersized_catches.png", width = 20, height = 15, units = "cm", res = 300)
+
+# Draw the plot (it goes into the file, not the Plots pane)
+barplot(prop_tab[, "FALSE"],
+        ylab = "Proportion of undersized catches",
+        xlab = "Vessel ID",
+        ylim = c(0, 0.5))
+
+# Close the file so it gets written
+dev.off()
+
+```
 
 ## Before you go ##
 
-You have made a figure from some dummy fisheries data in your first week of R. Next week we stop typing into the console and start writing **scripts** — files you can save, re-run, and hand to someone else so they get exactly the same answer you did.
+Today you made a figure from some dummy fisheries data in your first week of R. Next week we stop typing everything into the console and start writing **scripts** — files you can save, re-run, and hand to someone else to execute.
 
 ---
 
