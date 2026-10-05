@@ -13,11 +13,11 @@ Each week has three parts: a **one hour lecture**, a **two hour practical** (the
 
 ## Before you start
 
-You will need **R** and **RStudio** installed on your own machine before Week 1. Detailed instructions for how to install R and RStudio can be found on the course website under Module 4.
+You will need **R** and **RStudio** installed on your own machine before commencing Module 4. Detailed instructions for how to install R and RStudio can be found on the course website under Module 4.
 
 ## Course Outline - SC1102
 
-Week 1: [Welcome to R](SC1102_Tutorial_1/week_1.html)
+Module 4: [Welcome to R](SC1102_Tutorial_1/week_1.html)
 
 <!-- Week 2: [Writing scripts and reproducibility](SC1102_Tutorial_2/week_2.html)
 
@@ -26,7 +26,7 @@ Week 3: [Building your own RMarkdown document](SC1102_Tutorial_3/week_3.html) --
 
 ## Course Outline - SC1109
 
-Week 1: [Welcome to R](SC1109_Tutorial_1/week_1.html)
+Module 4: [Welcome to R](SC1109_Tutorial_1/week_1.html)
 
 <!-- Week 2: [Writing scripts and reproducibility](SC1109_Tutorial_2/week_2.html)
 
@@ -34,9 +34,9 @@ Week 3: [Building your own RMarkdown document](SC1109_Tutorial_3/week_3.html) --
 
 ## Data sets
 
-Week 1
+Module 4
 
-- [fisheries.csv](SC1102_Tutorial_1/fisheries.csv) — 2000 catch records from the Excel module
+- [fisheries.csv](SC1102_Tutorial_1/fisheries.csv) — 2000 synthetic catch records
 - [fisheries.xlsx](SC1102_Tutorial_1/fisheries.xlsx) — the same data as an Excel workbook
 
 <!-- Week 2
@@ -46,4 +46,4 @@ Week 1
  
 ## Where this is going
 
-By the end of Week 3 you will have written a short, complete report in RMarkdown, including text, code, tables and figures in a single document that anyone can re-run and get exactly your result.
+By the end of Week 6 you will have written a short, complete report in RMarkdown, including text, code, tables and figures in a single document that anyone can re-run and get exactly your result.
