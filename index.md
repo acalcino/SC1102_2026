@@ -46,4 +46,4 @@ Week 1
  
 ## Where this is going
 
-By the end of Week 3 you will have written a short, complete report in RMarkdown: text, code, tables and figures in a single document that anyone can re-run and get exactly your result. That document is the format the El Niño modelling module expects.
+By the end of Week 3 you will have written a short, complete report in RMarkdown, including text, code, tables and figures in a single document that anyone can re-run and get exactly your result.
