@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE)
 [&larr; Back to the SC1109 course page](../)
 
 ## Welcome to R ##
-In lecture 1 we introduced you to R. Designed originally as a statistical programming language, R has grown to cover many use cases as it has been adopted across the sciences due to its flexible, scalable and extensible implementation. During this lecture we compared and contrasted R with MS Excel, pointing out advantages and disadvantages of the two options. We also learnt about the different design philosophies between the two approaches and how the two can achieve very similar outputs by utilising completely different data structures. During this lecture we briefly introduced a few basic commands for creating and manipulating data in R and today we are going to put that theory into practice.
+In lecture 4 we introduced you to R. Designed originally as a statistical programming language, R has grown to cover many use cases as it has been adopted across the sciences due to its flexible, scalable and extensible implementation. During this lecture we compared and contrasted R with MS Excel, pointing out advantages and disadvantages of the two options. We also learnt about the different design philosophies between the two approaches and how the two can achieve very similar outputs by utilising completely different data structures. During this lecture we briefly introduced a few basic commands for creating and manipulating data in R and today we are going to put that theory into practice.
 
 In modules 1-3 of SC1109, you were introduced to data analysis in Excel where you modeled population growth and fisheries data. In next week's tutorial we will use one of these same datasets for analysis in R but to begin with today, we'll start off learning some basic R commands using one of the datasets built into base R (base R meaning R on its own without any extra libraries loaded).
 
@@ -25,7 +25,7 @@ In modules 1-3 of SC1109, you were introduced to data analysis in Excel where yo
 In order for us to do anything in the tutorial, you will need to have both R and RStudio installed on your machine. Detailed instructions for this are on the course website.
 
 ## Setting up your project and maintaining excellent project structure ##
-Before we write any code, we're going to create a home for everything we do in today's tutorial. Make sure to choose a logical location. As I'm on a Mac, I'll use ``~/Documents/teaching/2026/TR3/SC1109/SC1109_tut1/``. On Windows, something like ``C:/Users/YourUsername/Documents/teaching/2026/TR3/SC1109/SC1109_tut1/`` works well. This might look like a very long directory structure, but if you organise your computer this way, your future self will thank you. Months or years from now, you'll know exactly what each file is and where it came from. Maintaining an excellent **project structure** is vital to reliable and reusable code, and key to this is a logicaly planned directory structure and informative names of files and folders. What I highly recommend **not** doing is dumping files in your Downloads folder or on your Desktop with names like ``file1.csv``. 
+Before we write any code, we're going to create a home for everything we do in today's tutorial. Make sure to choose a logical location. As I'm on a Mac, I'll use ``~/Documents/teaching/2026/TR3/SC1109/SC1109_tut1/``. On Windows, use the ``C:\RWork\`` folder you created when installing R, e.g. ``C:/RWork/SC1109/SC1109_tut1/``. Don't use your Documents or Desktop folders on Windows, as these are often synced to OneDrive, which can cause errors in R. This might look like a very long directory structure, but if you organise your computer this way, your future self will thank you. Months or years from now, you'll know exactly what each file is and where it came from. Maintaining an excellent **project structure** is vital to reliable and reusable code, and key to this is a logically planned directory structure and informative names of files and folders. What I highly recommend **not** doing is dumping files in your Downloads folder or on your Desktop with names like ``file1.csv``. 
 
 You can create the required folders using Finder on Mac or File Explorer on Windows, or with R:
 
@@ -35,8 +35,8 @@ You can create the required folders using Finder on Mac or File Explorer on Wind
 # On Mac or Linux
 dir.create("~/Documents/teaching/2026/TR3/SC1109/SC1109_tut1", recursive = TRUE)
 
-# On Windows (in R, ~ already points to your Documents folder)
-dir.create("~/teaching/2026/TR3/SC1109/SC1109_tut1", recursive = TRUE)
+# On Windows (keep your work in C:/RWork, outside OneDrive)
+dir.create("C:/RWork/SC1109/SC1109_tut1", recursive = TRUE)
 ```
 
 Now we'll turn the ``SC1109_tut1`` folder into an **RStudio project**. A project is a folder that R treats as home. Whenever you open it, R's `working directory` (the folder R looks in when you give it a file name) is automatically set to that folder. There will be a bit more on the working directory later on.
@@ -47,7 +47,7 @@ Now we'll turn the ``SC1109_tut1`` folder into an **RStudio project**. A project
 
 From now on, whenever you work on this tutorial, open it by double-clicking ``SC1109_tut1.Rproj`` (or using **File > Open Project**).
 
-If you are using posit.cloud, you are already working inside a project, so you can skip this section.
+If you are using Posit Cloud, you are already working inside a project, so you can skip this section.
 
 Let's check where R is looking:
 
@@ -270,7 +270,7 @@ setwd("/Users/YourUsername/Documents/teaching/2026/TR3/SC1109/SC1109_tut1")
 
 If you want to do something with a file that isn't directly in this folder, you need to define the path to it either by giving the full path or a relative path. A full path is a complete address that works no matter where your working directory is defined. On a Windows machine, a full path might look something like:
 
-``C:/Users/YourUsername/Documents/teaching/2026/TR3/SC1109/SC1109_tut1/other_folder/important_file.txt``
+``C:/RWork/SC1109/SC1109_tut1/other_folder/important_file.txt``
 
 On a Mac: 
 
@@ -378,7 +378,7 @@ barplot(prop_tab[, "FALSE"],
 
 ```
 
-For a bit of fun (lol), have a go at trying to produce an equivalent plot in Excel without throwing your computer across the room and storming out in anger. First you need to create a new tab with the correct columns, then in a new cell copy the ``Vessel ID`` again and then use the ``Data/Remove Duplicates`` tool to create a unique list, then use find and replace to change all the ``True`` and ``False`` entries into ``TRUE`` and ``FALSE``, then use ``=COUNTIFS($A:$A,D2,$B:$B,FALSE)/COUNTIF($A:$A,D2)`` to calculate the proportion of illegal catches per vessel, then plot the whole thing using the barchart tool. Basically, it's a whole lot of clicking and not a whole lot of fun.
+For a bit of fun, have a go at trying to produce an equivalent plot in Excel without throwing your computer across the room and storming out in anger. First you need to create a new tab with the correct columns, then in a new cell copy the ``Vessel ID`` again and then use the ``Data/Remove Duplicates`` tool to create a unique list, then use find and replace to change all the ``True`` and ``False`` entries into ``TRUE`` and ``FALSE``, then use ``=COUNTIFS($A:$A,D2,$B:$B,FALSE)/COUNTIF($A:$A,D2)`` to calculate the proportion of illegal catches per vessel, then plot the whole thing using the barchart tool. Basically, it's a whole lot of clicking and not a whole lot of fun.
 
   ![](images/excel_smh.png)
 
@@ -401,9 +401,9 @@ dev.off()
 
 ## Packages ##
 
-So far, everything we have done in R has been using base R, which is R without any extra bells and whistles attached. You can achieve a lot in base R, but there are certain things that become difficult or cumbersome to do on your own. This is where ``packages`` help out. Packages are a collection of functions developed by a third party to extend the capabilities of base R. You can think of them like an expansion packs for your favourite game. Anyone can develop a package and most are done so independently of R, RStudio or Posit (the company behind RStudio), however this is a lot of cross pollination across the ecosystem so the same names often pop up in different repos.
+So far, everything we have done in R has been using base R, which is R without any extra bells and whistles attached. You can achieve a lot in base R, but there are certain things that become difficult or cumbersome to do on your own. This is where ``packages`` help out. Packages are a collection of functions developed by a third party to extend the capabilities of base R. You can think of them like expansion packs for your favourite game. Anyone can develop a package and most are developed independently of R, RStudio or Posit (the company behind RStudio), although there is a lot of cross pollination across the ecosystem so the same names often pop up across different packages.
 
-You might have noticed that the R plot we just created isn't exactly beautiful. There are lots of ways to improve this using base R, but an even better way is to load a dedicated plotting package, the most famous of which if [ggplot2](https://ggplot2.tidyverse.org/). Let's install ggplot2, load it and then use it to recreate the plot.
+You might have noticed that the R plot we just created isn't exactly beautiful. There are lots of ways to improve this using base R, but an even better way is to load a dedicated plotting package, the most famous of which is [ggplot2](https://ggplot2.tidyverse.org/). Let's install ggplot2, load it and then use it to recreate the plot.
 
 ```{r eval=FALSE}
 # First, check if ggplot2 is installed already or not
@@ -412,11 +412,13 @@ is_ggplot2_installed <- "ggplot2" %in% installed.packages()[,"Package"]
 if (is_ggplot2_installed) {
   print("yep")
 } else {
-    print ("nope")
+  print("nope")
 }
 
-# If it's not installed (ie. the previous command prints "nope", rather than "yep"), install it
-install.packages("ggplot2")
+# If it's not installed (i.e. the previous command prints "nope", rather than "yep"), install it
+if (!is_ggplot2_installed) {
+  install.packages("ggplot2")
+}
 
 ```
 
@@ -427,7 +429,7 @@ Once that's done, no need to repeat it as you only ever need to install a packag
 # Load up the package
 library(ggplot2)
 
-# Now lets try recreate the plot. First, ggplot requires a dataframe, not a table
+# Now let's try to recreate the plot. First, ggplot requires a dataframe, not a table
 prop_tab_df <- as.data.frame(prop_tab)
 
 # And now the plot script. So instead of using base R's barplot function, we'll call ggplot with geom_col() to tell it to create a bar plot
@@ -441,13 +443,13 @@ ggplot(subset(prop_tab_df, Var2 == "FALSE"),
 
 ```
 
-That last command was a lot, so let's break it down. At a minimum, ggplot needs three things - input data, and aesthetic mapping ``aes()`` to explain which column goes on which axis, and a ``geom()`` to explain what sort of plot to create. On line 1, we told ggplot to look at our prop_tab_df dataframe and to subset it so that only lines where the ``Var2`` column equals ``FALSE`` are included. Another way this could have been done would be to create a new dataframe by subsetting ``prop_tab_df`` before plotting, and then plotting that without the ``subset()`` command.
+That last command was a lot, so let's break it down. At a minimum, ggplot needs three things - input data, an aesthetic mapping ``aes()`` to explain which column goes on which axis, and a ``geom_*()`` function to explain what sort of plot to create. On line 1, we told ggplot to look at our prop_tab_df dataframe and to subset it so that only lines where the ``Var2`` column equals ``FALSE`` are included. Another way this could have been done would be to create a new dataframe by subsetting ``prop_tab_df`` before plotting, and then plotting that without the ``subset()`` command.
 
 The second line is pretty self explanatory, Var1 on the x axis, Freq on the y. The third line explains that we want a bar chart by calling ``geom_col()``. It then specifies the colour we want for the fill and the width of the bars.
 
 Those three lines are actually all that is needed to produce a minimal plot. Just run those and compare them to the full command. Also have a play around with changing colours and widths to see how the plot responds. Have a go at dropping line two or three to see what happens.
 
-Without line four, you'll notice that the top mark on the y axis is 0.4. ``scale_y_continuous()`` allows us to override this default and to specify a maximum and minum value for the y axis using ``limits``. Additionally, ``expand`` allows us to control the padding beyond the limits of your axes. We use it here to put the bars right down at the bottom of the plot, rather than just above it.
+Without line four, you'll notice that the top mark on the y axis is 0.4. ``scale_y_continuous()`` allows us to override this default and to specify a maximum and minimum value for the y axis using ``limits``. Additionally, ``expand`` allows us to control the padding beyond the limits of your axes. We use it here to put the bars right down at the bottom of the plot, rather than just above it.
 
 Packages like ``ggplot2`` extend the capabilities of base R to include all sorts of extra functionality that would be cumbersome and laborious for you to generate without them. ``ggplot2`` is a great example of this as it allows endless flexibility and customisability to your plots that would not be possible without it. Once you get deeper into it, you'll see that it allows you to modify plots beyond what is possible in Excel in order to display your important data in exactly the way you would like to do so.
 

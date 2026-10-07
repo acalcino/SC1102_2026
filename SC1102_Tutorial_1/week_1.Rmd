@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE)
 [&larr; Back to the SC1102 course page](../)
 
 ## Welcome to R ##
-In lecture 1 we introduced you to R. Designed originally as a statistical programming language, R has grown to cover many use cases as it has been adopted across the sciences due to its flexible, scalable and extensible implementation. During this lecture we compared and contrasted R with MS Excel, pointing out advantages and disadvantages of the two options. We also learnt about the different design philosophies between the two approaches and how the two can achieve very similar outputs by utilising completely different data structures. During this lecture we briefly introduced a few basic commands for creating and manipulating data in R and today we are going to put that theory into practice.
+In lecture 4 we introduced you to R. Designed originally as a statistical programming language, R has grown to cover many use cases as it has been adopted across the sciences due to its flexible, scalable and extensible implementation. During this lecture we compared and contrasted R with MS Excel, pointing out advantages and disadvantages of the two options. We also learnt about the different design philosophies between the two approaches and how the two can achieve very similar outputs by utilising completely different data structures. During this lecture we briefly introduced a few basic commands for creating and manipulating data in R and today we are going to put that theory into practice.
 
 In modules 1-3 of SC1102, you were introduced to data analysis in Excel where you modeled population growth and fisheries data. In next week's tutorial we will use one of these same datasets for analysis in R but to begin with today, we'll start off learning some basic R commands using one of the datasets built into base R (base R meaning R on its own without any extra libraries loaded).
 
@@ -25,7 +25,7 @@ In modules 1-3 of SC1102, you were introduced to data analysis in Excel where yo
 In order for us to do anything in the tutorial, you will need to have both R and RStudio installed on your machine. Detailed instructions for this are on the course website.
 
 ## Setting up your project and maintaining excellent project structure ##
-Before we write any code, we're going to create a home for everything we do in today's tutorial. Make sure to choose a logical location. As I'm on a Mac, I'll use ``~/Documents/teaching/2026/TR3/SC1102/SC1102_tut1/``. On Windows, something like ``C:/Users/YourUsername/Documents/teaching/2026/TR3/SC1102/SC1102_tut1/`` works well. This might look like a very long directory structure, but if you organise your computer this way, your future self will thank you. Months or years from now, you'll know exactly what each file is and where it came from. Maintaining an excellent **project structure** is vital to reliable and reusable code, and key to this is a logicaly planned directory structure and informative names of files and folders. What I highly recommend **not** doing is dumping files in your Downloads folder or on your Desktop with names like ``file1.csv``. 
+Before we write any code, we're going to create a home for everything we do in today's tutorial. Make sure to choose a logical location. As I'm on a Mac, I'll use ``~/Documents/teaching/2026/TR3/SC1102/SC1102_tut1/``. On Windows, use the ``C:\RWork\`` folder you created when installing R, e.g. ``C:/RWork/SC1102/SC1102_tut1/``. Don't use your Documents or Desktop folders on Windows, as these are often synced to OneDrive, which can cause errors in R. This might look like a very long directory structure, but if you organise your computer this way, your future self will thank you. Months or years from now, you'll know exactly what each file is and where it came from. Maintaining an excellent **project structure** is vital to reliable and reusable code, and key to this is a logically planned directory structure and informative names of files and folders. What I highly recommend **not** doing is dumping files in your Downloads folder or on your Desktop with names like ``file1.csv``. 
 
 You can create the required folders using Finder on Mac or File Explorer on Windows, or with R:
 
@@ -35,8 +35,8 @@ You can create the required folders using Finder on Mac or File Explorer on Wind
 # On Mac or Linux
 dir.create("~/Documents/teaching/2026/TR3/SC1102/SC1102_tut1", recursive = TRUE)
 
-# On Windows (in R, ~ already points to your Documents folder)
-dir.create("~/teaching/2026/TR3/SC1102/SC1102_tut1", recursive = TRUE)
+# On Windows (keep your work in C:/RWork, outside OneDrive)
+dir.create("C:/RWork/SC1102/SC1102_tut1", recursive = TRUE)
 ```
 
 Now we'll turn the ``SC1102_tut1`` folder into an **RStudio project**. A project is a folder that R treats as home. Whenever you open it, R's `working directory` (the folder R looks in when you give it a file name) is automatically set to that folder. There will be a bit more on the working directory later on.
@@ -270,7 +270,7 @@ setwd("/Users/YourUsername/Documents/teaching/2026/TR3/SC1102/SC1102_tut1")
 
 If you want to do something with a file that isn't directly in this folder, you need to define the path to it either by giving the full path or a relative path. A full path is a complete address that works no matter where your working directory is defined. On a Windows machine, a full path might look something like:
 
-``C:/Users/YourUsername/Documents/teaching/2026/TR3/SC1102/SC1102_tut1/other_folder/important_file.txt``
+``C:/RWork/SC1102/SC1102_tut1/other_folder/important_file.txt``
 
 On a Mac: 
 
@@ -378,7 +378,7 @@ barplot(prop_tab[, "FALSE"],
 
 ```
 
-For a bit of fun (lol), have a go at trying to produce an equivalent plot in Excel without throwing your computer across the room and storming out in anger. First you need to create a new tab with the correct columns, then in a new cell copy the ``Vessel ID`` again and then use the ``Data/Remove Duplicates`` tool to create a unique list, then use find and replace to change all the ``True`` and ``False`` entries into ``TRUE`` and ``FALSE``, then use ``=COUNTIFS($A:$A,D2,$B:$B,FALSE)/COUNTIF($A:$A,D2)`` to calculate the proportion of illegal catches per vessel, then plot the whole thing using the barchart tool. Basically, it's a whole lot of clicking and not a whole lot of fun.
+For a bit of fun, have a go at trying to produce an equivalent plot in Excel without throwing your computer across the room and storming out in anger. First you need to create a new tab with the correct columns, then in a new cell copy the ``Vessel ID`` again and then use the ``Data/Remove Duplicates`` tool to create a unique list, then use find and replace to change all the ``True`` and ``False`` entries into ``TRUE`` and ``FALSE``, then use ``=COUNTIFS($A:$A,D2,$B:$B,FALSE)/COUNTIF($A:$A,D2)`` to calculate the proportion of illegal catches per vessel, then plot the whole thing using the barchart tool. Basically, it's a whole lot of clicking and not a whole lot of fun.
 
   ![](images/excel_smh.png)
 
