@@ -233,6 +233,8 @@ sd_bmi_func <- sd(pop_stats$BMI)
 mean_bmi == mean_bmi_func
 sd_bmi == sd_bmi_func
 
+# Just a note, if this doesn't work don't worry. == will return FALSE if the two values aren't absolutely identical to something like 14 decimal places
+
 ```
 
 Is the mean BMI of our group significantly different to 22.5? A BMI of 22.5 is about in the middle of what is generally considered a healthy BMI range. We could calculate this manually using the formula:
