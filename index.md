@@ -15,6 +15,15 @@ Each week has three parts: a **one hour lecture**, a **two hour practical** (the
 
 You will need **R** and **RStudio** installed on your own machine before commencing Module 4. Detailed instructions for how to install R and RStudio can be found on the course website under Module 4.
 
+## Pub TriviR update
+Congratulations to everyone who participated in the inaugural Pub TriviR contest during the synthesis session today! Very sorry for having run slightly over the allocated time which meant we lost connection with Townsville but fortunately it was pretty much done by that point.
+
+![](week4_results.png)
+
+Huge congratulations to the top three players who, for better or worse, were all from Townsville this week, and just a note on the discrepancy we saw where Townsville won most rounds but Cairns won overall - turns out that each round the scores were divided by the number of players who actually answered at least one question that round while the overall winner was calculated by dividing by all registered players. So despite Townsville getting higher scores on average for those playing, their high dropout rate hampered them overall.
+
+Keen to see how things go in Round 2 next week.
+
 ## Course Outline - SC1102
 
 Module 4: [Welcome to R](SC1102_Tutorial_1/week_1.html)
