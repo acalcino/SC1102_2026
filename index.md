@@ -37,9 +37,9 @@ Module 5: [Writing scripts and reproducibility](SC1102_Tutorial_2/week_2.html)
 
 Module 4: [Welcome to R](SC1109_Tutorial_1/week_1.html)
 
-<!-- Week 2: [Writing scripts and reproducibility](SC1109_Tutorial_2/week_2.html)
+Module 5: [Writing scripts and reproducibility](SC1109_Tutorial_2/week_2.html)
 
-Week 3: [Building your own RMarkdown document](SC1109_Tutorial_3/week_3.html) --->
+<!-- Week 3: [Building your own RMarkdown document](SC1109_Tutorial_3/week_3.html) --->
 
 ## Datasets
 
