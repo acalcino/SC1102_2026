@@ -15,7 +15,6 @@ date: "2026 Trimester 3"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(ggplot2)
 ```
 
 [&larr; Back to the SC1109 course page](../)
@@ -25,25 +24,32 @@ This week we are tackling ``reproducibility!``.
 
 What is reproducibility I hear you ask? 
 
-Great question! Reproducibility is the ability to reproduce a set of results given an input dataset and an well defined set of methods. In science, there aren't many concepts more important than reproducibility. If you conduct a bunch of analyses or experiments to obtain a set of results, but the next person to attempt what you did can't do so because either the initial input data is missing or corrupted, or the methodology by which you obtained your results is incomplete or inaccurate, you may as well have not done the analysis in the first place. If your scientific rationale is based on an intellectual framework that looks something like this:
-
-<div align="center">
-  ![](images/trustmebro.png)
-</div>
-
-then it might be time to step away from the science and head back to tiktok.
+Great question! Reproducibility is the ability to reproduce a set of results given an input dataset and an well defined set of methods. In science, there aren't many concepts more important than reproducibility. If you conduct a bunch of analyses or experiments to obtain a set of results, but the next person to attempt what you did can't do so because either the initial input data is missing or corrupted, or the methodology by which you obtained your results is incomplete or inaccurate, you may as well have not done the analysis in the first place. 
 
 The need to publish your methods and workflows in a reproducible way is absolutely critical, but the problem is, it's often incredibly boring and tedious. Luckily for you, we're working in R where producing reproducible code is baked into the fabric of the whole language. Last week we learnt some basic commands in order take in some data, manipulate it and process it but the issue is that what we did can't be easily recreated because it was all written and executed in the console. If I were to ask you right now to reproduce the final plot we created last week, you'd have to write out all the lines of R code again in order to do so. What we need is a way to save our code so that we can execute it on demand, whenever we like with the confidence that we'll end up with exactly the same set of results each time. What we want is automatable, deterministic code.
 
-So today, rather than typing code into the console, we are going to build an R script. To launch a new one, click ``File``/``New File``/``R script`` and you'll see it open up in the top left panel of RStudio.
+Before we start writing any code, we should create a new project, as we did last week. Remember, a project will set the working directory and help keep your files organised. Like last week, choose a logical location and name for your project. Create a new folder for your R project.
 
-The first thing we typically do is write a comment line at the top with the name of the script and any extra information you'd like to provide users, after which we save it as a ``.R`` file. Last week I briefly mentioned comments but from now on, comments become critical. In case you don't remember, a comment is a line of text or code that is preceded with a ``#`` character. In R, anything following a ``#`` will not be executed which means we can use this symbol to annotate our code in order to make it easier for other users or future versions of ourselves to read. It's much easier to read a line of free text than trying to interpret an often convoluted code base and so we use comments wherever we have code in order to make it clear what the code does and why its there. Today you **must** make sure that **every bit of code you write is thorougly commented!** If you write a line of code, make sure there is a comment above it detailing what it does. The more detail the better. Future you will thank past you for commenting heavily.
+```{r eval=FALSE}
+# !!Remember to change these paths to suit your own directory structure!!
+
+# On Mac or Linux
+dir.create("~/Documents/teaching/2026/TR3/SC1109/SC1109_tut2", recursive = TRUE)
+
+# On Windows (keep your work in C:/RWork, outside OneDrive)
+dir.create("C:/RWork/SC1109/SC1109_tut2", recursive = TRUE)
+
+```
+
+So today, rather than typing all our code into the console, we are going to build an R script. To launch a new one, click ``File``/``New File``/``R script`` and you'll see it open up in the top left pane of RStudio.
+
+The first thing we typically do is write a comment line at the top with the name of the script and any extra information you'd like to provide users, after which we save it as a ``.R`` file. Last week I briefly mentioned comments but from now on, comments become critical. In case you don't remember, a comment is a line of text or code that is preceded with a ``#`` character. In R, anything following a ``#`` will not be executed which means we can use this symbol to annotate our code in order to make it easier for other users or future versions of ourselves to read. It's much easier to read a line of free text than trying to interpret an often convoluted code base and so we use comments wherever we have code in order to make it clear what the code does and why its there. Today you **must** make sure that **every bit of code you write is thorougly commented!** If you write code, make sure there is a comment above it detailing what it does. The more detail the better. Future you will thank past you for commenting heavily.
 
 ![](images/myfirstscript.png)
 
-See in that first tab I have named my script ``myfirstscript.R``. You can do the same by saving yours into a logical location in your directory. Last week we spoke about good folder structure and so while keeping that in mind, create a new folder using whatever method you like ensuring that your naming system is consistent and logical, and then save your new script there by clicking ``File``/``Save As``.
+See in that first tab I have named my script ``adc_sc1102_tut2.R``. This name tells me who made it (first initials), what subject it was for and which tutorial. Use this same scheme to name your script and then make sure to save it into your project/working directory by clicking ``File``/``Save As``.
 
-Next up we'll do something that is a little pedantic but I'm including it here to reinforce what it means to produce truly reproducible R code. We are going to check what version of R we are using and we're going to write a a couple of lines that will warn users of our code if they are about to use a different version of R to the one it was initially created with. 99% of the time, if someone has a slightly different version of R, the code will still execute perfectly but occasionally new updates will include changes that alter how code may be interpreted. This can sometimes kill the code outright so that it doesn't execute, or it might alter the type of output produced. Here's the code block:
+The first thing our script is going to do is to check the version of R that it is running on. This is a little pedantic but I'm including it here to reinforce what it means to produce truly reproducible R code. After checking the version of R we are using, the script will then write a a couple of lines that will warn users of our code if they are about to use a different version of R to the one it was initially created with. 99% of the time, if someone has a slightly different version of R, the code will still execute perfectly but occasionally new updates will include changes that alter how code may be interpreted. This can sometimes kill the code outright so that it doesn't execute, or it might alter the type of output produced. Here's the code block:
 
 ```{r}
 # Check your current version of R
@@ -54,10 +60,10 @@ R.version.string
 For me, the version is 4.5.1, for you probably something else. We're now going to store this string as a variable and execute a block of code to test whether the currently used version is the same or not. Of course here it will be exactly the same but if you were to later try to execute this on another machine, it may not be the case.
 
 ```{r}
-# Create the variable from the output of the command
+# Write the current R version to the variable R_version
 R_version <- R.version.string
 
-# Perform the test
+# Test whether R_version is v4.5.1
 if(R_version == "R version 4.5.1 (2025-06-13)") {
     print("R version 4.5.1")
 } else {
@@ -70,39 +76,33 @@ What we just did was an ``if-then-else`` statement which is common to many langu
 
 So to break this down, what the code says is, if your version of R is 4.5.1, that is the output of the ``R.version.string`` command is precisely ``R version 4.5.1 (2025-06-13)``, then print the text ``R version 4.5.1``, however if the output of ``R.version.string`` is anything else, print that long line of text instead. This code will not kill anything, it will just provide the user with the information that they are using a different version of R to the one that was intended by the programmer (you!) and so to proceed with caution.
 
-## So, is this it or are we actually going to do something today? ##
+If you type this code into your R script correctly, it should look something like this:
 
-Another great question, past me! We are in fact, going to do something and that something is produce a script that takes in a dataset that you've seen before, perform a bunch of functions on it and then create a few plots. The fun part though is that at the end of this process, we're going to share the script we've written with one of our classmates to see whether or not they can run the code as it was intended, and produce the results exactly as we had done ourselves. If we can achieve this, then we can be sure that we've created reproducible code that will produce a consistent result regardless of who runs it.
+![](images/script_progress_1.png)
 
-First up, the data. We're going to work with the paramecium population growth data you saw in the first section of this course and you can download a copy of this from the [tutorial website](https://acalcino.github.io/SC1109_2026/). As we mentioned last week, directory structure is critically important so download this file to a logical place on your machine so we can find it easily to import it.
 
-Now I want to introduce the concept of a ``working directory``. This is a directory that you specify, usually at the top of your script that acts like your home base. Any file in this directory will be accessible directly from R and any file outside of it can be reached using a relative or a full path. Let's set our working directory, import the dataset we just downloaded and then produce a quick scatter plot to look at it. 
+## Building your script ##
 
-**SUPER ULTRA CRITICAL REMINDER HERE!!** This week we are building a script so make sure you do this in the top left panel in your script and not just in the console in the bottom left panel. If you don't create a script and instead just run all these commande in the console then you will have nothing to submit for this section of the portfolio assessment and so you will absolutely not pass!
+Today we will produce an script that takes in a dataset that you've seen before, performs a bunch of operations on it and then create a few plots. The fun part though is that at the end of this process, we're going to share the script we've written with one of our classmates to see whether or not they can run the code as it was intended, and produce the results exactly as we had done ourselves. If we can achieve this, then we can be sure that we've created reproducible code that will produce a consistent result regardless of who runs it.
 
-First up, create the directory that will become your working directory and remember, your location will differ to mine!
+First up, the data. We're going to work with the paramecium population growth data you saw in the first section of this course and you can download a copy of this from the [tutorial website](https://acalcino.github.io/SC1102_2026/) under `Datasets`, `Module 5`. As we mentioned last week, directory structure is critically important so make sure you download this file to your `project/working directory`!
 
-```{r eval = FALSE}
-# Create the directory you will use for your working directory
-dir.create("~/Documents/teaching/2026/TR3/SC1109/tutorial_2")
+**SUPER ULTRA CRITICAL REMINDER HERE!!** This week we are building a script so make sure you do this in the top left panel in your script and not just in the console in the bottom left panel. If you don't create a script and instead just run all these commands in the console then you will have nothing to submit for this section of the portfolio assessment and so you will absolutely not pass!
 
-```
-
-Once this is done make sure to put the ``Paramecium_aurelia.csv`` file into it, then set your working directory and read this file into R.
+Now that we have our project and working directory sorted out and the ``Paramecium_aurelia.csv`` placed snugly inside, we can import the dataset into R as the variable `paramecium`.
 
 ```{r}
-# Set working directory
-setwd("~/Documents/teaching/2026/TR3/SC1109/tutorial_2")
-
-# Import the dataset which is located in this directory
+# Import the paramecium growth dataset
 paramecium <- read.csv("Paramecium_aurelia.csv")
 
 ```
 
+If this doesn't work, it means the paramecium dataset is not in your working directory.
+
 Now we want to produce a simple plot to visualise the data but the issue is, we don't just want to see it in the plot window in RStudio, we also want to save a copy as an image file so that we can look at it later. To do this, we'll first plot our data using ``ggplot()`` and then we'll run the command ``ggsave()`` to save the plot to an image file.
 
 ``` {r}
-# Load the ggplot2 library
+# Load the ggplot2 package so that we can use it in this script
 library(ggplot2)
 
 # Produce a simple scatter plot of the data using ggplot
@@ -116,290 +116,387 @@ scatter_plot <- ggplot(paramecium, aes(x = Time..days., y = Paramecium)) +
 scatter_plot
 
 # Save the plot as an image file to our working directory.
-ggsave("paramecium_growth_n_vs_time.png", plot = scatter_plot, width = 1600/300, height = 1200/300, dpi = 300)
+# The image will be 1600 x 1200 pixels at 300 dpi
+ggsave("paramecium_growth_n_vs_time.png", plot = scatter_plot, width = 1600, height = 1200, units = "px", dpi = 300)
 
 ```
 
-## Linear model ##
+Notice that the very first line of code in that chunk loads ``ggplot2`` with ``library()``. Your script needs to load every package that it uses. If you only ever loaded ``ggplot2`` in the console, your script might work on your machine today, but it will fail for anyone else who runs it, including you after you restart R.
 
-First, let's fit a linear model. In a linear model, the population increases by the **same amount each day**. The formula for a linear fit is:
+## The modelling cycle ##
 
-$$N = a + b * Time$$
+Way back in the first lecture of the first section, we were introduced to ``the modelling cycle``:
+
+```
+1. Question                 What am I trying to explain, describe or predict?
+2. Variables & assumptions  What variables and assumptions matter most?
+3. Model construction       How will I represent the system in a model?
+4. Results                  What does the model predict?
+5. Testability              How could I test whether the model is wrong?
+6. Evaluation               Is the model useful for its intended purpose?
+7. Interpretation           What have I learned about the original problem?
+```
+
+Today we're going to work our way around this cycle using our paramecium data. You've already done all of this in Excel, so none of the biology or the modelling concepts will be new to you. What's new is that we're going to do it in an R script, so that anyone can rerun our entire workflow from start to finish.
+
+## Modelling natural population growth ##
+
+Remember the general framework from the lectures. Next year's population is this year's population, plus natural population growth, minus the harvest:
+
+$$N_{t+1} = N_t + G(N_t) - h$$
+
 Where:
 
 ```
-N = Number of individuals
-a = y intercept when time = 0
-b = the slope ie. the rate of change of N per day
+N_t+1  = Population size at the next time step (t+1)
+N_t    = Population size at this time step (t)
+G(N_t) = Natural population growth (which depends on N_t)
+h      = Harvest
 ```
 
-So what we need to do is to work out the slope and the y intercept. There are two ways we could do this, the long but clearly presented way that includes all working, or the short and slightly obfuscated way that abstracts away all the maths. The short way, which is the way most sane people would use in R is to use the ``lm()`` function built into R.
+Nobody is harvesting our paramecium (I hope), so ``h = 0`` and the equation becomes:
 
+$$N_{t+1} = N_t + G(N_t)$$
+
+or, if we move ``N_t`` over to the other side, the change in population size from one time step to the next is:
+
+$$\Delta N_t = N_{t+1} - N_t = G(N_t)$$
+
+So what goes into ``G(N_t)``? In our simplified model, it's recruits plus immigrants minus deaths minus emigrants. Our paramecium are living in a sealed little container in a lab, so nobody is moving in and nobody is moving out. That's one of our **assumptions** (step 2 of the modelling cycle!) and it means we're left with:
+
+$$G(N_t) = recruits - deaths$$
+
+The number of recruits is the per capita recruitment rate ``b`` multiplied by the number of individuals, and the number of deaths is the per capita mortality rate ``d`` multiplied by the number of individuals, so:
+
+$$G(N_t) = bN_t - dN_t = (b - d)N_t = RN_t$$
+
+where ``R = b - d`` is the net per capita population growth rate.
+
+One more piece of jargon from the lectures that is about to become very useful. Our model has two kinds of variables:
+
+```
+State variables  record the state of the system      here: N
+Parameters       drive changes in the state variables  here: b, d (and so R)
+```
+
+This distinction maps beautifully onto how we write code. Parameters are values we choose and type in at the top of our script. State variables are what the code calculates for us.
+
+## The geometric model ##
+
+In the previous section you built a geometric growth model in Excel with ``b = 1``, ``d = 0.5`` and ``N0 = 2``. Interestingly, our paramecium population also starts with 2 individuals, so let's start by rebuilding that exact Excel model in R. First up, the parameters.
 
 ```{r}
-# Model a linear fit 
-linear_fit <- lm(Paramecium ~ Time..days., data = paramecium)
+# Per capita recruitment rate (b): new recruits per individual per time step
+b <- 1
 
-# Then have a look at the results
-linear_fit
+# Per capita mortality rate (d): fraction of individuals that die per time step
+d <- 0.5
 
-```
+# Net per capita population growth rate R = b - d
+R <- b - d
 
-So the intercept is at 17.91 and the slope is 37.25, making the formula:
+# Starting population size N0
+N0 <- 2
 
-$$N = 17.91 + 37.25 * Time$$
-
-Now the more difficult way would be to calculate the slope and the y intercept by hand calculating the slope ``b``:
-
-$$b = \frac{∑(xi​−\bar{x})(yi​−\bar{y}​)}{∑(xi​−\bar{x})^2}$$
-and the y intercept ``a``
-
-$$a=\bar{y}​−b\bar{x}$$
-Where:
+# Number of time steps we want to run the model for
+n_steps <- 10
 
 ```
-x = time in days
-y = number of paramecium
-x_bar = mean(x)
-y_bar = mean(y)
-```
 
-While this looks like lots of fun and it actually shows the maths behind the calculations, in reality people are always going to go with using well established, built in functions in the place of writing everything out long form. 
-
-Let's plot the trend line on an Population size (N) vs Time (days) plot calculated using the ``lm()`` function.
+In Excel, you typed the starting population into the first cell and then wrote a formula in the cell below that referred to the cell above it, before dragging that formula down the column. In R, we do the same thing using something called a ``for loop`` which you will have heard about in this week's lecture.
 
 ```{r}
-# Produce the same scatter plot of the data using ggplot
-scatter_plot_linear <- ggplot(paramecium, aes(x = Time..days., y = Paramecium)) +
-  geom_point(size = 2) +
-  # Overlay the trendline using the coefficients from linear_fit
-  geom_abline(intercept = coef(linear_fit)[1],
-              slope = coef(linear_fit)[2],
-              color = "red", linewidth = 1) +
-  labs(x = "Time (days)",
-       y = "Population size (N)",
-       title = "Paramecium population growth")
+# Create an empty numeric vector to hold the population size at each time step.
+# We need n_steps + 1 slots because we also need a slot for time 0
+N <- numeric(n_steps + 1)
 
-# Display the plot
-scatter_plot_linear
+# Put the starting population size into the first slot
+N[1] <- N0
 
-# Save the plot as an image
-ggsave("paramecium_growth_linear.png", plot = scatter_plot_linear, width = 1600/300, height = 1200/300, dpi = 300)
+# Step the model forward one time step at a time using N(t+1) = N(t) + G(Nt),
+# where G(Nt) = R * Nt
+for (i in 1:n_steps) {
+  N[i + 1] <- N[i] + R * N[i]
+}
 
-# Check out the R2 (Multiple R2) value
-summary(linear_fit)
+# Have a look at the result
+N
 
-# And let's save coefficient stats as a text file in csv format
-write.csv(
-  coef(summary(linear_fit)),
-  "linear_model_coefficients.csv"
+```
+
+A ``for loop`` takes on the structure, for every instance of a variable ``i``, perform the following function. In the case above, our ``for loop`` says, for every integer between 1 and 10, calculate the next population size from the current one and store it in the next slot of ``N``. This is exactly what you did when you dragged your formula down the column in Excel. The only difference is that R counts from 1 rather than 0, so ``N[1]`` holds the population size at time 0, ``N[2]`` holds the population size at time 1, and so on.
+
+Now, in Excel you didn't just have a column of population sizes, you had a whole table with columns for ``Time``, ``N``, ``G(N)``, ``ΔN``, ``b``, ``d`` and ``R``. We can build exactly the same table in R as a dataframe.
+
+```{r}
+# Build a table just like the one we made in Excel
+geometric_table <- data.frame(
+  # Time steps from 0 to n_steps
+  Time = 0:n_steps,
+  # Population size at each time step
+  N = N,
+  # Population growth G(N) = R * N
+  G_N = R * N,
+  # Observed change in N from this time step to the next. diff() subtracts each
+  # value from the one after it. There is no "next" value for the final time
+  # step so we pad the end with NA, which is how R says "not available"
+  delta_N = c(diff(N), NA),
+  # The parameters, repeated down every row just like in Excel
+  b = b,
+  d = d,
+  R = R
 )
 
+# Have a look, rounding everything to 1 decimal place like the Excel version
+round(geometric_table, 1)
+
 ```
 
-Even though the R2 value isn't too bad, we should all know that a linear trend is not realistic for modelling natural population growth. The only reason we get an R2 as good as we do is because the experiment was terminated only just after population growth appears to have ceased. What do you think might have happened to the R2 if the experiment had been allowed to carry on for another 10 or 100 days? 
+Compare this to the table from the lecture. The numbers should be identical, right down to the population size of 115.3 at time 10. Also notice that the ``G_N`` and ``delta_N`` columns are the same, which is exactly what our equation ``ΔN_t = G(N_t)`` told us should happen when there is no harvesting.
 
-## Geometric model ##
-
-Let's try test out a geometric or exponential model, which you'll remember states that the rate of change is proportional to the current population size, independent of population density. Relative to time, population growth under a geometric model is exponential as ``R`` is constant. Rather than trying to fit an exponential curve to a population size vs time plot, we can fit a horizontal to a per capita growth rate ``R`` vs population size ``N`` plot.
+Now let's do what we did in Excel, plot population size over time, and then save both the plot and the table to file.
 
 ```{r}
-# Create an integer vector of all but the final number of observations
-N_t <- paramecium$Paramecium[-20]
-
-# Calculate lambda (N_t+1/N_t)
-lambda <- paramecium$Paramecium[-1] / N_t
-
-# Calculate R
-R <- lambda - 1
-
-# Put N_t and R into a data frame for ggplot
-geo_df <- data.frame(N_t = N_t, R = R)
-
-# Plot N vs R
-R_vs_N_geometric <- ggplot(geo_df, aes(x = N_t, y = R)) +
-  geom_point(size = 2) +
-  # Fit geometric growth model - constant R
-  geom_hline(yintercept = mean(R), color = "blue") +
-  labs(x = "N", y = "R", title = "Per capita growth rate vs population size")
+# Plot population size against time as a line
+geometric_plot <- ggplot(geometric_table, aes(x = Time, y = N)) +
+  # geom_line() draws a line rather than points
+  geom_line(color = "blue", linewidth = 1) +
+  labs(x = "Time (t)",
+       y = "Population size (N)",
+       title = "Geometric growth: b = 1, d = 0.5, N0 = 2")
 
 # Display the plot
-R_vs_N_geometric
+geometric_plot
 
-# And again, save this plot as an image
-ggsave("paramecium_growth_geometric_n_vs_r.png", plot = R_vs_N_geometric, width = 1600/300, height = 1200/300, dpi = 300)
+# Save the plot as an image file to our working directory
+ggsave("geometric_growth_lecture_example.png", plot = geometric_plot, width = 1600, height = 1200, units = "px", dpi = 300)
+
+# Save the table as a csv file so we can open it later in Excel if we want to
+write.csv(geometric_table, "geometric_growth_lecture_example.csv", row.names = FALSE)
 
 ```
 
-Nothing too exciting here. Alternatively, we can plot population growth rate ``G(N)`` vs population size ``N`` plot. As you will remember from chapter 5 of the text book, this is also known as the ``production function``. If growth is truly geometric, we'd expect population growth rate ``G(N)`` to track population size ``N``.
+
+## Does the geometric model describe our paramecium? ##
+
+Now for the real test (steps 4, 5 and 6 of the modelling cycle!). Our paramecium population starts at 2 individuals, but what should we use for ``R``? Let's look at the data from the early days, before the container starts getting crowded.
 
 ```{r}
-# Calculate G(N) as RN
-GN <- R*N_t
+# Print the first 6 rows of the data
+head(paramecium)
 
-# Put N_t and GN into a data frame for ggplot
-prod_df <- data.frame(N_t = N_t, GN = GN)
+```
 
-# Plot N vs G(N)
-production_function <- ggplot(prod_df, aes(x = N_t, y = GN)) +
+Between day 3 and day 5 the population goes from 37 to 67 to 134, so it's roughly doubling each day. A population that doubles each day is adding one new individual for every individual already there, which means ``R ≈ 1``. Let's run the geometric model with ``R = 1``, starting with 2 individuals, for the same 19 days covered by our data.
+
+```{r}
+# Per capita growth rate for the paramecium, estimated from the early doubling
+R_paramecium <- 1
+
+# Create an empty vector with one slot for each of the 20 days (day 0 to day 19)
+geometric_pred <- numeric(20)
+
+# Start the model with 2 individuals, just like the data
+geometric_pred[1] <- 2
+
+# Step the geometric model forward one day at a time: N(t+1) = N(t) + R * N(t)
+for (i in 1:19) {
+  geometric_pred[i + 1] <- geometric_pred[i] + R_paramecium * geometric_pred[i]
+}
+
+# Have a look at what it predicts
+geometric_pred
+
+```
+
+A million paramecium by day 19? That's a lot of paramecium. Let's put this on the same plot as our observed data.
+
+```{r}
+# Put the geometric model predictions into a data frame for ggplot
+geometric_df <- data.frame(Time = 0:19, N = geometric_pred)
+
+# Plot the observed data
+geometric_vs_data <- ggplot(paramecium, aes(x = Time..days., y = Paramecium)) +
   geom_point(size = 2) +
-  # Geometric: G(N) = RN, a straight line through the origin with a slope calculated from the mean of R
-  geom_abline(intercept = 0, slope = mean(R), color = "blue") +
-  # Also plot the R2 base line at mean(GN)
-  geom_hline(yintercept = mean(GN), color = "green") +
-  labs(x = "N", y = "G(N)", title = "Production function")
+  # Add the geometric model prediction from its own data frame
+  geom_line(data = geometric_df, aes(x = Time, y = N), color = "blue", linewidth = 1) +
+  labs(x = "Time (days)",
+       y = "Population size (N)",
+       title = "Paramecium vs the geometric model") +
+  # Zoom the y axis in to 0 to 800, as the geometric line gets out of control
+  coord_cartesian(ylim = c(0, 800))
+
+# Display the plot
+geometric_vs_data
+
+# Save the plot
+ggsave("paramecium_geometric_model.png", plot = geometric_vs_data, width = 1600, height = 1200, units = "px", dpi = 300)
+
+```
+
+For the first week or so, the geometric model doesn't do a terrible job. After that, it shoots straight off the top of the plot while the real population levels off somewhere around 500 to 650 individuals. The geometric model is clearly missing something.
+
+### Is R really constant? ###
+
+The key assumption of the geometric model is that ``R`` is constant. It doesn't matter whether there are 2 paramecium or 2 million, each individual contributes the same amount to population growth. We can test this assumption directly using our data. Remember that ``ΔN_t = G(N_t) = RN_t``, which means that we can calculate the observed ``R`` at each time step as:
+
+$$R = \frac{\Delta N_t}{N_t}$$
+
+Let's build a table from our observed data that looks just like our Excel model table.
+
+```{r}
+# Population size at each time step N(t). We drop the final observation because
+# there is no N(t+1) to compare it to
+N_t <- paramecium$Paramecium[-20]
+
+# Population size at the following time step N(t+1). We drop the first
+# observation so that everything lines up
+N_t1 <- paramecium$Paramecium[-1]
+
+# Build a table of the observed growth
+observed_table <- data.frame(
+  # The time steps 0 to 18
+  Time = paramecium$Time..days.[-20],
+  # Population size this time step
+  N_t = N_t,
+  # Population size next time step
+  N_t1 = N_t1,
+  # Observed change in population size, which is our observed G(N)
+  G_N = N_t1 - N_t,
+  # Observed per capita growth rate R = G(N) / N
+  R = (N_t1 - N_t) / N_t
+)
+
+# Have a look
+observed_table
+
+# Save the table
+write.csv(observed_table, "paramecium_observed_growth.csv", row.names = FALSE)
+
+```
+
+If the geometric model is right, ``R`` should be roughly the same in every row. Is it? Let's plot ``R`` against population size ``N`` just like we did in the lecture, and add the horizontal line that the geometric model expects.
+
+```{r}
+# Plot observed R against N
+R_vs_N <- ggplot(observed_table, aes(x = N_t, y = R)) +
+  geom_point(size = 2) +
+  # The geometric model says R is constant. Draw a horizontal line at the R we
+  # chose for the paramecium
+  geom_hline(yintercept = R_paramecium, color = "blue", linewidth = 1) +
+  # Draw a dashed grey line at R = 0 where the population stops growing
+  geom_hline(yintercept = 0, color = "grey40", linetype = "dashed") +
+  labs(x = "Population size (N)",
+       y = "Per capita growth rate (R)",
+       title = "Per capita growth rate vs population size")
+
+# Display the plot
+R_vs_N
+
+# Save the plot
+ggsave("paramecium_R_vs_N.png", plot = R_vs_N, width = 1600, height = 1200, units = "px", dpi = 300)
+
+```
+
+The data are a bit noisy (real data always are!) but there's a clear trend. When the population is small, ``R`` sits up around 1 or higher. As the population grows, ``R`` falls, until somewhere around 500 to 650 individuals it hovers around zero, sometimes positive and sometimes negative. In other words, the more crowded the container gets, the less each individual contributes to population growth. ``R`` is **not** constant, and that is precisely why the geometric model fails.
+
+## The logistic model ##
+
+This is where the logistic model from the lecture comes in. Remember that in the logistic model, as population size increases, per capita recruitment ``b`` declines and per capita mortality ``d`` increases. The population size at which these two balance (``b = d`` so ``R = 0``) is called the carrying capacity ``K``. If we assume that ``R`` declines in a straight line as ``N`` increases, then:
+
+$$R = R_0 - \frac{R_0}{K}N = R_0\left(1 - \frac{N}{K}\right)$$
+
+where ``R_0`` is the per capita growth rate when the population is tiny and there's no crowding at all. Since total population growth is still ``G(N) = RN``, we can substitute this in to get the logistic production function:
+
+$$G(N) = R_0\left(1 - \frac{N}{K}\right)N$$
+
+So the logistic model has two parameters we need to choose, ``R_0`` and ``K``. We could get the computer to work these out for us, but that would hide all of the biology, so instead we're going to do what a modeller does and choose values that make biological sense.
+
+- **K**: the carrying capacity is the population size where growth stops, so a sensible estimate is the average population size once the population has levelled off. Looking at our plot of the data, this happens from about day 11 onwards.
+- **R<sub>0</sub>**: the per capita growth rate when there's no crowding. We already worked out that the population was roughly doubling each day in the early stages, so ``R_0 ≈ 1``.
+
+```{r}
+# Carrying capacity K: the mean population size from day 11 onwards,
+# once the population has levelled off.
+# paramecium$Time..days. >= 11 gives TRUE for every row from day 11 onwards and
+# FALSE for every row before it, and putting this in the square brackets keeps
+# only the rows that are TRUE
+K <- mean(paramecium$Paramecium[paramecium$Time..days. >= 11])
+
+# Have a look at our estimate of K
+K
+
+# Per capita growth rate with no crowding, estimated from the early doubling
+R0 <- 1
+
+```
+
+### The production function ###
+
+Next up, the production function, ``G(N)`` vs ``N``. Under the geometric model, ``G(N) = RN`` is a straight line through the origin with a slope of ``R``. Under the logistic model, ``G(N) = R_0(1 - N/K)N`` is a hump, rising from zero, peaking, and then falling back to zero at ``K``. Let's plot our observed ``G(N)`` values and see which shape they look more like.
+
+```{r}
+# For the logistic curve we need a smooth sequence of N values to draw through.
+# seq() makes 200 evenly spaced values between 0 and 700
+N_seq <- seq(0, 700, length.out = 200)
+
+# Calculate the logistic G(N) at every one of those N values and put the curve
+# into a data frame for ggplot
+logistic_curve <- data.frame(N = N_seq, G_N = R0 * (1 - N_seq/K) * N_seq)
+
+# Plot observed G(N) against N
+production_function <- ggplot(observed_table, aes(x = N_t, y = G_N)) +
+  geom_point(size = 2) +
+  # Geometric: G(N) = RN, a straight line through the origin with a slope of R
+  geom_abline(aes(intercept = 0, slope = R_paramecium, color = "Geometric"), linewidth = 1,
+              key_glyph = "path") +
+  # Logistic: the curve we just calculated, from its own data frame
+  geom_line(data = logistic_curve, aes(x = N, y = G_N, color = "Logistic"), linewidth = 1) +
+  # Dashed grey line at G(N) = 0
+  geom_hline(yintercept = 0, color = "grey40", linetype = "dashed") +
+  # Dashed grey vertical lines at K/2 and K
+  geom_vline(xintercept = c(K/2, K), color = "grey40", linetype = "dashed") +
+  # Choose the colour for each model and add a legend
+  scale_color_manual(name = NULL, values = c("Geometric" = "blue", "Logistic" = "darkgreen")) +
+  labs(x = "Population size (N)",
+       y = "Population growth G(N)",
+       title = "Production function")
 
 # Display the plot
 production_function
 
-# And save
-ggsave("paramecium_growth_production_function.png", plot = production_function, width = 1600/300, height = 1200/300, dpi = 300)
+# Save the plot
+ggsave("paramecium_production_function.png", plot = production_function, width = 1600, height = 1200, units = "px", dpi = 300)
 
 ```
 
-In the geometric model, ``R`` is constant which is why we choose the mean of ``R``. ``R`` does not depend on the population size. Since ``G(N) = RN``, ``G(N)`` will grow proportional to how many individuals there are, with a slope of ``R``. So how well does our geometric trend line do at explaining the variance in our observations?
+Again, the data are noisy, but they don't follow the geometric straight line for long. Observed ``G(N)`` rises at first, flattens out, and then drops below zero once the population gets past about 550, which is the general shape of the logistic hump. Notice where the peak of the logistic curve sits, right at ``K/2``. Even though ``R`` is highest when the population is tiny, there are so few individuals that the population as a whole can't grow very fast. Even though there are loads of individuals near ``K``, each one is contributing next to nothing. Total population growth is fastest somewhere in between, at half the carrying capacity.
+
+### Logistic growth over time ###
+
+Finally, let's bring this all back to the original population size vs time plot. To do that, we need to step the logistic model forward through time, just like we did with the geometric model. The only difference is that we swap ``G(N) = RN`` for ``G(N) = R_0(1 - N/K)N``.
 
 ```{r}
-# Calculate R2 value
-# Predicted G(N) from the geometric model
-pred_geo <- mean(R) * N_t
-
-# Calculate residual sum of squares
-rss <- sum((GN - pred_geo)^2)
-
-# Calculate total sum of squares
-tss <- sum((GN - mean(GN))^2)
-
-# Calculate the R2
-1 - rss/tss
-
-```
-
-So, a negative number. This is worse than useless. It essentially means that our trend line is even worse than guessing the average, which would be a flat line at ``mean(GN)``. You can see that the geometric model doesn't do a terrible job for the lower values of ``N``, but after this, things go awry. This suggests that we might be approaching the carrying capacity of the experimental environment. If we want to take the concept of density dependent carrying capacity into account, we're going to need a new model. Fortunately for us, we have the logistic model that does just this.
-
-## Logistic model ##
-
-In the logistic model, the population growth rate ``G(N)`` will begin to decline with increasing population size ``N`` once the population size has reached half the carrying capacity ``K`` of the environment. This is because in the logistic model: $$R = a + bN $$
-
-per capita growth rate is at its theoretical maximum at ``N=0`` and declines with a slope ``b``. This growth rate upper limit is denoted as R<sub>0</sub>
-$$b = -\frac{R_0}{K}$$
-Substituting this into the equation ``G(N) = RN`` where the y intercept ``a`` is the same as the value of R at a population size of 0, we get the logistic growth equation: $$G(N) = R_0 \left(1 - \frac{N}{K}\right)N$$
-
-So the logistic growth equation is the same as the geometric growth equation ``G(N) = RN`` with the addition of this one factor ``(1-N/K)`` that takes into account the population size at any given moment relative to the carrying capacity of the environment. Let's fit the logistic growth curve to the G(N) vs N plot to compare it to the geometric growth curve.
-
-```{r}
-# Fit the linear relationship between R and N
-R_fit <- lm(R ~ N_t)
-
-# Plot N vs R
-R_vs_N_logistic <- ggplot(geo_df, aes(x = N_t, y = R)) +
-  geom_point(size = 2) +
-  # Fit geometric growth model - constant R
-  geom_hline(yintercept = mean(R), color = "blue") +
-  # Fit the logistic model - R declines as population density increases
-  geom_abline(intercept = coef(R_fit)[1], slope = coef(R_fit)[2], color = "darkgreen") +
-  labs(x = "N", y = "R", title = "Per capita growth rate vs population size")
-
-# Display the plot
-R_vs_N_logistic
-
-# Save
-ggsave("paramecium_growth_logistic_n_vs_r.png", plot = R_vs_N_logistic, width = 1600/300, height = 1200/300, dpi = 300)
-
-```
-
-This is clearly a much better fit. Let's see how it compares to the geometric model on the G(N) vs N plot.
-
-```{r}
-# R at N=0
-R0 <- coef(R_fit)[1]
-
-# Carrying capacity K at x intercept which is -R0/slope
-# Wrap it in as.numeric() to ensure you just get a numeric result
-K  <- as.numeric(-coef(R_fit)[1] / coef(R_fit)[2])
-
-# Smooth sequence of N values to draw the curve through
-N_seq <- seq(0, 700, length.out = 200)
-
-# Put the logistic curve into a data frame for ggplot
-logistic_curve <- data.frame(
-  N_seq = N_seq,
-  G_logistic = R0 * (1 - N_seq/K) * N_seq
-)
-
-# Plot N vs G(N)
-production_function_logistic <- ggplot(prod_df, aes(x = N_t, y = GN)) +
-  geom_point(size = 2) +
-  # Geometric: G(N) = RN, a straight line through the origin with a slope calculated from the mean of R
-  geom_abline(intercept = 0, slope = mean(R), color = "blue") +
-  # Now plot the line using the logistic growth equation
-  geom_line(data = logistic_curve, aes(x = N_seq, y = G_logistic), color = "darkgreen") +
-  # Include a horizontal at G(N) = 0
-  geom_hline(yintercept = 0, color = "grey40") +
-  # Include vertical lines at K and K/2
-  geom_vline(xintercept = K, color = "grey40", linetype = "dashed") +
-  geom_vline(xintercept = K/2, color = "grey40", linetype = "dashed") +
-  labs(x = "N", y = "G(N)", title = "Production function")
-
-# Display the plot
-production_function_logistic
-
-# Save
-ggsave("paramecium_growth_all_models_gn_vs_n.png", plot = production_function_logistic, width = 1600/300, height = 1200/300, dpi = 300)
-
-```
-
-Let's bring this all back to the original population size vs time plot.
-
-```{r}
-# Set up empty vectors to hold the projected population size numbers
-geometric_pred <- numeric(20)
+# Create an empty vector with one slot for each of the 20 days (day 0 to day 19)
 logistic_pred <- numeric(20)
 
-# Initiate both models at 2 to reflect the initial population size in the data
-geometric_pred[1] <- 2
+# Start the model with 2 individuals, just like the data
 logistic_pred[1] <- 2
 
-# Model expected population growth under the geometric model. G(N) = RN so we add R multiplied by the current population size number of individuals each day
-for (i in 1:19) {
-  geometric_pred[i + 1] <- geometric_pred[i] + mean(R) * geometric_pred[i]
-}
-
-# Model expected population growth under the logistic model. G(N) = R0(1 - N/K)N so the rate at which individuals are added per day (G(N)), changes relative to the current population size and the carrying capacity of the environment
+# Step the logistic model forward one day at a time using
+# N(t+1) = N(t) + G(N(t)) where G(N(t)) = R0 * (1 - N(t)/K) * N(t)
 for (i in 1:19) {
   logistic_pred[i + 1] <- logistic_pred[i] + R0 * (1 - logistic_pred[i]/K) * logistic_pred[i]
 }
 
-```
-
-Here we've introduced a new R structure called a ``for loop``. This takes on the structure, for every instance of a variable ``i``, perform the following function. In the case above, our ``for loop`` says, for every integer between 1 and 19, update the object (either ``geometric_pred`` or ``logistic_pred``) to include the output of the stated function. Print out ``geometric_pred`` and have a look at what it now contains.
-
-```{r}
-print(geometric_pred)
+# Have a look at what it predicts
+logistic_pred
 
 ```
 
-Just to satisfy yourself that you understand what's going on here, try and calculate the second value in this vector using the same formula ``i + 1 = i + mean(R) * i``. In our case, when ``i`` = 1, geometric_pred equals 2.
+Compare this chunk to the one we used for the geometric model. They're almost identical. The only line that has changed is the one inside the ``for loop`` that calculates ``G(N)``. This is the beauty of process-based models. We built the logistic model by changing one single assumption of the geometric model, that ``R`` is constant, and everything else stayed the same.
 
-```{r}
-geometric_pred[1]
-
-```
-
-and ``mean(R)`` is 0.4793129. So the second value ``i + 1`` equals: 
-
-```{r}
-2 + mean(R) *2
-```
-
-Then finally test whether this matches the value of geometric_pre[2]:
-
-```{r}
-geometric_pred[2] == 2 + mean(R) * 2
-
-```
-
-Alright, now that we have these predicted population growth rates, lets plot them to see how they compare to our observed population size numbers.
+Now for the moment of truth.
 
 ```{r}
 # Put the geometric and logistic predictions into a data frame for ggplot
@@ -409,118 +506,48 @@ pred_df <- data.frame(
   Logistic = logistic_pred
 )
 
-# Produce the same scatter plot of the data
-scatter_plot_complete <- ggplot(paramecium, aes(x = Time..days., y = Paramecium)) +
+# Plot the observed data
+both_models <- ggplot(paramecium, aes(x = Time..days., y = Paramecium)) +
   geom_point(size = 2) +
-  # First, fit the linear model
-  geom_abline(aes(intercept = coef(linear_fit)[1], slope = coef(linear_fit)[2], color = "Linear"),
-              linewidth = 1) +
-  # Next, the geometric model predicted curve
+  # Add the geometric model prediction
   geom_line(data = pred_df, aes(x = Time, y = Geometric, color = "Geometric"), linewidth = 1) +
-  # And finally the logistic model predicted curve
+  # Add the logistic model prediction
   geom_line(data = pred_df, aes(x = Time, y = Logistic, color = "Logistic"), linewidth = 1) +
-  # Add a legend
-  scale_color_manual(name = NULL, values = c("Linear" = "red", "Geometric" = "blue", "Logistic" = "darkgreen")) +
-  # Add labels
-  labs(x = "Time (days)", y = "Population size (N)", title = "Paramecium population growth") +
-  # Limit y axis to 1000 as the geometric line gets out of control by day 19
-  coord_cartesian(ylim = c(0, 1000)) +
-  # Set the position of the legend
-  theme(legend.position = c(0.15, 0.85), legend.background = element_blank())
+  # Add a dashed grey line at the carrying capacity K
+  geom_hline(yintercept = K, color = "grey40", linetype = "dashed") +
+  # Choose the colour for each model and add a legend
+  scale_color_manual(name = NULL, values = c("Geometric" = "blue", "Logistic" = "darkgreen")) +
+  labs(x = "Time (days)",
+       y = "Population size (N)",
+       title = "Paramecium population growth") +
+  # Zoom the y axis in to 0 to 800, as the geometric line gets out of control
+  coord_cartesian(ylim = c(0, 800))
 
 # Display the plot
-scatter_plot_complete
+both_models
 
-# Save
-ggsave("paramecium_growth_all_models_n_vs_time.png", plot = scatter_plot_complete, width = 1600/300, height = 1200/300, dpi = 300)
-
-```
-
-And finally, lets see which one fits the data best. We'll put the results in a dataframe and then save it as a ``.csv``.
-
-```{r}
-# Total sum of squares for N vs time
-tss_N <- sum((paramecium$Paramecium - mean(paramecium$Paramecium))^2)
-
-# Calculate R2 values
-# Remember R2 = 1 - rss/tss
-r2_linear <- 1 - sum((paramecium$Paramecium - fitted(linear_fit))^2) / tss_N
-r2_geometric <- 1 - sum((paramecium$Paramecium - geometric_pred)^2) / tss_N
-r2_logistic <- 1 - sum((paramecium$Paramecium - logistic_pred)^2) / tss_N
-
-# Create table
-r2_results <- data.frame(
-  Model = c("Linear", "Geometric", "Logistic"),
-  R_squared = c(r2_linear, r2_geometric, r2_logistic)
-)
-
-# Have a look at the results
-r2_results
-
-# Save as CSV
-write.csv(r2_results,
-          "model_r2_results.csv",
-          row.names = FALSE)
+# Save the plot
+ggsave("paramecium_both_models_n_vs_time.png", plot = both_models, width = 1600, height = 1200, units = "px", dpi = 300)
 
 ```
 
-So there you have it, we have a clear winner. 
+There's that S-shaped curve from the lecture. Slow growth at the start when there are only a few individuals, rapid growth through the middle, and then a levelling off at the carrying capacity as the container gets crowded.
 
-## Creating your own functions ##
-By now you've used plenty of functions: ``lm()``, ``mean()``, ``ggplot()``, ``ggsave()``. Someone wrote each of those so that nobody else would have to write the same code over and over again. Now we are going to write our own function to calculate the R2 value so that we write out the whole equation each time. Every time you write a new block of code, you introduce places where typos and code errors can creep in. By creating reusable functions we can cut down on the total amount of code we need to type, increase the efficiency of our script and ensure that errors have fewer opportunities to arise. A general rule is, if you are going to use the same bit of code three or more times, consider turning it into a function.
+### Your turn (time pending) ###
 
-A function in R has this general shape:
+We chose ``R_0 = 1`` by eye, and you'll notice that our logistic curve lags a little behind the real population over the first week or so. This is the ``Evaluation`` step of the modelling cycle, and evaluation often sends us back to earlier steps. Try changing ``R0 <- 1`` to 0.8, 1.2 and 1.5. Which value looks like the best match to the data by eye? What happens to the shape of the curve? Because everything is in your script, you only need to change that one number and hit ``Source`` to rerun the whole thing. Every plot and every csv file will be updated to match.
 
-```{r eval = FALSE}
-function_name <- function(argument1, argument2) {
-  # Do something with the arguments
-  result <- argument1 + argument2
-  # Hand the result back to whoever called the function
-  return(result)
-}
-```
+## So what have we learned? ##
 
-It has a **name** (stored with ``<-`` just like any other object), a set of **arguments** (the inputs), a **body** between the curly braces (the work), and a **return value** (the output).
+Back to the final step of the modelling cycle, ``Interpretation``. Our question was how does a population of paramecium grow, and what stops it from growing forever? The geometric model, which assumes every individual contributes the same amount to population growth no matter how crowded things get, does a reasonable job for the first few days but then predicts an absurd explosion in numbers. When we looked at the data, we saw that per capita growth falls as the population gets bigger, which is exactly the assumption built into the logistic model. With just two biologically meaningful parameters, a starting growth rate and a carrying capacity, the logistic model does a nice job of predicting paramecium population over time.
 
-### Calculating R2 ###
+## Is your code portable? A challenge for you and a friend ##
 
-We calculated R2 four times today using the same formula: 1 minus the residual sum of squares divided by the total sum of squares. Let's write it once.
+Now the fun part. Is your code portable and reproducible? Everything you have done today should have been written in a ``.R`` script which you've been diligently saving to your own project folder. Now is the time to send this piece of code to the person sitting next to you to see if they can run it themselves.
 
-```{r}
-# Calculate R2 from a vector of observed values and a vector of predicted values
-calc_r2 <- function(observed, predicted) {
-  # Stop with an error if the two vectors aren't the same length
-  stopifnot(length(observed) == length(predicted))
-  # Residual sum of squares: how far the predictions are from the observations
-  rss <- sum((observed - predicted)^2)
-  # Total sum of squares: how far the observations are from their own mean
-  tss <- sum((observed - mean(observed))^2)
-  # Return the R-squared value
-  return(1 - rss / tss)
-}
-```
+Before you send it, run one last check on your own machine. Click ``Session``/``Restart R`` to wipe R's memory clean, then hit the ``Source`` button in the top right of the script panel to run your entire script from top to bottom. If it runs without any errors and writes the expected six plot and two table files, you're good to go. If it doesn't, you've probably got something that you ran in the console but never put in your script. Find it, add it, and try again.
 
-When you run this chunk, nothing appears to happen. That's expected. You've only *defined* the function. You'll see ``calc_r2`` appear in your environment panel under a new heading, *Functions*. Now let's use it and check it agrees with what we calculated earlier.
-
-```{r}
-# R-squared for each model on N vs time
-calc_r2(observed = paramecium$Paramecium, predicted = fitted(linear_fit))
-calc_r2(observed = paramecium$Paramecium, predicted = geometric_pred)
-calc_r2(observed = paramecium$Paramecium, predicted = logistic_pred)
-
-# Compare to the values in our earlier results table
-r2_results
-```
-
-Same numbers, much less typing. Notice the ``stopifnot()`` line. It checks that the inputs make sense before doing any work. If someone accidentally passes vectors of different lengths, the function fails loudly with an error rather than silently giving a wrong answer. That's good reproducibility practice.
-
-Also notice that ``rss`` and ``tss`` were created *inside* the function. They exist only while the function runs and do not appear in your environment. If you have time or your just looking for more practice, have a look at everything we've done today and try to identify other code blocks that could be simplified by being rewritten as functions.
-
-## Is your code portable? ##
-
-Now the fun part. Is your code portable and reproducible? Everything you have done today should have been written in a ``.R`` script which you've been diligently saving to your own machine. Now is the time to send this piece of code to the person sitting next to you to see if they can run it themselves.
-
-When you receive the script from your partner, there will be one modification you will have to make. At the very start of the day we set our working directory using ``setwd()`` before reading in the initial dataset using the ``read.csv()`` command. Chances are that you and your partner set different working directories to one another, so before executing your partner's script, you will have to modify this one line of code to ensure that it will read in the correct dataset from wherever it is located on your computer. Make sure to **use a different working directory** to the one used in your code so that you don't mix up your own output files with those produced by your partner's code! Do that then run the script by hitting the ``Source`` button in the top right of the script panel, or by highlighting the whole script and hitting ``Run``.
+When you receive the script from your partner, create a new project for it just like you did at the start of the tutorial, using a **different folder** to the one you used here so that you don't mix up your own output files with those produced by your partner's code. Put a copy of ``Paramecium_aurelia.csv`` in that folder along with your partner's script, open the script and hit ``Source``. Because we used a project and only ever referred to files by name, you shouldn't need to change a single line of their code. If you do need to change something to get it to work, then your partner's script wasn't portable. Let them know what you had to change and why!
 
 ---
 
