@@ -28,9 +28,9 @@ Keen to see how things go in Round 2 next week.
 
 Module 4: [Welcome to R](SC1102_Tutorial_1/week_1.html)
 
-<!-- Week 2: [Writing scripts and reproducibility](SC1102_Tutorial_2/week_2.html)
+Module 5: [Writing scripts and reproducibility](SC1102_Tutorial_2/week_2.html)
 
-Week 3: [Building your own RMarkdown document](SC1102_Tutorial_3/week_3.html) --->
+<!-- Week 3: [Building your own RMarkdown document](SC1102_Tutorial_3/week_3.html) --->
 
 
 ## Course Outline - SC1109
@@ -41,17 +41,16 @@ Module 4: [Welcome to R](SC1109_Tutorial_1/week_1.html)
 
 Week 3: [Building your own RMarkdown document](SC1109_Tutorial_3/week_3.html) --->
 
-## Data sets
+## Datasets
 
 Module 4
 
 - [fisheries.csv](SC1102_Tutorial_1/fisheries.csv) — 2000 synthetic catch records
 - [fisheries.xlsx](SC1102_Tutorial_1/fisheries.xlsx) — the same data as an Excel workbook
 
-<!-- Week 2
+Module 5
 
 - [Paramecium_aurelia.csv](SC1102_Tutorial_2/Paramecium_aurelia.csv) - Paramecium population growth data
- --->
  
 ## Where this is going
 

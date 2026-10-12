@@ -25,7 +25,7 @@ This week we are tackling ``reproducibility!``.
 
 What is reproducibility I hear you ask? 
 
-Great question! Reproducibility is the ability to reproduce a set of results given an input data set and an well defined set of methods. In science, there aren't many concepts more important than reproducibility. If you conduct a bunch of analyses or experiments to obtain a set of results, but the next person to attempt what you did can't do so because either the initial input data is missing or corrupted, or the methodology by which you obtained your results is incomplete or inaccurate, you may as well have not done the analysis in the first place. If your scientific rationale is based on an intellectual framework that looks something like this:
+Great question! Reproducibility is the ability to reproduce a set of results given an input dataset and an well defined set of methods. In science, there aren't many concepts more important than reproducibility. If you conduct a bunch of analyses or experiments to obtain a set of results, but the next person to attempt what you did can't do so because either the initial input data is missing or corrupted, or the methodology by which you obtained your results is incomplete or inaccurate, you may as well have not done the analysis in the first place. If your scientific rationale is based on an intellectual framework that looks something like this:
 
 <div align="center">
   ![](images/trustmebro.png)
@@ -72,11 +72,11 @@ So to break this down, what the code says is, if your version of R is 4.5.1, tha
 
 ## So, is this it or are we actually going to do something today? ##
 
-Another great question, past me! We are in fact, going to do something and that something is produce a script that takes in a data set that you've seen before, perform a bunch of functions on it and then create a few plots. The fun part though is that at the end of this process, we're going to share the script we've written with one of our classmates to see whether or not they can run the code as it was intended, and produce the results exactly as we had done ourselves. If we can achieve this, then we can be sure that we've created reproducible code that will produce a consistent result regardless of who runs it.
+Another great question, past me! We are in fact, going to do something and that something is produce a script that takes in a dataset that you've seen before, perform a bunch of functions on it and then create a few plots. The fun part though is that at the end of this process, we're going to share the script we've written with one of our classmates to see whether or not they can run the code as it was intended, and produce the results exactly as we had done ourselves. If we can achieve this, then we can be sure that we've created reproducible code that will produce a consistent result regardless of who runs it.
 
 First up, the data. We're going to work with the paramecium population growth data you saw in the first section of this course and you can download a copy of this from the [tutorial website](https://acalcino.github.io/SC1109_2026/). As we mentioned last week, directory structure is critically important so download this file to a logical place on your machine so we can find it easily to import it.
 
-Now I want to introduce the concept of a ``working directory``. This is a directory that you specify, usually at the top of your script that acts like your home base. Any file in this directory will be accessible directly from R and any file outside of it can be reached using a relative or a full path. Let's set our working directory, import the data set we just downloaded and then produce a quick scatter plot to look at it. 
+Now I want to introduce the concept of a ``working directory``. This is a directory that you specify, usually at the top of your script that acts like your home base. Any file in this directory will be accessible directly from R and any file outside of it can be reached using a relative or a full path. Let's set our working directory, import the dataset we just downloaded and then produce a quick scatter plot to look at it. 
 
 **SUPER ULTRA CRITICAL REMINDER HERE!!** This week we are building a script so make sure you do this in the top left panel in your script and not just in the console in the bottom left panel. If you don't create a script and instead just run all these commande in the console then you will have nothing to submit for this section of the portfolio assessment and so you will absolutely not pass!
 
@@ -106,17 +106,17 @@ Now we want to produce a simple plot to visualise the data but the issue is, we 
 library(ggplot2)
 
 # Produce a simple scatter plot of the data using ggplot
-p1 <- ggplot(paramecium, aes(x = Time..days., y = Paramecium)) +
+scatter_plot <- ggplot(paramecium, aes(x = Time..days., y = Paramecium)) +
   geom_point(size = 2) +
   labs(x = "Time (days)",
        y = "Population size (N)",
        title = "Paramecium population growth")
 
 # Display the plot
-p1
+scatter_plot
 
 # Save the plot as an image file to our working directory.
-ggsave("paramecium_growth_n_vs_time.png", plot = p1, width = 1600/300, height = 1200/300, dpi = 300)
+ggsave("paramecium_growth_n_vs_time.png", plot = scatter_plot, width = 1600/300, height = 1200/300, dpi = 300)
 
 ```
 
@@ -170,7 +170,7 @@ Let's plot the trend line on an Population size (N) vs Time (days) plot calculat
 
 ```{r}
 # Produce the same scatter plot of the data using ggplot
-p2 <- ggplot(paramecium, aes(x = Time..days., y = Paramecium)) +
+scatter_plot_linear <- ggplot(paramecium, aes(x = Time..days., y = Paramecium)) +
   geom_point(size = 2) +
   # Overlay the trendline using the coefficients from linear_fit
   geom_abline(intercept = coef(linear_fit)[1],
@@ -181,10 +181,10 @@ p2 <- ggplot(paramecium, aes(x = Time..days., y = Paramecium)) +
        title = "Paramecium population growth")
 
 # Display the plot
-p2
+scatter_plot_linear
 
 # Save the plot as an image
-ggsave("paramecium_growth_linear.png", plot = p2, width = 1600/300, height = 1200/300, dpi = 300)
+ggsave("paramecium_growth_linear.png", plot = scatter_plot_linear, width = 1600/300, height = 1200/300, dpi = 300)
 
 # Check out the R2 (Multiple R2) value
 summary(linear_fit)
@@ -217,17 +217,17 @@ R <- lambda - 1
 geo_df <- data.frame(N_t = N_t, R = R)
 
 # Plot N vs R
-p3 <- ggplot(geo_df, aes(x = N_t, y = R)) +
+R_vs_N_geometric <- ggplot(geo_df, aes(x = N_t, y = R)) +
   geom_point(size = 2) +
   # Fit geometric growth model - constant R
   geom_hline(yintercept = mean(R), color = "blue") +
   labs(x = "N", y = "R", title = "Per capita growth rate vs population size")
 
 # Display the plot
-p3
+R_vs_N_geometric
 
 # And again, save this plot as an image
-ggsave("paramecium_growth_geometric_n_vs_r.png", plot = p3, width = 1600/300, height = 1200/300, dpi = 300)
+ggsave("paramecium_growth_geometric_n_vs_r.png", plot = R_vs_N_geometric, width = 1600/300, height = 1200/300, dpi = 300)
 
 ```
 
@@ -241,7 +241,7 @@ GN <- R*N_t
 prod_df <- data.frame(N_t = N_t, GN = GN)
 
 # Plot N vs G(N)
-p4 <- ggplot(prod_df, aes(x = N_t, y = GN)) +
+production_function <- ggplot(prod_df, aes(x = N_t, y = GN)) +
   geom_point(size = 2) +
   # Geometric: G(N) = RN, a straight line through the origin with a slope calculated from the mean of R
   geom_abline(intercept = 0, slope = mean(R), color = "blue") +
@@ -250,10 +250,10 @@ p4 <- ggplot(prod_df, aes(x = N_t, y = GN)) +
   labs(x = "N", y = "G(N)", title = "Production function")
 
 # Display the plot
-p4
+production_function
 
 # And save
-ggsave("paramecium_growth_production_function.png", plot = p4, width = 1600/300, height = 1200/300, dpi = 300)
+ggsave("paramecium_growth_production_function.png", plot = production_function, width = 1600/300, height = 1200/300, dpi = 300)
 
 ```
 
@@ -292,7 +292,7 @@ So the logistic growth equation is the same as the geometric growth equation ``G
 R_fit <- lm(R ~ N_t)
 
 # Plot N vs R
-p5 <- ggplot(geo_df, aes(x = N_t, y = R)) +
+R_vs_N_logistic <- ggplot(geo_df, aes(x = N_t, y = R)) +
   geom_point(size = 2) +
   # Fit geometric growth model - constant R
   geom_hline(yintercept = mean(R), color = "blue") +
@@ -301,10 +301,10 @@ p5 <- ggplot(geo_df, aes(x = N_t, y = R)) +
   labs(x = "N", y = "R", title = "Per capita growth rate vs population size")
 
 # Display the plot
-p5
+R_vs_N_logistic
 
 # Save
-ggsave("paramecium_growth_logistic_n_vs_r.png", plot = p5, width = 1600/300, height = 1200/300, dpi = 300)
+ggsave("paramecium_growth_logistic_n_vs_r.png", plot = R_vs_N_logistic, width = 1600/300, height = 1200/300, dpi = 300)
 
 ```
 
@@ -328,7 +328,7 @@ logistic_curve <- data.frame(
 )
 
 # Plot N vs G(N)
-p6 <- ggplot(prod_df, aes(x = N_t, y = GN)) +
+production_function_logistic <- ggplot(prod_df, aes(x = N_t, y = GN)) +
   geom_point(size = 2) +
   # Geometric: G(N) = RN, a straight line through the origin with a slope calculated from the mean of R
   geom_abline(intercept = 0, slope = mean(R), color = "blue") +
@@ -342,10 +342,10 @@ p6 <- ggplot(prod_df, aes(x = N_t, y = GN)) +
   labs(x = "N", y = "G(N)", title = "Production function")
 
 # Display the plot
-p6
+production_function_logistic
 
 # Save
-ggsave("paramecium_growth_all_models_gn_vs_n.png", plot = p6, width = 1600/300, height = 1200/300, dpi = 300)
+ggsave("paramecium_growth_all_models_gn_vs_n.png", plot = production_function_logistic, width = 1600/300, height = 1200/300, dpi = 300)
 
 ```
 
@@ -410,7 +410,7 @@ pred_df <- data.frame(
 )
 
 # Produce the same scatter plot of the data
-p7 <- ggplot(paramecium, aes(x = Time..days., y = Paramecium)) +
+scatter_plot_complete <- ggplot(paramecium, aes(x = Time..days., y = Paramecium)) +
   geom_point(size = 2) +
   # First, fit the linear model
   geom_abline(aes(intercept = coef(linear_fit)[1], slope = coef(linear_fit)[2], color = "Linear"),
@@ -429,10 +429,10 @@ p7 <- ggplot(paramecium, aes(x = Time..days., y = Paramecium)) +
   theme(legend.position = c(0.15, 0.85), legend.background = element_blank())
 
 # Display the plot
-p7
+scatter_plot_complete
 
 # Save
-ggsave("paramecium_growth_all_models_n_vs_time.png", plot = p7, width = 1600/300, height = 1200/300, dpi = 300)
+ggsave("paramecium_growth_all_models_n_vs_time.png", plot = scatter_plot_complete, width = 1600/300, height = 1200/300, dpi = 300)
 
 ```
 
@@ -442,7 +442,8 @@ And finally, lets see which one fits the data best. We'll put the results in a d
 # Total sum of squares for N vs time
 tss_N <- sum((paramecium$Paramecium - mean(paramecium$Paramecium))^2)
 
-# Calculate R² values
+# Calculate R2 values
+# Remember R2 = 1 - rss/tss
 r2_linear <- 1 - sum((paramecium$Paramecium - fitted(linear_fit))^2) / tss_N
 r2_geometric <- 1 - sum((paramecium$Paramecium - geometric_pred)^2) / tss_N
 r2_logistic <- 1 - sum((paramecium$Paramecium - logistic_pred)^2) / tss_N
@@ -465,9 +466,61 @@ write.csv(r2_results,
 
 So there you have it, we have a clear winner. 
 
+## Creating your own functions ##
+By now you've used plenty of functions: ``lm()``, ``mean()``, ``ggplot()``, ``ggsave()``. Someone wrote each of those so that nobody else would have to write the same code over and over again. Now we are going to write our own function to calculate the R2 value so that we write out the whole equation each time. Every time you write a new block of code, you introduce places where typos and code errors can creep in. By creating reusable functions we can cut down on the total amount of code we need to type, increase the efficiency of our script and ensure that errors have fewer opportunities to arise. A general rule is, if you are going to use the same bit of code three or more times, consider turning it into a function.
+
+A function in R has this general shape:
+
+```{r eval = FALSE}
+function_name <- function(argument1, argument2) {
+  # Do something with the arguments
+  result <- argument1 + argument2
+  # Hand the result back to whoever called the function
+  return(result)
+}
+```
+
+It has a **name** (stored with ``<-`` just like any other object), a set of **arguments** (the inputs), a **body** between the curly braces (the work), and a **return value** (the output).
+
+### Calculating R2 ###
+
+We calculated R2 four times today using the same formula: 1 minus the residual sum of squares divided by the total sum of squares. Let's write it once.
+
+```{r}
+# Calculate R2 from a vector of observed values and a vector of predicted values
+calc_r2 <- function(observed, predicted) {
+  # Stop with an error if the two vectors aren't the same length
+  stopifnot(length(observed) == length(predicted))
+  # Residual sum of squares: how far the predictions are from the observations
+  rss <- sum((observed - predicted)^2)
+  # Total sum of squares: how far the observations are from their own mean
+  tss <- sum((observed - mean(observed))^2)
+  # Return the R-squared value
+  return(1 - rss / tss)
+}
+```
+
+When you run this chunk, nothing appears to happen. That's expected. You've only *defined* the function. You'll see ``calc_r2`` appear in your environment panel under a new heading, *Functions*. Now let's use it and check it agrees with what we calculated earlier.
+
+```{r}
+# R-squared for each model on N vs time
+calc_r2(observed = paramecium$Paramecium, predicted = fitted(linear_fit))
+calc_r2(observed = paramecium$Paramecium, predicted = geometric_pred)
+calc_r2(observed = paramecium$Paramecium, predicted = logistic_pred)
+
+# Compare to the values in our earlier results table
+r2_results
+```
+
+Same numbers, much less typing. Notice the ``stopifnot()`` line. It checks that the inputs make sense before doing any work. If someone accidentally passes vectors of different lengths, the function fails loudly with an error rather than silently giving a wrong answer. That's good reproducibility practice.
+
+Also notice that ``rss`` and ``tss`` were created *inside* the function. They exist only while the function runs and do not appear in your environment. If you have time or your just looking for more practice, have a look at everything we've done today and try to identify other code blocks that could be simplified by being rewritten as functions.
+
+## Is your code portable? ##
+
 Now the fun part. Is your code portable and reproducible? Everything you have done today should have been written in a ``.R`` script which you've been diligently saving to your own machine. Now is the time to send this piece of code to the person sitting next to you to see if they can run it themselves.
 
-When you receive the script from your partner, there will be one modification you will have to make. At the very start of the day we set our working directory using ``setwd()`` before reading in the initial dataset using the ``read.csv()`` command. Chances are that you and your partner set different working directories to one another, so before executing your partner's script, you will have to modify this one line of code to ensure that it will read in the correct data set from wherever it is located on your computer. Make sure to **use a different working directory** to the one used in your code so that you don't mix up your own output files with those produced by your partner's code! Do that then run the script by hitting the ``Source`` button in the top right of the script panel, or by highlighting the whole script and hitting ``Run``.
+When you receive the script from your partner, there will be one modification you will have to make. At the very start of the day we set our working directory using ``setwd()`` before reading in the initial dataset using the ``read.csv()`` command. Chances are that you and your partner set different working directories to one another, so before executing your partner's script, you will have to modify this one line of code to ensure that it will read in the correct dataset from wherever it is located on your computer. Make sure to **use a different working directory** to the one used in your code so that you don't mix up your own output files with those produced by your partner's code! Do that then run the script by hitting the ``Source`` button in the top right of the script panel, or by highlighting the whole script and hitting ``Run``.
 
 ---
 

@@ -13,3 +13,8 @@
 # OS
 .DS_Store
 Thumbs.db
+
+# Week 2 outputs that students generate by running the tutorial
+*_Tutorial_2/*.png
+*_Tutorial_2/*.csv
+!*_Tutorial_2/Paramecium_aurelia.csv
