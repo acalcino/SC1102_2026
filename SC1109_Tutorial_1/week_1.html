@@ -906,19 +906,8 @@ beautiful. There are lots of ways to improve this using base R, but an
 even better way is to load a dedicated plotting package, the most famous
 of which is <a href="https://ggplot2.tidyverse.org/">ggplot2</a>. Let’s
 install ggplot2, load it and then use it to recreate the plot.</p>
-<pre class="r"><code># First, check if ggplot2 is installed already or not
-is_ggplot2_installed &lt;- &quot;ggplot2&quot; %in% installed.packages()[,&quot;Package&quot;]
-
-if (is_ggplot2_installed) {
-  print(&quot;yep&quot;)
-} else {
-  print(&quot;nope&quot;)
-}
-
-# If it&#39;s not installed (i.e. the previous command prints &quot;nope&quot;, rather than &quot;yep&quot;), install it
-if (!is_ggplot2_installed) {
-  install.packages(&quot;ggplot2&quot;)
-}</code></pre>
+<pre class="r"><code># Install ggplot2. You only need to do this once on each computer
+install.packages(&quot;ggplot2&quot;)</code></pre>
 <p>Once that’s done, no need to repeat it as you only ever need to
 install a package once. In future sessions you’ll only have to load it
 with <code>library()</code> each time you want to use it.</p>

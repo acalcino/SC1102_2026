@@ -416,19 +416,8 @@ So far, everything we have done in R has been using base R, which is R without a
 You might have noticed that the R plot we just created isn't exactly beautiful. There are lots of ways to improve this using base R, but an even better way is to load a dedicated plotting package, the most famous of which is [ggplot2](https://ggplot2.tidyverse.org/). Let's install ggplot2, load it and then use it to recreate the plot.
 
 ```{r eval=FALSE}
-# First, check if ggplot2 is installed already or not
-is_ggplot2_installed <- "ggplot2" %in% installed.packages()[,"Package"]
-
-if (is_ggplot2_installed) {
-  print("yep")
-} else {
-  print("nope")
-}
-
-# If it's not installed (i.e. the previous command prints "nope", rather than "yep"), install it
-if (!is_ggplot2_installed) {
-  install.packages("ggplot2")
-}
+# Install ggplot2. You only need to do this once on each computer
+install.packages("ggplot2")
 
 ```
 
