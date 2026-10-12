@@ -17,6 +17,14 @@ date: "2026 Trimester 3"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{css, echo=FALSE}
+/* Name real monospace fonts for code. Relying on the browser's generic
+   "monospace" setting can give a proportional font on some Linux machines. */
+pre, code, kbd, samp {
+  font-family: "Courier New", Courier, "Liberation Mono", "DejaVu Sans Mono", monospace;
+}
+```
+
 [&larr; Back to the SC1102 course page](../)
 
 ## Welcome back to R ##

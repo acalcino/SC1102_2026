@@ -18,3 +18,6 @@ Thumbs.db
 *_Tutorial_2/*.png
 *_Tutorial_2/*.csv
 !*_Tutorial_2/Paramecium_aurelia.csv
+
+# R quick reference sheets: kept locally, not published
+*_Tutorial_*/r_quick_reference_*
