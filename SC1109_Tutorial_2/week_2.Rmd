@@ -107,7 +107,9 @@ paramecium <- read.csv("Paramecium_aurelia.csv")
 
 If this doesn't work, it means the paramecium dataset is not in your working directory.
 
-Now we want to produce a simple plot to visualise the data but the issue is, we don't just want to see it in the plot window in RStudio, we also want to save a copy as an image file so that we can look at it later. To do this, we'll first plot our data using ``ggplot()`` and then we'll run the command ``ggsave()`` to save the plot to an image file.
+Now we want to produce a simple plot to visualise the data. Last week when we were working in the `console`, we just ran `ggplot()` command directly and the plot popped up in the `Plots` pane in the bottom right of RStudio. The issue is, if you run this same `ggplot()` command in an R script, you'll get no output in the `Plots` pane as R scripts are written to be executed not just in RStudio, but also directly in R where the `Plots` pane doesn't exist.
+
+The solution is to write the plot to an image file using the command ``ggsave()`` to save the contents of the plot object (`scatter_plot`) to an image file. This is what you'll see in the next code block. We first run the `ggplot()` command and then we write the contents of the object this creates to a file. If you'd like to visualise the output here in RStudio before writing the file, you can run `scatter_plot` on the console directly to make sure your plot looks as it should. Once you are happy with it, update the command in your R script.
 
 ``` {r}
 # Load the ggplot2 package so that we can use it in this script
@@ -120,7 +122,7 @@ scatter_plot <- ggplot(paramecium, aes(x = Time..days., y = Paramecium)) +
        y = "Population size (N)",
        title = "Paramecium population growth")
 
-# Display the plot
+# Display the plot - Will do nothing when run in your R script so run this in the console if you want to visualise it
 scatter_plot
 
 # Save the plot as an image file to our working directory.

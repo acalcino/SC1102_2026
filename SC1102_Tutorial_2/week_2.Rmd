@@ -107,7 +107,9 @@ paramecium <- read.csv("Paramecium_aurelia.csv")
 
 If this doesn't work, it means the paramecium dataset is not in your working directory.
 
-Now we want to produce a simple plot to visualise the data but the issue is, we don't just want to see it in the plot window in RStudio, we also want to save a copy as an image file so that we can look at it later. To do this, we'll first plot our data and then we'll run the command ``dev.copy()`` to copy the contents of the plot window to an image file.
+Now we want to produce a simple plot to visualise the data. Last week when we were working in the `console`, we just ran the `plot()` command directly and the plot popped up in the `Plots` pane in the bottom right of RStudio. The issue is, if you run this same `plot()` command in an R script, you'll get no output in the `Plots` pane as R scripts are written to be executed not just in RStudio, but also directly in R where the `Plots` pane doesn't exist.
+
+The solution is to write the plot to an image file using the command ``dev.copy()`` to copy the contents of the plot to an image file. This is what you'll see in the next code block. We first run the `plot()` command and then we write the contents of that to a file. If you'd like to visualise the output here in RStudio before writing the file, you can copy your `plot()` command from your R script to the console and execute it there to make sure your plot looks as it should. Once you are happy with your plot, update the command in your R script.
 
 ``` {r}
 # Produce a simple scatter plot of the data
