@@ -32,7 +32,7 @@ So how do we get around this I hear you ask? Great question! This week we are ta
 
 Here's a fun fact for you. Every tutorial page you've read in this bootcamp, including this one, is an R Markdown document. If you'd like to see what this page looks like before it's knitted, you can download its source file, [week_3.Rmd](week_3.Rmd), and open it in RStudio.
 
-**This week, the report you produce is your assessment item.** In the first part of the tutorial we will learn how R Markdown works, using the harvesting model from the fisheries lectures as our example. We'll then apply the same ideas to survey data from a reef line fishery, and meet the **tidyverse**, a family of packages for working with data, which we'll use to switch the fishery data between wide and long formats. At the end, you will use what you've learnt to write a short report on the collapse of the Newfoundland cod fishery and on the reef line fishery, and knit it to Word. The details are in the [assessment section](#your-assessment-the-newfoundland-cod-report) at the bottom of this page.
+**This week, the report you produce is your assessment item.** First we'll learn how R Markdown works. Then, just like you built a script last week, you'll build a report as you work through the tutorial. It tells the story of a coral trout fishery that was fished almost to collapse, closed for 40 years to let it recover, and now wants to reopen. Using 40 years of survey data, you'll work out how the population grows and recommend how many fish can be harvested each year without it collapsing again. Along the way you'll meet the **tidyverse**, a family of packages for working with data, and use it to switch the survey data between wide and long formats. The checklist for your report is in the [assessment section](#your-assessment) at the bottom of this page.
 
 ## Setting up ##
 
@@ -62,7 +62,7 @@ install.packages("rmarkdown")
 ### Your first R Markdown document ###
 
 1. Click ``File``/``New File``/``R Markdown...``
-2. In the window that pops up, choose ``Document`` on the left. Give it the title ``Harvesting practice``, put your name in as the author, and under ``Default Output Format`` choose ``Word``. Click ``OK``.
+2. In the window that pops up, choose ``Document`` on the left. Give it the title ``Reopening the coral trout fishery``, put your name in as the author, and under ``Default Output Format`` choose ``Word``. Click ``OK``.
 3. A new file opens in the top left pane. It isn't empty, RStudio has filled it with an example to get you started.
 4. Save it straight away into your project folder with ``File``/``Save As``. Use the same naming scheme as last week, so mine is ``adc_sc1109_tut3.Rmd``. Note the file extension is ``.Rmd`` and not ``.R``.
 
@@ -88,7 +88,7 @@ The block at the very top of your file, fenced off by two lines of ``---``, is c
 
 ```
 ---
-title: "Harvesting practice"
+title: "Reopening the coral trout fishery"
 author: "Your Name"
 date: "2026-10-27"
 output: word_document
@@ -179,634 +179,125 @@ My advice is to **knit early and knit often**. If you knit after every new chunk
 
 ### Clear out the example ###
 
-Delete everything in your file **below** the ``setup`` chunk. Keep the YAML header and the setup chunk. Then add your first heading, a sentence of your own, and knit again to check it worked. As you work through the rest of this tutorial, put each piece of code into its own chunk in this practice document, and write a sentence or two of text around each chunk explaining what it does and what it shows. Knit after every chunk or two.
+This document is going to become your report, so delete everything in your file **below** the ``setup`` chunk. Keep the YAML header and the setup chunk. Then knit again to check it still works. From here on, every chunk of code in this tutorial goes into your report, in order, and you'll write the text around it. Knit after every chunk or two.
 
-## Is sustainable harvesting feasible? ##
+## The story ##
 
-Now for the science. Last week we built the geometric and logistic models of population growth in R. This week we add the final piece of the fisheries module, ``harvesting``. You've already done all of this in Excel, so none of the modelling will be new to you. What's new is that this time, the code, the plots and your explanation of them will all live in the one document. Remember the general framework from the lectures:
+Here's the situation. A coral trout fishery off the Queensland coast was fished so hard through the 1970s and early 80s that by 1985 the stock had crashed to a fraction of its former size. If fishing had carried on, the stock would almost certainly have collapsed altogether. So in 1985 fishing was banned, and every year since then, scientists have surveyed the number of coral trout in four zones of the fishery. Forty years on, the stock looks a lot healthier and the fishing industry wants to know if it can reopen.
+
+That's where you come in. Your job is to use the survey data to work out how this population grows, and then to recommend a harvest that the fishery can sustain. Sound familiar? It's the same modelling cycle we used last week:
+
+```
+1. Question                 How much can we harvest each year without the stock collapsing?
+2. Variables & assumptions  Population size N, harvest h, logistic growth
+3. Model construction       N(t+1) = N(t) + G(N(t)) - h
+4. Results                  Estimate K and R0 from the survey data, then G(N) and the MSY
+5. Testability              Simulate the stock under different harvests
+6. Evaluation               Which harvests are sustainable?
+7. Interpretation           What harvest do we recommend?
+```
+
+**A word of warning, these data are simulated.** I made them up using the logistic model you've been building in this course, plus some random good and bad years, and some survey error to make them look like real survey data. Coral trout are real but this fishery and these numbers are not, so please don't quote them anywhere!
+
+Every chunk from here on goes into your report. Where you see **In your report:**, that's something you need to write yourself.
+
+Remember the general framework from the lectures. Next year's population is this year's population, plus natural population growth, minus the harvest:
 
 $$N_{t+1} = N_t + G(N_t) - h$$
 
-so the change in population size from one year to the next is natural growth minus the harvest:
-
-$$\Delta N = N_{t+1} - N_t = G(N_t) - h$$
-
-For logistic growth, the production function is:
+and for logistic growth, the production function is:
 
 $$G(N) = R_0\left(1 - \frac{N}{K}\right)N$$
 
-From the lectures, a harvest is sustainable if two requirements are met:
+**In your report:** under a heading ``# Introduction``, explain the situation and the question in two or three sentences, and the two requirements for a sustainable harvest (equilibrium and ecological stability). Under a heading ``# The model``, write out the two equations above using ``$$ ... $$``.
 
-1. **Equilibrium.** The population stays the same size from year to year, so ``ΔN = 0``. That means the harvest exactly matches natural growth, ``h = G(N)``.
-2. **Ecological stability.** If the population is nudged a little away from the equilibrium, it moves back towards it rather than zooming away from it.
+## The data ##
 
-We're going to use the same example as the textbook (page 85) and the fisheries module, a fish population with a carrying capacity of ``K = 100`` and ``R_0 = 0.2``. Let's set up our parameters in the first chunk of our document.
+Download [recovering_fishery_counts.csv](recovering_fishery_counts.csv) into your project folder. Add a heading ``# The data`` to your report, then read the data in.
 
 ```{r}
-# Carrying capacity K: the largest population the environment can support
-K <- 100
+# Read in the survey data. N is in thousands of fish
+counts <- read.csv("recovering_fishery_counts.csv")
 
-# Per capita growth rate R0 when the population is tiny and there's no crowding
-R0 <- 0.2
-
-# The three harvests (fish per year) we will compare, the same as the lectures
-harvests <- c(4, 5, 6)
+# Have a look at the first six years
+head(counts)
 
 ```
 
-### The production function ###
-
-The first thing we want is the production function, ``G(N)`` for every population size from 0 to ``K``. We'll store this in a dataframe with one row for each population size.
+There's one row for each year, and one column for each of the four survey zones, holding the estimated number of fish in thousands. We want the size of the whole stock, so let's add the four zones together into a new column.
 
 ```{r}
-# Build a data frame of population sizes from 0 to K in steps of 1
-production <- data.frame(N = seq(0, K, by = 1))
+# Total number of fish (thousands) across all four zones in each year
+counts$total <- counts$zone_A + counts$zone_B + counts$zone_C + counts$zone_D
 
-# Calculate natural growth G(N) for every one of those population sizes
-production$G_N <- R0 * (1 - production$N / K) * production$N
-
-# Have a look at the first six rows
-head(production)
+# The number of years of surveys
+n_years <- nrow(counts)
 
 ```
 
-Now let's plot it, and add a horizontal line for each of our three harvests, just like the production function figure in the lecture notes. In Week 2 we had to save each plot to a file with ``ggsave()``. In R Markdown there's no need, plots are put straight into the report for you. Remember that a document has to load every package it uses, so ``library(ggplot2)`` goes in a chunk before our first plot. To give your plot a caption in your report, add ``fig.cap`` to the chunk options, like the ``production-plot`` example in the chunk options section above.
+Now we can use subsetting to pull out the first and last surveys. Remember that inside the square brackets, whatever goes before the comma picks the rows and whatever goes after it picks the columns. Instead of saying *which* row number we want, we can describe *what* the rows we want look like.
 
-```{r production-plot, fig.cap="The logistic production function with K = 100 and R0 = 0.2. The dashed lines are the three harvests."}
+```{r}
+# The total in the first survey (1985) and the most recent survey (2025)
+N_1985 <- counts[counts$year == 1985, "total"]
+N_2025 <- counts[counts$year == 2025, "total"]
+
+# How many times bigger is the stock now?
+N_2025 / N_1985
+
+```
+
+Read that first line out loud as "give me the ``total`` column, from the rows of ``counts`` where ``year`` is equal to 1985". Note that it's two equals signs, ``==``, which asks "is this equal to?". A single ``=`` is for giving values to arguments.
+
+A table of every tenth year makes a nice summary for a report. ``%in%`` asks "is this value one of these?", so it keeps the rows whose year is in our list. ``knitr::kable()`` then turns the result into a proper table when you knit.
+
+```{r}
+# Keep the rows from every tenth year, and turn them into a table for the report
+knitr::kable(counts[counts$year %in% c(1985, 1995, 2005, 2015, 2025), ], row.names = FALSE,
+             caption = "Survey estimates (thousands of fish) every ten years.")
+
+```
+
+Now let's plot the recovery. In Week 2 we had to save each plot to a file with ``ggsave()``. In R Markdown there's no need, plots go straight into the report. Remember that a document has to load every package it uses, so ``library(ggplot2)`` goes in a chunk before our first plot. To give a plot a caption, add ``fig.cap`` to the chunk options, like the example in the chunk options section above.
+
+```{r recovery-plot, fig.cap="Total survey estimates for the fishery since fishing was banned in 1985."}
 # Load ggplot2. Every document has to load the packages it uses, in a chunk
 library(ggplot2)
 
-# Put the three harvests into a small data frame so that ggplot can draw a
-# line for each one
-harvest_lines <- data.frame(h = harvests)
-
-# Plot the production function G(N) against N as a line
-ggplot(production, aes(x = N, y = G_N)) +
-  geom_line(colour = "blue", linewidth = 1) +
-  # Add a dashed horizontal line for each harvest. factor() treats each harvest
-  # as a separate group, so each one gets its own colour and legend entry
-  geom_hline(data = harvest_lines, aes(yintercept = h, colour = factor(h)),
-             linetype = "dashed", linewidth = 1) +
-  # Choose the colour for each harvest and give the legend a title
-  scale_colour_manual(name = "Harvest (h)",
-                      values = c("4" = "darkgreen", "5" = "orange", "6" = "red")) +
-  labs(x = "Population size (N)",
-       y = "Natural growth G(N) and harvest h",
-       title = "Production function")
+# Plot the total stock over time
+ggplot(counts, aes(x = year, y = total)) +
+  geom_point(size = 2) +
+  labs(x = "Year",
+       y = "Number of fish (thousands)",
+       title = "Recovery of the fishery after the 1985 ban")
 
 ```
 
-> **Excel bridge.** In Excel, you made this chart by building a column of ``N`` values, a column of formulas for ``G(N)``, and then clicking through the chart menus. Here, the whole thing is in a few lines of code that sit right next to the explanation in your report. If you change ``K`` in your first chunk and knit again, the chart redraws itself.
-
-Just by looking at the plot, we can see what the lectures told us. With a harvest of 6 (red), the line never touches the production function, so there's no equilibrium at all. With a harvest of 5 (orange), the line just touches the very top of the hump. With a harvest of 4 (green), the line crosses the hump twice, so there are two equilibria. Rather than squinting at a graph though, we can ask the dataframe directly. To do that, we need to get good at **subsetting**.
-
-### Subsetting: asking questions of a dataframe ###
-
-Subsetting means pulling out just the rows and/or columns of a dataframe that you want. It is one of the most useful skills you will learn in R, and you'll use it constantly in the El Niño module. In Week 1 you saw that we use square brackets with a comma in the middle:
-
-```
-data_frame[rows, columns]
-```
-
-Whatever goes before the comma picks the rows, and whatever goes after it picks the columns. Leave either side empty and you get all of them.
-
-**Picking rows and columns by position or name**
-
-```{r}
-# Rows 1 to 5, all columns
-production[1:5, ]
-
-# Rows 1, 51 and 101 (N = 0, 50 and 100), all columns. c() combines the numbers
-production[c(1, 51, 101), ]
-
-# All rows, but only the G_N column. This gives a vector, just like production$G_N
-head(production[, "G_N"])
-
-```
-
-**Picking rows with a condition**
-
-This is where subsetting gets really powerful. Instead of saying *which* rows we want, we describe *what* the rows we want look like. Watch what happens when we compare a column to a number.
-
-```{r}
-# Is G(N) greater than 4? This gives one TRUE or FALSE for every row
-head(production$G_N > 4)
-
-```
-
-If we put that TRUE/FALSE vector before the comma, R keeps every row that is TRUE and drops every row that is FALSE. You actually did this last week when we calculated ``K`` from the paramecium data from day 11 onwards.
-
-```{r}
-# Keep only the rows where G(N) is greater than 4.8
-production[production$G_N > 4.8, ]
-
-```
-
-Read that line out loud as "give me the rows of ``production`` where ``production$G_N`` is greater than 4.8, and all the columns". The operators you can use to make a condition are:
-
-```
-==   is equal to (two equals signs! one = is for giving values to arguments)
-!=   is not equal to
->    is greater than
->=   is greater than or equal to
-<    is less than
-<=   is less than or equal to
-&    AND, both conditions must be TRUE
-|    OR, at least one condition must be TRUE
-```
-
-```{r}
-# Rows where N is between 45 and 55. Both conditions must be TRUE, so use &
-production[production$N >= 45 & production$N <= 55, ]
-
-```
-
-**Finding the maximum sustainable yield**
-
-The peak of the production function is the maximum sustainable yield (MSY), the largest harvest the population could possibly sustain. We can find the row where it happens with a condition:
-
-```{r}
-# Find the row where G(N) is equal to its largest value
-production[production$G_N == max(production$G_N), ]
-
-```
-
-So the peak is at ``N = 50`` with ``G(N) = 5``. From the lectures, we also know the formulas for this, ``N_MSY = K/2`` and ``MSY = R_0K/4``. Let's calculate them and check they agree with our subsetting.
-
-```{r}
-# Population size at the maximum sustainable yield
-N_MSY <- K / 2
-
-# The maximum sustainable yield
-MSY <- R0 * K / 4
-
-# Print both
-N_MSY
-MSY
-
-```
-
-They agree. Now we can use inline code to report them in our writing. If you type this into the text part of your practice document:
+**In your report:** describe the recovery in a sentence or two, using inline code for the numbers. For example, mine says "Between 1985 and 2025 the stock grew from `r N_1985` to `r N_2025` thousand fish." and in my ``.Rmd`` file that sentence looks like this:
 
 ````md
-The maximum sustainable yield is `r knitr::inline_expr("MSY")` fish per year, at a population size of `r knitr::inline_expr("N_MSY")`.
+Between 1985 and 2025 the stock grew from `r knitr::inline_expr("N_1985")` to `r knitr::inline_expr("N_2025")` thousand fish.
 ````
 
-then when you knit, it will read: The maximum sustainable yield is `r MSY` fish per year, at a population size of `r N_MSY`. Try it now, and knit to check.
+### Wide and long ###
 
-### Finding the equilibria ###
+Have another look at ``counts``. There's one row for each year, and the fish counts are spread across four columns, one for each zone. This is called **wide** format, and it's how you would probably lay this data out in Excel. It's nice and easy for a human to read.
 
-For a harvest ``h``, the equilibria are the population sizes where ``G(N) = h``. On our plot, they're where the dashed lines cross the hump. Let's use subsetting to find them for a harvest of 4. We'll keep all the rows where natural growth is at least as big as the harvest.
-
-```{r}
-# Keep only the population sizes where natural growth can keep up with a harvest of 4
-can_sustain_4 <- production[production$G_N >= 4, ]
-
-# How many rows are there?
-nrow(can_sustain_4)
-
-# Look at the first few and last few rows
-head(can_sustain_4)
-tail(can_sustain_4)
+There's a catch though. Each row actually holds four observations, one for each zone, and the name of the zone isn't stored anywhere in the data. It's hiding in the column names. The alternative is **long** format, where every row holds exactly one observation. Here are the first two years of two of the zones in both formats:
 
 ```
+Wide                         Long
 
-Natural growth keeps up with a harvest of 4 for every population size from `r min(can_sustain_4$N)` to `r max(can_sustain_4$N)`. The two ends of this range are where the green line crosses the hump, so the two equilibria are at about ``N = 28`` and ``N = 72``. Notice that the numbers in that sentence came from inline code too, using ``min()`` and ``max()`` on the ``N`` column of our subset. They're only approximate, because our ``N`` values go up in steps of 1.
-
-```{r}
-# Store the two approximate equilibria for a harvest of 4
-lower_eq <- min(can_sustain_4$N)
-upper_eq <- max(can_sustain_4$N)
-
-# The same trick for a harvest of 5
-production[production$G_N >= 5, ]
-
-# And for a harvest of 6
-production[production$G_N >= 6, ]
-
+year  zone_A  zone_B         year  zone    N
+1985  65.5    45.4           1985  zone_A  65.5
+1986  84.1    54.9           1985  zone_B  45.4
+                             1986  zone_A  84.1
+                             1986  zone_B  54.9
 ```
 
-A harvest of 5 gives exactly one row, ``N = 50``, so there's one equilibrium. A harvest of 6 gives a dataframe with no rows at all, because natural growth never gets that high, so there's no equilibrium. Our subsetting matches the three cases from the lectures exactly.
+Same numbers, different shape. Long format has more rows, but now ``zone`` is a column of its own, so we can filter on it, group by it and colour by it. As a rule of thumb, ggplot2 and most tidyverse functions want **long** data, while tables in a report are usually easier to read in **wide** format. So you need to be able to switch between the two.
 
-> **For the curious.** You can find the exact equilibria by solving the quadratic equation $R_0(1 - N/K)N = h$, which gives $N = \frac{K}{2}\left(1 \pm \sqrt{1 - \frac{4h}{R_0K}}\right)$. For ``h = 4`` that's 27.6 and 72.4. You don't need this for the assessment.
-
-### Your turn: subsetting the production function ###
-
-Add a chunk to your practice document for each of these, with a sentence explaining the answer. Have a go yourself before you peek at the answers!
-
-a. What range of population sizes can sustain a harvest of 3 fish per year?
-b. What is ``G(N)`` when ``N = 25``? What about when ``N = 75``? Why are they the same?
-c. How many population sizes have a natural growth of less than 1?
-d. Show all the rows where ``N`` is less than 5 **or** greater than 95.
-
-<details>
-<summary>Show answers</summary>
-
-```{r}
-# a. Keep the rows where G(N) is at least 3, then look at the smallest and largest N
-can_sustain_3 <- production[production$G_N >= 3, ]
-min(can_sustain_3$N)
-max(can_sustain_3$N)
-
-# b. Pick out the G_N value in the rows where N is 25 and where N is 75.
-# They're the same because the production function is symmetric about N = K/2
-production[production$N == 25, "G_N"]
-production[production$N == 75, "G_N"]
-
-# c. Count the rows where G(N) is less than 1
-nrow(production[production$G_N < 1, ])
-
-# d. Use | for OR
-production[production$N < 5 | production$N > 95, ]
-
-```
-
-</details>
-
-## Is the equilibrium stable? ##
-
-Finding an equilibrium is only half the job. We also need to know whether it is ecologically stable. In Excel, you did this by typing different starting populations into cell B2 and watching what the population did over time. We're going to do the same thing in R.
-
-### One simulation ###
-
-Let's start with one simulation, a starting population of 80 fish and a harvest of 4 per year, run for 60 years. This is the same ``for loop`` we built last week, with one change. Each year we subtract the harvest.
-
-```{r}
-# Number of years to run each simulation for
-n_years <- 60
-
-# Starting population and harvest for this simulation
-N0 <- 80
-h <- 4
-
-# An empty vector with one slot for each year, from year 0 to year 60
-N <- numeric(n_years + 1)
-
-# Put the starting population in the first slot
-N[1] <- N0
-
-# Step the model forward one year at a time using N(t+1) = N(t) + G(N(t)) - h.
-# A population can't have fewer than zero fish, so max(0, ...) takes whichever
-# is bigger, zero or the new population size
-for (t in 1:n_years) {
-  N[t + 1] <- max(0, N[t] + R0 * (1 - N[t] / K) * N[t] - h)
-}
-
-# ggplot needs a data frame, so put the years and population sizes into one
-one_sim <- data.frame(year = 0:n_years, N = N)
-
-# Plot the population over time
-ggplot(one_sim, aes(x = year, y = N)) +
-  geom_line(linewidth = 1) +
-  # Add the two equilibria we found earlier as dashed grey lines
-  geom_hline(yintercept = c(lower_eq, upper_eq), linetype = "dashed", colour = "grey40") +
-  # Show the y axis from 0 to K
-  coord_cartesian(ylim = c(0, K)) +
-  labs(x = "Year",
-       y = "Population size (N)",
-       title = "Starting at 80 fish with a harvest of 4")
-
-```
-
-The population drops from 80 and settles at the upper equilibrium, around 72. But one simulation doesn't tell us much. To test stability properly, we need to try lots of starting populations, for all three harvests.
-
-### Lots of simulations ###
-
-In Excel, you'd have to copy your sheet over and over again, once for every combination of starting population and harvest. That's a lot of clicking. In R, we can let a loop do all the copying for us. First, we make a table of every combination we want to try. ``expand.grid()`` does exactly that.
-
-```{r}
-# Every combination of 8 starting populations and our 3 harvests, 24 scenarios in all
-scenarios <- expand.grid(N0 = c(10, 20, 30, 40, 50, 60, 80, 100),
-                         h = harvests)
-
-# Have a look
-scenarios
-
-```
-
-Now we loop over the rows of ``scenarios``. For each one, we run the same simulation as above, and stack its results onto the bottom of a big dataframe called ``simulations``. This is a loop inside a loop. The outer loop picks a scenario, the inner loop is the exact same loop we used above. Take a minute to read it through.
-
-```{r}
-# An empty data frame to collect the results of every simulation
-simulations <- data.frame()
-
-# The outer loop: go through the scenarios one row at a time
-for (s in 1:nrow(scenarios)) {
-
-  # Use subsetting to pull out the starting population and harvest for this scenario
-  N0 <- scenarios[s, "N0"]
-  h <- scenarios[s, "h"]
-
-  # The inner loop: exactly the same simulation as before
-  N <- numeric(n_years + 1)
-  N[1] <- N0
-  for (t in 1:n_years) {
-    N[t + 1] <- max(0, N[t] + R0 * (1 - N[t] / K) * N[t] - h)
-  }
-
-  # Store this simulation in a small data frame, one row per year
-  one_run <- data.frame(year = 0:n_years, N = N, N0 = N0, h = h)
-
-  # rbind() stacks one data frame on the bottom of another
-  simulations <- rbind(simulations, one_run)
-}
-
-# Check what we've made
-str(simulations)
-
-```
-
-So to break this down, ``simulations`` has `r nrow(simulations)` rows, one for every year of every one of our `r nrow(scenarios)` scenarios. That's far too many to look at all at once, which is exactly the situation subsetting was made for.
-
-### Slicing up the simulations ###
-
-**One scenario.** To pull out a single simulation, we need two conditions at once, so we use ``&``.
-
-```{r}
-# The simulation that started at 30 fish with a harvest of 4
-run_30_4 <- simulations[simulations$h == 4 & simulations$N0 == 30, ]
-
-# Look at the first and last few years
-head(run_30_4)
-tail(run_30_4)
-
-```
-
-**One year.** What did every population look like at the end of the 60 years?
-
-```{r}
-# Keep only the rows from the final year
-final <- simulations[simulations$year == n_years, ]
-
-# Have a look
-final
-
-```
-
-The numbers down the left hand side are the row numbers from ``simulations``. Subsetting keeps the original row numbers, so you can always tell where a row came from.
-
-**Adding a column, then subsetting on it.** Let's add a column recording whether each population collapsed to zero.
-
-```{r}
-# TRUE if the population ended at zero, FALSE if it didn't
-final$collapsed <- final$N == 0
-
-# Only the scenarios that collapsed, showing just three of the columns
-final[final$collapsed == TRUE, c("h", "N0", "N")]
-
-# sum() counts the TRUEs, because R treats TRUE as 1 and FALSE as 0
-sum(final$collapsed)
-
-```
-
-**Matching several values with %in%.** ``%in%`` asks "is this value one of these?". It's a tidy alternative to writing lots of ``|`` conditions.
-
-```{r}
-# Final population for the scenarios that started at 20, 30 or 40 fish
-final[final$N0 %in% c(20, 30, 40), c("h", "N0", "N")]
-
-```
-
-**Sorting with order().** ``order()`` gives back the row positions in order from smallest to largest, so putting it before the comma sorts the rows.
-
-```{r}
-# Sort the final populations from smallest to largest
-final[order(final$N), c("h", "N0", "N")]
-
-```
-
-### Plotting the simulations ###
-
-Now let's plot every simulation for a harvest of 4 on the same graph. Because ``simulations`` has one row per year per scenario, with a column saying which starting population each row belongs to, we can tell ggplot to draw a separate line for each starting population just by mapping ``N0`` to ``colour``. No loop needed. Remember this when we get to the tidyverse section, because this shape of dataframe has a name.
-
-```{r stability-plot, fig.cap="Population size over time for eight starting populations with a harvest of 4. The dashed lines are the two equilibria."}
-# Choose which harvest to plot
-h_plot <- 4
-
-# Subset out the simulations for that harvest
-sims_h <- simulations[simulations$h == h_plot, ]
-
-# One line per starting population. factor() turns N0 into groups, so each
-# starting population gets its own colour
-ggplot(sims_h, aes(x = year, y = N, colour = factor(N0))) +
-  geom_line(linewidth = 1) +
-  # Add the two equilibria we found for a harvest of 4
-  geom_hline(yintercept = c(lower_eq, upper_eq), linetype = "dashed", colour = "grey40") +
-  coord_cartesian(ylim = c(0, K)) +
-  # paste() builds a title that changes with h_plot
-  labs(x = "Year",
-       y = "Population size (N)",
-       colour = "Starting N",
-       title = paste("Harvest h =", h_plot))
-
-```
-
-Now for the moment of truth. This one plot holds the whole story for a harvest of 4. Every population that started **above** the lower equilibrium (about 28) ended up at the upper equilibrium (about 72), whether it started above it or below it. That means the upper equilibrium is **stable**. Every population that started **below** the lower equilibrium crashed to zero, and the closer it started to the lower equilibrium, the slower it moved away from it. That means the lower equilibrium is **unstable**. Look at the population that started at 30, just above the lower equilibrium. It crawls away from 28 so slowly that it still hasn't reached 72 after 60 years.
-
-### Your turn: slicing the simulations ###
-
-a. Change ``h_plot`` to 5 and knit, then to 6 and knit. What happens at each harvest? Better still, copy the plotting chunk so that your practice document has all three plots.
-b. Using ``final``, which starting populations collapsed with a harvest of 5?
-c. With a harvest of 6 and a starting population of 100, in which year did the population first hit zero?
-d. What was the population in year 10 for every scenario with a harvest of 4?
-e. Add starting populations of 27 and 29 to ``scenarios``, then rerun **all** your chunks (``Run``/``Run All``, or just knit). What happens to them with a harvest of 4, and why?
-
-<details>
-<summary>Show answers</summary>
-
-```{r}
-# b. Rows of final where h is 5 AND the population collapsed, then just the N0 column
-final[final$h == 5 & final$collapsed == TRUE, "N0"]
-
-# c. Subset out the simulation, then find the years where N is zero and take the first
-run_100_6 <- simulations[simulations$h == 6 & simulations$N0 == 100, ]
-min(run_100_6[run_100_6$N == 0, "year"])
-
-# d. Three conditions are fine too, but here we only need two
-simulations[simulations$h == 4 & simulations$year == 10, c("N0", "N")]
-
-```
-
-a. With ``h = 5`` (harvesting at the MSY), populations that start above 50 creep down towards 50, but any population that starts below 50 collapses. The equilibrium is not ecologically stable, because the slightest dip below 50 and the population is gone. With ``h = 6`` (above the MSY), there is no equilibrium and every population collapses, no matter how big it started.
-
-e. 27 is just below the unstable equilibrium at about 27.6, so it slowly declines and then crashes to zero. 29 is just above it, so it very slowly grows towards the upper equilibrium.
-
-</details>
-
-## So, is sustainable harvesting feasible? ##
-
-Putting our results together, there are three possible outcomes, exactly as in the lectures:
-
-1. **Harvest above the MSY** (``h = 6``). No equilibrium. The population always collapses.
-2. **Harvest at the MSY** (``h = 5``). One equilibrium at ``K/2``, but it is not ecologically stable. Any population that falls below ``K/2`` collapses.
-3. **Harvest below the MSY** (``h = 4``). Two equilibria. The one to the left of the peak of ``G(N)`` is unstable, and the one to the right of the peak is stable.
-
-So yes, sustainable harvesting is feasible, as long as the harvest is below the MSY **and** the population is kept to the right of the peak of the production function. Harvest too much, or let the population fall below the unstable equilibrium, and the fishery collapses. This is precisely what happened to the Newfoundland cod.
-
-Before you move on, knit your practice document one more time and have a look through the Word document. You should have a complete little report on harvesting the textbook fish population, with every number, table and plot generated by your code.
-
-## Back to the real world: a reef line fishery ##
-
-So far all of our populations have come straight out of our model. Now let's see what harvesting looks like in survey data from a fishery. For this section, we're going to use data from a reef line fishery. There are two files. Download both of them into your project folder.
-
-- [reef_fishery_counts.csv](reef_fishery_counts.csv) holds the estimated number of fish (in thousands) of six species from annual surveys, from 1990 to 2025.
-- [reef_fishery_parameters.csv](reef_fishery_parameters.csv) holds the carrying capacity ``K``, the per capita growth rate ``R0`` and the annual harvest (thousands of fish per year) for each species.
-
-**A word of warning, these data are simulated.** I made them up using the logistic harvesting model you've been building today, plus a bit of random noise to make them look like real survey data. The species are real but the numbers are not, so please don't quote them anywhere!
-
-Remember, any file your R Markdown document reads has to be in the same folder as your ``.Rmd``.
-
-```{r}
-# Read in the survey counts and the parameters for each species
-counts <- read.csv("reef_fishery_counts.csv")
-params <- read.csv("reef_fishery_parameters.csv")
-
-# Have a look at the first six years of counts
-head(counts)
-
-# And the parameters
-params
-
-```
-
-Have a look at how ``counts`` is laid out. There's one row for each survey year, and one column for each species, holding the estimated number of fish in thousands.
-
-### Which species are harvested above their MSY? ###
-
-We know from earlier that the maximum sustainable yield is ``MSY = R_0K/4``. Because R does vectorised arithmetic (remember Week 1?), we can calculate the MSY for all six species in one line and add it to ``params`` as a new column.
-
-```{r}
-# The maximum sustainable yield for each species
-params$MSY <- params$R0 * params$K / 4
-
-# TRUE if the annual harvest is bigger than the MSY, FALSE if it isn't
-params$over_MSY <- params$annual_harvest > params$MSY
-
-# Have a look
-params
-
-# Subset out the species that are harvested above their MSY
-params[params$over_MSY == TRUE, c("species", "annual_harvest", "MSY")]
-
-```
-
-Only one species, the red emperor, is harvested above its MSY. From everything we learnt today, we'd predict that it has no equilibrium and will collapse, no matter how many fish there were to begin with. Let's check the surveys.
-
-### Subsetting the surveys ###
-
-All the subsetting tricks from earlier work on this data too. This time the columns we want are species, so we pick them by name.
-
-```{r}
-# The most recent survey, every species
-counts[counts$year == 2025, ]
-
-# Red emperor counts from 2010 to 2015
-counts[counts$year >= 2010 & counts$year <= 2015, c("year", "red_emperor")]
-
-# The years in which no red emperor were counted at all
-counts[counts$red_emperor == 0, "year"]
-
-# So the first year the red emperor was counted at zero was
-min(counts[counts$red_emperor == 0, "year"])
-
-```
-
-The red emperor was gone by `r min(counts[counts$red_emperor == 0, "year"])`, exactly as the model predicted.
-
-### A sustainable species ###
-
-What about a species that's harvested below its MSY? Let's take a look at coral trout. First, we find its equilibria in exactly the same way as we did for our textbook fish, by building its production function and subsetting out the population sizes where natural growth can keep up with the harvest.
-
-```{r}
-# Pull out the row of params for coral trout
-trout <- params[params$species == "coral_trout", ]
-
-# The production function for coral trout, from 0 to its carrying capacity
-trout_prod <- data.frame(N = seq(0, trout$K, by = 1))
-trout_prod$G_N <- trout$R0 * (1 - trout_prod$N / trout$K) * trout_prod$N
-
-# Keep the population sizes where natural growth is at least as big as the harvest
-trout_ok <- trout_prod[trout_prod$G_N >= trout$annual_harvest, ]
-
-# The two ends of that range are the approximate equilibria
-trout_lower <- min(trout_ok$N)
-trout_upper <- max(trout_ok$N)
-trout_lower
-trout_upper
-
-```
-
-Now let's plot the coral trout surveys along with its two equilibria.
-
-```{r trout-plot, fig.cap="Survey estimates of coral trout. The dashed lines are its two equilibria."}
-# Plot the coral trout counts over time, with both points and lines
-ggplot(counts, aes(x = year, y = coral_trout)) +
-  geom_line() +
-  geom_point(size = 2) +
-  # Add the two equilibria as dashed grey lines
-  geom_hline(yintercept = c(trout_lower, trout_upper), linetype = "dashed", colour = "grey40") +
-  coord_cartesian(ylim = c(0, trout$K)) +
-  labs(x = "Year",
-       y = "Number of fish (thousands)",
-       title = "Coral trout")
-
-```
-
-The coral trout started up near its carrying capacity, dropped, and has bounced around the upper equilibrium ever since. The survey noise means it never sits exactly on the line, but that's real(ish) data for you. Let's check it with a bit of subsetting.
-
-```{r}
-# Mean coral trout count from 2000 onwards
-mean(counts[counts$year >= 2000, "coral_trout"])
-
-```
-
-That's close to the upper equilibrium of `r trout_upper`, so the coral trout looks to be harvested sustainably.
-
-### Your turn: the reef fishery ###
-
-a. In which years were there fewer than 100 thousand red emperor?
-b. Which species are harvested **below** their MSY?
-c. Use the same steps we used for the coral trout to find the equilibria of the red emperor. What do you get, and why?
-d. Plot the red emperor surveys over time.
-e. Run ``counts[counts$year == 2025, -1]``. What do you think the ``-1`` does?
-
-<details>
-<summary>Show answers</summary>
-
-```{r}
-# a. Rows where red_emperor is below 100, year column only
-counts[counts$red_emperor < 100, "year"]
-
-# b. Rows of params where over_MSY is FALSE. != means "is not equal to"
-params[params$over_MSY != TRUE, "species"]
-
-# c. The red emperor's production function never reaches its harvest of 40,
-# so the subset has no rows at all. No equilibrium means collapse
-emperor <- params[params$species == "red_emperor", ]
-emperor_prod <- data.frame(N = seq(0, emperor$K, by = 1))
-emperor_prod$G_N <- emperor$R0 * (1 - emperor_prod$N / emperor$K) * emperor_prod$N
-nrow(emperor_prod[emperor_prod$G_N >= emperor$annual_harvest, ])
-
-# d. The same plot as the coral trout, with the red emperor column
-ggplot(counts, aes(x = year, y = red_emperor)) +
-  geom_line() +
-  geom_point(size = 2) +
-  labs(x = "Year",
-       y = "Number of fish (thousands)",
-       title = "Red emperor")
-
-# e. A minus sign drops a row or column, so -1 drops the first column (year)
-counts[counts$year == 2025, -1]
-
-```
-
-</details>
-
-## Meet the tidyverse ##
-
-Up until now, almost everything we've done has been in base R. The one exception is ``ggplot2``, which you met in Week 1. ``ggplot2`` is actually one member of a much bigger family of packages called the [tidyverse](https://www.tidyverse.org/), which are all designed to work together for importing, tidying, transforming and plotting data. You'll come across a lot of tidyverse code online, and in the El Niño module, so it's well worth getting to know.
-
-You can install and load the whole family in one go. As always, you only need to install once on each computer.
+To do that, we need the **tidyverse**. ``ggplot2`` is actually one member of a much bigger family of packages called the [tidyverse](https://www.tidyverse.org/), which are all designed to work together for importing, tidying, transforming and plotting data. You'll come across a lot of tidyverse code online, and in the El Niño module, so it's well worth getting to know. As always, you only need to install it once on each computer.
 
 ```{r eval=FALSE}
 # Install the whole tidyverse. You only need to do this once on each computer
@@ -820,262 +311,370 @@ library(tidyverse)
 
 ```
 
-Don't panic about the wall of text that this prints! The first part lists the packages that were loaded. The ``Conflicts`` part tells you that a couple of tidyverse functions have the same names as functions in base R, so for example when you now type ``filter()`` you'll get the tidyverse version rather than the base R one. This is completely normal. In your report, put ``message=FALSE`` in the chunk options of this chunk so that this text doesn't end up in your Word document.
+Don't panic about the wall of text this prints! The first part lists the packages that were loaded. The ``Conflicts`` part tells you that a couple of tidyverse functions have the same names as functions in base R, so for example when you now type ``filter()`` you'll get the tidyverse version. This is completely normal. In your report, put ``message=FALSE`` in the chunk options of this chunk so that the text doesn't end up in your Word document.
 
-### Tibbles ###
+Before we pivot, there's one more piece of tidyverse style you need to know about, the pipe ``|>``. The pipe takes whatever is on its left and feeds it in as the first argument of the function on its right. You can read it as "and then". So ``counts |> head(3)`` is exactly the same as ``head(counts, 3)``. On its own that doesn't look like much, but it means you can chain lots of steps together and read them from top to bottom. You'll also see ``%>%`` in a lot of code online. It's an older version of the pipe that does the same job.
 
-We'll use the reef fishery data that you've already read in. The tidyverse has its own version of ``read.csv()`` called ``read_csv()`` (note the underscore rather than the full stop). It does the same job, but gives you a ``tibble``, which is the tidyverse's version of a dataframe. The main difference is that a tibble prints more neatly, showing just the first ten rows and the value type of each column underneath its name. Tidyverse functions work just as happily on the ordinary dataframes we already have, and everything you learnt about subsetting dataframes works on tibbles too, so we'll stick with ``counts`` and ``params``.
-
-### Wide and long ###
-
-Look at how ``counts`` is laid out. There's one row for each year, and one column for each species. This is called **wide** format, and it's how you would probably lay this data out in Excel. It's nice and easy for a human to read.
-
-There's a catch though. Each row actually holds six observations, one for each species, and the name of the species isn't stored anywhere in the data. It's hiding in the column names. The alternative is **long** format, where every row holds exactly one observation. Here are the first two years of two of the species in both formats:
-
-```
-Wide                                    Long
-
-year  coral_trout  red_emperor          year  species      N
-1990  820          385                  1990  coral_trout  820
-1991  818          356                  1990  red_emperor  385
-                                        1991  coral_trout  818
-                                        1991  red_emperor  356
-```
-
-Same numbers, different shape. Long format has more rows, but now ``species`` is a column of its own, so we can filter on it, group by it, and colour by it. Remember our ``simulations`` dataframe from earlier? That was long format, with one row for every year of every scenario, and it's the reason a single ggplot command could draw a separate line for each starting population.
-
-As a rule of thumb, ggplot2 and most tidyverse functions want **long** data, while tables in a report are usually easier to read in **wide** format. So you need to be able to switch between the two, and the ``tidyr`` package (part of the tidyverse) gives us two functions to do it, ``pivot_longer()`` and ``pivot_wider()``.
-
-### The pipe ###
-
-Before we pivot, there's one more piece of tidyverse style you need to know about, the pipe ``|>``. The pipe takes whatever is on its left and feeds it in as the first argument of the function on its right. You can read it as "and then".
+Now let's turn ``counts`` into long format with ``pivot_longer()``.
 
 ```{r}
-# These two lines do exactly the same thing
-head(counts, 3)
-counts |> head(3)
-
-```
-
-On its own that doesn't look like much, but it means you can chain lots of steps together and read them from top to bottom, rather than from the inside out. You'll also see ``%>%`` in a lot of code online. It's an older version of the pipe that does the same job.
-
-### Wide to long with pivot_longer() ###
-
-```{r}
-# Take counts, and then pivot every column except year into two new columns,
-# one holding the old column names (species) and one holding the values (N)
+# Take counts, and then
 counts_long <- counts |>
-  pivot_longer(cols = -year, names_to = "species", values_to = "N")
+  # drop the total column we made, so we only have the four zones, and then
+  select(-total) |>
+  # pivot every column except year into two new columns, one holding the old
+  # column names (zone) and one holding the values (N)
+  pivot_longer(cols = -year, names_to = "zone", values_to = "N")
 
-# Have a look
+# Have a look. 41 years x 4 zones should give 164 rows
 counts_long
-
-# 36 years x 6 species should give 216 rows
 nrow(counts_long)
 
 ```
 
-So to break this down, ``cols = -year`` says pivot every column except ``year`` (the minus sign means "not this one"). ``names_to`` is the name of the new column that will hold the old column names, and ``values_to`` is the name of the new column that will hold the numbers.
+So to break this down, ``cols = -year`` says pivot every column except ``year`` (the minus sign means "not this one", just like with square brackets). ``names_to`` is the name of the new column that will hold the old column names, and ``values_to`` is the name of the new column that will hold the numbers. ``pivot_longer()`` gives back a ``tibble``, which is the tidyverse's version of a dataframe. It prints more neatly, showing just the first ten rows and the value type of each column. Everything you know about dataframes works on tibbles too.
 
-Now that ``species`` is a column, plotting all six species at once is easy.
+Now that ``zone`` is a column, we can check whether every zone is recovering, all in one plot.
 
-```{r reef-plot, fig.cap="Simulated survey estimates of six species in a reef line fishery."}
-# One line per species, coloured by species
-ggplot(counts_long, aes(x = year, y = N, colour = species)) +
+```{r zones-plot, fig.cap="Survey estimates for each of the four zones."}
+# One line per zone, coloured by zone
+ggplot(counts_long, aes(x = year, y = N, colour = zone)) +
   geom_line(linewidth = 1) +
   labs(x = "Year",
        y = "Number of fish (thousands)",
-       colour = "Species",
-       title = "Reef line fishery survey")
+       colour = "Zone",
+       title = "Recovery in each zone")
 
 ```
 
-Try doing that with the wide version! Two of the species are clearly in a lot of trouble.
+Try doing that with the wide version! All four zones have recovered, which is good news for the fishery as a whole.
 
-### Subsetting the tidyverse way ###
+The tidyverse has its own set of functions for subsetting and summarising data. They do the same jobs as the square brackets you've been using:
 
-The tidyverse has its own set of functions for subsetting and transforming data, from a package called ``dplyr``. They do the same jobs as the square brackets you've been using all tutorial, so here they are side by side:
-
-| Job | Base R | dplyr |
+| Job | Base R | Tidyverse |
 |---|---|---|
-| Keep the rows that meet a condition | ``df[df$N == 0, ]`` | ``df |> filter(N == 0)`` |
+| Keep the rows that meet a condition | ``df[df$year == 2025, ]`` | ``df |> filter(year == 2025)`` |
 | Keep some columns | ``df[, c("year", "N")]`` | ``df |> select(year, N)`` |
 | Add a new column | ``df$x <- df$N / 1000`` | ``df |> mutate(x = N / 1000)`` |
-| Sort the rows | ``df[order(df$N), ]`` | ``df |> arrange(N)`` |
-| Summarise each group | (fiddly) | ``df |> group_by(species) |> summarise(mean_N = mean(N))`` |
+| Summarise each group | (fiddly) | ``df |> group_by(year) |> summarise(total = sum(N))`` |
 
-Notice that inside dplyr functions, you write the column names on their own, without the ``df$``.
+Notice that inside tidyverse functions you write the column names on their own, without the ``df$``. Let's use the last one to calculate the total for each year the tidyverse way, and check it matches the ``total`` column we made with base R.
 
 ```{r}
-# Which species had no fish at all in the 2025 survey? A comma inside filter()
-# means AND, so both conditions must be TRUE
-counts_long |>
-  filter(year == 2025, N == 0)
+# Take the long data, and then group it by year, and then add up N in each year
+totals <- counts_long |>
+  group_by(year) |>
+  summarise(total = sum(N))
 
-# The MSY calculation from earlier, the dplyr way. Notice there's no params$
-# anywhere. We don't store the result because params already has these columns
-params |>
-  mutate(MSY = R0 * K / 4,
-         over_MSY = annual_harvest > MSY)
-
-# The mean, smallest and largest survey estimate for each species
-counts_long |>
-  group_by(species) |>
-  summarise(mean_N = mean(N),
-            min_N = min(N),
-            max_N = max(N))
+# Do the two ways of calculating the total agree? all.equal() says TRUE if they do
+all.equal(totals$total, counts$total)
 
 ```
 
-### Long to wide with pivot_wider() ###
+They agree. We'll come back to the tidyverse at the end of the analysis, when we need to go from long to wide.
 
-``pivot_wider()`` does the opposite of ``pivot_longer()``. ``names_from`` says which column the new column names come from, and ``values_from`` says which column holds the values to put in them. Let's prove that it really is the reverse by turning ``counts_long`` back into the original layout.
+## Estimating the carrying capacity ##
+
+Look at the plot. The stock grows quickly at first and then levels off. That levelling off is the carrying capacity ``K``, just like the paramecium last week. To estimate ``K``, we take the mean of the surveys once the stock has levelled off. From the plot, that's from about 2000 onwards. Subsetting again!
 
 ```{r}
-# Take the long data, and then spread the species back out into their own columns
-counts_long |>
-  pivot_wider(names_from = species, values_from = N)
+# Keep only the years after the stock levelled off
+plateau <- counts[counts$year >= 2000, ]
+
+# Carrying capacity K: the mean total from those years
+K <- mean(plateau$total)
+K
 
 ```
 
-Back where we started. Now for something more useful. A table of 36 years of counts is too big for a report, so let's summarise the counts for each species by decade, and then pivot the result so that each species gets a row and each decade gets a column.
+The surveys bounce either side of ``K`` from year to year, which is what we'd expect if the population is sitting at its carrying capacity and the ups and downs are just good years, bad years and survey error.
+
+**In your report:** add a heading ``# Estimating the carrying capacity``, explain how you estimated ``K`` and report it with inline code. It's also worth adding ``geom_hline(yintercept = K, linetype = "dashed")`` to your recovery plot to show where ``K`` sits. Remember the chunk that calculates ``K`` has to come before the plot for this to work!
+
+## Estimating R0 ##
+
+Now for the trickier parameter. ``R_0`` is the per capita growth rate when the population is small and there's no crowding. The logistic model says that the per capita growth rate ``R`` falls in a straight line as the population grows:
+
+$$R = R_0\left(1 - \frac{N}{K}\right)$$
+
+So if we plot the observed ``R`` against ``N``, the points should fall roughly on a straight line, and where that line hits ``N = 0`` is ``R_0``. This is exactly why the early recovery years are so valuable. They are the only years when the population was small.
+
+Just like last week, we can build a table of observed growth from one year to the next. Notice the negative numbers inside the square brackets. A minus sign means "everything **except** this one", so ``[-n_years]`` drops the last year and ``[-1]`` drops the first.
 
 ```{r}
-# Take the long data, and then
-decade_means <- counts_long |>
-  # add a decade column. floor() rounds down, so 1997 / 10 = 199.7 becomes 199,
-  # times 10 is 1990, and paste0() glues on an "s" to make "1990s"
-  mutate(decade = paste0(floor(year / 10) * 10, "s")) |>
-  # and then work out the mean for each species in each decade, rounded to a
-  # whole number. .groups = "drop" removes the grouping once we're done with it
-  group_by(species, decade) |>
-  summarise(mean_N = round(mean(N)), .groups = "drop") |>
-  # and then spread the decades out into their own columns
-  pivot_wider(names_from = decade, values_from = mean_N)
+# Population size this year, N(t). We drop the last year because there is no
+# following year to compare it to
+N_t <- counts$total[-n_years]
 
-# Have a look
-decade_means
+# Population size next year, N(t+1). We drop the first year so everything lines up
+N_t1 <- counts$total[-1]
+
+# A table of the observed growth from each year to the next
+growth <- data.frame(
+  year = counts$year[-n_years],
+  N = N_t,
+  # Observed natural growth G(N). No fishing, so this is just the change in N
+  G_obs = N_t1 - N_t,
+  # Observed per capita growth rate R = G(N) / N
+  R_obs = (N_t1 - N_t) / N_t
+)
+
+# The first ten years of the recovery, when the population was small
+growth[growth$year < 1995, ]
 
 ```
 
-That's a table you could put straight into a report, and ``knitr::kable(decade_means)`` will turn it into a proper table in your Word document. Note that the 2020s column only covers 2020 to 2025.
+Now we fit a straight line through ``R_obs`` against ``N``. In Excel you would have added a linear trendline to your chart. In R, the line of best fit comes from the function ``lm()``, which stands for linear model. The ``~`` reads as "explained by", so ``R_obs ~ N`` means "R_obs explained by N".
 
-### Your turn: the tidyverse ###
+```{r R-plot, fig.cap="Observed per capita growth rate against population size, with the line of best fit."}
+# Fit a straight line through R_obs against N
+fit <- lm(R_obs ~ N, data = growth)
 
-Use the tidyverse functions for these, not square brackets. A couple of them are questions you've already answered with base R, so you can check your answers.
+# The intercept (where the line hits N = 0) and the slope of the line
+coef(fit)
 
-a. Find every year in which ``red_emperor`` had fewer than 100 thousand fish.
-b. In which year was ``red_emperor`` first counted at zero?
-c. Which species have a harvest above their MSY?
-d. Plot only the species whose harvest is **below** their MSY. Hint, ``%in%`` works inside ``filter()`` too.
-e. Make a wide table of the counts for 1990, 2000, 2010 and 2020, with one row for each species and one column for each of those years.
+# R0 is the intercept. unname() just drops the label that coef() attaches
+R0 <- unname(coef(fit)[1])
 
-<details>
-<summary>Show answers</summary>
+# Plot the observed R against N, with the line of best fit and a line at R = 0
+ggplot(growth, aes(x = N, y = R_obs)) +
+  geom_point(size = 2) +
+  # The line of best fit, using the intercept and slope from lm()
+  geom_abline(intercept = coef(fit)[1], slope = coef(fit)[2], colour = "blue", linewidth = 1) +
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "grey40") +
+  labs(x = "Population size N (thousands of fish)",
+       y = "Per capita growth rate R",
+       title = "Per capita growth rate vs population size")
+
+```
+
+There's our straight line, falling as the population grows. The points are noisy (real data always are!), but the trend is clear. Here's a neat check. The line crosses ``R = 0`` at ``N = -intercept / slope``, which is the logistic model's carrying capacity. Our line crosses at `r round(-coef(fit)[1] / coef(fit)[2])`, very close to the ``K`` of `r round(K)` we got from the plateau. Two different ways of estimating ``K`` agree, which gives us confidence in the model.
+
+**In your report:** add a heading ``# Estimating R0``, explain how you estimated ``R_0`` and report it with inline code. Hint, ``round(R0, 2)`` inside your inline code will stop R giving you 15 decimal places.
+
+## The production function ##
+
+We now have both parameters, so we can calculate the production function ``G(N)`` for every population size from 0 to ``K``, and plot it. We'll also add our observed growth, ``G_obs``, as points, so we can see how well the model matches the data.
+
+```{r production-plot, fig.cap="The logistic production function (line) with the observed growth from each year to the next (points)."}
+# A dataframe of population sizes from 0 to K in steps of 1
+production <- data.frame(N = seq(0, K, by = 1))
+
+# Natural growth G(N) at every one of those population sizes
+production$G_N <- R0 * (1 - production$N / K) * production$N
+
+# Plot the production function as a line, and the observed growth as points.
+# The two layers come from two different dataframes
+ggplot() +
+  geom_line(data = production, aes(x = N, y = G_N), colour = "blue", linewidth = 1) +
+  geom_point(data = growth, aes(x = N, y = G_obs), size = 2) +
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "grey40") +
+  labs(x = "Population size N (thousands of fish)",
+       y = "Natural growth G(N) (thousands of fish per year)",
+       title = "Production function")
+
+```
+
+There's the hump from the lectures, and the observed growth follows it nicely. The peak of the hump is the maximum sustainable yield (MSY), the largest harvest the population could possibly sustain. We can find it with subsetting, by asking for the row where ``G(N)`` equals its largest value.
 
 ```{r}
-# a. Two conditions inside filter()
-counts_long |>
-  filter(species == "red_emperor", N < 100)
+# The row of the production function where G(N) is at its maximum
+production[production$G_N == max(production$G_N), ]
 
-# b. Keep the zero counts for red_emperor, and then take the smallest year
-counts_long |>
-  filter(species == "red_emperor", N == 0) |>
-  summarise(first_zero = min(year))
+# Store the MSY and the population size where it happens
+MSY <- max(production$G_N)
+N_MSY <- production[production$G_N == MSY, "N"]
 
-# c. over_MSY is already TRUE or FALSE, so we can filter on it directly
-params |>
-  filter(over_MSY) |>
-  select(species, annual_harvest, MSY)
+# Check against the formulas from the lectures, MSY = R0 * K / 4 and N_MSY = K / 2
+R0 * K / 4
+K / 2
 
-# d. First get the names of the species below their MSY. pull() takes a single
-# column out as a vector, just like $ does
-below_MSY <- params |>
-  filter(!over_MSY) |>
-  pull(species)
+```
 
-counts_long |>
-  filter(species %in% below_MSY) |>
-  ggplot(aes(x = year, y = N, colour = species)) +
+Subsetting and the formulas agree. They're not *exactly* the same, because our ``N`` values only go up in steps of 1.
+
+**In your report:** add a heading ``# The production function``, include the plot, and report the MSY and ``N_MSY`` using inline code.
+
+## Choosing a sustainable harvest ##
+
+Now for the question we came here to answer. We'll compare four possible harvests: half the MSY, three quarters of the MSY, the MSY itself, and a quarter more than the MSY.
+
+```{r}
+# Four harvests to compare, in thousands of fish per year
+harvests <- c(0.5, 0.75, 1, 1.25) * MSY
+round(harvests)
+
+```
+
+### Finding the equilibria ###
+
+From the lectures, a harvest ``h`` has an equilibrium wherever ``G(N) = h``. On the production function, that's wherever a horizontal line at ``h`` crosses the hump. We can find these with subsetting. We keep every population size where natural growth can keep up with the harvest, ``G(N) >= h``, and the two ends of that range are the two equilibria.
+
+We'll do this for all four harvests at once with a ``for loop``, storing the answers in a dataframe. There's one catch. If a harvest is bigger than the MSY, there are no population sizes that can keep up with it, so the subset has no rows. We use an ``if`` statement, just like the R version check in Week 2, to only fill in the equilibria when there are some.
+
+```{r}
+# A dataframe to hold the equilibria for each harvest. NA means "not available"
+equilibria <- data.frame(h = harvests, lower = NA, upper = NA)
+
+for (i in 1:nrow(equilibria)) {
+  # Keep the population sizes where G(N) can keep up with this harvest
+  can_sustain <- production[production$G_N >= equilibria$h[i], ]
+
+  # If there are any, the smallest and largest are the two equilibria
+  if (nrow(can_sustain) > 0) {
+    equilibria$lower[i] <- min(can_sustain$N)
+    equilibria$upper[i] <- max(can_sustain$N)
+  }
+}
+
+# Turn it into a table for the report, rounded to whole numbers
+knitr::kable(round(equilibria), caption = "Equilibria for each harvest (thousands of fish).")
+
+```
+
+Half the MSY has two equilibria that are far apart. As the harvest grows, they squeeze together, until at the MSY they meet at ``N_MSY``. Above the MSY there are none at all, which means no equilibrium and a collapse.
+
+### Testing stability ###
+
+Finding an equilibrium is only half the job. We also need to know whether it is ecologically stable. Just like you did in Excel, we test this by starting the population at different sizes, harvesting it every year, and watching what happens. We'll try every combination of our four harvests and six starting populations, including today's stock, over 50 years. ``expand.grid()`` makes a table of every combination.
+
+```{r}
+# Number of years to simulate
+n_sim <- 50
+
+# Every combination of six starting populations and our four harvests
+scenarios <- expand.grid(N0 = c(200, 400, 600, 800, 1000, N_2025),
+                         h = harvests)
+
+```
+
+Now we loop over the rows of ``scenarios``. For each one, we step the model forward one year at a time, just like last week, but this time subtracting the harvest. A population can't have fewer than zero fish, so ``max(0, ...)`` takes whichever is bigger, zero or the new population size. This is a loop inside a loop. The outer loop picks a scenario, and the inner loop runs it. Each run is stacked onto the bottom of a big dataframe called ``simulations`` with ``rbind()``.
+
+```{r}
+# An empty dataframe to collect every simulation
+simulations <- data.frame()
+
+for (s in 1:nrow(scenarios)) {
+  # Subset out the starting population and harvest for this scenario
+  N0 <- scenarios[s, "N0"]
+  h <- scenarios[s, "h"]
+
+  # Step the model forward one year at a time
+  N <- numeric(n_sim + 1)
+  N[1] <- N0
+  for (t in 1:n_sim) {
+    N[t + 1] <- max(0, N[t] + R0 * (1 - N[t] / K) * N[t] - h)
+  }
+
+  # Stack this simulation onto the bottom of the others
+  simulations <- rbind(simulations, data.frame(year = 0:n_sim, N = N, N0 = N0, h = h))
+}
+
+```
+
+Now let's plot the simulations for one harvest. We subset out the rows for that harvest, and then tell ggplot to draw a separate line for each starting population by mapping ``N0`` to ``colour``. No loop needed! ``paste()`` glues bits of text together to make a title that changes with the harvest.
+
+```{r stability-plot, fig.cap="The stock over 50 years from six starting populations, harvesting three quarters of the MSY. The dashed lines are the two equilibria."}
+# Choose which harvest to plot, the second one is three quarters of the MSY
+h_plot <- harvests[2]
+
+# Subset out the simulations and equilibria for that harvest
+sims_h <- simulations[simulations$h == h_plot, ]
+eq_h <- equilibria[equilibria$h == h_plot, ]
+
+# One line per starting population. factor() turns N0 into groups so each
+# starting population gets its own colour
+ggplot(sims_h, aes(x = year, y = N, colour = factor(round(N0)))) +
   geom_line(linewidth = 1) +
-  labs(x = "Year", y = "Number of fish (thousands)", colour = "Species")
-
-# e. Keep the four years, and then spread the years out into columns
-counts_long |>
-  filter(year %in% c(1990, 2000, 2010, 2020)) |>
-  pivot_wider(names_from = year, values_from = N)
+  # The equilibria as dashed grey lines. na.rm = TRUE skips them quietly when
+  # there aren't any (harvests above the MSY)
+  geom_hline(yintercept = c(eq_h$lower, eq_h$upper), linetype = "dashed",
+             colour = "grey40", na.rm = TRUE) +
+  coord_cartesian(ylim = c(0, K)) +
+  labs(x = "Years after fishing reopens",
+       y = "Number of fish (thousands)",
+       colour = "Starting N",
+       title = paste("Harvest of", round(h_plot), "thousand fish per year"))
 
 ```
 
-</details>
+Now for the moment of truth. Every population that started **above** the lower equilibrium ended up at the upper equilibrium, so the upper equilibrium is **stable**. The population that started **below** the lower equilibrium crashed to zero, so the lower equilibrium is **unstable**. That lower equilibrium is a danger line. If the stock ever falls below it, the fishery will collapse unless the harvest is cut.
 
+Finally, a table of how every scenario ended up. We subset out the final year, and add a column saying whether the population collapsed.
 
-## Your assessment: the Newfoundland cod report ##
+```{r}
+# Keep only the final year of every simulation
+final <- simulations[simulations$year == n_sim, ]
 
-Your assessment this week is a short report, written in R Markdown and knitted to Word, that applies everything above to the collapse of the Newfoundland cod fishery, plus a short section on the reef line fishery. From your fisheries tutorial, estimates for the cod fishery are that the carrying capacity ``K`` was about **1.4 million tonnes** of fish and ``R_0`` was about **1 per year**. Work in thousands of tonnes throughout, so ``K = 1400``.
+# TRUE if the population collapsed to zero
+final$collapsed <- final$N == 0
 
-### Getting started ###
+# How many of the scenarios collapsed? sum() counts the TRUEs
+sum(final$collapsed)
 
-Create a new R Markdown document (``File``/``New File``/``R Markdown...``, output format ``Word``) and save it into your project folder using the naming scheme ``initials_sc1109_report.Rmd``, so mine would be ``adc_sc1109_report.Rmd``. Delete the example content below the ``setup`` chunk, just like you did for your practice document. Most of the code you need is already in your practice document. Your job is to adapt it to the cod, and to explain what your results mean.
+```
+
+That ``final`` dataframe is in long format, one row for each of the 24 scenarios. That's great for R but hard for a human to read. For the report, let's turn it into a wide table instead, with one row for each starting population and one column for each harvest.
+
+```{r}
+# Take final, and then
+final_wide <- final |>
+  # round everything to whole numbers so the table is easy to read
+  mutate(h = round(h), N0 = round(N0), N = round(N)) |>
+  # and then keep just the three columns we need
+  select(N0, h, N) |>
+  # and then spread the harvests out into their own columns
+  pivot_wider(names_from = h, values_from = N)
+
+# Turn it into a table for the report
+knitr::kable(final_wide,
+             caption = "Stock after 50 years (thousands of fish). Rows are starting populations, columns are harvests (thousands of fish per year).")
+
+```
+
+### Your turn ###
+
+a. Copy the plotting chunk three times and change ``h_plot`` to ``harvests[1]``, ``harvests[3]`` and ``harvests[4]``, so that your report has a plot for all four harvests. What happens at the MSY? What happens above it?
+b. Which starting populations collapsed when harvesting three quarters of the MSY? Hint, subset ``final`` using ``&``.
+c. **If you have time.** Our estimates of ``K`` and ``R_0`` came from noisy data, so they might be a bit off. Try knitting with ``R0`` 20% lower than your estimate (multiply it by 0.8 in the chunk where you make it). Which harvests are still sustainable? Change it back when you're done.
+
+## Your recommendation ##
+
+So, how much should the fishery be allowed to harvest? From the lectures and from your own simulations, a harvest is only sustainable if it is **below** the MSY and the stock stays to the **right** of the lower equilibrium. Harvesting right at the MSY isn't safe, because one bad year that knocks the stock below ``N_MSY`` is enough to start a collapse. And remember, our ``K`` and ``R_0`` are only estimates.
+
+**In your report:** under a heading ``# Recommendation``, recommend an annual harvest for the fishery, in thousands of fish per year, and justify it using your equilibria and your simulations. There is no single right answer here, what matters is your reasoning.
+
+Finally, add a heading ``# Reproducibility`` and a chunk that runs ``sessionInfo()``, so that anyone reading your report can see which version of R and which packages you used.
+
+```{r eval=FALSE}
+# The version of R and the packages used to produce this report
+sessionInfo()
+
+```
+
+## Your assessment ##
+
+The report you've built while working through this tutorial is your assessment item. Before you submit it, check it has everything on this list.
 
 ### What your report must contain ###
 
-**YAML header**
-
-- A sensible title, your name **and** student number as the author, the date, and ``output: word_document``.
-
-**1. Introduction**
-
-- Two to four sentences stating the question your report answers and the two requirements for a sustainable harvest.
-
-**2. The model**
-
-- The harvesting model and the logistic production function, written as equations using ``$$ ... $$``.
-- A chunk that sets the parameter values, with a sentence giving each parameter, its value and its units.
-
-**3. The production function and the maximum sustainable yield**
-
-- A chunk that calculates the MSY and ``N_MSY``.
-- A sentence reporting both, written with **inline code**, not typed numbers.
-- A figure of the production function for population sizes from 0 to ``K``, with a horizontal line at the MSY and a vertical line at ``N_MSY``, labelled axes with units, and a caption set with ``fig.cap``.
-
-**4. Equilibria**
-
-- Use subsetting to find the approximate equilibria for a harvest of 250 thousand tonnes per year, and report them using inline code.
-
-**5. Stability**
-
-- Simulations of the cod population over 30 years for harvests of 250, 350 and 450 thousand tonnes per year, each with at least six starting populations between 0 and ``K``.
-- A figure for each harvest, made with ggplot2, with a caption.
-- A table of the population in the final year for every scenario, made by subsetting your simulations. Use ``knitr::kable()`` to turn a dataframe into a neat table in Word, for example ``knitr::kable(final[, c("h", "N0", "N")])``.
-- A paragraph describing which equilibria are stable and which are unstable, and how you can tell from your figures.
-
-**6. Why did the cod fishery collapse?**
-
-Use your production function and your simulations to answer these two questions in a paragraph each. The graph of catch, quota and stock size is in your fisheries tutorial.
-
-- In the late 1960s, catches peaked at roughly 800 thousand tonnes. Why did the stock decline through the 1970s?
-- Through the 1980s, catches were held at roughly 250 thousand tonnes, below the MSY. Use your equilibrium and stability results to explain how a fishery can still collapse even when the harvest is below the MSY.
-
-**7. A reef line fishery**
-
-- A chunk that reads in both reef fishery files.
-- A table of each species' ``K``, ``R0``, annual harvest and MSY, and whether its harvest is above its MSY, made with ``knitr::kable()``.
-- A sentence, written with inline code, giving the year in which each collapsed species was first counted at zero.
-- One species has collapsed even though its harvest is **below** its MSY. Find its equilibria by subsetting its production function, and make a figure of its survey counts over time with its equilibria as dashed lines, with a caption.
-- A chunk that loads the tidyverse (with ``message=FALSE``), pivots the counts to long format, and a figure of all six species over time made from the long data, with a caption.
-- A table of the mean count for each species in each decade, with species as rows and decades as columns, made with ``pivot_wider()`` and ``knitr::kable()``.
-- A paragraph explaining which species have collapsed and which look to be harvested sustainably, and using what you've learnt about equilibria and stability to explain how a species harvested below its MSY could collapse. Hint, compare its equilibria with its 1990 survey count.
-
-**8. Reproducibility**
-
-- A final chunk that runs ``sessionInfo()``, so that a reader can see which version of R and which packages you used.
+- **YAML header** with a sensible title, your name **and** student number as the author, the date, and ``output: word_document``.
+- **Introduction.** The situation, the question, and the two requirements for a sustainable harvest.
+- **The model.** The harvesting model and the logistic production function as equations.
+- **The data.** The table of every tenth year and the plot of the recovery, with a caption and a sentence describing the recovery.
+- **Wide and long.** A figure of the four zones over time, made from the long version of the data, and the check that your tidyverse totals match your base R totals.
+- **Estimating the carrying capacity.** How you estimated ``K``, and its value.
+- **Estimating R0.** The plot of ``R`` against ``N`` with the line of best fit, how you estimated ``R_0``, and its value.
+- **The production function.** The plot, and the MSY and ``N_MSY``.
+- **Choosing a sustainable harvest.** The table of equilibria, a plot of the simulations for each of the four harvests, the wide table of final populations, and a paragraph explaining which equilibria are stable and which are unstable, and how you can tell from your plots.
+- **Recommendation.** Your recommended harvest, with your reasoning.
+- **Reproducibility.** A chunk that runs ``sessionInfo()``.
 
 ### Rules ###
 
 - Every code chunk must be commented, just like your script last week.
 - Every number in your writing that R calculated must come from inline code.
-- No absolute paths and no ``setwd()``. Read the two reef fishery files by name only, for example ``read.csv("reef_fishery_counts.csv")``. When we knit your report, we will put copies of both files in the same folder as your ``.Rmd``.
+- No absolute paths and no ``setwd()``. Read the data file by name only, ``read.csv("recovering_fishery_counts.csv")``. When we knit your report, we will put a copy of the data file in the same folder as your ``.Rmd``.
 - Your report must knit without errors in a fresh R session. We will knit it.
 
 ### Before you submit ###
@@ -1088,8 +687,8 @@ Use your production function and your simulations to answer these two questions 
 | Error message | What it usually means |
 |---|---|
 | ``object 'x' not found`` | You made ``x`` in the console but not in a chunk, or the chunk that makes it comes later in the document |
-| ``could not find function "x"`` | A typo in the function name, or a package that you loaded in the console but not with ``library()`` in a chunk |
-| ``cannot open file 'reef_fishery_counts.csv'`` | The data file isn't in the same folder as your ``.Rmd`` |
+| ``could not find function "x"`` | A typo in the function name, or a package that you loaded in the console but not with ``library()`` in a chunk. ``pivot_longer()`` and friends need ``library(tidyverse)`` |
+| ``cannot open file 'recovering_fishery_counts.csv'`` | The data file isn't in the same folder as your ``.Rmd`` |
 | ``Duplicate chunk label`` | Two chunks have the same name. Rename one, or remove the name |
 | ``unexpected symbol`` / ``unexpected ')'`` | A typo in your code, usually a missing comma, bracket or quotation mark. The error message tells you which chunk it was in |
 | The ``.docx`` won't update | You still have the old ``.docx`` open in Word. Close it and knit again |
