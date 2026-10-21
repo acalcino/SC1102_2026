@@ -14,194 +14,949 @@ date: "2026 Trimester 3"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{css, echo=FALSE}
+/* Name real monospace fonts for code. Relying on the browser's generic
+   "monospace" setting can give a proportional font on some Linux machines. */
+pre, code, kbd, samp {
+  font-family: "Courier New", Courier, "Liberation Mono", "DejaVu Sans Mono", monospace;
+}
+```
+
 [&larr; Back to the SC1109 course page](../)
 
-> **DRAFT OUTLINE — not yet written.** This page is a structural skeleton for Week 3.
-> Week 3 was the least specified of the three, so this outline takes a position on what it should be
-> and flags the choices that are Andrew's to make.
+## Creating reproducible reports in R ##
 
-## Building your own RMarkdown document ##
+Welcome to the final week of the bootcamp! In Week 1 we typed commands into the console. Last week we saved those commands into a script so that anyone could rerun them and get exactly the same plots and tables every time. That was a big step forward, but think about what happens when you need to write up your results. You run your script, open Word, paste your plots in and then copy the numbers from the console into your sentences by hand. Now imagine you find a mistake in your script, or your supervisor asks you to try a different parameter value. Every plot and every number in that Word document is now wrong and you have to hunt down and fix each one by hand. Miss one and your report contradicts itself. Not a good look.
 
-**Goal:** students produce a short, complete, self-contained report — text, code, tables and figures in one file — that anyone can knit and get exactly their result. This is the capstone and the handover point to the El Niño module.
+So how do we get around this I hear you ask? Great question! This week we are tackling ``R Markdown``. An R Markdown document is a single file that holds your writing, your code and the results of that code (numbers, tables and plots) all together. When you click ``Knit``, R runs every bit of code in the document from top to bottom and builds a finished report, which in our case will be a Word document. Change a number in your code, knit again, and every plot, table and sentence that depends on it updates itself. This idea of weaving code and writing together into the one document is called **literate programming**.
 
-**The one-sentence version:** Week 1 you made R do things, Week 2 you made it do them again, this week you make it explain itself.
+Here's a fun fact for you. Every tutorial page you've read in this bootcamp, including this one, is an R Markdown document. If you'd like to see what this page looks like before it's knitted, you can download its source file, [week_3.Rmd](week_3.Rmd), and open it in RStudio.
 
-### The nice piece of symmetry ###
+**This week, the report you produce is your assessment item.** In the first part of the tutorial we will learn how R Markdown works, using the harvesting model from the fisheries lectures as our example. After that, we'll meet the **tidyverse**, a family of packages for working with data, and use it to switch a fisheries dataset between wide and long formats. At the end, you will use what you've learnt to write a short report on the collapse of the Newfoundland cod fishery and knit it to Word. The details are in the [assessment section](#your-assessment-the-newfoundland-cod-report) at the bottom of this page.
 
-This tutorial, and both of the previous two, *are* RMarkdown documents. The `.Rmd` source files are in the course repository. Opening `week_1.Rmd` in RStudio and knitting it is a legitimate part of this week's lesson — students see that the thing they have been reading all bootcamp is the thing they are now building.
+## Setting up ##
 
+As always, we start by creating a new project for this tutorial. Choose a logical location and name, just like you did in the last two weeks.
+
+```{r eval=FALSE}
+# !!Remember to change these paths to suit your own directory structure!!
+
+# On Mac or Linux
+dir.create("~/Documents/teaching/2026/TR3/SC1109/SC1109_tut3", recursive = TRUE)
+
+# On Windows (keep your work in C:/RWork, outside OneDrive)
+dir.create("C:/RWork/SC1109/SC1109_tut3", recursive = TRUE)
+
+```
+
+Then click ``File``/``New Project...``/``Existing Directory``, browse to your new ``SC1109_tut3`` folder and click ``Create Project``.
+
+R Markdown needs a package called ``rmarkdown``. RStudio usually offers to install it for you the first time you make an R Markdown file, but if it doesn't, run this once in the console.
+
+```{r eval=FALSE}
+# Install the rmarkdown package. You only need to do this once on each computer
+install.packages("rmarkdown")
+
+```
+
+### Your first R Markdown document ###
+
+1. Click ``File``/``New File``/``R Markdown...``
+2. In the window that pops up, choose ``Document`` on the left. Give it the title ``Harvesting practice``, put your name in as the author, and under ``Default Output Format`` choose ``Word``. Click ``OK``.
+3. A new file opens in the top left pane. It isn't empty, RStudio has filled it with an example to get you started.
+4. Save it straight away into your project folder with ``File``/``Save As``. Use the same naming scheme as last week, so mine is ``adc_sc1109_tut3.Rmd``. Note the file extension is ``.Rmd`` and not ``.R``.
+
+**SUPER ULTRA CRITICAL REMINDER HERE!!** This week everything you do goes into your R Markdown document, not the console. If you just run commands in the console, they won't end up in your report, and if they're not in your report, you'll have nothing to submit!
+
+Now, before you change anything, click the ``Knit`` button (the ball of wool with a needle through it) at the top of the file. RStudio will run the document and a Word document will pop up, complete with headings, text, code, a summary table and a plot. You'll also find the new ``.docx`` file sitting in your project folder right next to your ``.Rmd``. If you don't have Microsoft Word, you can open the ``.docx`` with LibreOffice, Pages or Google Docs.
+
+And that's it, you've just made your first report! Now let's work out what's actually in the file.
+
+## Anatomy of an R Markdown document ##
+
+Every R Markdown document has three ingredients:
+
+```
+1. A YAML header   the settings for the document, between two lines of ---
+2. Text            your writing, formatted with a simple system called Markdown
+3. Code chunks     blocks of R code that run when you knit
+```
+
+### The YAML header ###
+
+The block at the very top of your file, fenced off by two lines of ``---``, is called the YAML header (YAML rhymes with camel). It holds the settings for the whole document. Yours will look something like this:
+
+```
 ---
+title: "Harvesting practice"
+author: "Your Name"
+date: "2026-10-27"
+output: word_document
+---
+```
 
-## Lecture (1 hour) — One document instead of three ##
+``output: word_document`` is the line that tells R to build a Word document. If you change it to ``output: html_document`` and knit, you get a web page instead. Same file, different output. YAML is fussy about spacing, so keep a space after each colon and keep text in quotation marks.
 
-### Learning objectives ###
+### Text and Markdown ###
 
-- Explain why keeping code, results and prose in separate files causes them to drift apart.
-- Identify the three parts of an RMarkdown document: YAML header, markdown text, code chunks.
-- Use chunk options to control what appears in the output.
-- Use inline code so that numbers in prose are computed, never typed.
-- Knit a document to HTML and to Word.
+Anything outside the YAML header and the code chunks is just text, and it ends up in your report as written. You format it with a handful of symbols called Markdown:
 
-### Topics to cover ###
-
-**1. The problem, demonstrated live.**
-Open a script, a Word document, and a figure. Change one number in the data. Now count how many places have to be updated by hand — and how many would silently stay wrong if you forgot. This is the entire motivation; spend real time on it.
-
-**2. Literate programming.**
-The idea: a document written for a human to read, with the code that produced it embedded in place. The code and the claim about the code cannot get out of sync, because they are the same file.
-
-**3. Anatomy of an `.Rmd`.**
-
-- **YAML header** — the fenced block at the top. Title, author, date, output format.
-- **Markdown text** — headings with `#`, `**bold**`, `*italic*`, lists, links, images.
-- **Code chunks** — fenced with ```` ```{r} ```` and ```` ``` ````. Run when you knit.
-
-**4. Knitting.** The Knit button. What actually happens: R runs every chunk *in a fresh session*, in order, top to bottom, then pandoc turns the results into HTML/Word/PDF.
-
-The consequence students must internalise: **the knit does not see your Environment.** If an object was created in the console and not in a chunk, knitting fails. This is Week 2's lesson enforced by the tooling, and it is the single biggest source of Week 3 frustration — introduce it early rather than letting them discover it at 11pm.
-
-**5. Chunk options.**
-
-| Option | Effect |
+| You type | You get |
 |---|---|
-| `echo = FALSE` | run the code, hide the code, show the result |
-| `eval = FALSE` | show the code, don't run it |
-| `include = FALSE` | run it, show nothing (used for setup chunks) |
-| `message = FALSE`, `warning = FALSE` | suppress package chatter |
-| `fig.width`, `fig.height`, `fig.cap` | control and caption figures |
+| ``# Introduction`` | A level 1 heading |
+| ``## Methods`` | A level 2 heading |
+| ``**important**`` | **important** |
+| ``*Paramecium aurelia*`` | *Paramecium aurelia* |
+| ``- an item`` (on its own line) | a bullet point |
+| ``1. an item`` (on its own line) | a numbered list |
+| ``$N_{t+1} = N_t + G(N_t) - h$`` | an equation, $N_{t+1} = N_t + G(N_t) - h$ |
 
-**6. Inline code — the killer feature.**
+Two things trip people up. First, you need a **blank line** between paragraphs, and before and after a list or heading, otherwise Markdown glues them together. Second, a ``#`` means something different depending on where it is. In the text, it makes a heading. Inside a code chunk, it's an R comment, just like in your scripts.
 
-Writing this in a sentence:
+You may notice ``Source`` and ``Visual`` buttons at the top left of your file. Stay in ``Source`` mode for this tutorial so that what you see matches these instructions.
 
-```{r echo=FALSE, results='asis'}
-cat("> The mean catch weight was",
-    knitr::inline_expr("round(mean(fisheries$weight_kg), 2)"),
-    "kg.")
+### Code chunks ###
+
+A code chunk is a block of R code fenced off by three backticks. It looks like this in your ``.Rmd`` file:
+
+````md
+`r ''````{r}
+# Calculate the maximum sustainable yield
+MSY <- 0.2 * 100 / 4
+MSY
+```
+````
+
+The ``{r}`` tells R Markdown that the code inside is R code. When you knit, the code and its output both appear in the report. To add a new chunk, click ``Code``/``Insert Chunk``, or use the keyboard shortcut ``Ctrl + Alt + I`` (Windows and Linux) or ``Cmd + Option + I`` (Mac). Don't try to type the backticks yourself. They're easy to get wrong and on some keyboards they're hard to find.
+
+While you're writing, you don't need to knit every time you want to test something. Each chunk has a little green play button at its top right that runs just that chunk, and its output appears right underneath. This works just like running lines from your script last week.
+
+### Chunk options ###
+
+You can control what each chunk shows in the final report by adding **chunk options** inside the curly braces, after the ``r``. You can also give a chunk a name, which makes it much easier to find where an error happened when knitting fails.
+
+````md
+`r ''````{r production-plot, echo=FALSE, fig.cap="The logistic production function."}
+```
+````
+
+These are the options you'll use most:
+
+| Option | What it does |
+|---|---|
+| ``echo=FALSE`` | runs the code and shows the result, but hides the code |
+| ``eval=FALSE`` | shows the code, but doesn't run it |
+| ``include=FALSE`` | runs the code, but shows nothing at all |
+| ``message=FALSE`` | hides the messages some functions print |
+| ``warning=FALSE`` | hides warnings (use with care, warnings are often important!) |
+| ``fig.cap="..."`` | adds a caption under a figure |
+| ``fig.width=6, fig.height=4`` | sets the size of a figure, in inches |
+
+Have a look at the first chunk in your file, the one called ``setup``. It has ``include=FALSE`` so it runs but never shows up in your report. The line inside, ``knitr::opts_chunk$set(echo = TRUE)``, sets the default for every chunk in the document so that your code is shown. Leave it as it is. For your assessment, the marker needs to see your code.
+
+### Inline code ###
+
+This is the feature that makes R Markdown so powerful. As well as chunks, you can put a small piece of R code straight into a sentence by writing a backtick, the letter ``r``, a space, your code, and a closing backtick. When you knit, the code is replaced by its result. So if you write this in the text part of your document:
+
+````md
+The maximum sustainable yield is `r knitr::inline_expr("MSY")` fish per year.
+````
+
+your Word document will say "The maximum sustainable yield is 5 fish per year." Change the parameters and knit again, and the sentence updates itself. **From now on, you should never type a number into your writing that R has calculated for you.** Use inline code instead.
+
+### Knitting starts from scratch ###
+
+This is the single most important thing to understand about R Markdown, so read this bit twice. When you click ``Knit``, R does **not** use anything in your Environment pane. It starts a brand new, empty R session, runs every chunk in your document in order from top to bottom, and builds the report from that. It's exactly the ``Restart R`` and ``Source`` test from last week, done for you automatically every time you knit.
+
+This has some consequences:
+
+- If you created a variable by typing in the console, but never put that code in a chunk, knitting will fail with ``Error: object 'something' not found``. The fix is to put the code in a chunk.
+- Chunks run in order. If a chunk uses a variable, the chunk that creates it has to come first.
+- Any files your document reads must be in the same folder as your ``.Rmd``.
+- If you load a package with ``library()``, it has to be in a chunk too.
+
+My advice is to **knit early and knit often**. If you knit after every new chunk or two, then when something breaks you'll know exactly which bit of code caused it. If you write the whole thing and only knit at the end, you'll be hunting through all of it at 11pm the night before it's due. Future you will thank past you for knitting often.
+
+### Clear out the example ###
+
+Delete everything in your file **below** the ``setup`` chunk. Keep the YAML header and the setup chunk. Then add your first heading, a sentence of your own, and knit again to check it worked. As you work through the rest of this tutorial, put each piece of code into its own chunk in this practice document, and write a sentence or two of text around each chunk explaining what it does and what it shows. Knit after every chunk or two.
+
+## Is sustainable harvesting feasible? ##
+
+Now for the science. Last week we built the geometric and logistic models of population growth in R. This week we add the final piece of the fisheries module, ``harvesting``. You've already done all of this in Excel, so none of the modelling will be new to you. What's new is that this time, the code, the plots and your explanation of them will all live in the one document. Remember the general framework from the lectures:
+
+$$N_{t+1} = N_t + G(N_t) - h$$
+
+so the change in population size from one year to the next is natural growth minus the harvest:
+
+$$\Delta N = N_{t+1} - N_t = G(N_t) - h$$
+
+For logistic growth, the production function is:
+
+$$G(N) = R_0\left(1 - \frac{N}{K}\right)N$$
+
+From the lectures, a harvest is sustainable if two requirements are met:
+
+1. **Equilibrium.** The population stays the same size from year to year, so ``ΔN = 0``. That means the harvest exactly matches natural growth, ``h = G(N)``.
+2. **Ecological stability.** If the population is nudged a little away from the equilibrium, it moves back towards it rather than zooming away from it.
+
+We're going to use the same example as the textbook (page 85) and the fisheries module, a fish population with a carrying capacity of ``K = 100`` and ``R_0 = 0.2``. Let's set up our parameters in the first chunk of our document.
+
+```{r}
+# Carrying capacity K: the largest population the environment can support
+K <- 100
+
+# Per capita growth rate R0 when the population is tiny and there's no crowding
+R0 <- 0.2
+
+# The three harvests (fish per year) we will compare, the same as the lectures
+harvests <- c(4, 5, 6)
+
 ```
 
-puts the *computed* value in the prose. Change the data, re-knit, and the sentence updates itself. Contrast with typing the number in by hand and watching it go stale the first time anyone touches the data.
+### The production function ###
 
-**7. Output formats.** `html_document`, `word_document`, `pdf_document` — one source, several deliverables. Note that PDF needs a LaTeX installation; HTML and Word do not, so keep students on those.
+The first thing we want is the production function, ``G(N)`` for every population size from 0 to ``K``. We'll store this in a dataframe with one row for each population size.
 
-> **Excel bridge.** A spreadsheet with a chart pasted into a Word report is three artefacts that agree
-> with each other only by luck and vigilance. An RMarkdown document is one artefact that cannot
-> disagree with itself.
+```{r}
+# Build a data frame of population sizes from 0 to K in steps of 1
+production <- data.frame(N = seq(0, K, by = 1))
 
----
+# Calculate natural growth G(N) for every one of those population sizes
+production$G_N <- R0 * (1 - production$N / K) * production$N
 
-## Plotting for the report ##
+# Have a look at the first six rows
+head(production)
 
-> **STRUCTURAL NOTE — see COVERAGE.md.** The required-topics list includes line plots, axis labels,
-> titles, horizontal reference lines, and colour/line type/width. In the original nine-week-style plan
-> these had their own week. In the three-week structure they fit most naturally here, taught as
-> *"making the figures your report needs"* rather than as an abstract plotting lesson. This section
-> assumes that choice.
+```
+
+Now let's plot it, and add a horizontal line for each of our three harvests, just like the production function figure in the lecture notes. In Week 2 we had to save each plot to a file with ``ggsave()``. In R Markdown there's no need, plots are put straight into the report for you. Remember that a document has to load every package it uses, so ``library(ggplot2)`` goes in a chunk before our first plot. To give your plot a caption in your report, add ``fig.cap`` to the chunk options, like the ``production-plot`` example in the chunk options section above.
+
+```{r production-plot, fig.cap="The logistic production function with K = 100 and R0 = 0.2. The dashed lines are the three harvests."}
+# Load ggplot2. Every document has to load the packages it uses, in a chunk
+library(ggplot2)
+
+# Put the three harvests into a small data frame so that ggplot can draw a
+# line for each one
+harvest_lines <- data.frame(h = harvests)
+
+# Plot the production function G(N) against N as a line
+ggplot(production, aes(x = N, y = G_N)) +
+  geom_line(colour = "blue", linewidth = 1) +
+  # Add a dashed horizontal line for each harvest. factor() treats each harvest
+  # as a separate group, so each one gets its own colour and legend entry
+  geom_hline(data = harvest_lines, aes(yintercept = h, colour = factor(h)),
+             linetype = "dashed", linewidth = 1) +
+  # Choose the colour for each harvest and give the legend a title
+  scale_colour_manual(name = "Harvest (h)",
+                      values = c("4" = "darkgreen", "5" = "orange", "6" = "red")) +
+  labs(x = "Population size (N)",
+       y = "Natural growth G(N) and harvest h",
+       title = "Production function")
+
+```
+
+> **Excel bridge.** In Excel, you made this chart by building a column of ``N`` values, a column of formulas for ``G(N)``, and then clicking through the chart menus. Here, the whole thing is in a few lines of code that sit right next to the explanation in your report. If you change ``K`` in your first chunk and knit again, the chart redraws itself.
+
+Just by looking at the plot, we can see what the lectures told us. With a harvest of 6 (red), the line never touches the production function, so there's no equilibrium at all. With a harvest of 5 (orange), the line just touches the very top of the hump. With a harvest of 4 (green), the line crosses the hump twice, so there are two equilibria. Rather than squinting at a graph though, we can ask the dataframe directly. To do that, we need to get good at **subsetting**.
+
+### Subsetting: asking questions of a dataframe ###
+
+Subsetting means pulling out just the rows and/or columns of a dataframe that you want. It is one of the most useful skills you will learn in R, and you'll use it constantly in the El Niño module. In Week 1 you saw that we use square brackets with a comma in the middle:
+
+```
+data_frame[rows, columns]
+```
+
+Whatever goes before the comma picks the rows, and whatever goes after it picks the columns. Leave either side empty and you get all of them.
+
+**Picking rows and columns by position or name**
+
+```{r}
+# Rows 1 to 5, all columns
+production[1:5, ]
+
+# Rows 1, 51 and 101 (N = 0, 50 and 100), all columns. c() combines the numbers
+production[c(1, 51, 101), ]
+
+# All rows, but only the G_N column. This gives a vector, just like production$G_N
+head(production[, "G_N"])
+
+```
+
+**Picking rows with a condition**
+
+This is where subsetting gets really powerful. Instead of saying *which* rows we want, we describe *what* the rows we want look like. Watch what happens when we compare a column to a number.
+
+```{r}
+# Is G(N) greater than 4? This gives one TRUE or FALSE for every row
+head(production$G_N > 4)
+
+```
+
+If we put that TRUE/FALSE vector before the comma, R keeps every row that is TRUE and drops every row that is FALSE. You actually did this last week when we calculated ``K`` from the paramecium data from day 11 onwards.
+
+```{r}
+# Keep only the rows where G(N) is greater than 4.8
+production[production$G_N > 4.8, ]
+
+```
+
+Read that line out loud as "give me the rows of ``production`` where ``production$G_N`` is greater than 4.8, and all the columns". The operators you can use to make a condition are:
+
+```
+==   is equal to (two equals signs! one = is for giving values to arguments)
+!=   is not equal to
+>    is greater than
+>=   is greater than or equal to
+<    is less than
+<=   is less than or equal to
+&    AND, both conditions must be TRUE
+|    OR, at least one condition must be TRUE
+```
+
+```{r}
+# Rows where N is between 45 and 55. Both conditions must be TRUE, so use &
+production[production$N >= 45 & production$N <= 55, ]
+
+```
+
+**Finding the maximum sustainable yield**
+
+The peak of the production function is the maximum sustainable yield (MSY), the largest harvest the population could possibly sustain. We can find the row where it happens with a condition:
+
+```{r}
+# Find the row where G(N) is equal to its largest value
+production[production$G_N == max(production$G_N), ]
+
+```
+
+So the peak is at ``N = 50`` with ``G(N) = 5``. From the lectures, we also know the formulas for this, ``N_MSY = K/2`` and ``MSY = R_0K/4``. Let's calculate them and check they agree with our subsetting.
+
+```{r}
+# Population size at the maximum sustainable yield
+N_MSY <- K / 2
+
+# The maximum sustainable yield
+MSY <- R0 * K / 4
+
+# Print both
+N_MSY
+MSY
+
+```
+
+They agree. Now we can use inline code to report them in our writing. If you type this into the text part of your practice document:
+
+````md
+The maximum sustainable yield is `r knitr::inline_expr("MSY")` fish per year, at a population size of `r knitr::inline_expr("N_MSY")`.
+````
+
+then when you knit, it will read: The maximum sustainable yield is `r MSY` fish per year, at a population size of `r N_MSY`. Try it now, and knit to check.
+
+### Finding the equilibria ###
+
+For a harvest ``h``, the equilibria are the population sizes where ``G(N) = h``. On our plot, they're where the dashed lines cross the hump. Let's use subsetting to find them for a harvest of 4. We'll keep all the rows where natural growth is at least as big as the harvest.
+
+```{r}
+# Keep only the population sizes where natural growth can keep up with a harvest of 4
+can_sustain_4 <- production[production$G_N >= 4, ]
+
+# How many rows are there?
+nrow(can_sustain_4)
+
+# Look at the first few and last few rows
+head(can_sustain_4)
+tail(can_sustain_4)
+
+```
+
+Natural growth keeps up with a harvest of 4 for every population size from `r min(can_sustain_4$N)` to `r max(can_sustain_4$N)`. The two ends of this range are where the green line crosses the hump, so the two equilibria are at about ``N = 28`` and ``N = 72``. Notice that the numbers in that sentence came from inline code too, using ``min()`` and ``max()`` on the ``N`` column of our subset. They're only approximate, because our ``N`` values go up in steps of 1.
+
+```{r}
+# Store the two approximate equilibria for a harvest of 4
+lower_eq <- min(can_sustain_4$N)
+upper_eq <- max(can_sustain_4$N)
+
+# The same trick for a harvest of 5
+production[production$G_N >= 5, ]
+
+# And for a harvest of 6
+production[production$G_N >= 6, ]
+
+```
+
+A harvest of 5 gives exactly one row, ``N = 50``, so there's one equilibrium. A harvest of 6 gives a dataframe with no rows at all, because natural growth never gets that high, so there's no equilibrium. Our subsetting matches the three cases from the lectures exactly.
+
+> **For the curious.** You can find the exact equilibria by solving the quadratic equation $R_0(1 - N/K)N = h$, which gives $N = \frac{K}{2}\left(1 \pm \sqrt{1 - \frac{4h}{R_0K}}\right)$. For ``h = 4`` that's 27.6 and 72.4. You don't need this for the assessment.
+
+### Your turn: subsetting the production function ###
+
+Add a chunk to your practice document for each of these, with a sentence explaining the answer. Have a go yourself before you peek at the answers!
+
+a. What range of population sizes can sustain a harvest of 3 fish per year?
+b. What is ``G(N)`` when ``N = 25``? What about when ``N = 75``? Why are they the same?
+c. How many population sizes have a natural growth of less than 1?
+d. Show all the rows where ``N`` is less than 5 **or** greater than 95.
+
+<details>
+<summary>Show answers</summary>
+
+```{r}
+# a. Keep the rows where G(N) is at least 3, then look at the smallest and largest N
+can_sustain_3 <- production[production$G_N >= 3, ]
+min(can_sustain_3$N)
+max(can_sustain_3$N)
+
+# b. Pick out the G_N value in the rows where N is 25 and where N is 75.
+# They're the same because the production function is symmetric about N = K/2
+production[production$N == 25, "G_N"]
+production[production$N == 75, "G_N"]
+
+# c. Count the rows where G(N) is less than 1
+nrow(production[production$G_N < 1, ])
+
+# d. Use | for OR
+production[production$N < 5 | production$N > 95, ]
+
+```
+
+</details>
+
+## Is the equilibrium stable? ##
+
+Finding an equilibrium is only half the job. We also need to know whether it is ecologically stable. In Excel, you did this by typing different starting populations into cell B2 and watching what the population did over time. We're going to do the same thing in R.
+
+### One simulation ###
+
+Let's start with one simulation, a starting population of 80 fish and a harvest of 4 per year, run for 60 years. This is the same ``for loop`` we built last week, with one change. Each year we subtract the harvest.
+
+```{r}
+# Number of years to run each simulation for
+n_years <- 60
+
+# Starting population and harvest for this simulation
+N0 <- 80
+h <- 4
+
+# An empty vector with one slot for each year, from year 0 to year 60
+N <- numeric(n_years + 1)
+
+# Put the starting population in the first slot
+N[1] <- N0
+
+# Step the model forward one year at a time using N(t+1) = N(t) + G(N(t)) - h.
+# A population can't have fewer than zero fish, so max(0, ...) takes whichever
+# is bigger, zero or the new population size
+for (t in 1:n_years) {
+  N[t + 1] <- max(0, N[t] + R0 * (1 - N[t] / K) * N[t] - h)
+}
+
+# ggplot needs a data frame, so put the years and population sizes into one
+one_sim <- data.frame(year = 0:n_years, N = N)
+
+# Plot the population over time
+ggplot(one_sim, aes(x = year, y = N)) +
+  geom_line(linewidth = 1) +
+  # Add the two equilibria we found earlier as dashed grey lines
+  geom_hline(yintercept = c(lower_eq, upper_eq), linetype = "dashed", colour = "grey40") +
+  # Show the y axis from 0 to K
+  coord_cartesian(ylim = c(0, K)) +
+  labs(x = "Year",
+       y = "Population size (N)",
+       title = "Starting at 80 fish with a harvest of 4")
+
+```
+
+The population drops from 80 and settles at the upper equilibrium, around 72. But one simulation doesn't tell us much. To test stability properly, we need to try lots of starting populations, for all three harvests.
+
+### Lots of simulations ###
+
+In Excel, you'd have to copy your sheet over and over again, once for every combination of starting population and harvest. That's a lot of clicking. In R, we can let a loop do all the copying for us. First, we make a table of every combination we want to try. ``expand.grid()`` does exactly that.
+
+```{r}
+# Every combination of 8 starting populations and our 3 harvests, 24 scenarios in all
+scenarios <- expand.grid(N0 = c(10, 20, 30, 40, 50, 60, 80, 100),
+                         h = harvests)
+
+# Have a look
+scenarios
+
+```
+
+Now we loop over the rows of ``scenarios``. For each one, we run the same simulation as above, and stack its results onto the bottom of a big dataframe called ``simulations``. This is a loop inside a loop. The outer loop picks a scenario, the inner loop is the exact same loop we used above. Take a minute to read it through.
+
+```{r}
+# An empty data frame to collect the results of every simulation
+simulations <- data.frame()
+
+# The outer loop: go through the scenarios one row at a time
+for (s in 1:nrow(scenarios)) {
+
+  # Use subsetting to pull out the starting population and harvest for this scenario
+  N0 <- scenarios[s, "N0"]
+  h <- scenarios[s, "h"]
+
+  # The inner loop: exactly the same simulation as before
+  N <- numeric(n_years + 1)
+  N[1] <- N0
+  for (t in 1:n_years) {
+    N[t + 1] <- max(0, N[t] + R0 * (1 - N[t] / K) * N[t] - h)
+  }
+
+  # Store this simulation in a small data frame, one row per year
+  one_run <- data.frame(year = 0:n_years, N = N, N0 = N0, h = h)
+
+  # rbind() stacks one data frame on the bottom of another
+  simulations <- rbind(simulations, one_run)
+}
+
+# Check what we've made
+str(simulations)
+
+```
+
+So to break this down, ``simulations`` has `r nrow(simulations)` rows, one for every year of every one of our `r nrow(scenarios)` scenarios. That's far too many to look at all at once, which is exactly the situation subsetting was made for.
+
+### Slicing up the simulations ###
+
+**One scenario.** To pull out a single simulation, we need two conditions at once, so we use ``&``.
+
+```{r}
+# The simulation that started at 30 fish with a harvest of 4
+run_30_4 <- simulations[simulations$h == 4 & simulations$N0 == 30, ]
+
+# Look at the first and last few years
+head(run_30_4)
+tail(run_30_4)
+
+```
+
+**One year.** What did every population look like at the end of the 60 years?
+
+```{r}
+# Keep only the rows from the final year
+final <- simulations[simulations$year == n_years, ]
+
+# Have a look
+final
+
+```
+
+The numbers down the left hand side are the row numbers from ``simulations``. Subsetting keeps the original row numbers, so you can always tell where a row came from.
+
+**Adding a column, then subsetting on it.** Let's add a column recording whether each population collapsed to zero.
+
+```{r}
+# TRUE if the population ended at zero, FALSE if it didn't
+final$collapsed <- final$N == 0
+
+# Only the scenarios that collapsed, showing just three of the columns
+final[final$collapsed == TRUE, c("h", "N0", "N")]
+
+# sum() counts the TRUEs, because R treats TRUE as 1 and FALSE as 0
+sum(final$collapsed)
+
+```
+
+**Matching several values with %in%.** ``%in%`` asks "is this value one of these?". It's a tidy alternative to writing lots of ``|`` conditions.
+
+```{r}
+# Final population for the scenarios that started at 20, 30 or 40 fish
+final[final$N0 %in% c(20, 30, 40), c("h", "N0", "N")]
+
+```
+
+**Sorting with order().** ``order()`` gives back the row positions in order from smallest to largest, so putting it before the comma sorts the rows.
+
+```{r}
+# Sort the final populations from smallest to largest
+final[order(final$N), c("h", "N0", "N")]
+
+```
+
+### Plotting the simulations ###
+
+Now let's plot every simulation for a harvest of 4 on the same graph. Because ``simulations`` has one row per year per scenario, with a column saying which starting population each row belongs to, we can tell ggplot to draw a separate line for each starting population just by mapping ``N0`` to ``colour``. No loop needed. Remember this when we get to the tidyverse section, because this shape of dataframe has a name.
+
+```{r stability-plot, fig.cap="Population size over time for eight starting populations with a harvest of 4. The dashed lines are the two equilibria."}
+# Choose which harvest to plot
+h_plot <- 4
+
+# Subset out the simulations for that harvest
+sims_h <- simulations[simulations$h == h_plot, ]
+
+# One line per starting population. factor() turns N0 into groups, so each
+# starting population gets its own colour
+ggplot(sims_h, aes(x = year, y = N, colour = factor(N0))) +
+  geom_line(linewidth = 1) +
+  # Add the two equilibria we found for a harvest of 4
+  geom_hline(yintercept = c(lower_eq, upper_eq), linetype = "dashed", colour = "grey40") +
+  coord_cartesian(ylim = c(0, K)) +
+  # paste() builds a title that changes with h_plot
+  labs(x = "Year",
+       y = "Population size (N)",
+       colour = "Starting N",
+       title = paste("Harvest h =", h_plot))
+
+```
+
+Now for the moment of truth. This one plot holds the whole story for a harvest of 4. Every population that started **above** the lower equilibrium (about 28) ended up at the upper equilibrium (about 72), whether it started above it or below it. That means the upper equilibrium is **stable**. Every population that started **below** the lower equilibrium crashed to zero, and the closer it started to the lower equilibrium, the slower it moved away from it. That means the lower equilibrium is **unstable**. Look at the population that started at 30, just above the lower equilibrium. It crawls away from 28 so slowly that it still hasn't reached 72 after 60 years.
+
+### Your turn: slicing the simulations ###
+
+a. Change ``h_plot`` to 5 and knit, then to 6 and knit. What happens at each harvest? Better still, copy the plotting chunk so that your practice document has all three plots.
+b. Using ``final``, which starting populations collapsed with a harvest of 5?
+c. With a harvest of 6 and a starting population of 100, in which year did the population first hit zero?
+d. What was the population in year 10 for every scenario with a harvest of 4?
+e. Add starting populations of 27 and 29 to ``scenarios``, then rerun **all** your chunks (``Run``/``Run All``, or just knit). What happens to them with a harvest of 4, and why?
+
+<details>
+<summary>Show answers</summary>
+
+```{r}
+# b. Rows of final where h is 5 AND the population collapsed, then just the N0 column
+final[final$h == 5 & final$collapsed == TRUE, "N0"]
+
+# c. Subset out the simulation, then find the years where N is zero and take the first
+run_100_6 <- simulations[simulations$h == 6 & simulations$N0 == 100, ]
+min(run_100_6[run_100_6$N == 0, "year"])
+
+# d. Three conditions are fine too, but here we only need two
+simulations[simulations$h == 4 & simulations$year == 10, c("N0", "N")]
+
+```
+
+a. With ``h = 5`` (harvesting at the MSY), populations that start above 50 creep down towards 50, but any population that starts below 50 collapses. The equilibrium is not ecologically stable, because the slightest dip below 50 and the population is gone. With ``h = 6`` (above the MSY), there is no equilibrium and every population collapses, no matter how big it started.
+
+e. 27 is just below the unstable equilibrium at about 27.6, so it slowly declines and then crashes to zero. 29 is just above it, so it very slowly grows towards the upper equilibrium.
+
+</details>
+
+## So, is sustainable harvesting feasible? ##
+
+Putting our results together, there are three possible outcomes, exactly as in the lectures:
+
+1. **Harvest above the MSY** (``h = 6``). No equilibrium. The population always collapses.
+2. **Harvest at the MSY** (``h = 5``). One equilibrium at ``K/2``, but it is not ecologically stable. Any population that falls below ``K/2`` collapses.
+3. **Harvest below the MSY** (``h = 4``). Two equilibria. The one to the left of the peak of ``G(N)`` is unstable, and the one to the right of the peak is stable.
+
+So yes, sustainable harvesting is feasible, as long as the harvest is below the MSY **and** the population is kept to the right of the peak of the production function. Harvest too much, or let the population fall below the unstable equilibrium, and the fishery collapses. This is precisely what happened to the Newfoundland cod.
+
+Before you move on, knit your practice document one more time and have a look through the Word document. You should have a complete little report on harvesting the textbook fish population, with every number, table and plot generated by your code.
+
+## Meet the tidyverse ##
+
+Up until now, almost everything we've done has been in base R. The one exception is ``ggplot2``, which you met in Week 1. ``ggplot2`` is actually one member of a much bigger family of packages called the [tidyverse](https://www.tidyverse.org/), which are all designed to work together for importing, tidying, transforming and plotting data. You'll come across a lot of tidyverse code online, and in the El Niño module, so it's well worth getting to know.
+
+You can install and load the whole family in one go. As always, you only need to install once on each computer.
 
 ```{r eval=FALSE}
-# Daily mean catch weight, as a line
-daily <- aggregate(weight_kg ~ date, data = fisheries, FUN = mean)
+# Install the whole tidyverse. You only need to do this once on each computer
+install.packages("tidyverse")
 
-plot(daily$date, daily$weight_kg,
-     type = "l",                          # "l" for line
-     xlab = "Date",
-     ylab = "Mean catch weight (kg)",
-     main = "Mean catch weight over the 2023 season",
-     col  = "steelblue",
-     lwd  = 2)
-
-# A horizontal reference line at the season average
-abline(h = mean(daily$weight_kg), col = "firebrick", lty = 2, lwd = 2)
-
-legend("topright",
-       legend = c("Daily mean", "Season mean"),
-       col    = c("steelblue", "firebrick"),
-       lty    = c(1, 2),
-       lwd    = 2)
 ```
 
-Points to draw out: `type = "l"` vs the default points; `col` by name or number; `lty` 1–6 for solid/dashed/dotted; `lwd` as a multiplier; why `main`, `xlab` and `ylab` are not optional in a report; and that a figure needs units.
+```{r}
+# Load the tidyverse. This loads ggplot2 as well, along with a bunch of others
+library(tidyverse)
 
----
-
-## Practical (2 hours) — Build the report ##
-
-### Part A — Get the machinery working (≈40 min) ###
-
-1. **File > New File > R Markdown.** Accept the defaults, knit it immediately, look at the result next to the source. Nothing else — just prove the button works.
-2. **Dissect the template.** Find the YAML header, the setup chunk, a code chunk, some prose. Delete the boilerplate.
-3. **Edit the YAML.** Title, own name, `output: html_document`.
-4. **Markdown practice.** Headings, a bulleted list, some bold text, a link. Knit again.
-5. **First real chunk.** Read `data/fisheries.csv` in a chunk with `include = FALSE`. Knit. Confirm it works from a clean session.
-6. **Deliberate failure.** Create an object in the console, refer to it in a chunk, knit, read the error, fix it by moving the code into a chunk. Do this *on purpose*, early.
-7. **Inline code.** Write a sentence containing a computed number. Change something upstream and re-knit to watch it update.
-
-### Part B — The capstone (≈80 min) ###
-
-> **The brief — "A short report on the 2023 fisheries data"**
->
-> Write a one-to-two page RMarkdown report answering **one** question you choose from the list below
-> (or one of your own, approved by your demonstrator). The report must knit from a clean session on
-> a machine that is not yours.
->
-> **Choose a question:**
->
-> - Are undersized catches concentrated in particular vessels, or spread evenly across the fleet?
-> - Does catch weight change across the season, and is there a pattern worth explaining?
-> - Do different gear types catch different species, sizes, or values?
-> - Is water temperature associated with what gets caught, or how much?
-> - Which sites are the most valuable per catch, and does that hold across species?
->
-> **Your report must contain:**
->
-> - [ ] A YAML header with a title, your name, and a date
-> - [ ] A short introduction in your own words stating the question
-> - [ ] A methods section describing what you did to the data
-> - [ ] Data read with a **relative path**, from a chunk (Week 2)
-> - [ ] At least one type conversion, correctly justified (Week 1)
-> - [ ] At least **one table** (`knitr::kable()` makes it presentable)
-> - [ ] At least **one figure** with axis labels, units, a title and a caption
-> - [ ] At least **one number in the prose produced by inline code**
-> - [ ] A setup chunk hidden with `include = FALSE`
-> - [ ] A short conclusion — what the data does and does not let you say
-> - [ ] It knits to HTML with no errors, from a restarted R session
-
-Useful during Part B:
-
-```{r eval=FALSE}
-# A presentable table
-knitr::kable(head(summary_table),
-             caption = "Undersized catch rate by vessel")
-
-# A captioned, sized figure — set these in the chunk header:
-# ```{r fig.width = 7, fig.height = 4.5, fig.cap = "Mean catch weight by month."}
 ```
 
----
+Don't panic about the wall of text that this prints! The first part lists the packages that were loaded. The ``Conflicts`` part tells you that a couple of tidyverse functions have the same names as functions in base R, so for example when you now type ``filter()`` you'll get the tidyverse version rather than the base R one. This is completely normal. In your report, put ``message=FALSE`` in the chunk options of this chunk so that this text doesn't end up in your Word document.
 
-## Synthesis (1 hour) — Peer review and the bridge to El Niño ##
+### The data ###
 
-- **Knit someone else's.** Swap folders. Knit your partner's report from a restarted session, on your machine. Anything that fails is a finding, not a failure — this is exactly what peer review is.
-- **Troubleshooting clinic.** The recurring RMarkdown errors, worked through together:
-    - `object 'x' not found` — it only ever existed in your Environment
-    - `cannot open file` — path is relative to the `.Rmd`, not to wherever you think you are
-    - a chunk that works when run manually but not on knit — order dependency
-    - unbalanced backticks and a document that won't knit at all
-- **Show the source.** Open `week_1.Rmd` from the course repository and knit it. The thing they have been reading for three weeks turns out to be the thing they just learned to build.
-- **The bridge.** What the El Niño module will assume they can already do: read a public dataset, check and fix its types, write a script that runs from clean, plot a time series with proper labels, and hand in an RMarkdown report. That is exactly the three weeks they have just done — the difference is that the science gets harder, not the R.
-- **Exit ticket.** One thing you can now do in R that you could not do in Excel.
+For this section, we're going to use some data from a reef line fishery. There are two files. Download both of them into your project folder.
 
----
+- [reef_fishery_counts.csv](reef_fishery_counts.csv) holds the estimated number of fish (in thousands) of six species from annual surveys, from 1990 to 2025.
+- [reef_fishery_parameters.csv](reef_fishery_parameters.csv) holds the carrying capacity ``K``, the per capita growth rate ``R0`` and the annual harvest (thousands of fish per year) for each species.
 
-## Open questions for Week 3 ##
+**A word of warning, these data are simulated.** I made them up using the logistic harvesting model you've been building today, plus a bit of random noise to make them look like real survey data. The species are real but the numbers are not, so please don't quote them anywhere!
 
-Flagged for Andrew rather than decided here:
+The tidyverse has its own function for reading csv files, ``read_csv()``. Note the underscore, rather than the full stop in the base R ``read.csv()``.
 
-1. **Assessment.** Is the capstone report assessed, and if so how — completion, a rubric, or peer marking? The checklist above is written so it can serve as a rubric if wanted.
-2. **Individual or pair?** Weeks 1 and 2 use pair programming. The capstone might be better individual, if it feeds an assessment.
-3. **Functions.** Currently outlined in Week 2. If Week 2 is overfull, they move here (see COVERAGE.md).
-4. **Dataset.** The capstone uses the fisheries data for continuity. An alternative is to hand out a small ENSO/climate dataset for the capstone so the bridge to the final module is literal rather than thematic.
-5. **Output format.** Whether to require HTML only, or also have them knit to Word (useful, but introduces a second set of formatting quirks).
+```{r}
+# Read in the survey counts and the parameters for each species
+counts <- read_csv("reef_fishery_counts.csv")
+params <- read_csv("reef_fishery_parameters.csv")
+
+# Have a look at the counts
+counts
+
+```
+
+``read_csv()`` tells you how many rows and columns it found, and what value type it guessed for each column (``dbl`` is short for double, which is R speak for a numeric value with decimal places, and ``chr`` is character). It gives us a ``tibble``, which is the tidyverse's version of a dataframe. The main difference is that a tibble prints more neatly, showing just the first ten rows and the value type of each column underneath its name. Everything you learnt about subsetting dataframes works on tibbles too.
+
+### Wide and long ###
+
+Look at how ``counts`` is laid out. There's one row for each year, and one column for each species. This is called **wide** format, and it's how you would probably lay this data out in Excel. It's nice and easy for a human to read.
+
+There's a catch though. Each row actually holds six observations, one for each species, and the name of the species isn't stored anywhere in the data. It's hiding in the column names. The alternative is **long** format, where every row holds exactly one observation. Here are the first two years of two of the species in both formats:
+
+```
+Wide                                    Long
+
+year  coral_trout  red_emperor          year  species      N
+1990  820          385                  1990  coral_trout  820
+1991  818          356                  1990  red_emperor  385
+                                        1991  coral_trout  818
+                                        1991  red_emperor  356
+```
+
+Same numbers, different shape. Long format has more rows, but now ``species`` is a column of its own, so we can filter on it, group by it, and colour by it. Remember our ``simulations`` dataframe from earlier? That was long format, with one row for every year of every scenario, and it's the reason a single ggplot command could draw a separate line for each starting population.
+
+As a rule of thumb, ggplot2 and most tidyverse functions want **long** data, while tables in a report are usually easier to read in **wide** format. So you need to be able to switch between the two, and the ``tidyr`` package (part of the tidyverse) gives us two functions to do it, ``pivot_longer()`` and ``pivot_wider()``.
+
+### The pipe ###
+
+Before we pivot, there's one more piece of tidyverse style you need to know about, the pipe ``|>``. The pipe takes whatever is on its left and feeds it in as the first argument of the function on its right. You can read it as "and then".
+
+```{r}
+# These two lines do exactly the same thing
+head(counts, 3)
+counts |> head(3)
+
+```
+
+On its own that doesn't look like much, but it means you can chain lots of steps together and read them from top to bottom, rather than from the inside out. You'll also see ``%>%`` in a lot of code online. It's an older version of the pipe that does the same job.
+
+### Wide to long with pivot_longer() ###
+
+```{r}
+# Take counts, and then pivot every column except year into two new columns,
+# one holding the old column names (species) and one holding the values (N)
+counts_long <- counts |>
+  pivot_longer(cols = -year, names_to = "species", values_to = "N")
+
+# Have a look
+counts_long
+
+# 36 years x 6 species should give 216 rows
+nrow(counts_long)
+
+```
+
+So to break this down, ``cols = -year`` says pivot every column except ``year`` (the minus sign means "not this one"). ``names_to`` is the name of the new column that will hold the old column names, and ``values_to`` is the name of the new column that will hold the numbers.
+
+Now that ``species`` is a column, plotting all six species at once is easy.
+
+```{r reef-plot, fig.cap="Simulated survey estimates of six species in a reef line fishery."}
+# One line per species, coloured by species
+ggplot(counts_long, aes(x = year, y = N, colour = species)) +
+  geom_line(linewidth = 1) +
+  labs(x = "Year",
+       y = "Number of fish (thousands)",
+       colour = "Species",
+       title = "Reef line fishery survey")
+
+```
+
+Try doing that with the wide version! Two of the species are clearly in a lot of trouble.
+
+### Subsetting the tidyverse way ###
+
+The tidyverse has its own set of functions for subsetting and transforming data, from a package called ``dplyr``. They do the same jobs as the square brackets you've been using all tutorial, so here they are side by side:
+
+| Job | Base R | dplyr |
+|---|---|---|
+| Keep the rows that meet a condition | ``df[df$N == 0, ]`` | ``df |> filter(N == 0)`` |
+| Keep some columns | ``df[, c("year", "N")]`` | ``df |> select(year, N)`` |
+| Add a new column | ``df$x <- df$N / 1000`` | ``df |> mutate(x = N / 1000)`` |
+| Sort the rows | ``df[order(df$N), ]`` | ``df |> arrange(N)`` |
+| Summarise each group | (fiddly) | ``df |> group_by(species) |> summarise(mean_N = mean(N))`` |
+
+Notice that inside dplyr functions, you write the column names on their own, without the ``df$``.
+
+```{r}
+# Which species had no fish at all in the 2025 survey? A comma inside filter()
+# means AND, so both conditions must be TRUE
+counts_long |>
+  filter(year == 2025, N == 0)
+
+# Add the MSY and N_MSY for each species to the parameters, plus a column that
+# is TRUE if the harvest is bigger than the MSY
+params <- params |>
+  mutate(MSY = R0 * K / 4,
+         N_MSY = K / 2,
+         over_MSY = annual_harvest > MSY)
+
+# Have a look
+params
+
+# The mean, smallest and largest survey estimate for each species
+counts_long |>
+  group_by(species) |>
+  summarise(mean_N = mean(N),
+            min_N = min(N),
+            max_N = max(N))
+
+```
+
+### Long to wide with pivot_wider() ###
+
+``pivot_wider()`` does the opposite of ``pivot_longer()``. ``names_from`` says which column the new column names come from, and ``values_from`` says which column holds the values to put in them. Let's prove that it really is the reverse by turning ``counts_long`` back into the original layout.
+
+```{r}
+# Take the long data, and then spread the species back out into their own columns
+counts_long |>
+  pivot_wider(names_from = species, values_from = N)
+
+```
+
+Back where we started. Now for something more useful. A table of 36 years of counts is too big for a report, so let's summarise the counts for each species by decade, and then pivot the result so that each species gets a row and each decade gets a column.
+
+```{r}
+# Take the long data, and then
+decade_means <- counts_long |>
+  # add a decade column. floor() rounds down, so 1997 / 10 = 199.7 becomes 199,
+  # times 10 is 1990, and paste0() glues on an "s" to make "1990s"
+  mutate(decade = paste0(floor(year / 10) * 10, "s")) |>
+  # and then work out the mean for each species in each decade, rounded to a
+  # whole number. .groups = "drop" removes the grouping once we're done with it
+  group_by(species, decade) |>
+  summarise(mean_N = round(mean(N)), .groups = "drop") |>
+  # and then spread the decades out into their own columns
+  pivot_wider(names_from = decade, values_from = mean_N)
+
+# Have a look
+decade_means
+
+```
+
+That's a table you could put straight into a report, and ``knitr::kable(decade_means)`` will turn it into a proper table in your Word document. Note that the 2020s column only covers 2020 to 2025.
+
+### Your turn: the tidyverse ###
+
+Use the tidyverse functions for these, not square brackets.
+
+a. Find every year in which ``red_emperor`` had fewer than 100 thousand fish.
+b. In which year was ``red_emperor`` first counted at zero?
+c. Which species have a harvest above their MSY?
+d. Plot only the species whose harvest is **below** their MSY. Hint, ``%in%`` works inside ``filter()`` too.
+e. Make a wide table of the counts for 1990, 2000, 2010 and 2020, with one row for each species and one column for each of those years.
+
+<details>
+<summary>Show answers</summary>
+
+```{r}
+# a. Two conditions inside filter()
+counts_long |>
+  filter(species == "red_emperor", N < 100)
+
+# b. Keep the zero counts for red_emperor, and then take the smallest year
+counts_long |>
+  filter(species == "red_emperor", N == 0) |>
+  summarise(first_zero = min(year))
+
+# c. over_MSY is already TRUE or FALSE, so we can filter on it directly
+params |>
+  filter(over_MSY) |>
+  select(species, annual_harvest, MSY)
+
+# d. First get the names of the species below their MSY. pull() takes a single
+# column out as a vector, just like $ does
+below_MSY <- params |>
+  filter(!over_MSY) |>
+  pull(species)
+
+counts_long |>
+  filter(species %in% below_MSY) |>
+  ggplot(aes(x = year, y = N, colour = species)) +
+  geom_line(linewidth = 1) +
+  labs(x = "Year", y = "Number of fish (thousands)", colour = "Species")
+
+# e. Keep the four years, and then spread the years out into columns
+counts_long |>
+  filter(year %in% c(1990, 2000, 2010, 2020)) |>
+  pivot_wider(names_from = year, values_from = N)
+
+```
+
+</details>
+
+
+## Your assessment: the Newfoundland cod report ##
+
+Your assessment this week is a short report, written in R Markdown and knitted to Word, that applies everything above to the collapse of the Newfoundland cod fishery, plus a short section on the reef line fishery from the tidyverse section. From your fisheries tutorial, estimates for the cod fishery are that the carrying capacity ``K`` was about **1.4 million tonnes** of fish and ``R_0`` was about **1 per year**. Work in thousands of tonnes throughout, so ``K = 1400``.
+
+### Getting started ###
+
+Create a new R Markdown document (``File``/``New File``/``R Markdown...``, output format ``Word``) and save it into your project folder using the naming scheme ``initials_sc1109_report.Rmd``, so mine would be ``adc_sc1109_report.Rmd``. Delete the example content below the ``setup`` chunk, just like you did for your practice document. Most of the code you need is already in your practice document. Your job is to adapt it to the cod, and to explain what your results mean.
+
+### What your report must contain ###
+
+**YAML header**
+
+- A sensible title, your name **and** student number as the author, the date, and ``output: word_document``.
+
+**1. Introduction**
+
+- Two to four sentences stating the question your report answers and the two requirements for a sustainable harvest.
+
+**2. The model**
+
+- The harvesting model and the logistic production function, written as equations using ``$$ ... $$``.
+- A chunk that sets the parameter values, with a sentence giving each parameter, its value and its units.
+
+**3. The production function and the maximum sustainable yield**
+
+- A chunk that calculates the MSY and ``N_MSY``.
+- A sentence reporting both, written with **inline code**, not typed numbers.
+- A figure of the production function for population sizes from 0 to ``K``, with a horizontal line at the MSY and a vertical line at ``N_MSY``, labelled axes with units, and a caption set with ``fig.cap``.
+
+**4. Equilibria**
+
+- Use subsetting to find the approximate equilibria for a harvest of 250 thousand tonnes per year, and report them using inline code.
+
+**5. Stability**
+
+- Simulations of the cod population over 30 years for harvests of 250, 350 and 450 thousand tonnes per year, each with at least six starting populations between 0 and ``K``.
+- A figure for each harvest, made with ggplot2, with a caption.
+- A table of the population in the final year for every scenario, made by subsetting your simulations. Use ``knitr::kable()`` to turn a dataframe into a neat table in Word, for example ``knitr::kable(final[, c("h", "N0", "N")])``.
+- A paragraph describing which equilibria are stable and which are unstable, and how you can tell from your figures.
+
+**6. Why did the cod fishery collapse?**
+
+Use your production function and your simulations to answer these two questions in a paragraph each. The graph of catch, quota and stock size is in your fisheries tutorial.
+
+- In the late 1960s, catches peaked at roughly 800 thousand tonnes. Why did the stock decline through the 1970s?
+- Through the 1980s, catches were held at roughly 250 thousand tonnes, below the MSY. Use your equilibrium and stability results to explain how a fishery can still collapse even when the harvest is below the MSY.
+
+**7. A reef line fishery**
+
+- A chunk that loads the tidyverse (with ``message=FALSE``) and reads in both reef fishery files.
+- A figure of all six species over time, made by pivoting the counts to long format, with a caption.
+- A table of each species' ``K``, ``R0``, annual harvest and MSY, and whether its harvest is above its MSY, made with ``mutate()`` and ``knitr::kable()``.
+- A table of the mean count for each species in each decade, with species as rows and decades as columns, made with ``pivot_wider()`` and ``knitr::kable()``.
+- A paragraph explaining which species have collapsed and which look to be harvested sustainably. One species has collapsed even though its harvest is **below** its MSY. Use what you've learnt about equilibria and stability to explain how this could happen. Hint, find the equilibria for that species and compare them with its 1990 survey count.
+
+**8. Reproducibility**
+
+- A final chunk that runs ``sessionInfo()``, so that a reader can see which version of R and which packages you used.
+
+### Rules ###
+
+- Every code chunk must be commented, just like your script last week.
+- Every number in your writing that R calculated must come from inline code.
+- No absolute paths and no ``setwd()``. Read the two reef fishery files by name only, for example ``read_csv("reef_fishery_counts.csv")``. When we knit your report, we will put copies of both files in the same folder as your ``.Rmd``.
+- Your report must knit without errors in a fresh R session. We will knit it.
+
+### Before you submit ###
+
+1. Click ``Session``/``Restart R``, then click ``Knit``. If it knits, open the Word document and read it from start to finish. Check that every figure, table and number is there and makes sense.
+2. Submit **both** your ``.Rmd`` file and the ``.docx`` file it produced.
+
+### When knitting goes wrong ###
+
+| Error message | What it usually means |
+|---|---|
+| ``object 'x' not found`` | You made ``x`` in the console but not in a chunk, or the chunk that makes it comes later in the document |
+| ``could not find function "x"`` | A typo in the function name, or a package that you loaded in the console but not with ``library()`` in a chunk |
+| ``'reef_fishery_counts.csv' does not exist`` | The data file isn't in the same folder as your ``.Rmd`` |
+| ``Duplicate chunk label`` | Two chunks have the same name. Rename one, or remove the name |
+| ``unexpected symbol`` / ``unexpected ')'`` | A typo in your code, usually a missing comma, bracket or quotation mark. The error message tells you which chunk it was in |
+| The ``.docx`` won't update | You still have the old ``.docx`` open in Word. Close it and knit again |
 
 ---
 
