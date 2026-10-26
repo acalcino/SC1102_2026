@@ -30,7 +30,7 @@ Module 4: [Welcome to R](SC1102_Tutorial_1/week_1.html)
 
 Module 5: [Writing scripts and reproducibility](SC1102_Tutorial_2/week_2.html)
 
-<!-- Week 3: [Building your own RMarkdown document](SC1102_Tutorial_3/week_3.html) --->
+Module 6: [Building your own RMarkdown document](SC1102_Tutorial_3/week_3.html)
 
 
 ## Course Outline - SC1109
@@ -39,7 +39,7 @@ Module 4: [Welcome to R](SC1109_Tutorial_1/week_1.html)
 
 Module 5: [Writing scripts and reproducibility](SC1109_Tutorial_2/week_2.html)
 
-<!-- Week 3: [Building your own RMarkdown document](SC1109_Tutorial_3/week_3.html) --->
+Module 6: [Building your own RMarkdown document](SC1109_Tutorial_3/week_3.html)
 
 ## Datasets
 
@@ -51,6 +51,9 @@ Module 4
 Module 5
 
 - [Paramecium_aurelia.csv](SC1102_Tutorial_2/Paramecium_aurelia.csv) - Paramecium population growth data
+
+Module 6
+- [recovering_fishery_counts.csv](SC1102_Tutorial_3/recovering_fishery_counts.csv) - Recovering fishery population counts
  
 ## Where this is going
 
