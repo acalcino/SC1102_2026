@@ -24,17 +24,17 @@ pre, code, kbd, samp {
 
 [&larr; Back to the SC1102 course page](../)
 
-## Creating reproducible reports in R ##
+# Creating reproducible reports in R #
 
-Welcome to the final week of the bootcamp! In Week 1 we typed commands into the console. Last week we saved those commands into a script so that anyone could rerun them and get exactly the same plots and tables every time. That was a big step forward, but think about what happens when you need to write up your results. You run your script, open Word, paste your plots in and then copy the numbers from the console into your sentences by hand. Now imagine you find a mistake in your script, or your supervisor asks you to try a different parameter value. Every plot and every number in that Word document is now wrong and you have to hunt down and fix each one by hand. Miss one and your report contradicts itself. Not a good look.
+Welcome to the final week of the R bootcamp! In Week 1 we typed commands into the console. Last week we saved those commands into a script so that anyone could rerun them and get exactly the same plots and tables every time. This `reproducible` coding is a big improvement on console-based `interactive coding`, but thinking about the next step in the workflow towards publishing your scientific results, what happens when you need to write everything up into a paper or a report? If using R scripts, you first need to run your script, open Word, paste your plots and tables in and then copy relevant numbers from the console into your sentences by hand. What would happen if you happened to find a mistake in your script, or you decided it necessary to try a different parameter value? Every plot and every number in that Word document would then be wrong and you'd have to hunt down and fix each one by hand.
 
-So how do we get around this I hear you ask? Great question! This week we are tackling ``R Markdown``. An R Markdown document is a single file that holds your writing, your code and the results of that code (numbers, tables and plots) all together. When you click ``Knit``, R runs every bit of code in the document from top to bottom and builds a finished report, which in our case will be a Word document. Change a number in your code, knit again, and every plot, table and sentence that depends on it updates itself. This idea of weaving code and writing together into the one document is called **literate programming**.
+Fortunately the good people at R headquarters have already thought about this problem and have conveniently come up with a solution. This week we introduce you to ``R Markdown``. An R Markdown document is a single file that holds your writing, your code and the results of that code (numbers, tables and plots) all together. When you click ``Knit``, R runs every bit of code in the document from top to bottom and builds a finished report, which in our case will be a Word document. With R Markdown documents, when you change anything in your code, you can simply hit the `knit` button again and every plot, table and sentence that depends on it updates itself. This idea of weaving code and writing together into the one document is called [**literate programming**](https://en.wikipedia.org/wiki/Literate_programming).
 
-Here's a fun fact for you. Every tutorial page you've read in this bootcamp, including this one, is an R Markdown document. If you'd like to see what this page looks like before it's knitted, you can download its source file, [week_3.Rmd](week_3.Rmd), and open it in RStudio.
+Here's a fun fact. Every tutorial page you've read during this bootcamp, including this one, is an R Markdown document. If you'd like to see what this page looks like before it's knitted, you can download its source file, [week_3.Rmd](week_3.Rmd), and open it in RStudio.
 
-**This week, the report you produce is your assessment item.** First we'll learn how R Markdown works. Then, just like you built a script last week, you'll build a report as you work through the tutorial. It tells the story of a coral trout fishery that was fished almost to collapse, closed for 40 years to let it recover, and now wants to reopen. Using 40 years of survey data, you'll work out how the population grows and recommend how many fish can be harvested each year without it collapsing again. The checklist for your report is in the [assessment section](#your-assessment) at the bottom of this page.
+**This week, the report you produce is your assessment item.** First we'll learn how R Markdown works. Then, just like how you built a script last week, you'll build a report as you work through the tutorial. It tells the story of a Purple Spotted Spider Trout (may or may not be a real fish species) fishery that was fished almost to collapse, closed for 40 years to let it recover, and now wants to reopen. Using 40 years of survey data, you'll work out how the population grows and recommend how many fish can be harvested each year without it collapsing again.
 
-## Setting up ##
+## Setting up - To be done as pre-work ##
 
 As always, we start by creating a new project for this tutorial. Choose a logical location and name, just like you did in the last two weeks.
 
@@ -62,7 +62,7 @@ install.packages("rmarkdown")
 ### Your first R Markdown document ###
 
 1. Click ``File``/``New File``/``R Markdown...``
-2. In the window that pops up, choose ``Document`` on the left. Give it the title ``Reopening the coral trout fishery``, put your name in as the author, and under ``Default Output Format`` choose ``Word``. Click ``OK``.
+2. In the window that pops up, choose ``Document`` on the left. Give it the title ``Reopening the purple spotted spider trout fishery``, put your name in as the author, and under ``Default Output Format`` choose ``Word``. Click ``OK``.
 3. A new file opens in the top left pane. It isn't empty, RStudio has filled it with an example to get you started.
 4. Save it straight away into your project folder with ``File``/``Save As``. Use the same naming scheme as last week, so mine is ``adc_sc1102_tut3.Rmd``. Note the file extension is ``.Rmd`` and not ``.R``.
 
@@ -84,11 +84,11 @@ Every R Markdown document has three ingredients:
 
 ### The YAML header ###
 
-The block at the very top of your file, fenced off by two lines of ``---``, is called the YAML header (YAML rhymes with camel). It holds the settings for the whole document. Yours will look something like this:
+The block at the very top of your file, fenced off by two lines of ``---``, is called the YAML header (YAML rhymes with camel and stands for YAML Ain't Markup Language. Yeah, I know. Programmers and their unique form of humour 🙄). It holds the settings for the whole document. Yours will look something like this:
 
 ```
 ---
-title: "Reopening the coral trout fishery"
+title: "Reopening the purple spotted spider trout fishery"
 author: "Your Name"
 date: "2026-10-27"
 output: word_document
@@ -113,7 +113,6 @@ Anything outside the YAML header and the code chunks is just text, and it ends u
 
 Two things trip people up. First, you need a **blank line** between paragraphs, and before and after a list or heading, otherwise Markdown glues them together. Second, a ``#`` means something different depending on where it is. In the text, it makes a heading. Inside a code chunk, it's an R comment, just like in your scripts.
 
-You may notice ``Source`` and ``Visual`` buttons at the top left of your file. Stay in ``Source`` mode for this tutorial so that what you see matches these instructions.
 
 ### Code chunks ###
 
@@ -127,7 +126,7 @@ MSY
 ```
 ````
 
-The ``{r}`` tells R Markdown that the code inside is R code. When you knit, the code and its output both appear in the report. To add a new chunk, click ``Code``/``Insert Chunk``, or use the keyboard shortcut ``Ctrl + Alt + I`` (Windows and Linux) or ``Cmd + Option + I`` (Mac). Don't try to type the backticks yourself. They're easy to get wrong and on some keyboards they're hard to find.
+The ``{r}`` tells R Markdown that the code inside is R code. When you knit, the code and its output both appear in the report. To add a new chunk, click ``Code``/``Insert Chunk``, or use the keyboard shortcut ``Ctrl + Alt + I`` (Windows and Linux) or ``Cmd + Option + I`` (Mac).
 
 While you're writing, you don't need to knit every time you want to test something. Each chunk has a little green play button at its top right that runs just that chunk, and its output appears right underneath. This works just like running lines from your script last week.
 
@@ -156,17 +155,17 @@ Have a look at the first chunk in your file, the one called ``setup``. It has ``
 
 ### Inline code ###
 
-This is the feature that makes R Markdown so powerful. As well as chunks, you can put a small piece of R code straight into a sentence by writing a backtick, the letter ``r``, a space, your code, and a closing backtick. When you knit, the code is replaced by its result. So if you write this in the text part of your document:
+This is another feature that makes R Markdown so useful. As well as in code chunks, you can put a small piece of R code straight into a sentence by writing a backtick, the letter ``r``, a space, your code, and a closing backtick. When you knit, the code is replaced by its result. So if you write this in the text part of your document:
 
 ````md
 The maximum sustainable yield is `r knitr::inline_expr("MSY")` fish per year.
 ````
 
-your Word document will say "The maximum sustainable yield is 5 fish per year." Change the parameters and knit again, and the sentence updates itself. **From now on, you should never type a number into your writing that R has calculated for you.** Use inline code instead.
+your Word document will say `The maximum sustainable yield is 5 fish per year.` Change the parameters and knit again, and the sentence updates itself.
 
 ### Knitting starts from scratch ###
 
-This is the single most important thing to understand about R Markdown, so read this bit twice. When you click ``Knit``, R does **not** use anything in your Environment pane. It starts a brand new, empty R session, runs every chunk in your document in order from top to bottom, and builds the report from that. It's exactly the ``Restart R`` and ``Source`` test from last week, done for you automatically every time you knit.
+When you click ``Knit``, R does **not** use anything in your Environment pane. It starts a brand new, empty R session, runs every chunk in your document in order from top to bottom, and builds the report from that. It's exactly the ``Restart R`` and ``Source`` test from last week, done for you automatically every time you knit.
 
 This has some consequences:
 
@@ -175,31 +174,33 @@ This has some consequences:
 - Any files your document reads must be in the same folder as your ``.Rmd``.
 - If you load a package with ``library()``, it has to be in a chunk too.
 
-My advice is to **knit early and knit often**. If you knit after every new chunk or two, then when something breaks you'll know exactly which bit of code caused it. If you write the whole thing and only knit at the end, you'll be hunting through all of it at 11pm the night before it's due. Future you will thank past you for knitting often.
-
 ### Clear out the example ###
 
 This document is going to become your report, so delete everything in your file **below** the ``setup`` chunk. Keep the YAML header and the setup chunk. Then knit again to check it still works. From here on, every chunk of code in this tutorial goes into your report, in order, and you'll write the text around it. Knit after every chunk or two.
 
-## The story ##
+# The story this week #
 
-Here's the situation. A coral trout fishery off the Queensland coast was fished so hard through the 1970s and early 80s that by 1985 the stock had crashed to a fraction of its former size. If fishing had carried on, the stock would almost certainly have collapsed altogether. So in 1985 fishing was banned, and every year since then, scientists have surveyed the number of coral trout in four zones of the fishery. Forty years on, the stock looks a lot healthier and the fishing industry wants to know if it can reopen.
+Here's the situation. The Purple Spotted Spider Trout fishery off the Queensland coast was fished so hard through the 1970s and early 80s that by 1985 the stock had crashed to a fraction of its former size. If fishing had carried on, the stock would almost certainly have collapsed completely, so in 1985 fishing was banned, and every year since then, scientists have surveyed the number of Purple Spotted Spider Trout in four zones of the fishery. Forty years on, the stock looks a lot healthier and the fishing industry wants to know if it can reopen.
 
-That's where you come in. Your job is to use the survey data to work out how this population grows, and then to recommend a harvest that the fishery can sustain. Sound familiar? It's the same modelling cycle we used last week:
+That's where you come in. Your job is to use the survey data to work out how this population grows, and then to recommend a harvest that the fishery can sustain.
 
 ```
 1. Question                 How much can we harvest each year without the stock collapsing?
 2. Variables & assumptions  Population size N, harvest h, logistic growth
 3. Model construction       N(t+1) = N(t) + G(N(t)) - h
 4. Results                  Estimate K and R0 from the survey data, then G(N) and the MSY
-5. Testability              Simulate the stock under different harvests
+5. Testability              Simulate the stock under different harvest reigmes
 6. Evaluation               Which harvests are sustainable?
 7. Interpretation           What harvest do we recommend?
 ```
 
-**A word of warning, these data are simulated.** I made them up using the logistic model you've been building in this course, plus some random good and bad years, and some survey error to make them look like real survey data. Coral trout are real but this fishery and these numbers are not, so please don't quote them anywhere!
+If you're wondering where these data came from, I present to you my source:
 
-Every chunk from here on goes into your report. Where you see **In your report:**, that's something you need to write yourself.
+![](images/source.png){style="display: block; margin: 0 auto;"}
+
+The data are simulated and the species is sadly a work of fiction. 
+
+**NOTE:** Every code chunk from here on goes into your report. Where you see **In your report:**, that's something you need to write yourself.
 
 Remember the general framework from the lectures. Next year's population is this year's population, plus natural population growth, minus the harvest:
 
@@ -213,7 +214,7 @@ $$G(N) = R_0\left(1 - \frac{N}{K}\right)N$$
 
 ## The data ##
 
-Download [recovering_fishery_counts.csv](recovering_fishery_counts.csv) into your project folder. Add a heading ``# The data`` to your report, then read the data in.
+Download [recovering_fishery_counts.csv](recovering_fishery_counts.csv) into your project folder. In your report under ``# Introduction``, write a bit of an explanation about the data and then read the data in.
 
 ```{r}
 # Read in the survey data. N is in thousands of fish
@@ -224,7 +225,7 @@ head(counts)
 
 ```
 
-There's one row for each year, and one column for each of the four survey zones, holding the estimated number of fish in thousands. We want the size of the whole stock, so let's add the four zones together into a new column.
+There's one row for each year, and one column for each of the four survey zones. The estimated number of fish are in thousands. We want the size of the whole stock, so let's add the four zones together into a new column.
 
 ```{r}
 # Total number of fish (thousands) across all four zones in each year
@@ -247,20 +248,9 @@ N_2025 / N_1985
 
 ```
 
-Read that first line out loud as "give me the ``total`` column, from the rows of ``counts`` where ``year`` is equal to 1985". Note that it's two equals signs, ``==``, which asks "is this equal to?". A single ``=`` is for giving values to arguments.
-
-A table of every tenth year makes a nice summary for a report. ``%in%`` asks "is this value one of these?", so it keeps the rows whose year is in our list. ``knitr::kable()`` then turns the result into a proper table when you knit.
-
-```{r}
-# Keep the rows from every tenth year, and turn them into a table for the report
-knitr::kable(counts[counts$year %in% c(1985, 1995, 2005, 2015, 2025), ], row.names = FALSE,
-             caption = "Survey estimates (thousands of fish) every ten years.")
-
-```
-
 Now let's plot the recovery. In Week 2 we had to save each plot to a file with ``dev.copy()``. In R Markdown there's no need, plots go straight into the report. To give a plot a caption, add ``fig.cap`` to the chunk options, like the example in the chunk options section above.
 
-```{r recovery-plot, fig.cap="Total survey estimates for the fishery since fishing was banned in 1985."}
+```{r recovery-plot, fig.cap="**Fig. 1 -** Total survey estimates for the fishery since fishing was banned in 1985."}
 # Plot the total stock over time
 plot(counts$year, counts$total,
      pch = 19,
@@ -278,25 +268,25 @@ Between 1985 and 2025 the stock grew from `r knitr::inline_expr("N_1985")` to `r
 
 ## Estimating the carrying capacity ##
 
-Look at the plot. The stock grows quickly at first and then levels off. That levelling off is the carrying capacity ``K``, just like the paramecium last week. To estimate ``K``, we take the mean of the surveys once the stock has levelled off. From the plot, that's from about 2000 onwards. Subsetting again!
+Look at the plot. The stock grows quickly at first and then levels off. The level at which it plateaus is the carrying capacity ``K``, just like the paramecium example last week. To estimate ``K``, we take the mean of the surveys once the stock has levelled off. From the plot, that's from about 2000 onwards. More subsetting! Woohoo!
 
 ```{r}
 # Keep only the years after the stock levelled off
 plateau <- counts[counts$year >= 2000, ]
 
 # Carrying capacity K: the mean total from those years
-K <- mean(plateau$total)
-K
+K_plateau <- mean(plateau$total)
+K_plateau
 
 ```
 
-The surveys bounce either side of ``K`` from year to year, which is what we'd expect if the population is sitting at its carrying capacity and the ups and downs are just good years, bad years and survey error.
+The surveys bounce either side of ``K`` from year to year, which is what we'd expect if the population is sitting at its carrying capacity. At this point, the ups and downs are just good years, bad years and survey error.
 
-**In your report:** add a heading ``# Estimating the carrying capacity``, explain how you estimated ``K`` and report it with inline code. It's also worth adding ``abline(h = K, lty = 2)`` under your recovery plot to show where ``K`` sits. Remember the chunk that calculates ``K`` has to come before the plot for this to work!
+**In your report:** add an appropriate heading and explain how you estimated ``K``. You might like to mention the carrying capacity you calculated within your text block using inline code. It's also worth adding ``abline(h = K_plateau, lty = 2)`` under your recovery plot to show where ``K`` sits. Remember the chunk that calculates ``K`` has to come before the plot for this to work so think about how you might present it.
 
 ## Estimating R0 ##
 
-Now for the trickier parameter. ``R_0`` is the per capita growth rate when the population is small and there's no crowding. The logistic model says that the per capita growth rate ``R`` falls in a straight line as the population grows:
+Now for the trickier parameter. ``R_0`` is the per capita growth rate when the population is small or nearly zero. The logistic model says that the per capita growth rate ``R`` falls in a straight line as the population grows:
 
 $$R = R_0\left(1 - \frac{N}{K}\right)$$
 
@@ -307,7 +297,7 @@ Just like last week, we can build a table of observed growth from one year to th
 ```{r}
 # Population size this year, N(t). We drop the last year because there is no
 # following year to compare it to
-N_t <- counts$total[-n_years]
+N_t <- counts$total[-n_years]     # n_years was calculated in our second code block
 
 # Population size next year, N(t+1). We drop the first year so everything lines up
 N_t1 <- counts$total[-1]
@@ -322,22 +312,20 @@ growth <- data.frame(
   R_obs = (N_t1 - N_t) / N_t
 )
 
-# The first ten years of the recovery, when the population was small
+# This table is 40 lines long, so let's just have a look at the first ten years of the 
+# recovery, when the population was small
 growth[growth$year < 1995, ]
 
 ```
 
-Now we fit a straight line through ``R_obs`` against ``N``. In Excel you would have added a linear trendline to your chart. In R, the line of best fit comes from the function ``lm()``, which stands for linear model. The ``~`` reads as "explained by", so ``R_obs ~ N`` means "R_obs explained by N".
+Now we fit a straight line through ``R_obs`` against ``N``. In Excel you would have added a linear trendline to your chart. In R, the line of best fit comes from the function ``lm()``, which stands for linear model. The ``~`` means "explained by", so ``R_obs ~ N`` means "R_obs explained by N".
 
-```{r R-plot, fig.cap="Observed per capita growth rate against population size, with the line of best fit."}
-# Fit a straight line through R_obs against N
+```{r R-plot, fig.cap="**Fig. 2 -** Observed per capita growth rate against population size, with the line of best fit."}
+# Fit a straight line to R_obs against N
 fit <- lm(R_obs ~ N, data = growth)
 
-# The intercept (where the line hits N = 0) and the slope of the line
-coef(fit)
-
-# R0 is the intercept. unname() just drops the label that coef() attaches
-R0 <- unname(coef(fit)[1])
+# Have a look at fit to see the value of R0 and slope (confusingly, labelled N by lm())
+fit
 
 # Plot the observed R against N, with the line of best fit and a line at R = 0
 plot(growth$N, growth$R_obs,
@@ -350,20 +338,54 @@ abline(h = 0, lty = 2, col = "grey40")
 
 ```
 
-There's our straight line, falling as the population grows. The points are noisy (real data always are!), but the trend is clear. Here's a neat check. The line crosses ``R = 0`` at ``N = -intercept / slope``, which is the logistic model's carrying capacity. Our line crosses at `r round(-coef(fit)[1] / coef(fit)[2])`, very close to the ``K`` of `r round(K)` we got from the plateau. Two different ways of estimating ``K`` agree, which gives us confidence in the model.
+There's our straight line, falling as the population grows. The points are noisy (real data always are!), but the trend is clear. The line crosses ``R = 0`` which we already calculated with `lm()` in addition to the slope. Let's extract these values so we can use them to calculate K and to compare this to the value we calculated earlier for K as `mean(plateau$total)`.
+
+
+```{r}
+# This slightly complicated line uses coef() to extract R from fit, unname() to remove 
+# the (Intercept) heading and [] to subset the first column
+R0 <- unname(coef(fit)[1])
+
+# Do the same for slope
+slope <- unname(coef(fit)[2])
+
+```
+
+The line falls from R0 at N = 0 to 0 at N = K. Looking at the formula:
+
+$$R = R_0 - \frac{R_0}{K}N$$
+we can see that the `slope = -R0/K`. Rearranging this for `K`, we get `K = -R0/slope`. We can use this to calculate K and to then compare it to our original value of K.
+
+```{r}
+# Calculate K based on where the line intersects x axis when per capita growth rate = 0
+K_line <- R0/-slope
+
+# Compare it with K from the plateau mean
+K_plateau
+K_line
+
+```
+
+Not bad.
 
 **In your report:** add a heading ``# Estimating R0``, explain how you estimated ``R_0`` and report it with inline code. Hint, ``round(R0, 2)`` inside your inline code will stop R giving you 15 decimal places.
 
 ## The production function ##
 
-We now have both parameters, so we can calculate the production function ``G(N)`` for every population size from 0 to ``K``, and plot it. We'll also add our observed growth, ``G_obs``, as points, so we can see how well the model matches the data.
+We now have both parameters, so we can calculate the production function ``G(N)`` for every population size from 0 to ``K``, and plot it. We'll also add our observed growth, ``G_obs``, as points, so we can see how well the model matches the data. Remember the formula for the logistic production function:
 
-```{r production-plot, fig.cap="The logistic production function (line) with the observed growth from each year to the next (points)."}
-# A dataframe of population sizes from 0 to K in steps of 1
-production <- data.frame(N = seq(0, K, by = 1))
+$$G(N) = R_0\left(1 - \frac{N}{K}\right)N$$
 
-# Natural growth G(N) at every one of those population sizes
-production$G_N <- R0 * (1 - production$N / K) * production$N
+```{r production-plot, fig.cap="**Fig. 3 -** The logistic production function (line) with the observed growth from each year to the next (points)."}
+# Create a dataframe consisteing of one column N, with values going from 0 to the carrying capacity K in steps of 1
+production <- data.frame(N = seq(0, K_line, by = 1))
+
+# Have a look at it so you understand what you did
+head(production)
+tail(production)
+
+# Add a column G_N to your production dataframe to hold the output of the production function calculations
+production$G_N <- R0 * (1 - production$N / K_line) * production$N
 
 # Plot the production function as a line
 plot(production$N, production$G_N,
@@ -382,23 +404,24 @@ abline(h = 0, lty = 2, col = "grey40")
 
 ```
 
-There's the hump from the lectures, and the observed growth follows it nicely. The peak of the hump is the maximum sustainable yield (MSY), the largest harvest the population could possibly sustain. We can find it with subsetting, by asking for the row where ``G(N)`` equals its largest value.
+There's the hump from the lectures, and the observed growth follows it reasonably well. The peak of the hump is the maximum sustainable yield (MSY), the largest harvest the population could possibly sustain. We can find it with subsetting, by asking for the largest value of ``G(N)`` in our ``production`` dataframe, and the population size where it happens. We'll then check these against the formulas from the lectures, ``MSY = R0K/4`` and ``N_MSY = K/2``.
 
-```{r}
-# The row of the production function where G(N) is at its maximum
-production[production$G_N == max(production$G_N), ]
-
-# Store the MSY and the population size where it happens
+```{r MSY}
+# The Maximum Sustainable Yield is the largest value of G(N)
 MSY <- max(production$G_N)
+
+# The population size where G(N) is at its largest
 N_MSY <- production[production$G_N == MSY, "N"]
 
-# Check against the formulas from the lectures, MSY = R0 * K / 4 and N_MSY = K / 2
-R0 * K / 4
-K / 2
+# Check them against the formulas from the lectures
+MSY
+R0 * K_line / 4
+N_MSY
+K_line / 2
 
 ```
 
-Subsetting and the formulas agree. They're not *exactly* the same, because our ``N`` values only go up in steps of 1.
+They agree, give or take a tiny amount, because the ``N`` values in ``production`` only go up in steps of 1. We use the values from the table rather than the formulas, because the next section subsets the same table. If we used the formula, the MSY would be a tiny bit higher than any value of ``G(N)`` in the table, and R would think there was no equilibrium at the MSY at all.
 
 **In your report:** add a heading ``# The production function``, include the plot, and report the MSY and ``N_MSY`` using inline code.
 
@@ -406,7 +429,7 @@ Subsetting and the formulas agree. They're not *exactly* the same, because our `
 
 Now for the question we came here to answer. We'll compare four possible harvests: half the MSY, three quarters of the MSY, the MSY itself, and a quarter more than the MSY.
 
-```{r}
+```{r harvests}
 # Four harvests to compare, in thousands of fish per year
 harvests <- c(0.5, 0.75, 1, 1.25) * MSY
 round(harvests)
@@ -415,7 +438,7 @@ round(harvests)
 
 ### Finding the equilibria ###
 
-From the lectures, a harvest ``h`` has an equilibrium wherever ``G(N) = h``. On the production function, that's wherever a horizontal line at ``h`` crosses the hump. We can find these with subsetting. We keep every population size where natural growth can keep up with the harvest, ``G(N) >= h``, and the two ends of that range are the two equilibria.
+From the lectures, remember that a harvest ``h`` has an equilibrium wherever ``G(N) = h``. On the production function, that's wherever a horizontal line at ``h`` crosses the hump. We can find these by subsetting. We keep every population size where natural growth can keep up with the harvest, in other words where ``G(N) >= h``, and the two ends of that range are the two equilibria.
 
 We'll do this for all four harvests at once with a ``for loop``, storing the answers in a dataframe. There's one catch. If a harvest is bigger than the MSY, there are no population sizes that can keep up with it, so the subset has no rows. We use an ``if`` statement, just like the R version check in Week 2, to only fill in the equilibria when there are some.
 
@@ -425,7 +448,7 @@ equilibria <- data.frame(h = harvests, lower = NA, upper = NA)
 
 for (i in 1:nrow(equilibria)) {
   # Keep the population sizes where G(N) can keep up with this harvest
-  can_sustain <- production[production$G_N >= equilibria$h[i], ]
+  can_sustain <- production[production$G_N >= equilibria$h[i], ]    # This line subsets the production dataframe
 
   # If there are any, the smallest and largest are the two equilibria
   if (nrow(can_sustain) > 0) {
@@ -434,55 +457,76 @@ for (i in 1:nrow(equilibria)) {
   }
 }
 
-# Turn it into a table for the report, rounded to whole numbers
-knitr::kable(round(equilibria), caption = "Equilibria for each harvest (thousands of fish).")
+# Check out your equilibria dataframe now, rounding to whole numbers
+round(equilibria)
 
 ```
 
-Half the MSY has two equilibria that are far apart. As the harvest grows, they squeeze together, until at the MSY they meet at ``N_MSY``. Above the MSY there are none at all, which means no equilibrium and a collapse.
+What was all that about? What we did was that we took the `production` dataframe you created above and for every proposed harvest number (`r round(harvests)` thousand fish), we subsetted out those rows where G(N) was equal to or greater than the proposed harvest number (`equilibria$h`). To satisfy yourself that you understand this code block, try out `head()` and `tail()` on `production` and `equilibria`. Understanding the input and output data will help you understand how this code for loop and if/then statement works.
+
+Now have a look at the equilibria dataframe again. You'll notice that when h is equal to half the MSY, the two equilibria are far apart. As the harvest grows, these values squeeze together, until at the MSY they meet at ``N_MSY``. Above the MSY there are no values that satisfy our subsetting criteria at all, which means no equilibrium is possible and so a population collapse is inevitable.
 
 ### Testing stability ###
 
-Finding an equilibrium is only half the job. We also need to know whether it is ecologically stable. Just like you did in Excel, we test this by starting the population at different sizes, harvesting it every year, and watching what happens. We'll try every combination of our four harvests and six starting populations, including today's stock, over 50 years. ``expand.grid()`` makes a table of every combination.
+Finding an equilibrium is great, but we also need to know whether our equilibrium is ecologically stable. Just like you did in Excel, we test this by starting the population at different sizes, harvesting it every year, and watching what happens. We'll try every combination of our four harvests and six starting populations, including today's stock, over 50 years. ``expand.grid()`` makes a table of every combination.
+
+```{r}
+# Every combination of six starting populations and our four harvests
+scenarios <- expand.grid(N0 = c(200, 400, 600, 800, 1000, N_2025),
+                         h = harvests)
+
+scenarios
+
+```
+
+Now we loop over the rows of ``scenarios``. For each one, we step the model forward one year at a time, just like last week, but this time subtracting the harvest using the logistic growth model with harvesting:
+
+$$N_{t+1} = N_t + R_0\left(1 - \frac{N_t}{K}\right)N_t - h$$
+
+In human speak, next year's population size `Nt+1` is equal to this year's population size `Nt` plus the natural growth of the population `G(Nt)` or as it is written here, `R0(1-Nt/K)Nt` minus the harvest `h`. 
+
+The final two codeblocks are going to be challenging. We're going to take these 24 proposed scenarios which invlove unique combinations of starting population size and harvest number, and use them to predict future population growth by applying the logistic growth model with harvesting (formula above). The code is more complicated than you're really going to need to produce in the third section of this course, but if you can follow the logic behind it, you will know that you really do understand logistic growth models. The whole point of this code block is to set up the simulations dataframe which we will use to plot the growth curves of the six starting populations we have stored in `scenarios`. I know I went on a bit about actually typing code rather than copy pasting it, but for this next bit if you choose to copy paste, you will be forgiven as long as you spend some time slowly reading through the code to try and understand what it's doing.
+
+One thing to note - a population can't have fewer than zero fish, so ``max(0, ...)`` takes whichever is bigger, zero or the new population size. You'll see this on the logistic growth model line in the next code block. Ok folks, here we go:
 
 ```{r}
 # Number of years to simulate
 n_sim <- 50
 
-# Every combination of six starting populations and our four harvests
-scenarios <- expand.grid(N0 = c(200, 400, 600, 800, 1000, N_2025),
-                         h = harvests)
-
-```
-
-Now we loop over the rows of ``scenarios``. For each one, we step the model forward one year at a time, just like last week, but this time subtracting the harvest. A population can't have fewer than zero fish, so ``max(0, ...)`` takes whichever is bigger, zero or the new population size. This is a loop inside a loop. The outer loop picks a scenario, and the inner loop runs it. Each run is stacked onto the bottom of a big dataframe called ``simulations`` with ``rbind()``.
-
-```{r}
 # An empty dataframe to collect every simulation
 simulations <- data.frame()
 
-for (s in 1:nrow(scenarios)) {
+# WARNING: Monstrous looking for loop ahead!
+for (i in 1:nrow(scenarios)) {
   # Subset out the starting population and harvest for this scenario
-  N0 <- scenarios[s, "N0"]
-  h <- scenarios[s, "h"]
+  N0 <- scenarios[i, "N0"]
+  h <- scenarios[i, "h"]
 
   # Step the model forward one year at a time
   N <- numeric(n_sim + 1)
   N[1] <- N0
-  for (t in 1:n_sim) {
-    N[t + 1] <- max(0, N[t] + R0 * (1 - N[t] / K) * N[t] - h)
+  for (j in 1:n_sim) {
+    N[j + 1] <- max(0, N[j] + R0 * (1 - N[j] / K_line) * N[j] - h)     # This is the logistic growth model with harvesting
   }
 
   # Stack this simulation onto the bottom of the others
   simulations <- rbind(simulations, data.frame(year = 0:n_sim, N = N, N0 = N0, h = h))
 }
 
+# OOF! I'm glad that's over.
+
+# The simulations dataframe is 1224 lines long so just have a look at its head and tail to 
+# try to understand how this crazy looking nested for loop works
+head(simulations)
+tail(simulations)
+
 ```
 
-Now let's plot the simulations for one harvest. We subset out the rows for that harvest, draw an empty set of axes with ``type = "n"`` (n for nothing), and then use a ``for loop`` to subset out each starting population in turn and draw it with ``lines()``. ``paste()`` glues bits of text together to make a title that changes with the harvest.
+FINAL PLOT AHEAD!
+Let's plot the simulations for one harvest value. We subset out the rows for that harvest, draw an empty set of axes with ``type = "n"`` (n for nothing), and then use a ``for loop`` to subset out each starting population in turn and then draw it with ``lines()``. ``paste()`` glues bits of text together to make a title that changes with the harvest.
 
 ```{r stability-plot, fig.cap="The stock over 50 years from six starting populations, harvesting three quarters of the MSY. The dashed lines are the two equilibria."}
-# Choose which harvest to plot, the second one is three quarters of the MSY
+# Choose which harvest to plot, the second one (88) is equal to three quarters of the MSY
 h_plot <- harvests[2]
 
 # Subset out the simulations and equilibria for that harvest
@@ -492,7 +536,7 @@ eq_h <- equilibria[equilibria$h == h_plot, ]
 # Draw the axes only
 plot(sims_h$year, sims_h$N,
      type = "n",
-     ylim = c(0, K),
+     ylim = c(0, K_line),
      xlab = "Years after fishing reopens",
      ylab = "Number of fish (thousands)",
      main = paste("Harvest of", round(h_plot), "thousand fish per year"))
@@ -503,90 +547,25 @@ for (start in unique(sims_h$N0)) {
   lines(one_run$year, one_run$N, lwd = 2, col = "blue")
 }
 
-# Add the equilibria as dashed grey lines
+# Add the two equilibria as dashed grey lines, and label them
 abline(h = c(eq_h$lower, eq_h$upper), lty = 2, col = "grey40")
+text(x = n_sim, y = c(eq_h$lower, eq_h$upper),
+     labels = paste(c("Unstable", "Stable"), "equilibrium:", round(c(eq_h$lower, eq_h$upper))),
+     adj = c(1, -0.5), cex = 0.8, col = "grey40")
 
 ```
 
-Now for the moment of truth. Every population that started **above** the lower equilibrium ended up at the upper equilibrium, so the upper equilibrium is **stable**. The population that started **below** the lower equilibrium crashed to zero, so the lower equilibrium is **unstable**. That lower equilibrium is a danger line. If the stock ever falls below it, the fishery will collapse unless the harvest is cut.
-
-Finally, a table of how every scenario ended up. We subset out the final year, and add a column saying whether the population collapsed.
-
-```{r}
-# Keep only the final year of every simulation
-final <- simulations[simulations$year == n_sim, ]
-
-# TRUE if the population collapsed to zero
-final$collapsed <- final$N == 0
-
-# How many of the scenarios collapsed? sum() counts the TRUEs
-sum(final$collapsed)
-
-# A table of the final population for every scenario
-knitr::kable(round(final[, c("h", "N0", "N")]), row.names = FALSE,
-             caption = "Stock after 50 years for each harvest and starting population (thousands of fish).")
-
-```
+Done! Looking at the plot you'll see that every population that started **above** the lower equilibrium ended up at the upper equilibrium, so the upper equilibrium is **stable**. The population that started **below** the lower equilibrium crashed to zero, so the lower equilibrium is **unstable**. That lower equilibrium is a danger line. If the stock ever falls below it, the fishery will collapse unless the harvest is cut.
 
 ### Your turn ###
 
-a. Copy the plotting chunk three times and change ``h_plot`` to ``harvests[1]``, ``harvests[3]`` and ``harvests[4]``, so that your report has a plot for all four harvests. What happens at the MSY? What happens above it?
-b. Which starting populations collapsed when harvesting three quarters of the MSY? Hint, subset ``final`` using ``&``.
-c. **If you have time.** Our estimates of ``K`` and ``R_0`` came from noisy data, so they might be a bit off. Try knitting with ``R0`` 20% lower than your estimate (multiply it by 0.8 in the chunk where you make it). Which harvests are still sustainable? Change it back when you're done.
+Copy the plotting chunk three times and change ``h_plot`` to harvest 1, 3 and 4, so that your report has a plot for all four harvests. What happens at the MSY? What happens above it? Which starting populations collapsed when harvesting three quarters of the MSY? Just a word of warning, if you plot `harvests[3]`, the single equilibrium will get the label `Unstable equilibrium` and `Stable quilibrium` overlaid on top of each other. This is just a quirk of the plotting script we used as in reality, there is only one equilibrium at the MSY and it is unstable.
 
 ## Your recommendation ##
 
-So, how much should the fishery be allowed to harvest? From the lectures and from your own simulations, a harvest is only sustainable if it is **below** the MSY and the stock stays to the **right** of the lower equilibrium. Harvesting right at the MSY isn't safe, because one bad year that knocks the stock below ``N_MSY`` is enough to start a collapse. And remember, our ``K`` and ``R_0`` are only estimates.
+So, how much should the fishery be allowed to harvest? From the lectures and from your own simulations, a harvest is only sustainable if it is **below** the MSY and the stock stays **above** the lower equilibrium. Harvesting right at the MSY isn't safe, because one bad year that knocks the stock below ``N_MSY`` is enough to initiate a collapse. And remember, our ``K`` and ``R_0`` are only estimates.
 
-**In your report:** under a heading ``# Recommendation``, recommend an annual harvest for the fishery, in thousands of fish per year, and justify it using your equilibria and your simulations. There is no single right answer here, what matters is your reasoning.
-
-Finally, add a heading ``# Reproducibility`` and a chunk that runs ``sessionInfo()``, so that anyone reading your report can see which version of R and which packages you used.
-
-```{r eval=FALSE}
-# The version of R and the packages used to produce this report
-sessionInfo()
-
-```
-
-## Your assessment ##
-
-The report you've built while working through this tutorial is your assessment item. Before you submit it, check it has everything on this list.
-
-### What your report must contain ###
-
-- **YAML header** with a sensible title, your name **and** student number as the author, the date, and ``output: word_document``.
-- **Introduction.** The situation, the question, and the two requirements for a sustainable harvest.
-- **The model.** The harvesting model and the logistic production function as equations.
-- **The data.** The table of every tenth year and the plot of the recovery, with a caption and a sentence describing the recovery.
-- **Estimating the carrying capacity.** How you estimated ``K``, and its value.
-- **Estimating R0.** The plot of ``R`` against ``N`` with the line of best fit, how you estimated ``R_0``, and its value.
-- **The production function.** The plot, and the MSY and ``N_MSY``.
-- **Choosing a sustainable harvest.** The table of equilibria, a plot of the simulations for each of the four harvests, the table of final populations, and a paragraph explaining which equilibria are stable and which are unstable, and how you can tell from your plots.
-- **Recommendation.** Your recommended harvest, with your reasoning.
-- **Reproducibility.** A chunk that runs ``sessionInfo()``.
-
-### Rules ###
-
-- Every code chunk must be commented, just like your script last week.
-- Every number in your writing that R calculated must come from inline code.
-- No absolute paths and no ``setwd()``. Read the data file by name only, ``read.csv("recovering_fishery_counts.csv")``. When we knit your report, we will put a copy of the data file in the same folder as your ``.Rmd``.
-- Your report must knit without errors in a fresh R session. We will knit it.
-
-### Before you submit ###
-
-1. Click ``Session``/``Restart R``, then click ``Knit``. If it knits, open the Word document and read it from start to finish. Check that every figure, table and number is there and makes sense.
-2. Submit **both** your ``.Rmd`` file and the ``.docx`` file it produced.
-
-### When knitting goes wrong ###
-
-| Error message | What it usually means |
-|---|---|
-| ``object 'x' not found`` | You made ``x`` in the console but not in a chunk, or the chunk that makes it comes later in the document |
-| ``could not find function "x"`` | A typo in the function name, or a package that you loaded in the console but not with ``library()`` in a chunk |
-| ``cannot open file 'recovering_fishery_counts.csv'`` | The data file isn't in the same folder as your ``.Rmd`` |
-| ``Duplicate chunk label`` | Two chunks have the same name. Rename one, or remove the name |
-| ``unexpected symbol`` / ``unexpected ')'`` | A typo in your code, usually a missing comma, bracket or quotation mark. The error message tells you which chunk it was in |
-| The ``.docx`` won't update | You still have the old ``.docx`` open in Word. Close it and knit again |
+**In your report:** under a heading ``# Recommendation``, recommend an annual harvest for the fishery, in thousands of fish per year, and justify it using your equilibria and your simulations.
 
 ---
 
