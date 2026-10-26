@@ -365,11 +365,15 @@ They agree. We'll come back to the tidyverse at the end of the analysis, when we
 
 ## Estimating the carrying capacity ##
 
-Look at the plot. The stock grows quickly at first and then levels off. The level at which it plateaus is the carrying capacity ``K``, just like the paramecium example last week. To estimate ``K``, we take the mean of the surveys once the stock has levelled off. From the plot, that's from about 2000 onwards. More subsetting! Woohoo!
+Look at the plot. The stock grows quickly at first and then levels off. The level at which it plateaus is the carrying capacity ``K``, just like the paramecium example last week. To estimate ``K``, we take the mean of the surveys once the stock has levelled off. From the plot, that's from about 2000 onwards. More subsetting! Woohoo! From here on we'll do our subsetting the tidyverse way, but I've left the base R version of this first one in as a comment so you can compare the two.
 
 ```{r}
 # Keep only the years after the stock levelled off
-plateau <- counts[counts$year >= 2000, ]
+plateau <- counts |>
+  filter(year >= 2000)
+
+# The base R way does exactly the same thing:
+# plateau <- counts[counts$year >= 2000, ]
 
 # Carrying capacity K: the mean total from those years
 K_plateau <- mean(plateau$total)
@@ -389,29 +393,26 @@ $$R = R_0\left(1 - \frac{N}{K}\right)$$
 
 So if we plot the observed ``R`` against ``N``, the points should fall roughly on a straight line, and where that line hits ``N = 0`` is ``R_0``. This is exactly why the early recovery years are so valuable. They are the only years when the population was small.
 
-Just like last week, we can build a table of observed growth from one year to the next. Notice the negative numbers inside the square brackets. A minus sign means "everything **except** this one", so ``[-n_years]`` drops the last year and ``[-1]`` drops the first.
+Just like last week, we can build a table of observed growth from one year to the next. For each year we need this year's population, ``N(t)``, and next year's, ``N(t+1)``, side by side. The tidyverse function ``lead()`` does exactly that. It shifts a column up by one row, so ``lead(total)`` gives next year's total. The last year has no next year, so ``lead()`` gives ``NA`` there, and we filter that row out. ``is.na()`` asks "is this NA?" and ``!`` means "not", so ``!is.na(G_obs)`` keeps the rows where ``G_obs`` is not NA.
 
 ```{r}
-# Population size this year, N(t). We drop the last year because there is no
-# following year to compare it to
-N_t <- counts$total[-n_years]     # n_years was calculated in our second code block
-
-# Population size next year, N(t+1). We drop the first year so everything lines up
-N_t1 <- counts$total[-1]
-
-# A table of the observed growth from each year to the next
-growth <- data.frame(
-  year = counts$year[-n_years],
-  N = N_t,
-  # Observed natural growth G(N). No fishing, so this is just the change in N
-  G_obs = N_t1 - N_t,
-  # Observed per capita growth rate R = G(N) / N
-  R_obs = (N_t1 - N_t) / N_t
-)
+# A table of the observed growth from each year to the next. Take counts, and then
+growth <- counts |>
+  # add the new columns. N is this year's population, N(t). Observed natural
+  # growth G(N) is next year's total minus this year's (no fishing, so this is
+  # just the change in N). The per capita growth rate is R = G(N) / N
+  mutate(N = total,
+         G_obs = lead(total) - total,
+         R_obs = G_obs / N) |>
+  # and then keep just the columns we need, and then
+  select(year, N, G_obs, R_obs) |>
+  # drop the last year, which has no following year to compare it to
+  filter(!is.na(G_obs))
 
 # This table is 40 lines long, so let's just have a look at the first ten years of the 
 # recovery, when the population was small
-growth[growth$year < 1995, ]
+growth |>
+  filter(year < 1995)
 
 ```
 
@@ -483,7 +484,8 @@ head(production)
 tail(production)
 
 # Add a column G_N to your production dataframe to hold the output of the production function calculations
-production$G_N <- R0 * (1 - production$N / K_line) * production$N
+production <- production |>
+  mutate(G_N = R0 * (1 - N / K_line) * N)
 
 # Plot the production function as a line, and the observed growth as points.
 # The two layers come from two different dataframes
@@ -498,14 +500,27 @@ ggplot() +
 
 ```
 
-There's the hump from the lectures, and the observed growth follows it reasonably well. The peak of the hump is the maximum sustainable yield (MSY), the largest harvest the population could possibly sustain.
+There's the hump from the lectures, and the observed growth follows it reasonably well. The peak of the hump is the maximum sustainable yield (MSY), the largest harvest the population could possibly sustain. We can find it with subsetting, by asking for the largest value of ``G(N)`` in our ``production`` dataframe, and the population size where it happens. We'll then check these against the formulas from the lectures, ``MSY = R0K/4`` and ``N_MSY = K/2``.
 
 ```{r MSY}
-# Calculate the Maximum Sustainable Yield and the population size at this point
-MSY <- R0 * K_line / 4
-N_MSY <- K_line / 2
+# The Maximum Sustainable Yield is the largest value of G(N)
+MSY <- max(production$G_N)
+
+# The population size where G(N) is at its largest. pull() takes a single
+# column out of a dataframe as a vector, just like $ does
+N_MSY <- production |>
+  filter(G_N == MSY) |>
+  pull(N)
+
+# Check them against the formulas from the lectures
+MSY
+R0 * K_line / 4
+N_MSY
+K_line / 2
 
 ```
+
+They agree, give or take a tiny amount, because the ``N`` values in ``production`` only go up in steps of 1. We use the values from the table rather than the formulas, because the next section subsets the same table. If we used the formula, the MSY would be a tiny bit higher than any value of ``G(N)`` in the table, and R would think there was no equilibrium at the MSY at all.
 
 **In your report:** add a heading ``# The production function``, include the plot, and report the MSY and ``N_MSY`` using inline code.
 
@@ -532,7 +547,7 @@ equilibria <- data.frame(h = harvests, lower = NA, upper = NA)
 
 for (i in 1:nrow(equilibria)) {
   # Keep the population sizes where G(N) can keep up with this harvest
-  can_sustain <- production[production$G_N >= equilibria$h[i], ]    # This line subsets the production dataframe
+  can_sustain <- production |> filter(G_N >= equilibria$h[i])    # This line subsets the production dataframe
 
   # If there are any, the smallest and largest are the two equilibria
   if (nrow(can_sustain) > 0) {
@@ -546,7 +561,7 @@ round(equilibria)
 
 ```
 
-What was all that about? What we did was that we took the `production` dataframe you created above and for every proposed harvest number (59, 88, 117 and 147 thousand fish), we subsetted out those rows where G(N) was equal to or greater than the proposed harvest number (`equilibria$h`). To satisfy yourself that you understand this code block, try out `head()` and `tail()` on `production` and `equilibria`. Understanding the input and output data will help you understand how this code for loop and if/then statement works.
+What was all that about? What we did was that we took the `production` dataframe you created above and for every proposed harvest number (`r round(harvests)` thousand fish), we subsetted out those rows where G(N) was equal to or greater than the proposed harvest number (`equilibria$h`). To satisfy yourself that you understand this code block, try out `head()` and `tail()` on `production` and `equilibria`. Understanding the input and output data will help you understand how this code for loop and if/then statement works.
 
 Now have a look at the equilibria dataframe again. You'll notice that when h is equal to half the MSY, the two equilibria are far apart. As the harvest grows, these values squeeze together, until at the MSY they meet at ``N_MSY``. Above the MSY there are no values that satisfy our subsetting criteria at all, which means no equilibrium is possible and so a population collapse is inevitable.
 
@@ -614,8 +629,8 @@ Let's plot the simulations for one harvest value. We subset out the rows for tha
 h_plot <- harvests[2]
 
 # Subset out the simulations and equilibria for that harvest
-sims_h <- simulations[simulations$h == h_plot, ]
-eq_h <- equilibria[equilibria$h == h_plot, ]
+sims_h <- simulations |> filter(h == h_plot)
+eq_h <- equilibria |> filter(h == h_plot)
 
 # One line for each starting population. factor() turns N0 into groups so each
 # starting population gets its own colour
@@ -636,7 +651,7 @@ ggplot(sims_h, aes(x = year, y = N, colour = factor(round(N0)))) +
 
 ```
 
-Done! Looking at the plot you'll see that every population that started **above** the lower equilibrium ended up at the upper equilibrium, so the upper equilibrium is **stable**. The population that started **below** the lower equilibrium crashed to zero, so the lower equilibrium is **unstable**. That lower equilibrium is a danger line. If the stock ever falls below it, the fishery will collapse unless the harvest is cut.
+Done! Looking at the plot you'll see that every population that started **above** the lower equilibrium ended up at the upper equilibrium, so the upper equilibrium is **stable**. The population that started **below** the lower equilibrium crashed to zero, so the lower equilibrium is **unstable**. That lower equilibrium is a danger line. If the stock ever falls below it, the fishery will collapse unless the harvest is cut. Just a word of warning, if you plot `harvests[3]`, the single equilibrium will get the label `Unstable equilibrium` and `Stable quilibrium` overlaid on top of each other. This is just a quirk of the plotting script we used as in reality, there is only one equilibrium at the MSY and it is unstable.
 
 ### From long to wide ###
 

@@ -404,14 +404,24 @@ abline(h = 0, lty = 2, col = "grey40")
 
 ```
 
-There's the hump from the lectures, and the observed growth follows it reasonably well. The peak of the hump is the maximum sustainable yield (MSY), the largest harvest the population could possibly sustain.
+There's the hump from the lectures, and the observed growth follows it reasonably well. The peak of the hump is the maximum sustainable yield (MSY), the largest harvest the population could possibly sustain. We can find it with subsetting, by asking for the largest value of ``G(N)`` in our ``production`` dataframe, and the population size where it happens. We'll then check these against the formulas from the lectures, ``MSY = R0K/4`` and ``N_MSY = K/2``.
 
 ```{r MSY}
-# Calculate the Maximum Sustainable Yield and the population size at this point
-MSY <- R0 * K_line / 4
-N_MSY <- K_line / 2
+# The Maximum Sustainable Yield is the largest value of G(N)
+MSY <- max(production$G_N)
+
+# The population size where G(N) is at its largest
+N_MSY <- production[production$G_N == MSY, "N"]
+
+# Check them against the formulas from the lectures
+MSY
+R0 * K_line / 4
+N_MSY
+K_line / 2
 
 ```
+
+They agree, give or take a tiny amount, because the ``N`` values in ``production`` only go up in steps of 1. We use the values from the table rather than the formulas, because the next section subsets the same table. If we used the formula, the MSY would be a tiny bit higher than any value of ``G(N)`` in the table, and R would think there was no equilibrium at the MSY at all.
 
 **In your report:** add a heading ``# The production function``, include the plot, and report the MSY and ``N_MSY`` using inline code.
 
@@ -452,7 +462,7 @@ round(equilibria)
 
 ```
 
-What was all that about? What we did was that we took the `production` dataframe you created above and for every proposed harvest number (59, 88, 117 and 147 thousand fish), we subsetted out those rows where G(N) was equal to or greater than the proposed harvest number (`equilibria$h`). To satisfy yourself that you understand this code block, try out `head()` and `tail()` on `production` and `equilibria`. Understanding the input and output data will help you understand how this code for loop and if/then statement works.
+What was all that about? What we did was that we took the `production` dataframe you created above and for every proposed harvest number (`r round(harvests)` thousand fish), we subsetted out those rows where G(N) was equal to or greater than the proposed harvest number (`equilibria$h`). To satisfy yourself that you understand this code block, try out `head()` and `tail()` on `production` and `equilibria`. Understanding the input and output data will help you understand how this code for loop and if/then statement works.
 
 Now have a look at the equilibria dataframe again. You'll notice that when h is equal to half the MSY, the two equilibria are far apart. As the harvest grows, these values squeeze together, until at the MSY they meet at ``N_MSY``. Above the MSY there are no values that satisfy our subsetting criteria at all, which means no equilibrium is possible and so a population collapse is inevitable.
 
@@ -549,7 +559,7 @@ Done! Looking at the plot you'll see that every population that started **above*
 
 ### Your turn ###
 
-Copy the plotting chunk three times and change ``h_plot`` to harvest 1, 3 and 4, so that your report has a plot for all four harvests. What happens at the MSY? What happens above it? Which starting populations collapsed when harvesting three quarters of the MSY? 
+Copy the plotting chunk three times and change ``h_plot`` to harvest 1, 3 and 4, so that your report has a plot for all four harvests. What happens at the MSY? What happens above it? Which starting populations collapsed when harvesting three quarters of the MSY? Just a word of warning, if you plot `harvests[3]`, the single equilibrium will get the label `Unstable equilibrium` and `Stable quilibrium` overlaid on top of each other. This is just a quirk of the plotting script we used as in reality, there is only one equilibrium at the MSY and it is unstable.
 
 ## Your recommendation ##
 
