@@ -1,6 +1,9 @@
 ---
-title: "SC1102: R Bootcamp Week 3"
+title: 'SC1102: R Bootcamp Week 3'
 output:
+  word_document:
+    toc: true
+    toc_depth: '4'
   html_document:
     toc: true
     toc_depth: '4'
@@ -522,8 +525,7 @@ tail(simulations)
 
 ```
 
-FINAL PLOT AHEAD!
-Let's plot the simulations for one harvest value. We subset out the rows for that harvest, draw an empty set of axes with ``type = "n"`` (n for nothing), and then use a ``for loop`` to subset out each starting population in turn and then draw it with ``lines()``. ``paste()`` glues bits of text together to make a title that changes with the harvest.
+FINAL PLOT AHEAD! Let's plot the simulations for one harvest value. We subset out the rows for that harvest, draw an empty set of axes with ``type = "n"`` (n for nothing), and then use a ``for loop`` to subset out each starting population in turn and then draw it with ``lines()``. ``paste()`` glues bits of text together to make a title that changes with the harvest.
 
 ```{r stability-plot, fig.cap="The stock over 50 years from six starting populations, harvesting three quarters of the MSY. The dashed lines are the two equilibria."}
 # Choose which harvest to plot, the second one (88) is equal to three quarters of the MSY
@@ -554,6 +556,10 @@ text(x = n_sim, y = c(eq_h$lower, eq_h$upper),
      adj = c(1, -0.5), cex = 0.8, col = "grey40")
 
 ```
+
+The MSY is `r MSY`.
+
+The Maximum Sustainable Yield (MSY) is `r MSY`.
 
 Done! Looking at the plot you'll see that every population that started **above** the lower equilibrium ended up at the upper equilibrium, so the upper equilibrium is **stable**. The population that started **below** the lower equilibrium crashed to zero, so the lower equilibrium is **unstable**. That lower equilibrium is a danger line. If the stock ever falls below it, the fishery will collapse unless the harvest is cut.
 

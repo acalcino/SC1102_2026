@@ -16,11 +16,13 @@ Each week has three parts: a **one hour lecture**, a **two hour practical** (the
 You will need **R** and **RStudio** installed on your own machine before commencing Module 4. Detailed instructions for how to install R and RStudio can be found on the course website under Module 4.
 
 ## Pub TriviR update
-Congratulations to everyone who participated in the second ever round of Pub TriviR during the last synthesis session! 
+Congratulations to everyone who participated in the third and final round of Pub TriviR for 2026! 
 
-![](week5_results.png)
+![](week6_results.png)
 
-Great to see a Cairns entry on the podium this week even though Townsville took out first and second place as well as the overall average score for the week. One more week to go and it's anyone's guess how the leader board will look in the end!
+Despite leading for most of the round, **Kobe** was pipped at the post by a surging **DG** in a come from behind victory that no one could have seen coming! Taking up third place on the podium was Townsville's **breeanna** who, like a tortoise to DG's hare, was able to take out FIRST PLACE as the overall winner of the past three weeks! **Billy** and **Josh** rounded out the overall leaderboard bringing pride and glory to a Cairns team who also managed a crushing victory over Townsville for average overall points per player.
+
+![](grand_champion.png)
 
 ## Course Outline - SC1102
 
